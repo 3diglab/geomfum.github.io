@@ -1,0 +1,1459 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>geomfum.wrap package &#8212; GeomFuM 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/geomfum.wrap';</script>
+    <link rel="canonical" href="geomfum.github.io/api/geomfum.wrap.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GeomFuM 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.wrap package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="geomfum-wrap-package">
+<h1>geomfum.wrap package<a class="headerlink" href="#geomfum-wrap-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-geomfum.wrap.diffusionnet">
+<span id="geomfum-wrap-diffusionnet-module"></span><h2>geomfum.wrap.diffusionnet module<a class="headerlink" href="#module-geomfum.wrap.diffusionnet" title="Link to this heading">#</a></h2>
+<p>Implementation of the DiffusionNet feature extractor for 3D shapes.</p>
+<p class="rubric">References</p>
+<p>..DiffusionNet: Discretization Agnostic Learning on Surfaces
+Nicholas Sharp, Souhaib Attaiki, Keenan Crane, Maks Ovsjanikov
+<a class="reference external" href="https://arxiv.org/abs/2012.00888">https://arxiv.org/abs/2012.00888</a>
+..https://github.com/dongliangcao/Self-Supervised-Multimodal-Shape-Matching by Dongliang Cao
+..https://github.com/nmwsharp/diffusion-net</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.DiffusionNet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.diffusionnet.</span></span><span class="sig-name descname"><span class="pre">DiffusionNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_hidden_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_at</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertices'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_rotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffusion_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectral'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_eig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#DiffusionNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.DiffusionNet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>DiffusionNet: stacked of DiffusionBlocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – Number of input channels.</p></li>
+<li><p><strong>out_channels</strong> (<em>int</em>) – Number of output channels.</p></li>
+<li><p><strong>hidden_channels</strong> (<em>int</em>) – Number of hidden channels in diffusion block. Default 128.</p></li>
+<li><p><strong>n_block</strong> (<em>int</em>) – Number of diffusion blocks. Default 4.</p></li>
+<li><p><strong>last_activation</strong> (<em>nn.Module or None</em>) – Output layer. Default None.</p></li>
+<li><p><strong>mlp_hidden_channels</strong> (<em>List or None</em>) – MLP hidden layers. Default None means [hidden_channels, hidden_channels].</p></li>
+<li><p><strong>output_at</strong> (<em>str</em>) – Produce outputs at various mesh elements by averaging from vertices.
+One of [‘vertices’, ‘edges’, ‘faces’, ‘global_mean’]. Default ‘vertices’.</p></li>
+<li><p><strong>dropout</strong> (<em>bool</em>) – Whether use dropout in mlp. Default True.</p></li>
+<li><p><strong>with_gradient_features</strong> (<em>bool</em>) – Whether use SpatialGradientFeatures in DiffusionBlock. Default True.</p></li>
+<li><p><strong>with_gradient_rotations</strong> (<em>bool</em>) – Whether use gradient rotations in SpatialGradientFeatures. Default True.</p></li>
+<li><p><strong>diffusion_method</strong> (<em>str</em>) – Diffusion method applied in diffusion layer.
+One of [‘spectral’, ‘implicit_dense’]. Default ‘spectral’.</p></li>
+<li><p><strong>k_eig</strong> (<em>int</em>) – Number of eigenvalues/eigenvectors to compute diffusion. Default 128.</p></li>
+<li><p><strong>cache_dir</strong> (<em>str or None</em>) – Cache dir contains all pre-computed spectral operators. Default None.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.DiffusionNet.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#DiffusionNet.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.DiffusionNet.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute the forward pass of the DiffusionNet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verts</strong> (<em>torch.Tensor</em>) – Input vertices [B, V, 3].</p></li>
+<li><p><strong>faces</strong> (<em>torch.Tensor, optional</em>) – Input faces [B, F, 3]. Default None.</p></li>
+<li><p><strong>feats</strong> (<em>torch.Tensor, optional</em>) – Input features. Default None.</p></li>
+<li><p><strong>frames</strong> (<em>torch.Tensor</em>) – Tangent frames for vertices.</p></li>
+<li><p><strong>mass</strong> (<em>torch.Tensor</em>) – Diagonal elements in mass matrix.</p></li>
+<li><p><strong>L</strong> (<em>torch.SparseTensor</em>) – Sparse Laplacian matrix.</p></li>
+<li><p><strong>evals</strong> (<em>torch.Tensor</em>) – Eigenvalues of Laplacian Matrix.</p></li>
+<li><p><strong>evecs</strong> (<em>torch.Tensor</em>) – Eigenvectors of Laplacian Matrix.</p></li>
+<li><p><strong>gradX</strong> (<em>torch.SparseTensor</em>) – Real part of gradient matrix.</p></li>
+<li><p><strong>gradY</strong> (<em>torch.SparseTensor</em>) – Imaginary part of gradient matrix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Output features.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.DiffusionNetBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.diffusionnet.</span></span><span class="sig-name descname"><span class="pre">DiffusionNetBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_hidden_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffusion_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectral'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_rotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#DiffusionNetBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.DiffusionNetBlock" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Building Block of DiffusionNet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – Number of input channels.</p></li>
+<li><p><strong>mlp_hidden_channels</strong> (<em>List</em>) – List of mlp hidden channels.</p></li>
+<li><p><strong>dropout</strong> (<em>bool</em>) – Whether use dropout in MLP. Default True.</p></li>
+<li><p><strong>diffusion_method</strong> (<em>str</em>) – Method for diffusion. Default “spectral”.</p></li>
+<li><p><strong>with_gradient_features</strong> (<em>bool</em>) – Whether use spatial gradient feature. Default True.</p></li>
+<li><p><strong>with_gradient_rotations</strong> (<em>bool</em>) – Whether use spatial gradient rotation. Default True.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.DiffusionNetBlock.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradX</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradY</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#DiffusionNetBlock.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.DiffusionNetBlock.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute the forward pass of the diffusion block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feat_in</strong> (<em>torch.Tensor</em>) – Input feature vector [B, V, C].</p></li>
+<li><p><strong>mass</strong> (<em>torch.Tensor</em>) – Diagonal elements of mass matrix [B, V].</p></li>
+<li><p><strong>L</strong> (<em>torch.SparseTensor</em>) – Sparse Laplacian matrix [B, V, V].</p></li>
+<li><p><strong>evals</strong> (<em>torch.Tensor</em>) – Eigenvalues of Laplacian Matrix [B, K].</p></li>
+<li><p><strong>evecs</strong> (<em>torch.Tensor</em>) – Eigenvectors of Laplacian Matrix [B, V, K].</p></li>
+<li><p><strong>gradX</strong> (<em>torch.SparseTensor</em>) – Real part of gradient matrix [B, V, V].</p></li>
+<li><p><strong>gradY</strong> (<em>torch.SparseTensor</em>) – Imaginary part of gradient matrix [B, V, V].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Output feature vector.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.diffusionnet.</span></span><span class="sig-name descname"><span class="pre">DiffusionnetFeatureExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_hidden_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_at</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertices'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_rotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffusion_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectral'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_eig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">device(type='cpu')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#DiffusionnetFeatureExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.descriptor.html#geomfum.descriptor.learned.BaseFeatureExtractor" title="geomfum.descriptor.learned.BaseFeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureExtractor</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Feature extractor that uses DiffusionNet for geometric deep learning on 3D mesh data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – Number of input feature channels (e.g., 3 for xyz). Default is 3.</p></li>
+<li><p><strong>out_channels</strong> (<em>int</em>) – Number of output feature channels. Default is 128.</p></li>
+<li><p><strong>hidden_channels</strong> (<em>int</em>) – Number of hidden channels in the network. Default is 128.</p></li>
+<li><p><strong>n_block</strong> (<em>int</em>) – Number of DiffusionNet blocks. Default is 4.</p></li>
+<li><p><strong>last_activation</strong> (<em>nn.Module or None</em>) – Activation function applied to the output. Default is None.</p></li>
+<li><p><strong>mlp_hidden_channels</strong> (<em>List[int] or None</em>) – Hidden layer sizes in the MLP blocks. Default is None.</p></li>
+<li><p><strong>output_at</strong> (<em>str</em>) – Output type — one of [‘vertices’, ‘edges’, ‘faces’, ‘global_mean’]. Default is ‘vertices’.</p></li>
+<li><p><strong>dropout</strong> (<em>bool</em>) – Whether to apply dropout in MLP layers. Default is True.</p></li>
+<li><p><strong>with_gradient_features</strong> (<em>bool</em>) – Whether to compute and include spatial gradient features. Default is True.</p></li>
+<li><p><strong>with_gradient_rotations</strong> (<em>bool</em>) – Whether to use gradient rotations in spatial features. Default is True.</p></li>
+<li><p><strong>diffusion_method</strong> (<em>str</em>) – Diffusion method used — one of [‘spectral’, ‘implicit_dense’]. Default is ‘spectral’.</p></li>
+<li><p><strong>k_eig</strong> (<em>int</em>) – Number of eigenvectors/eigenvalues used for spectral diffusion. Default is 128.</p></li>
+<li><p><strong>cache_dir</strong> (<em>str or None</em>) – Path to cache directory for storing/loading spectral operators. Default is None.</p></li>
+<li><p><strong>device</strong> (<em>torch.device</em>) – Device to run the model on. Default is CPU.</p></li>
+<li><p><strong>descriptor</strong> (<em>Descriptor or None</em>) – Optional descriptor to compute input features. If None, uses vertex coordinates.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#DiffusionnetFeatureExtractor.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor.forward" title="Link to this definition">#</a></dt>
+<dd><p>Call pass through the DiffusionNet model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape</em>) – A shape object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Extracted feature tensor of shape [1, V, out_channels].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.LearnedTimeDiffusion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.diffusionnet.</span></span><span class="sig-name descname"><span class="pre">LearnedTimeDiffusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectral'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#LearnedTimeDiffusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.LearnedTimeDiffusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Applied diffusion with learned time per-channel.</p>
+<p>In the spectral domain this becomes f_out = e ^ (lambda_i * t) * f_in</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – Number of input channels.</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – Method to perform time diffusion. Default ‘spectral’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.LearnedTimeDiffusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#LearnedTimeDiffusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.LearnedTimeDiffusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>Forward pass of the diffusion layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feat</strong> (<em>torch.Tensor</em>) – Feature vector [B, V, C].</p></li>
+<li><p><strong>L</strong> (<em>torch.SparseTensor</em>) – Sparse Laplacian matrix [B, V, V].</p></li>
+<li><p><strong>mass</strong> (<em>torch.Tensor</em>) – Diagonal elements in mass matrix [B, V].</p></li>
+<li><p><strong>evals</strong> (<em>torch.Tensor</em>) – Eigenvalues of Laplacian matrix [B, K].</p></li>
+<li><p><strong>evecs</strong> (<em>torch.Tensor</em>) – Eigenvectors of Laplacian matrix [B, V, K].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>feat_diffuse</strong> (<em>torch.Tensor</em>) – Diffused feature vector [B, V, C].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.MiniMLP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.diffusionnet.</span></span><span class="sig-name descname"><span class="pre">MiniMLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation=&lt;class</span> <span class="pre">'torch.nn.modules.activation.ReLU'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name='miniMLP'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#MiniMLP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.MiniMLP" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Sequential.html#torch.nn.Sequential" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequential</span></code></a></p>
+<p>A simple MLP with configurable hidden layer sizes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layer_sizes</strong> (<em>List</em>) – List of layer size.</p></li>
+<li><p><strong>dropout</strong> (<em>bool</em>) – Whether use dropout. Default False.</p></li>
+<li><p><strong>activation</strong> (<em>nn.Module</em>) – Activation function. Default ReLU.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Module name. Default ‘miniMLP’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.SpatialGradientFeatures">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.diffusionnet.</span></span><span class="sig-name descname"><span class="pre">SpatialGradientFeatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_gradient_rotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#SpatialGradientFeatures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.SpatialGradientFeatures" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Compute dot-products between input vectors. Uses a learned complex-linear layer to keep dimension down.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – Number of input channels.</p></li>
+<li><p><strong>with_gradient_rotations</strong> (<em>bool</em>) – Whether with gradient rotations. Default True.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.diffusionnet.SpatialGradientFeatures.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_in</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/diffusionnet.html#SpatialGradientFeatures.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.diffusionnet.SpatialGradientFeatures.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute the spatial gradient features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>feat_in</strong> (<em>torch.Tensor</em>) – Input feature vector (B, V, C, 2).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>feat_out</strong> (<em>torch.Tensor</em>) – Output feature vector (B, V, C)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.igl">
+<span id="geomfum-wrap-igl-module"></span><h2>geomfum.wrap.igl module<a class="headerlink" href="#module-geomfum.wrap.igl" title="Link to this heading">#</a></h2>
+<p>igl wrapper.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.igl.IglMeshLaplacianFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.igl.</span></span><span class="sig-name descname"><span class="pre">IglMeshLaplacianFinder</span></span><a class="reference internal" href="../_modules/geomfum/wrap/igl.html#IglMeshLaplacianFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.igl.IglMeshLaplacianFinder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
+<p>Algorithm to find the Laplacian of a mesh.</p>
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.plotly">
+<span id="geomfum-wrap-plotly-module"></span><h2>geomfum.wrap.plotly module<a class="headerlink" href="#module-geomfum.wrap.plotly" title="Link to this heading">#</a></h2>
+<p>Wraps plotly functions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">PlotlyMeshPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
+<p>Plotting object to display meshes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh">
+<span class="sig-name descname"><span class="pre">add_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.add_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh" title="Link to this definition">#</a></dt>
+<dd><p>Add mesh to plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – Mesh to be plotted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.highlight_vertices">
+<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Highlight vertices on mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coords</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – Color of the highlighted vertices as str.</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Size of the highlighted vertices.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_scalars">
+<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
+<dd><p>Set vertex scalars on mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Ignored.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.show" title="Link to this definition">#</a></dt>
+<dd><p>Display plot.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pointnet">
+<span id="geomfum-wrap-pointnet-module"></span><h2>geomfum.wrap.pointnet module<a class="headerlink" href="#module-geomfum.wrap.pointnet" title="Link to this heading">#</a></h2>
+<p>Wrap for PointNet feature extractor.</p>
+<p class="rubric">References</p>
+<p>Qi, C. R., Su, H., Mo, K., &amp; Guibas, L. J. (2017). PointNet: Deep learning on point sets for 3D classification and segmentation. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 652-660).
+Qi, C. R., Su, H., Yi, L., &amp; Guibas, L. J. (2017). PointNet++: Deep hierarchical feature learning on point sets in a metric space. In Advances in neural information processing systems (pp. 5098-5108).
+<a class="github reference external" href="https://github.com/riccardomarin/Diff-FMaps">riccardomarin/Diff-FMaps</a> by Riccardo Marin</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pointnet.PointNet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pointnet.</span></span><span class="sig-name descname"><span class="pre">PointNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[64,</span> <span class="pre">64,</span> <span class="pre">128,</span> <span class="pre">128,</span> <span class="pre">1024]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1024,</span> <span class="pre">256,</span> <span class="pre">256]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">256,</span> <span class="pre">256]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pointnet.html#PointNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pointnet.PointNet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Full PointNet model with feature head.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conv_channels</strong> (<em>list of int</em>) – Output dimensions of initial PointNet convolution layers.</p></li>
+<li><p><strong>mlp_dims</strong> (<em>list of int</em>) – Hidden dimensions of global MLP applied to global features.</p></li>
+<li><p><strong>head_channels</strong> (<em>list of int</em>) – Output dimensions of the feature head layers.</p></li>
+<li><p><strong>out_features</strong> (<em>int</em>) – Final number of output features per point.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em>) – Dropout rate applied before the final layer.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pointnet.PointNet.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pointnet.html#PointNet.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pointnet.PointNet.forward" title="Link to this definition">#</a></dt>
+<dd><p>Forward pass of the PointNet model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>torch.Tensor</em>) – Input point cloud of shape (B, 3, N).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Per-point feature embeddings of shape (B, N, out_features).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pointnet.PointNetfeat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pointnet.</span></span><span class="sig-name descname"><span class="pre">PointNetfeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[64,</span> <span class="pre">64,</span> <span class="pre">128,</span> <span class="pre">128,</span> <span class="pre">1024]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1024,</span> <span class="pre">256,</span> <span class="pre">256]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pointnet.html#PointNetfeat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pointnet.PointNetfeat" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>PointNet local and global feature extractor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conv_channels</strong> (<em>list of int</em>) – List of output dimensions for each 1D convolution layer.</p></li>
+<li><p><strong>mlp_dims</strong> (<em>list of int</em>) – List of hidden dimensions for the global MLP layers.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pointnet.PointNetfeat.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pointnet.html#PointNetfeat.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pointnet.PointNetfeat.forward" title="Link to this definition">#</a></dt>
+<dd><p>Forward pass of the PointNet feature extractor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>torch.Tensor</em>) – Input point cloud of shape […, 3, n_vertices]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Concatenated global and point-wise features of shape […, n_features, n_vertices].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pointnet.PointnetFeatureExtractor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pointnet.</span></span><span class="sig-name descname"><span class="pre">PointnetFeatureExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[64,</span> <span class="pre">64,</span> <span class="pre">128]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">256,</span> <span class="pre">128]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[256,</span> <span class="pre">128]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pointnet.html#PointnetFeatureExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pointnet.PointnetFeatureExtractor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.descriptor.html#geomfum.descriptor.learned.BaseFeatureExtractor" title="geomfum.descriptor.learned.BaseFeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureExtractor</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Feature extractor using PointNet architecture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_features</strong> (<em>int</em>) – Number of output features per point.</p></li>
+<li><p><strong>conv_channels</strong> (<em>list of int</em>) – Channels for convolution layers in the feature extractor.</p></li>
+<li><p><strong>mlp_dims</strong> (<em>list of int</em>) – Hidden dimensions for the global MLP.</p></li>
+<li><p><strong>head_channels</strong> (<em>list of int</em>) – Convolutional layers in the head network.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em>) – Dropout probability.</p></li>
+<li><p><strong>device</strong> (<em>torch.device or str</em>) – Device on which the model is allocated.</p></li>
+<li><p><strong>descriptor</strong> (<em>Descriptor or None</em>) – Optional descriptor to compute input features. If None, uses vertex coordinates.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pointnet.PointnetFeatureExtractor.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pointnet.html#PointnetFeatureExtractor.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pointnet.PointnetFeatureExtractor.forward" title="Link to this definition">#</a></dt>
+<dd><p>Extract point-wise features from a shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>object</em>) – An object with a <cite>vertices</cite> attribute of shape (n_vertices, 3).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Feature tensor of shape (1, n_vertices, n_features).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.polyscope">
+<span id="geomfum-wrap-polyscope-module"></span><h2>geomfum.wrap.polyscope module<a class="headerlink" href="#module-geomfum.wrap.polyscope" title="Link to this heading">#</a></h2>
+<p>Wraps polyscope functions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.polyscope.</span></span><span class="sig-name descname"><span class="pre">PsMeshPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
+<p>Plotting object to display meshes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.add_mesh">
+<span class="sig-name descname"><span class="pre">add_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.add_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.add_mesh" title="Link to this definition">#</a></dt>
+<dd><p>Add mesh to plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – Mesh to be plotted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices">
+<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Highlight vertices on a mesh using Polyscope by adding a point cloud.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coords</strong> (<em>array-like, shape = [n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
+<li><p><strong>color</strong> (<em>tuple</em>) – Color of the highlighted vertices (e.g., (1.0, 0.0, 0.0)).</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of the rendered points (visual size).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_scalars">
+<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
+<dd><p>Set vertex scalars on mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Scalar field name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.show" title="Link to this definition">#</a></dt>
+<dd><p>Display plot.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pot">
+<span id="geomfum-wrap-pot-module"></span><h2>geomfum.wrap.pot module<a class="headerlink" href="#module-geomfum.wrap.pot" title="Link to this heading">#</a></h2>
+<p>Python Optimal Trasport wrapper.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pot.PotSinkhornNeighborFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pot.</span></span><span class="sig-name descname"><span class="pre">PotSinkhornNeighborFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sinkhorn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pot.html#PotSinkhornNeighborFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.convert.BaseNeighborFinder" title="geomfum.convert.BaseNeighborFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNeighborFinder</span></code></a></p>
+<p>Neighbor finder based on Optimal Transport maps computed with Sinkhorn regularization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_neighbors</strong> (<em>int, default=1</em>) – Number of neighbors to find.</p></li>
+<li><p><strong>lambd</strong> (<em>float, default=1e-1</em>) – Regularization parameter for Sinkhorn algorithm.</p></li>
+<li><p><strong>method</strong> (<em>str, default=”sinkhorn”</em>) – Method to use for Sinkhorn algorithm.</p></li>
+<li><p><strong>max_iter</strong> (<em>int, default=100</em>) – Maximum number of iterations for Sinkhorn algorithm.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="cuturi2013" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Cuturi2013<span class="fn-bracket">]</span></span>
+<p>Marco Cuturi. “Sinkhorn Distances: Lightspeed Computation of Optimal Transport.”
+Advances in Neural Information Processing Systems (NIPS), 2013.
+<a class="reference external" href="http://marcocuturi.net/SI.html">http://marcocuturi.net/SI.html</a></p>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pot.PotSinkhornNeighborFinder.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pot.html#PotSinkhornNeighborFinder.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder.fit" title="Link to this definition">#</a></dt>
+<dd><p>Store the reference points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array-like, shape=[n_points_x, n_features]</em>) – Reference points.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pot.PotSinkhornNeighborFinder.kneighbors">
+<span class="sig-name descname"><span class="pre">kneighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pot.html#PotSinkhornNeighborFinder.kneighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder.kneighbors" title="Link to this definition">#</a></dt>
+<dd><p>Find k nearest neighbors using Sinkhorn regularization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array-like, shape=[n_points_y, n_features]</em>) – Query points.</p></li>
+<li><p><strong>return_distance</strong> (<em>bool</em>) – Whether to return the distances.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>distances</strong> (<em>array-like, shape=[n_points_y, n_neighbors]</em>) – Distances to the nearest neighbors.</p></li>
+<li><p><strong>indices</strong> (<em>array-like, shape=[n_points_y, n_neighbors]</em>) – Indices of the nearest neighbors.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pp3d">
+<span id="geomfum-wrap-pp3d-module"></span><h2>geomfum.wrap.pp3d module<a class="headerlink" href="#module-geomfum.wrap.pp3d" title="Link to this heading">#</a></h2>
+<p>potpourri3d wrapper.</p>
+<p><a class="github reference external" href="https://github.com/nmwsharp/potpourri3d">nmwsharp/potpourri3d</a>
+by Nicholas Sharp.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pp3d.Pp3dHeatDistanceMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pp3d.</span></span><span class="sig-name descname"><span class="pre">Pp3dHeatDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pp3d.html#Pp3dHeatDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_SingleDispatchMixins</span></code>, <a class="reference internal" href="geomfum.metric.html#geomfum.metric.mesh.FinitePointSetMetric" title="geomfum.metric.mesh.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Heat distance metric between vertices of a mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape</em>) – Shape.</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="cww2017" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CWW2017<span class="fn-bracket">]</span></span>
+<p>Crane, K., Weischedel, C., Wardetzky, M., 2017.
+The heat method for distance computation. Commun. ACM 60, 90–99.
+<a class="reference external" href="https://doi.org/10.1145/3131280">https://doi.org/10.1145/3131280</a></p>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pp3d.Pp3dHeatDistanceMetric.dist_matrix">
+<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pp3d.html#Pp3dHeatDistanceMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distance between mesh vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>slow</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pyfm">
+<span id="geomfum-wrap-pyfm-module"></span><h2>geomfum.wrap.pyfm module<a class="headerlink" href="#module-geomfum.wrap.pyfm" title="Link to this heading">#</a></h2>
+<p>pyFM wrapper.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyFmFaceOrientationOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyFmFaceOrientationOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyFmFaceOrientationOperator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyFmFaceOrientationOperator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.operator.VectorFieldOperator" title="geomfum.operator.VectorFieldOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorFieldOperator</span></code></a></p>
+<p>Orientation operator associated to a gradient field.</p>
+<p>For a given function <span class="math notranslate nohighlight">\(g\)</span> on the vertices, this operator linearly computes
+<span class="math notranslate nohighlight">\(&lt; \grad(f) x \grad(g)\)</span>, n&gt; for each vertex by averaging along the adjacent
+faces.
+In practice, we compute <span class="math notranslate nohighlight">\(&lt; n x \grad(f), \grad(g) &gt;\)</span> for simpler computation.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyfmEuclideanFarthestVertexSampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_n_samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmEuclideanFarthestVertexSampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.sample.BaseSampler" title="geomfum.sample.BaseSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSampler</span></code></a></p>
+<p>Farthest point Euclidean sampling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>min_n_samples</strong> (<em>int</em>) – Minimum number of samples to target.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmEuclideanFarthestVertexSampler.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler.sample" title="Link to this definition">#</a></dt>
+<dd><p>Sample using farthest point sampling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>TriangleMesh</em>) – Mesh.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>samples</strong> (<em>array-like, shape=[n_samples, 3]</em>) – Coordinates of samples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmFaceDivergenceOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyfmFaceDivergenceOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmFaceDivergenceOperator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmFaceDivergenceOperator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.operator.VectorFieldOperator" title="geomfum.operator.VectorFieldOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorFieldOperator</span></code></a></p>
+<p>Divergence of a function on a mesh.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmFaceValuedGradient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyfmFaceValuedGradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmFaceValuedGradient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmFaceValuedGradient" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.operator.FunctionalOperator" title="geomfum.operator.FunctionalOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalOperator</span></code></a></p>
+<p>Gradient of a function on a mesh.</p>
+<p>Computes the gradient of a function on f using linear
+interpolation between vertices.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmHeatKernelSignature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyfmHeatKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_landmarks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmHeatKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmHeatKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></p>
+<p>Heat kernel signature using pyFM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>n_domain</strong> (<em>int</em>) – Number of domain points. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not None.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain]</em>) – Method to compute time points (<code class="docutils literal notranslate"><span class="pre">f(shape,</span> <span class="pre">n_domain)</span></code>) or
+time points.</p></li>
+<li><p><strong>use_landmarks</strong> (<em>bool</em>) – Whether to use landmarks.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmMeshLaplacianFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyfmMeshLaplacianFinder</span></span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmMeshLaplacianFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmMeshLaplacianFinder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
+<p>Algorithm to find the Laplacian of a mesh.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.PyfmWaveKernelSignature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">PyfmWaveKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_landmarks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#PyfmWaveKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.PyfmWaveKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></p>
+<p>Wave kernel signature using pyFM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Standard deviation. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is a callable (other
+than default one).</p></li>
+<li><p><strong>n_domain</strong> (<em>int</em>) – Number of energy points. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not a callable.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain]</em>) – Method to compute domain points (<code class="docutils literal notranslate"><span class="pre">f(shape)</span></code>) or
+domain points.</p></li>
+<li><p><strong>use_landmarks</strong> (<em>bool</em>) – Whether to use landmarks.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.wrap.pyfm.get_orientation_op">
+<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyfm.</span></span><span class="sig-name descname"><span class="pre">get_orientation_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grad_field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_vert_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyfm.html#get_orientation_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyfm.get_orientation_op" title="Link to this definition">#</a></dt>
+<dd><p>Compute the linear orientation operator associated to a gradient field grad(f).</p>
+<p>This operator computes g -&gt; &lt; grad(f) x grad(g), n&gt; (given at each vertex) for any function g
+In practice, we compute &lt; n x grad(f), grad(g) &gt; for simpler computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grad_field</strong> – (n_f,3) gradient field on the mesh</p></li>
+<li><p><strong>vertices</strong> – (n_v,3) coordinates of vertices</p></li>
+<li><p><strong>faces</strong> – (n_f,3) indices of vertices for each face</p></li>
+<li><p><strong>normals</strong> – (n_f,3) normals coordinate for each face</p></li>
+<li><p><strong>per_vert_area</strong> – (n_v,) voronoi area for each vertex</p></li>
+<li><p><strong>rotated</strong> (<em>bool</em>) – whether gradient field is already rotated by n x grad(f)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>operator</strong> (<em>sparse.csc_matrix or list[sparse.csc_matrix], shape=[n_vertices, n_verticess]</em>) – (n_v,n_v) orientation operator.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>vectorized version of <code class="docutils literal notranslate"><span class="pre">pyFm.geometry.mesh.get_orientation_op</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pymeshlab">
+<span id="geomfum-wrap-pymeshlab-module"></span><h2>geomfum.wrap.pymeshlab module<a class="headerlink" href="#module-geomfum.wrap.pymeshlab" title="Link to this heading">#</a></h2>
+<p>pymeshlab wrapper.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pymeshlab.PymeshlabPoissonSampler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pymeshlab.</span></span><span class="sig-name descname"><span class="pre">PymeshlabPoissonSampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_n_samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pymeshlab.html#PymeshlabPoissonSampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pymeshlab.PymeshlabPoissonSampler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.sample.BaseSampler" title="geomfum.sample.BaseSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSampler</span></code></a></p>
+<p>Poisson disk sampling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>min_n_samples</strong> (<em>int</em>) – Minimum number of samples to target.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pymeshlab.PymeshlabPoissonSampler.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pymeshlab.html#PymeshlabPoissonSampler.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pymeshlab.PymeshlabPoissonSampler.sample" title="Link to this definition">#</a></dt>
+<dd><p>Sample using Poisson disk sampling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>TriangleMesh</em>) – Mesh.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>samples</strong> (<em>array-like, shape=[n_samples, 3]</em>) – Coordinates of samples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pyrmt">
+<span id="geomfum-wrap-pyrmt-module"></span><h2>geomfum.wrap.pyrmt module<a class="headerlink" href="#module-geomfum.wrap.pyrmt" title="Link to this heading">#</a></h2>
+<p>pyRMT wrapper.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyrmt.PyrmtHierarchicalMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyrmt.</span></span><span class="sig-name descname"><span class="pre">PyrmtHierarchicalMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyrmt.html#PyrmtHierarchicalMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.HierarchicalShape" title="geomfum.shape.hierarchical.HierarchicalShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">HierarchicalShape</span></code></a></p>
+<p>Hierarchical mesh from PyRMT.</p>
+<p>Based on <a class="reference internal" href="#mbmr2023" id="id1"><span>[MBMR2023]</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>TriangleMesh</em>) – High-resolution mesh.</p></li>
+<li><p><strong>min_n_samples</strong> (<em>int</em>) – Minimum number of vertices in low-resolution mesh.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="mbmr2023" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">MBMR2023</a><span class="fn-bracket">]</span></span>
+<p>Filippo Maggioli, Daniele Baieri, Simone Melzi, and Emanuele Rodolà.
+“ReMatching: Low-Resolution Representations for Scalable Shape
+Correspondence.” arXiv, October 30, 2023.
+<a class="reference external" href="https://doi.org/10.48550/arXiv.2305.09274">https://doi.org/10.48550/arXiv.2305.09274</a>.</p>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pyrmt.PyrmtHierarchicalMesh.scalar_low_high">
+<span class="sig-name descname"><span class="pre">scalar_low_high</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyrmt.html#PyrmtHierarchicalMesh.scalar_low_high"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh.scalar_low_high" title="Link to this definition">#</a></dt>
+<dd><p>Transfer scalar from low-resolution to high.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> (<em>array-like, shape=[…, low.n_vertices]</em>) – Scalar map on the low-resolution shape.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>high_scalar</strong> (<em>array-like, shape=[…, high.n_vertices]</em>) – Scalar map on the high-resolution shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.pyvista">
+<span id="geomfum-wrap-pyvista-module"></span><h2>geomfum.wrap.pyvista module<a class="headerlink" href="#module-geomfum.wrap.pyvista" title="Link to this heading">#</a></h2>
+<p>Wraps pyvista functions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyvista.</span></span><span class="sig-name descname"><span class="pre">PvMeshPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
+<p>Plotting object to display meshes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.add_mesh">
+<span class="sig-name descname"><span class="pre">add_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.add_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.add_mesh" title="Link to this definition">#</a></dt>
+<dd><p>Add mesh to plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – Mesh to be plotted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices">
+<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Highlight vertices on the mesh using PyVista.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coords</strong> (<em>array-like, shape = [n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
+<li><p><strong>color</strong> (<em>str or tuple</em>) – Color of the highlighted vertices.</p></li>
+<li><p><strong>size</strong> (<em>float</em>) – Size of the highlighted vertices (radius of spheres).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.set_vertex_scalars">
+<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
+<dd><p>Set vertex scalars on mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Scalar field name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.show" title="Link to this definition">#</a></dt>
+<dd><p>Display plot.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap.robust">
+<span id="geomfum-wrap-robust-module"></span><h2>geomfum.wrap.robust module<a class="headerlink" href="#module-geomfum.wrap.robust" title="Link to this heading">#</a></h2>
+<p>robust_laplacian wrapper.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.robust.RobustMeshLaplacianFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.robust.</span></span><span class="sig-name descname"><span class="pre">RobustMeshLaplacianFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mollify_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/robust.html#RobustMeshLaplacianFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.robust.RobustMeshLaplacianFinder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
+<p>Algorithm to find the Laplacian of a mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mollify_factor</strong> (<em>float</em>) – Amount of intrinsic mollification to perform.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.robust.RobustPointCloudLaplacianFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.robust.</span></span><span class="sig-name descname"><span class="pre">RobustPointCloudLaplacianFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mollify_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/robust.html#RobustPointCloudLaplacianFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.robust.RobustPointCloudLaplacianFinder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
+<p>Algorithm to find the Laplacian of a point cloud.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mollify_factor</strong> (<em>float</em>) – Amount of intrinsic mollification to perform.</p></li>
+<li><p><strong>n_neighbors</strong> (<em>float</em>) – Number of nearest neighbors to use when constructing local triangulations.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-geomfum.wrap">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.wrap" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.diffusionnet">geomfum.wrap.diffusionnet module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionNet"><code class="docutils literal notranslate"><span class="pre">DiffusionNet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionNet.forward"><code class="docutils literal notranslate"><span class="pre">DiffusionNet.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionNetBlock"><code class="docutils literal notranslate"><span class="pre">DiffusionNetBlock</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionNetBlock.forward"><code class="docutils literal notranslate"><span class="pre">DiffusionNetBlock.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor"><code class="docutils literal notranslate"><span class="pre">DiffusionnetFeatureExtractor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor.forward"><code class="docutils literal notranslate"><span class="pre">DiffusionnetFeatureExtractor.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.LearnedTimeDiffusion"><code class="docutils literal notranslate"><span class="pre">LearnedTimeDiffusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.LearnedTimeDiffusion.forward"><code class="docutils literal notranslate"><span class="pre">LearnedTimeDiffusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.MiniMLP"><code class="docutils literal notranslate"><span class="pre">MiniMLP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.SpatialGradientFeatures"><code class="docutils literal notranslate"><span class="pre">SpatialGradientFeatures</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.SpatialGradientFeatures.forward"><code class="docutils literal notranslate"><span class="pre">SpatialGradientFeatures.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.igl">geomfum.wrap.igl module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.igl.IglMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">IglMeshLaplacianFinder</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.plotly">geomfum.wrap.plotly module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.add_mesh()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.highlight_vertices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.set_vertex_scalars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.show"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pointnet">geomfum.wrap.pointnet module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointNet"><code class="docutils literal notranslate"><span class="pre">PointNet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointNet.forward"><code class="docutils literal notranslate"><span class="pre">PointNet.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointNetfeat"><code class="docutils literal notranslate"><span class="pre">PointNetfeat</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointNetfeat.forward"><code class="docutils literal notranslate"><span class="pre">PointNetfeat.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointnetFeatureExtractor"><code class="docutils literal notranslate"><span class="pre">PointnetFeatureExtractor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointnetFeatureExtractor.forward"><code class="docutils literal notranslate"><span class="pre">PointnetFeatureExtractor.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.polyscope">geomfum.wrap.polyscope module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.add_mesh()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.highlight_vertices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.set_vertex_scalars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.show"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pot">geomfum.wrap.pot module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder"><code class="docutils literal notranslate"><span class="pre">PotSinkhornNeighborFinder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder.fit"><code class="docutils literal notranslate"><span class="pre">PotSinkhornNeighborFinder.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder.kneighbors"><code class="docutils literal notranslate"><span class="pre">PotSinkhornNeighborFinder.kneighbors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pp3d">geomfum.wrap.pp3d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric"><code class="docutils literal notranslate"><span class="pre">Pp3dHeatDistanceMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">Pp3dHeatDistanceMetric.dist_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyfm">geomfum.wrap.pyfm module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyFmFaceOrientationOperator"><code class="docutils literal notranslate"><span class="pre">PyFmFaceOrientationOperator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler"><code class="docutils literal notranslate"><span class="pre">PyfmEuclideanFarthestVertexSampler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler.sample"><code class="docutils literal notranslate"><span class="pre">PyfmEuclideanFarthestVertexSampler.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmFaceDivergenceOperator"><code class="docutils literal notranslate"><span class="pre">PyfmFaceDivergenceOperator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmFaceValuedGradient"><code class="docutils literal notranslate"><span class="pre">PyfmFaceValuedGradient</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmHeatKernelSignature"><code class="docutils literal notranslate"><span class="pre">PyfmHeatKernelSignature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">PyfmMeshLaplacianFinder</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmWaveKernelSignature"><code class="docutils literal notranslate"><span class="pre">PyfmWaveKernelSignature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.get_orientation_op"><code class="docutils literal notranslate"><span class="pre">get_orientation_op()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pymeshlab">geomfum.wrap.pymeshlab module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pymeshlab.PymeshlabPoissonSampler"><code class="docutils literal notranslate"><span class="pre">PymeshlabPoissonSampler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pymeshlab.PymeshlabPoissonSampler.sample"><code class="docutils literal notranslate"><span class="pre">PymeshlabPoissonSampler.sample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyrmt">geomfum.wrap.pyrmt module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh"><code class="docutils literal notranslate"><span class="pre">PyrmtHierarchicalMesh</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh.scalar_low_high"><code class="docutils literal notranslate"><span class="pre">PyrmtHierarchicalMesh.scalar_low_high()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyvista">geomfum.wrap.pyvista module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.add_mesh()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.highlight_vertices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.set_vertex_scalars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.show"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.robust">geomfum.wrap.robust module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.robust.RobustMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">RobustMeshLaplacianFinder</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.robust.RobustPointCloudLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">RobustPointCloudLaplacianFinder</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap">Module contents</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/geomfum.wrap.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GeomFuM contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

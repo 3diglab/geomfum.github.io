@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>geomfum.shape.mesh &#8212; GeomFuM 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomfum/shape/mesh';</script>
+    <link rel="canonical" href="geomfum.github.io/_modules/geomfum/shape/mesh.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GeomFuM 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.shape.mesh</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for geomfum.shape.mesh</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Definition of triangle mesh.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xgs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_mesh</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.metric.mesh</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatDistanceMetric</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.operator</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FaceDivergenceOperator</span><span class="p">,</span>
+    <span class="n">FaceOrientationOperator</span><span class="p">,</span>
+    <span class="n">FaceValuedGradient</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shape</span>
+
+
+<div class="viewcode-block" id="TriangleMesh">
+<a class="viewcode-back" href="../../../api/geomfum.shape.html#geomfum.shape.mesh.TriangleMesh">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TriangleMesh</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Triangle mesh.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    vertices : array-like, shape=[n_vertices, 3]</span>
+<span class="sd">        Vertices of the mesh.</span>
+<span class="sd">    faces : array-like, shape=[n_faces, 3]</span>
+<span class="sd">        Faces of the mesh.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">vertices</span><span class="p">,</span>
+        <span class="n">faces</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">is_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_face_normals</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_face_areas</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_face_area_vectors</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_areas</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_normals</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_tangent_frames</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangent_vectors</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_matrix</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dist_matrix</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_at_init</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_at_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">equip_with_operator</span><span class="p">(</span>
+            <span class="s2">&quot;face_valued_gradient&quot;</span><span class="p">,</span> <span class="n">FaceValuedGradient</span><span class="o">.</span><span class="n">from_registry</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">equip_with_operator</span><span class="p">(</span>
+            <span class="s2">&quot;face_divergence&quot;</span><span class="p">,</span> <span class="n">FaceDivergenceOperator</span><span class="o">.</span><span class="n">from_registry</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">equip_with_operator</span><span class="p">(</span>
+            <span class="s2">&quot;face_orientation_operator&quot;</span><span class="p">,</span> <span class="n">FaceOrientationOperator</span><span class="o">.</span><span class="n">from_registry</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="TriangleMesh.from_file">
+<a class="viewcode-back" href="../../../api/geomfum.shape.html#geomfum.shape.mesh.TriangleMesh.from_file">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_file</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">filename</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Instantiate given a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Path to the mesh file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mesh : TriangleMesh</span>
+<span class="sd">            A triangle mesh.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span> <span class="o">=</span> <span class="n">load_mesh</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">n_vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Number of vertices.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n_vertices : int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">n_faces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Number of faces.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n_faces : int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Edges of the mesh.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        edges : array-like, shape=[n_edges, 2]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vind012</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="n">vind120</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="n">edges</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vind012</span><span class="p">,</span> <span class="n">vind120</span><span class="p">]),</span>
+                    <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">vind120</span><span class="p">,</span> <span class="n">vind012</span><span class="p">]),</span>
+                <span class="p">],</span>
+                <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">edges</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span> <span class="o">=</span> <span class="n">edges</span><span class="p">[</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">face_vertex_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract vertex coordinates corresponding to each face.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        vertices : array-like, shape=[{n_faces}, n_per_face_vertex, 3]</span>
+<span class="sd">            Coordinates of the ith vertex of that face.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]],</span>
+            <span class="p">],</span>
+            <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">face_area_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute face area vectors of a triangular mesh. The face area vector is the vector normal to the face, with a length equal to the area of the face.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        area_vectors : array-like, shape=[n_faces, 3]</span>
+<span class="sd">            Per-face area vectors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_area_vectors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">face_vertex_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_vertex_coords</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_face_area_vectors</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span>
+                <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span>
+                <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_area_vectors</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">face_normals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute face normals of a triangular mesh.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        normals : array-like, shape=[n_faces, 3]</span>
+<span class="sd">            Per-face normals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_normals</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">face_vertex_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_vertex_coords</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_face_normals</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span>
+                <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span>
+                <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">face_vertex_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_face_normals</span> <span class="o">/=</span> <span class="n">gs</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_face_normals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_normals</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">vertex_normals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute vertex normals of a triangular mesh.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        normals : array-like, shape=[n_vertices, 3]</span>
+<span class="sd">            Normalized per-vertex normals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_normals</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">vind012</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="n">zeros</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vind012</span><span class="p">)),</span> <span class="n">device</span><span class="p">)</span>
+
+            <span class="n">normals_repeated</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">face_normals</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">vertex_normals</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">),</span> <span class="n">device</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">normals</span> <span class="o">=</span> <span class="n">normals_repeated</span><span class="p">[:,</span> <span class="n">c</span><span class="p">]</span>
+
+                <span class="n">vertex_normals</span><span class="p">[:,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+                    <span class="n">xgs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">to_dense</span><span class="p">(</span>
+                        <span class="n">xgs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">(</span>
+                            <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">vind012</span><span class="p">,</span> <span class="n">zeros</span><span class="p">)),</span>
+                            <span class="n">normals</span><span class="p">,</span>
+                            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                <span class="p">)</span>
+
+            <span class="n">vertex_normals</span> <span class="o">=</span> <span class="n">vertex_normals</span> <span class="o">/</span> <span class="p">(</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vertex_normals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-12</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_normals</span> <span class="o">=</span> <span class="n">vertex_normals</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_normals</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">face_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute per-face areas.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        face_areas : array-like, shape=[n_faces]</span>
+<span class="sd">            Per-face areas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_areas</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_face_areas</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">gs</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">face_area_vectors</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_areas</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">vertex_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute per-vertex areas.</span>
+
+<span class="sd">        Area of a vertex, approximated as one third of the sum of the area of its adjacent triangles.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        vertex_areas : array-like, shape=[n_vertices]</span>
+<span class="sd">            Per-vertex areas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_areas</span>
+
+        <span class="n">id_vertices</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_faces</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+            <span class="n">gs</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_faces</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+            <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,),</span>
+        <span class="p">)</span>
+        <span class="n">incident_areas</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">scatter_sum_1d</span><span class="p">(</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">id_vertices</span><span class="p">,</span>
+            <span class="n">src</span><span class="o">=</span><span class="n">val</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">incident_areas</span> <span class="o">/</span> <span class="mf">3.0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">vertex_tangent_frames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute vertex tangent frame.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tangent_frame : array-like, shape=[n_vertices, 3, 3]</span>
+<span class="sd">            Tangent frame of the mesh, where:</span>
+<span class="sd">            - [n_vertices, 0, :] are the X basis vectors</span>
+<span class="sd">            - [n_vertices, 1, :] are the Y basis vectors</span>
+<span class="sd">            - [n_vertices, 2, :] are the vertex normals</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_tangent_frames</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">normals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_normals</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">normals</span><span class="p">,</span> <span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">tangent_frame</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span>
+            <span class="p">)</span>
+
+            <span class="n">tangent_frame</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">normals</span>
+
+            <span class="n">basis_cand1</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">tile</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span>
+            <span class="p">)</span>
+            <span class="n">basis_cand2</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">tile</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span>
+            <span class="p">)</span>
+
+            <span class="n">dot_products</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">normals</span> <span class="o">*</span> <span class="n">basis_cand1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">basis_x</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dot_products</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">basis_cand1</span><span class="p">,</span> <span class="n">basis_cand2</span><span class="p">)</span>
+
+            <span class="n">normal_projections</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">basis_x</span> <span class="o">*</span> <span class="n">normals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">normals</span>
+            <span class="p">)</span>
+            <span class="n">basis_x</span> <span class="o">=</span> <span class="n">basis_x</span> <span class="o">-</span> <span class="n">normal_projections</span>
+
+            <span class="n">basis_x_norm</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">basis_x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">basis_x</span> <span class="o">=</span> <span class="n">basis_x</span> <span class="o">/</span> <span class="p">(</span><span class="n">basis_x_norm</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+            <span class="n">basis_y</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">normals</span><span class="p">,</span> <span class="n">basis_x</span><span class="p">)</span>
+
+            <span class="n">tangent_frame</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">basis_x</span>
+            <span class="n">tangent_frame</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">basis_y</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_tangent_frames</span> <span class="o">=</span> <span class="n">tangent_frame</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vertex_tangent_frames</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">edge_tangent_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute edge tangent vectors.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        edge_tangent_vectors : array-like, shape=[n_edges, 2]</span>
+<span class="sd">            Tangent vectors of the edges, projected onto the local tangent plane.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangent_vectors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">edges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span>
+            <span class="n">frames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_tangent_frames</span>
+
+            <span class="n">edge_vecs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">:]</span>
+
+            <span class="n">basis_x</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+            <span class="n">basis_y</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+
+            <span class="c1"># Project edge vectors onto the local tangent plane</span>
+            <span class="n">comp_x</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">edge_vecs</span> <span class="o">*</span> <span class="n">basis_x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">comp_y</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">edge_vecs</span> <span class="o">*</span> <span class="n">basis_y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">comp_x</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">edge_vecs</span> <span class="o">*</span> <span class="n">basis_x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">comp_y</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">edge_vecs</span> <span class="o">*</span> <span class="n">basis_y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangent_vectors</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">comp_x</span><span class="p">,</span> <span class="n">comp_y</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangent_vectors</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">comp_x</span><span class="p">,</span> <span class="n">comp_y</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangent_vectors</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gradient_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># TODO: Implement this as operator?</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the gradient operator as a complex sparse matrix.</span>
+
+<span class="sd">        This code locally fits a linear function to the scalar values at each vertex and its neighbors, extracts the gradient in the tangent plane, and assembles the global sparse matrix that acts as the discrete gradient operator on the mesh.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        grad_op : xgs.sparse.csc_matrix, shape=[n_vertices, n_vertices]</span>
+<span class="sd">        grad_op : xgs.sparse.csc_matrix, shape=[n_vertices, n_vertices]</span>
+<span class="sd">            Complex sparse matrix representing the gradient operator.</span>
+<span class="sd">            The real part corresponds to the X component in the local tangent frame,</span>
+<span class="sd">            and the imaginary part corresponds to the Y component.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_matrix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Build a list of outgoing edges for each vertex (neighbor list)</span>
+            <span class="n">outgoing_edges_per_vertex</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">)]</span>
+            <span class="k">for</span> <span class="n">edge_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="n">tail_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">edge_index</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                <span class="n">tip_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">edge_index</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">tip_ind</span> <span class="o">!=</span> <span class="n">tail_ind</span><span class="p">:</span>
+                    <span class="n">outgoing_edges_per_vertex</span><span class="p">[</span><span class="n">tail_ind</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge_index</span><span class="p">)</span>
+
+            <span class="n">row_inds</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">col_inds</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">data_vals</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">eps_reg</span> <span class="o">=</span> <span class="mf">1e-5</span>
+
+            <span class="c1"># For each vertex, fit a local linear function &#39;f&#39; to its neighbors</span>
+            <span class="k">for</span> <span class="n">vertex_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">):</span>
+                <span class="n">num_neighbors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">outgoing_edges_per_vertex</span><span class="p">[</span><span class="n">vertex_idx</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">num_neighbors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Set up the least squares system for the local neighborhood</span>
+                <span class="n">lhs_mat</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_neighbors</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># Edge tangent vectors</span>
+                <span class="n">rhs_mat</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">num_neighbors</span><span class="p">,</span> <span class="n">num_neighbors</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="p">)</span>  <span class="c1"># Finite Difference matrix rhs_mat[i,j] = f(j) - f(i)</span>
+                <span class="n">lookup_vertices_idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">vertex_idx</span><span class="p">]</span>
+
+                <span class="c1"># for each row of the rhs_mat, we have the following:</span>
+                <span class="c1"># - rhs_mat[i, 0] = -f(center) (the value at the center vertex)</span>
+                <span class="c1"># - rhs_mat[i, i + 1] = +f(neighbor) (the value at the neighbor vertex)</span>
+                <span class="c1"># - rhs_mat[i, j] = 0 for j != 0, i + 1 (no other values)</span>
+                <span class="k">for</span> <span class="n">neighbor_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_neighbors</span><span class="p">):</span>
+                    <span class="n">edge_index</span> <span class="o">=</span> <span class="n">outgoing_edges_per_vertex</span><span class="p">[</span><span class="n">vertex_idx</span><span class="p">][</span><span class="n">neighbor_index</span><span class="p">]</span>
+                    <span class="n">neigbor_vertex_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">edge_index</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+                    <span class="n">lookup_vertices_idx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neigbor_vertex_idx</span><span class="p">)</span>
+
+                    <span class="n">edge_vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_tangent_vectors</span><span class="p">[</span><span class="n">edge_index</span><span class="p">][:]</span>
+
+                    <span class="n">lhs_mat</span><span class="p">[</span><span class="n">neighbor_index</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">edge_vec</span>
+                    <span class="n">rhs_mat</span><span class="p">[</span><span class="n">neighbor_index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">rhs_mat</span><span class="p">[</span><span class="n">neighbor_index</span><span class="p">][</span><span class="n">neighbor_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+                <span class="c1"># Solve</span>
+                <span class="n">lhs_T</span> <span class="o">=</span> <span class="n">lhs_mat</span><span class="o">.</span><span class="n">T</span>
+                <span class="n">lhs_inv</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">lhs_T</span> <span class="o">@</span> <span class="n">lhs_mat</span> <span class="o">+</span> <span class="n">eps_reg</span> <span class="o">*</span> <span class="n">gs</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">@</span> <span class="n">lhs_T</span>
+                <span class="n">sol_mat</span> <span class="o">=</span> <span class="n">lhs_inv</span> <span class="o">@</span> <span class="n">rhs_mat</span>
+                <span class="n">sol_coefs</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="n">sol_mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">sol_mat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]))</span>
+
+                <span class="k">for</span> <span class="n">i_neigh</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_neighbors</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">i_glob</span> <span class="o">=</span> <span class="n">lookup_vertices_idx</span><span class="p">[</span><span class="n">i_neigh</span><span class="p">]</span>
+                    <span class="n">row_inds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vertex_idx</span><span class="p">)</span>
+                    <span class="n">col_inds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_glob</span><span class="p">)</span>
+                    <span class="n">data_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sol_coefs</span><span class="p">[</span><span class="n">i_neigh</span><span class="p">])</span>
+
+            <span class="c1"># Build the sparse matrix</span>
+            <span class="n">row_inds</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">row_inds</span><span class="p">)</span>
+            <span class="n">col_inds</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">col_inds</span><span class="p">)</span>
+            <span class="n">data_vals</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data_vals</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_matrix</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">to_csc</span><span class="p">(</span>
+                <span class="n">xgs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">(</span>
+                    <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">row_inds</span><span class="p">,</span> <span class="n">col_inds</span><span class="p">]),</span>
+                    <span class="n">data_vals</span><span class="p">,</span>
+                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_matrix</span>
+
+    <span class="nd">@property</span>  <span class="c1"># ToDo</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dist_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute metric distance matrix.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        _dist_matrix : array-like, shape=[n_vertices, n_vertices]</span>
+<span class="sd">            Metric distance matrix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dist_matrix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Metric is not set.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dist_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">dist_matrix</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dist_matrix</span>
+
+<div class="viewcode-block" id="TriangleMesh.equip_with_metric">
+<a class="viewcode-back" href="../../../api/geomfum.shape.html#geomfum.shape.mesh.TriangleMesh.equip_with_metric">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">equip_with_metric</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the metric for the mesh.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        metric : class</span>
+<span class="sd">            A metric class to use for the mesh.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">metric</span> <span class="o">==</span> <span class="n">HeatDistanceMetric</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;pp3d&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dist_matrix</span> <span class="o">=</span> <span class="kc">None</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GeomFuM contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

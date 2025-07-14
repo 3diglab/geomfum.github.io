@@ -1,0 +1,1036 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>geomfum.shape package &#8212; GeomFuM 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/geomfum.shape';</script>
+    <link rel="canonical" href="geomfum.github.io/api/geomfum.shape.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GeomFuM 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.shape package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="geomfum-shape-package">
+<h1>geomfum.shape package<a class="headerlink" href="#geomfum-shape-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.shape.convert.html#module-geomfum.shape.convert">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-geomfum.shape.hierarchical">
+<span id="geomfum-shape-hierarchical-module"></span><h2>geomfum.shape.hierarchical module<a class="headerlink" href="#module-geomfum.shape.hierarchical" title="Link to this heading">#</a></h2>
+<p>Hierarchical objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.HierarchicalMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.hierarchical.</span></span><span class="sig-name descname"><span class="pre">HierarchicalMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#HierarchicalMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.HierarchicalMesh" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code>, <a class="reference internal" href="#geomfum.shape.hierarchical.HierarchicalShape" title="geomfum.shape.hierarchical.HierarchicalShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">HierarchicalShape</span></code></a></p>
+<p>Hierarchical mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>low</strong> (<em>TriangleMesh</em>) – Low resolution shape.</p></li>
+<li><p><strong>high</strong> (<em>TriangleMesh</em>) – High resolution shape.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.HierarchicalShape">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.hierarchical.</span></span><span class="sig-name descname"><span class="pre">HierarchicalShape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#HierarchicalShape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.HierarchicalShape" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Hierarchical shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>low</strong> (<em>Shape</em>) – Low-resolution shape.</p></li>
+<li><p><strong>high</strong> (<em>Shape</em>) – High-resolution shape.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.HierarchicalShape.extend_basis">
+<span class="sig-name descname"><span class="pre">extend_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_as_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#HierarchicalShape.extend_basis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.HierarchicalShape.extend_basis" title="Link to this definition">#</a></dt>
+<dd><p>Extend basis.</p>
+<p>See section 3.3. of <a class="reference internal" href="geomfum.wrap.html#mbmr2023" id="id1"><span>[MBMR2023]</span></a> for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>set_as_basis</strong> (<em>bool</em>) – Whether to set as basis.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>vecs</strong> (<em>array-like, shape=[high.n_vertices, spectrum_size]</em>) – Eigenvectors.</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="mbmr2023" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MBMR2023<span class="fn-bracket">]</span></span>
+<p>Filippo Maggioli, Daniele Baieri, Simone Melzi, and Emanuele Rodolà.
+“ReMatching: Low-Resolution Representations for Scalable Shape</p>
+<blockquote>
+<div><p>Correspondence.” arXiv, October 30, 2023.
+<a class="reference external" href="https://doi.org/10.48550/arXiv.2305.09274">https://doi.org/10.48550/arXiv.2305.09274</a>.</p>
+</div></blockquote>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.HierarchicalShape.scalar_low_high">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scalar_low_high</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#HierarchicalShape.scalar_low_high"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.HierarchicalShape.scalar_low_high" title="Link to this definition">#</a></dt>
+<dd><p>Transfer scalar from low-resolution to high.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> (<em>array-like, shape=[…, low.n_vertices]</em>) – Scalar map on the low-resolution shape.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>high_scalar</strong> (<em>array-like, shape=[…, high.n_vertices]</em>) – Scalar map on the high-resolution shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.hierarchical.</span></span><span class="sig-name descname"><span class="pre">NestedHierarchicalMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hshapes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#NestedHierarchicalMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.shape.hierarchical.NestedHierarchicalShape" title="geomfum.shape.hierarchical.NestedHierarchicalShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">NestedHierarchicalShape</span></code></a></p>
+<p>Nested hierachical mesh.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalMesh.hmeshes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hmeshes</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.hmeshes" title="Link to this definition">#</a></dt>
+<dd><p>Meshes from low to high resolution.</p>
+<section id="remarks">
+<h3>Remarks<a class="headerlink" href="#remarks" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>hshapes<span class="classifier">list[HierarchicalMesh]</span></dt><dd><p>Hierarchical meshes from low to high resolution.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalMesh.meshes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">meshes</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.meshes" title="Link to this definition">#</a></dt>
+<dd><p>Meshes from low to high resolution.</p>
+<section id="id2">
+<h3>Remarks<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>meshes<span class="classifier">list[Mesh]</span></dt><dd><p>List of meshes from low to high resolution.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalMesh.n_faces">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_faces</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.n_faces" title="Link to this definition">#</a></dt>
+<dd><p>Number of faces at each level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_faces</strong> (<em>list[int]</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalMesh.n_vertices">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vertices</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.n_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Number of vertices at each level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_vertices</strong> (<em>list[int]</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.hierarchical.</span></span><span class="sig-name descname"><span class="pre">NestedHierarchicalShape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hshapes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#NestedHierarchicalShape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Nested hierachical shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>hshapes</strong> (<em>list[HierarchicalShape]</em>) – Hierarchical shapes from low to high resolution.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape.extend_basis">
+<span class="sig-name descname"><span class="pre">extend_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_as_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#NestedHierarchicalShape.extend_basis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.extend_basis" title="Link to this definition">#</a></dt>
+<dd><p>Extend basis.</p>
+<p>See section 3.3. of <a class="reference internal" href="geomfum.wrap.html#mbmr2023" id="id3"><span>[MBMR2023]</span></a> for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>set_as_basis</strong> (<em>bool</em>) – Whether to set as basis.</p></li>
+<li><p><strong>n_levels</strong> (<em>int</em>) – Number of levels to transfer scalar.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> transfer up to maximum resolution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>vecs</strong> (<em>list[array-like], shape=[level.n_vertices, spectrum_size]</em>) – Eigenvectors.
+As many as number of levels.</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MBMR2023<span class="fn-bracket">]</span></span>
+<p>Filippo Maggioli, Daniele Baieri, Simone Melzi, and Emanuele Rodolà.
+“ReMatching: Low-Resolution Representations for Scalable Shape</p>
+<blockquote>
+<div><p>Correspondence.” arXiv, October 30, 2023.
+<a class="reference external" href="https://doi.org/10.48550/arXiv.2305.09274">https://doi.org/10.48550/arXiv.2305.09274</a>.</p>
+</div></blockquote>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape.from_hierarchical_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hierarchical_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HierarchicalShape</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#NestedHierarchicalShape.from_hierarchical_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.from_hierarchical_shape" title="Link to this definition">#</a></dt>
+<dd><p>Create nested from hierarchical.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Shape.</em>) – High-resolution shape.</p></li>
+<li><p><strong>HierarchicalShape</strong> (<em>HierarchicalShape object</em>) – Class for the mapping between two resolutions.
+Signature: <a href="#id5"><span class="problematic" id="id6">`</span></a>(high_res_shape, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Each must be a list with the proper number of resolution levels.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape.highest">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">highest</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.highest" title="Link to this definition">#</a></dt>
+<dd><p>Highest resolution shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape.</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape.lowest">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lowest</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.lowest" title="Link to this definition">#</a></dt>
+<dd><p>Lowest resolution shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape.</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape.scalar_low_high">
+<span class="sig-name descname"><span class="pre">scalar_low_high</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/hierarchical.html#NestedHierarchicalShape.scalar_low_high"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.scalar_low_high" title="Link to this definition">#</a></dt>
+<dd><p>Transfer scalar from low-resolution to high.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scalar</strong> (<em>array-like, shape=[…, low.n_vertices]</em>) – Scalar map on the low-resolution shape.</p></li>
+<li><p><strong>n_levels</strong> (<em>int</em>) – Number of levels to transfer scalar.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> transfer up to maximum resolution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>high_scalar</strong> (<em>list[array-like], shape=[…, level.n_vertices]</em>) – Scalar map on the shape at corresponding level.
+As many as number of levels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.hierarchical.NestedHierarchicalShape.shapes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shapes</span></span><a class="headerlink" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.shapes" title="Link to this definition">#</a></dt>
+<dd><p>Shapes from low to high resolution.</p>
+<section id="id9">
+<h3>Remarks<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>shapes<span class="classifier">list[Shape]</span></dt><dd><p>List of shapes from low to high resolution.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.shape.mesh">
+<span id="geomfum-shape-mesh-module"></span><h2>geomfum.shape.mesh module<a class="headerlink" href="#module-geomfum.shape.mesh" title="Link to this heading">#</a></h2>
+<p>Definition of triangle mesh.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.mesh.</span></span><span class="sig-name descname"><span class="pre">TriangleMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></p>
+<p>Triangle mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertices</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Vertices of the mesh.</p></li>
+<li><p><strong>faces</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Faces of the mesh.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.dist_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Compute metric distance matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Metric distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.edge_tangent_vectors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edge_tangent_vectors</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.edge_tangent_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Compute edge tangent vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edge_tangent_vectors</strong> (<em>array-like, shape=[n_edges, 2]</em>) – Tangent vectors of the edges, projected onto the local tangent plane.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.edges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.edges" title="Link to this definition">#</a></dt>
+<dd><p>Edges of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edges</strong> (<em>array-like, shape=[n_edges, 2]</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.equip_with_metric">
+<span class="sig-name descname"><span class="pre">equip_with_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh.equip_with_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.equip_with_metric" title="Link to this definition">#</a></dt>
+<dd><p>Set the metric for the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metric</strong> (<em>class</em>) – A metric class to use for the mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.face_area_vectors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_area_vectors</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.face_area_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Compute face area vectors of a triangular mesh. The face area vector is the vector normal to the face, with a length equal to the area of the face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>area_vectors</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Per-face area vectors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.face_areas">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_areas</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.face_areas" title="Link to this definition">#</a></dt>
+<dd><p>Compute per-face areas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>face_areas</strong> (<em>array-like, shape=[n_faces]</em>) – Per-face areas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.face_normals">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_normals</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.face_normals" title="Link to this definition">#</a></dt>
+<dd><p>Compute face normals of a triangular mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Per-face normals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.face_vertex_coords">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_vertex_coords</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.face_vertex_coords" title="Link to this definition">#</a></dt>
+<dd><p>Extract vertex coordinates corresponding to each face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertices</strong> (<em>array-like, shape=[{n_faces}, n_per_face_vertex, 3]</em>) – Coordinates of the ith vertex of that face.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.from_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh.from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.from_file" title="Link to this definition">#</a></dt>
+<dd><p>Instantiate given a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Path to the mesh file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – A triangle mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.gradient_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gradient_matrix</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.gradient_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Compute the gradient operator as a complex sparse matrix.</p>
+<p>This code locally fits a linear function to the scalar values at each vertex and its neighbors, extracts the gradient in the tangent plane, and assembles the global sparse matrix that acts as the discrete gradient operator on the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>grad_op</strong> (<em>xgs.sparse.csc_matrix, shape=[n_vertices, n_vertices]</em>)</p></li>
+<li><p><strong>grad_op</strong> (<em>xgs.sparse.csc_matrix, shape=[n_vertices, n_vertices]</em>) – Complex sparse matrix representing the gradient operator.
+The real part corresponds to the X component in the local tangent frame,
+and the imaginary part corresponds to the Y component.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.n_faces">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_faces</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.n_faces" title="Link to this definition">#</a></dt>
+<dd><p>Number of faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_faces</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.n_vertices">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vertices</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.n_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Number of vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_vertices</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.vertex_areas">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_areas</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.vertex_areas" title="Link to this definition">#</a></dt>
+<dd><p>Compute per-vertex areas.</p>
+<p>Area of a vertex, approximated as one third of the sum of the area of its adjacent triangles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertex_areas</strong> (<em>array-like, shape=[n_vertices]</em>) – Per-vertex areas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.vertex_normals">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_normals</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.vertex_normals" title="Link to this definition">#</a></dt>
+<dd><p>Compute vertex normals of a triangular mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Normalized per-vertex normals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.mesh.TriangleMesh.vertex_tangent_frames">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_tangent_frames</span></span><a class="headerlink" href="#geomfum.shape.mesh.TriangleMesh.vertex_tangent_frames" title="Link to this definition">#</a></dt>
+<dd><p>Compute vertex tangent frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tangent_frame</strong> (<em>array-like, shape=[n_vertices, 3, 3]</em>) – Tangent frame of the mesh, where:
+- [n_vertices, 0, :] are the X basis vectors
+- [n_vertices, 1, :] are the Y basis vectors
+- [n_vertices, 2, :] are the vertex normals</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.shape.point_cloud">
+<span id="geomfum-shape-point-cloud-module"></span><h2>geomfum.shape.point_cloud module<a class="headerlink" href="#module-geomfum.shape.point_cloud" title="Link to this heading">#</a></h2>
+<p>Definition of point cloud.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.shape.point_cloud.PointCloud">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.point_cloud.</span></span><span class="sig-name descname"><span class="pre">PointCloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/point_cloud.html#PointCloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.point_cloud.PointCloud" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></p>
+<p>Point cloud.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertices</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Vertices of the point cloud.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.shape.point_cloud.PointCloud.from_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/point_cloud.html#PointCloud.from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.point_cloud.PointCloud.from_file" title="Link to this definition">#</a></dt>
+<dd><p>Instantiate given a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>PointCloud</em>) – A point cloud.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.shape.point_cloud.PointCloud.n_vertices">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vertices</span></span><a class="headerlink" href="#geomfum.shape.point_cloud.PointCloud.n_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Number of points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_vertices</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.shape">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.shape" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.shape.hierarchical">geomfum.shape.hierarchical module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.HierarchicalMesh"><code class="docutils literal notranslate"><span class="pre">HierarchicalMesh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.HierarchicalShape"><code class="docutils literal notranslate"><span class="pre">HierarchicalShape</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.HierarchicalShape.extend_basis"><code class="docutils literal notranslate"><span class="pre">HierarchicalShape.extend_basis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.HierarchicalShape.scalar_low_high"><code class="docutils literal notranslate"><span class="pre">HierarchicalShape.scalar_low_high()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalMesh</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.hmeshes"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalMesh.hmeshes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.meshes"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalMesh.meshes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.n_faces"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalMesh.n_faces</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalMesh.n_vertices"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalMesh.n_vertices</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.extend_basis"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape.extend_basis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.from_hierarchical_shape"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape.from_hierarchical_shape()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.highest"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape.highest</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.lowest"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape.lowest</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.scalar_low_high"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape.scalar_low_high()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.hierarchical.NestedHierarchicalShape.shapes"><code class="docutils literal notranslate"><span class="pre">NestedHierarchicalShape.shapes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.shape.mesh">geomfum.shape.mesh module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh"><code class="docutils literal notranslate"><span class="pre">TriangleMesh</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.dist_matrix"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.dist_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.edge_tangent_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edge_tangent_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.edges"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edges</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.equip_with_metric"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.equip_with_metric()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.face_area_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_area_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.face_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_areas</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.face_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.face_vertex_coords"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_vertex_coords</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.from_file"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.from_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.gradient_matrix"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.gradient_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.n_faces"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_faces</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.n_vertices"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_vertices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.vertex_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_areas</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.vertex_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.mesh.TriangleMesh.vertex_tangent_frames"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_tangent_frames</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.shape.point_cloud">geomfum.shape.point_cloud module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.point_cloud.PointCloud"><code class="docutils literal notranslate"><span class="pre">PointCloud</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.point_cloud.PointCloud.from_file"><code class="docutils literal notranslate"><span class="pre">PointCloud.from_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.point_cloud.PointCloud.n_vertices"><code class="docutils literal notranslate"><span class="pre">PointCloud.n_vertices</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.shape">Module contents</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/geomfum.shape.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GeomFuM contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
