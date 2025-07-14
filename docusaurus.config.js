@@ -21,9 +21,11 @@ const config = {
 
   // Set the production url of your site here
   url: 'https://geomfum.github.io',
-  baseUrl: '/geomfum/',
+  baseUrl: '/',
   organizationName: 'DiG-AIR',
-  projectName: 'geomfum',
+  projectName: 'geomfum.github.io',
+  deploymentBranch: 'gh-pages',
+
   
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -87,7 +89,7 @@ const config = {
             position: 'left',
             label: 'Getting Started',
           },
-          {to: '/people', label: 'People', position: 'left'},
+          //{to: '/people', label: 'People', position: 'left'},
           {
             href: 'https://github.com/DiG-AIR/geomfum',
             label: 'GitHub',
