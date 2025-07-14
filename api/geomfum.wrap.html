@@ -31,7 +31,9 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,6 +44,9 @@
     <script src="../_static/documentation_options.js?v=01f34227"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,10 +54,12 @@
     <link rel="canonical" href="geomfum.github.io/api/geomfum.wrap.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing to GeomFuM" href="../contributing.html" />
+    <link rel="prev" title="geomfum.shape.convert package" href="geomfum.shape.convert.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
   </head>
   
   
@@ -150,15 +157,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="../concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="../concepts/shape_analysis.html">
+    Shape Analysis
   </a>
 </li>
 
@@ -171,8 +178,29 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -198,13 +226,33 @@
         </div>
       
       
-        <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -274,22 +322,43 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="../concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="../concepts/shape_analysis.html">
+    Shape Analysis
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../notebooks/index.html">
+    Notebook Tutorials
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -303,13 +372,33 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -320,7 +409,18 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="geomfum.dataset.html">geomfum.dataset package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">geomfum.wrap package</a></li>
+</ul>
+</div>
 </nav></div>
     </div>
   
@@ -359,6 +459,12 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">GeomFuM API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="geomfum.html" class="nav-link">geomfum package</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.wrap package</span></li>
   </ul>
 </nav>
@@ -1245,6 +1351,24 @@ Correspondence.” arXiv, October 30, 2023.
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="geomfum.shape.convert.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">geomfum.shape.convert package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../contributing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contributing to GeomFuM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1265,7 +1389,7 @@ Correspondence.” arXiv, October 30, 2023.
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.diffusionnet">geomfum.wrap.diffusionnet module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.diffusionnet">geomfum.wrap.diffusionnet module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionNet"><code class="docutils literal notranslate"><span class="pre">DiffusionNet</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.diffusionnet.DiffusionNet.forward"><code class="docutils literal notranslate"><span class="pre">DiffusionNet.forward()</span></code></a></li>
 </ul>
@@ -1289,11 +1413,11 @@ Correspondence.” arXiv, October 30, 2023.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.igl">geomfum.wrap.igl module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.igl">geomfum.wrap.igl module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.igl.IglMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">IglMeshLaplacianFinder</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.plotly">geomfum.wrap.plotly module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.plotly">geomfum.wrap.plotly module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.add_mesh()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.highlight_vertices()</span></code></a></li>
@@ -1303,7 +1427,7 @@ Correspondence.” arXiv, October 30, 2023.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pointnet">geomfum.wrap.pointnet module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pointnet">geomfum.wrap.pointnet module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointNet"><code class="docutils literal notranslate"><span class="pre">PointNet</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointNet.forward"><code class="docutils literal notranslate"><span class="pre">PointNet.forward()</span></code></a></li>
 </ul>
@@ -1318,7 +1442,7 @@ Correspondence.” arXiv, October 30, 2023.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.polyscope">geomfum.wrap.polyscope module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.polyscope">geomfum.wrap.polyscope module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.add_mesh()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.highlight_vertices()</span></code></a></li>
@@ -1328,7 +1452,7 @@ Correspondence.” arXiv, October 30, 2023.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pot">geomfum.wrap.pot module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pot">geomfum.wrap.pot module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder"><code class="docutils literal notranslate"><span class="pre">PotSinkhornNeighborFinder</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder.fit"><code class="docutils literal notranslate"><span class="pre">PotSinkhornNeighborFinder.fit()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pot.PotSinkhornNeighborFinder.kneighbors"><code class="docutils literal notranslate"><span class="pre">PotSinkhornNeighborFinder.kneighbors()</span></code></a></li>
@@ -1336,14 +1460,14 @@ Correspondence.” arXiv, October 30, 2023.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pp3d">geomfum.wrap.pp3d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pp3d">geomfum.wrap.pp3d module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric"><code class="docutils literal notranslate"><span class="pre">Pp3dHeatDistanceMetric</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">Pp3dHeatDistanceMetric.dist_matrix()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyfm">geomfum.wrap.pyfm module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyfm">geomfum.wrap.pyfm module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyFmFaceOrientationOperator"><code class="docutils literal notranslate"><span class="pre">PyFmFaceOrientationOperator</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler"><code class="docutils literal notranslate"><span class="pre">PyfmEuclideanFarthestVertexSampler</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.PyfmEuclideanFarthestVertexSampler.sample"><code class="docutils literal notranslate"><span class="pre">PyfmEuclideanFarthestVertexSampler.sample()</span></code></a></li>
@@ -1357,21 +1481,21 @@ Correspondence.” arXiv, October 30, 2023.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyfm.get_orientation_op"><code class="docutils literal notranslate"><span class="pre">get_orientation_op()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pymeshlab">geomfum.wrap.pymeshlab module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pymeshlab">geomfum.wrap.pymeshlab module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pymeshlab.PymeshlabPoissonSampler"><code class="docutils literal notranslate"><span class="pre">PymeshlabPoissonSampler</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pymeshlab.PymeshlabPoissonSampler.sample"><code class="docutils literal notranslate"><span class="pre">PymeshlabPoissonSampler.sample()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyrmt">geomfum.wrap.pyrmt module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyrmt">geomfum.wrap.pyrmt module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh"><code class="docutils literal notranslate"><span class="pre">PyrmtHierarchicalMesh</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh.scalar_low_high"><code class="docutils literal notranslate"><span class="pre">PyrmtHierarchicalMesh.scalar_low_high()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyvista">geomfum.wrap.pyvista module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyvista">geomfum.wrap.pyvista module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.add_mesh()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.highlight_vertices()</span></code></a></li>
@@ -1381,7 +1505,7 @@ Correspondence.” arXiv, October 30, 2023.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.robust">geomfum.wrap.robust module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.robust">geomfum.wrap.robust module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.robust.RobustMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">RobustMeshLaplacianFinder</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.robust.RobustPointCloudLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">RobustPointCloudLaplacianFinder</span></code></a></li>
 </ul>
@@ -1389,6 +1513,22 @@ Correspondence.” arXiv, October 30, 2023.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap">Module contents</a></li>
 </ul>
   </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/DiG-AIR/geomfum/edit/main/docs/api/geomfum.wrap.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

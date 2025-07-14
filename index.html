@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GeomFuM Documentation &#8212; GeomFuM 0.1.0 documentation</title>
+    <title>Welcome to GeomFuM &#8212; GeomFuM 0.1.0 documentation</title>
   
   
   
@@ -31,7 +31,9 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,6 +44,9 @@
     <script src="_static/documentation_options.js?v=01f34227"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -53,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:34:47 PM"/>
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
   </head>
   
   
@@ -151,15 +156,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="concepts/shape_analysis.html">
+    Shape Analysis
   </a>
 </li>
 
@@ -172,8 +177,29 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="api/index.html">
     GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -199,13 +225,33 @@
         </div>
       
       
-        <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -277,15 +323,29 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="concepts/shape_analysis.html">
+    Shape Analysis
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="notebooks/index.html">
+    Notebook Tutorials
   </a>
 </li>
 
@@ -293,6 +353,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="api/index.html">
     GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -306,13 +373,33 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -348,19 +435,110 @@
                   
   <a class="reference internal image-reference" href="GeomFuMlogo.png"><img alt="GeomFuM logo" src="GeomFuMlogo.png" style="width: 800px;" />
 </a>
-<section id="geomfum-documentation">
-<h1>GeomFuM Documentation<a class="headerlink" href="#geomfum-documentation" title="Link to this heading">#</a></h1>
-<p>Welcome to the documentation for <strong>GeomFuM</strong>!</p>
+<section id="welcome-to-geomfum">
+<h1>Welcome to GeomFuM<a class="headerlink" href="#welcome-to-geomfum" title="Link to this heading">#</a></h1>
+<p><strong>GeomFuM</strong> is a Modular Python Package for Machine Learning with <a class="reference external" href="https://dl.acm.org/doi/10.1145/2185520.2185526">Functional Maps</a>.</p>
+<p>Functional Maps provide a powerful framework for representing and computing correspondences between geometric shapes. GeomFuM offers a comprehensive suite of tools for:</p>
+<ul class="simple">
+<li><p><strong>Shape Analysis</strong>: Laplace-Beltrami eigenfunctions, heat kernel signatures, wave kernel signatures</p></li>
+<li><p><strong>Correspondence Computation</strong>: Functional maps, pointwise correspondences, refinement algorithms</p></li>
+<li><p><strong>Deep Learning Integration</strong>: Neural functional maps, feature learning for shape correspondence</p></li>
+<li><p><strong>Geometric Processing</strong>: Mesh operations, hierarchical representations, sampling strategies</p></li>
+</ul>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum@git+https://github.com/DiG-AIR/geomfum.git@main
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/index.html#matching">Matching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts/index.html#functional-maps">Functional Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#quick-installation">Quick Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#optional-dependencies">Optional Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#backend-configuration">Backend Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#performance-optimization">Performance Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#verification">Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#basic-usage-examples">Basic Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#computing-functional-maps">Computing Functional Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#converting-to-pointwise-correspondences">Converting to Pointwise Correspondences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#refining-functional-maps">Refining Functional Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#advanced-techniques">Advanced Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#deep-learning-integration">Deep Learning Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#complete-pipeline-example">Complete Pipeline Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#interactive-learning">Interactive Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/index.html#notebook-tutorials">Notebook Tutorials</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Core Concepts:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/functional_maps.html">Functional Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#mathematical-foundation">Mathematical Foundation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#laplace-beltrami-basis">Laplace-Beltrami Basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#functional-map-representation">Functional Map Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#computing-functional-maps">Computing Functional Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#pointwise-correspondences">Pointwise Correspondences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#refinement-and-optimization">Refinement and Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#deep-learning-integration">Deep Learning Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/functional_maps.html#key-papers-implemented">Key Papers Implemented</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/shape_analysis.html">Shape Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#laplace-beltrami-operator">Laplace-Beltrami Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#spectral-descriptors">Spectral Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#shape-descriptors">Shape Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#feature-extraction">Feature Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#shape-matching">Shape Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#shape-retrieval">Shape Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/shape_analysis.html#geometric-processing">Geometric Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/correspondence.html">Shape Correspondence</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#types-of-correspondences">Types of Correspondences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#correspondence-quality">Correspondence Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#correspondence-evaluation">Correspondence Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#correspondence-refinement">Correspondence Refinement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#correspondence-applications">Correspondence Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#correspondence-visualization">Correspondence Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/correspondence.html#performance-considerations">Performance Considerations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interactive Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/index.html">Notebook Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/index.html#functional-maps">Functional Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/index.html#advanced-techniques">Advanced Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/index.html#deep-learning">Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/index.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/index.html#demos">Demos</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">GeomFuM API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/geomfum.html">geomfum package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/geomfum.descriptor.html">geomfum.descriptor package</a></li>
@@ -369,6 +547,25 @@
 </li>
 </ul>
 </div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to GeomFuM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#id1">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-process">Pull Request Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#areas-for-contribution">Areas for Contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#community-guidelines">Community Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#recognition">Recognition</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h1>
@@ -417,11 +614,32 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">GeomFuM Documentation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to GeomFuM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
   </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/DiG-AIR/geomfum/edit/main/docs/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

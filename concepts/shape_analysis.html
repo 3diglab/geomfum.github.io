@@ -1,0 +1,811 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Shape Analysis &#8212; GeomFuM 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'concepts/shape_analysis';</script>
+    <link rel="canonical" href="geomfum.github.io/concepts/shape_analysis.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Shape Correspondence" href="correspondence.html" />
+    <link rel="prev" title="Functional Maps" href="functional_maps.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GeomFuM 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functional_maps.html">
+    Functional Maps
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Shape Analysis
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Contributing to GeomFuM
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functional_maps.html">
+    Functional Maps
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Shape Analysis
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing to GeomFuM
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Shape Analysis</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="shape-analysis">
+<h1>Shape Analysis<a class="headerlink" href="#shape-analysis" title="Link to this heading">#</a></h1>
+<p>Shape analysis is a fundamental component of geometric processing and functional maps. This section covers the key concepts and tools for analyzing geometric shapes.</p>
+<section id="laplace-beltrami-operator">
+<h2>Laplace-Beltrami Operator<a class="headerlink" href="#laplace-beltrami-operator" title="Link to this heading">#</a></h2>
+<p>The Laplace-Beltrami operator <span class="math notranslate nohighlight">\(\Delta\)</span> is a generalization of the Laplacian to curved surfaces. It measures how much a function changes at each point of the surface:</p>
+<div class="math notranslate nohighlight">
+\[\Delta f = \text{div}(\nabla f)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nabla\)</span> is the gradient operator and <span class="math notranslate nohighlight">\(\text{div}\)</span> is the divergence operator.</p>
+<p>Properties of the Laplace-Beltrami operator:</p>
+<ul class="simple">
+<li><p><strong>Self-adjoint</strong>: <span class="math notranslate nohighlight">\(\langle \Delta f, g \rangle = \langle f, \Delta g \rangle\)</span></p></li>
+<li><p><strong>Positive semi-definite</strong>: <span class="math notranslate nohighlight">\(\langle \Delta f, f \rangle \geq 0\)</span></p></li>
+<li><p><strong>Isometry invariant</strong>: Unchanged under rigid transformations</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
+
+<span class="c1"># Compute Laplace-Beltrami operator</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+
+<span class="c1"># Compute eigenfunctions and eigenvalues</span>
+<span class="n">eigenfunctions</span><span class="p">,</span> <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="spectral-descriptors">
+<h2>Spectral Descriptors<a class="headerlink" href="#spectral-descriptors" title="Link to this heading">#</a></h2>
+<p>Spectral descriptors capture shape geometry using the spectrum of the Laplace-Beltrami operator.</p>
+<section id="heat-kernel-signature-hks">
+<h3>Heat Kernel Signature (HKS)<a class="headerlink" href="#heat-kernel-signature-hks" title="Link to this heading">#</a></h3>
+<p>The Heat Kernel Signature captures the amount of heat remaining at a point after time <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{HKS}(x, t) = \sum_{i=1}^{\infty} e^{-\lambda_i t} \phi_i^2(x)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_i\)</span> and <span class="math notranslate nohighlight">\(\phi_i\)</span> are eigenvalues and eigenfunctions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute HKS descriptors</span>
+<span class="n">hks</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">hks</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">t_values</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="wave-kernel-signature-wks">
+<h3>Wave Kernel Signature (WKS)<a class="headerlink" href="#wave-kernel-signature-wks" title="Link to this heading">#</a></h3>
+<p>The Wave Kernel Signature is based on the Schrödinger equation:</p>
+<div class="math notranslate nohighlight">
+\[\text{WKS}(x, E) = \sum_{i=1}^{\infty} f_E^2(\lambda_i) \phi_i^2(x)\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_E\)</span> is a Gaussian centered at energy <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute WKS descriptors</span>
+<span class="n">wks</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">wks</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">energy_values</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="global-point-signature-gps">
+<h3>Global Point Signature (GPS)<a class="headerlink" href="#global-point-signature-gps" title="Link to this heading">#</a></h3>
+<p>The Global Point Signature combines multiple eigenvalues:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute GPS descriptors</span>
+<span class="n">gps</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">gps</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="shape-descriptors">
+<h2>Shape Descriptors<a class="headerlink" href="#shape-descriptors" title="Link to this heading">#</a></h2>
+<p>GeomFuM provides various shape descriptors for functional map computation:</p>
+<section id="geometric-descriptors">
+<h3>Geometric Descriptors<a class="headerlink" href="#geometric-descriptors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Gaussian Curvature</strong>: Local surface curvature</p></li>
+<li><p><strong>Mean Curvature</strong>: Average of principal curvatures</p></li>
+<li><p><strong>Shape Diameter Function</strong>: Distance-based descriptor</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute geometric descriptors</span>
+<span class="n">gaussian_curvature</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">gaussian_curvature</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">mean_curvature</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">mean_curvature</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">sdf</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">shape_diameter_function</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Spectral Descriptors<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Laplace-Beltrami Eigenfunctions</strong>: Basis functions for shape analysis</p></li>
+<li><p><strong>Spectral Embeddings</strong>: Low-dimensional representations</p></li>
+<li><p><strong>Diffusion Maps</strong>: Manifold learning approach</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute spectral descriptors</span>
+<span class="n">eigenfunctions</span><span class="p">,</span> <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">spectral_embedding</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">spectral_embedding</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="feature-extraction">
+<h2>Feature Extraction<a class="headerlink" href="#feature-extraction" title="Link to this heading">#</a></h2>
+<p>GeomFuM supports various feature extraction methods:</p>
+<section id="deep-features">
+<h3>Deep Features<a class="headerlink" href="#deep-features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>PointNet Features</strong>: Deep learning features for point clouds</p></li>
+<li><p><strong>DiffusionNet Features</strong>: Surface-based deep features</p></li>
+<li><p><strong>Custom Features</strong>: User-defined feature extractors</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract deep features</span>
+<span class="n">pointnet_features</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">pointnet</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">diffusion_features</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">diffusionnet</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="handcrafted-features">
+<h3>Handcrafted Features<a class="headerlink" href="#handcrafted-features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>HOG Features</strong>: Histogram of oriented gradients</p></li>
+<li><p><strong>Spin Images</strong>: Local surface descriptors</p></li>
+<li><p><strong>FPFH Features</strong>: Fast Point Feature Histograms</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract handcrafted features</span>
+<span class="n">hog_features</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">hog</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">spin_images</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">descriptor</span><span class="o">.</span><span class="n">spin_images</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="shape-matching">
+<h2>Shape Matching<a class="headerlink" href="#shape-matching" title="Link to this heading">#</a></h2>
+<p>Shape matching involves finding correspondences between similar shapes:</p>
+<section id="isometric-matching">
+<h3>Isometric Matching<a class="headerlink" href="#isometric-matching" title="Link to this heading">#</a></h3>
+<p>For shapes that are approximately isometric (distance-preserving):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isometric shape matching</span>
+<span class="n">correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">isometric_matching</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="non-rigid-matching">
+<h3>Non-rigid Matching<a class="headerlink" href="#non-rigid-matching" title="Link to this heading">#</a></h3>
+<p>For shapes with non-rigid deformations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Non-rigid shape matching</span>
+<span class="n">correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">nonrigid_matching</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="shape-retrieval">
+<h2>Shape Retrieval<a class="headerlink" href="#shape-retrieval" title="Link to this heading">#</a></h2>
+<p>Shape retrieval finds similar shapes in a database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape retrieval</span>
+<span class="n">similar_shapes</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">retrieve_similar</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">database</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="geometric-processing">
+<h2>Geometric Processing<a class="headerlink" href="#geometric-processing" title="Link to this heading">#</a></h2>
+<p>GeomFuM provides tools for geometric processing:</p>
+<section id="mesh-operations">
+<h3>Mesh Operations<a class="headerlink" href="#mesh-operations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Mesh Simplification</strong>: Reduce mesh complexity</p></li>
+<li><p><strong>Mesh Smoothing</strong>: Remove noise while preserving features</p></li>
+<li><p><strong>Mesh Repair</strong>: Fix topological issues</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mesh operations</span>
+<span class="n">simplified_mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">target_faces</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">smoothed_mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">repaired_mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">repair</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sampling-strategies">
+<h3>Sampling Strategies<a class="headerlink" href="#sampling-strategies" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Uniform Sampling</strong>: Random uniform sampling</p></li>
+<li><p><strong>Farthest Point Sampling</strong>: Maximize coverage</p></li>
+<li><p><strong>Geodesic Sampling</strong>: Based on geodesic distances</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sampling strategies</span>
+<span class="n">uniform_points</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">fps_points</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">farthest_point</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">geodesic_points</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For practical examples and tutorials, see the <span class="xref std std-doc">../tutorials/shape_analysis</span> section.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="functional_maps.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Functional Maps</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="correspondence.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Shape Correspondence</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laplace-beltrami-operator">Laplace-Beltrami Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-descriptors">Spectral Descriptors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-kernel-signature-hks">Heat Kernel Signature (HKS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-kernel-signature-wks">Wave Kernel Signature (WKS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-point-signature-gps">Global Point Signature (GPS)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-descriptors">Shape Descriptors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-descriptors">Geometric Descriptors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Spectral Descriptors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature Extraction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-features">Deep Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handcrafted-features">Handcrafted Features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-matching">Shape Matching</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isometric-matching">Isometric Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-rigid-matching">Non-rigid Matching</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-retrieval">Shape Retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-processing">Geometric Processing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-operations">Mesh Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-strategies">Sampling Strategies</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/DiG-AIR/geomfum/edit/main/docs/concepts/shape_analysis.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/concepts/shape_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GeomFuM contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

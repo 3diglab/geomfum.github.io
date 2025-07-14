@@ -31,7 +31,9 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,6 +44,9 @@
     <script src="../_static/documentation_options.js?v=01f34227"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,10 +54,12 @@
     <link rel="canonical" href="geomfum.github.io/api/geomfum.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="geomfum.dataset package" href="geomfum.dataset.html" />
+    <link rel="prev" title="GeomFuM API Reference" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
   </head>
   
   
@@ -150,15 +157,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="../concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="../concepts/shape_analysis.html">
+    Shape Analysis
   </a>
 </li>
 
@@ -171,8 +178,29 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -198,13 +226,33 @@
         </div>
       
       
-        <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -236,10 +284,8 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -276,22 +322,43 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="../concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="../concepts/shape_analysis.html">
+    Shape Analysis
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../notebooks/index.html">
+    Notebook Tutorials
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -305,17 +372,57 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
         
       </div>
     
   </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="geomfum.dataset.html">geomfum.dataset package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.wrap.html">geomfum.wrap package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
@@ -352,6 +459,9 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">GeomFuM API Reference</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum package</span></li>
   </ul>
 </nav>
@@ -2062,6 +2172,24 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GeomFuM API Reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="geomfum.dataset.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">geomfum.dataset package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -2083,7 +2211,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.basis">geomfum.basis module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.basis">geomfum.basis module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.basis.Basis"><code class="docutils literal notranslate"><span class="pre">Basis</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.basis.EigenBasis"><code class="docutils literal notranslate"><span class="pre">EigenBasis</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.basis.EigenBasis.full_spectrum_size"><code class="docutils literal notranslate"><span class="pre">EigenBasis.full_spectrum_size</span></code></a></li>
@@ -2104,7 +2232,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.convert">geomfum.convert module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.convert">geomfum.convert module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.BaseFmFromP2pConverter"><code class="docutils literal notranslate"><span class="pre">BaseFmFromP2pConverter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.BaseNeighborFinder"><code class="docutils literal notranslate"><span class="pre">BaseNeighborFinder</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.BaseNeighborFinder.fit"><code class="docutils literal notranslate"><span class="pre">BaseNeighborFinder.fit()</span></code></a></li>
@@ -2121,11 +2249,11 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.SinkhornP2pFromFmConverter"><code class="docutils literal notranslate"><span class="pre">SinkhornP2pFromFmConverter</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.forward_functional_map">geomfum.forward_functional_map module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.forward_functional_map">geomfum.forward_functional_map module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.forward_functional_map.ForwardFunctionalMap"><code class="docutils literal notranslate"><span class="pre">ForwardFunctionalMap</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.functional_map">geomfum.functional_map module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.functional_map">geomfum.functional_map module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorSum"><code class="docutils literal notranslate"><span class="pre">FactorSum</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorSum.gradient"><code class="docutils literal notranslate"><span class="pre">FactorSum.gradient()</span></code></a></li>
 </ul>
@@ -2153,12 +2281,12 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.io">geomfum.io module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.io">geomfum.io module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.io.load_mesh"><code class="docutils literal notranslate"><span class="pre">load_mesh()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.io.load_pointcloud"><code class="docutils literal notranslate"><span class="pre">load_pointcloud()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.laplacian">geomfum.laplacian module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.laplacian">geomfum.laplacian module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.BaseLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.LaplacianFinder"><code class="docutils literal notranslate"><span class="pre">LaplacianFinder</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.LaplacianSpectrumFinder"><code class="docutils literal notranslate"><span class="pre">LaplacianSpectrumFinder</span></code></a><ul class="nav section-nav flex-column">
@@ -2167,7 +2295,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.linalg">geomfum.linalg module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.linalg">geomfum.linalg module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.columnwise_scaling"><code class="docutils literal notranslate"><span class="pre">columnwise_scaling()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.matvecmul"><code class="docutils literal notranslate"><span class="pre">matvecmul()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
@@ -2176,7 +2304,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.scale_to_unit_sum"><code class="docutils literal notranslate"><span class="pre">scale_to_unit_sum()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.neural_adjoint_map">geomfum.neural_adjoint_map module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.neural_adjoint_map">geomfum.neural_adjoint_map module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.neural_adjoint_map.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.neural_adjoint_map.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
 </ul>
@@ -2187,7 +2315,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.operator">geomfum.operator module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.operator">geomfum.operator module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.FaceDivergenceOperator"><code class="docutils literal notranslate"><span class="pre">FaceDivergenceOperator</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.FaceOrientationOperator"><code class="docutils literal notranslate"><span class="pre">FaceOrientationOperator</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.FaceValuedGradient"><code class="docutils literal notranslate"><span class="pre">FaceValuedGradient</span></code></a></li>
@@ -2203,7 +2331,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.VectorFieldOperator"><code class="docutils literal notranslate"><span class="pre">VectorFieldOperator</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.plot">geomfum.plot module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.plot">geomfum.plot module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.plot.MeshPlotter"><code class="docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.plot.ShapePlotter"><code class="docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.plot.ShapePlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.add_mesh()</span></code></a></li>
@@ -2214,7 +2342,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.refine">geomfum.refine module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.refine">geomfum.refine module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.AdjointBijectiveZoomOut"><code class="docutils literal notranslate"><span class="pre">AdjointBijectiveZoomOut</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.FastSinkhornFilters"><code class="docutils literal notranslate"><span class="pre">FastSinkhornFilters</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.IcpRefiner"><code class="docutils literal notranslate"><span class="pre">IcpRefiner</span></code></a></li>
@@ -2231,7 +2359,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.ZoomOut"><code class="docutils literal notranslate"><span class="pre">ZoomOut</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.sample">geomfum.sample module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.sample">geomfum.sample module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.sample.BaseSampler"><code class="docutils literal notranslate"><span class="pre">BaseSampler</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.sample.BaseSampler.sample"><code class="docutils literal notranslate"><span class="pre">BaseSampler.sample()</span></code></a></li>
 </ul>
@@ -2250,6 +2378,22 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum">Module contents</a></li>
 </ul>
   </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/DiG-AIR/geomfum/edit/main/docs/api/geomfum.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

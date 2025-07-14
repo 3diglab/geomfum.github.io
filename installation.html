@@ -31,7 +31,9 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,17 +44,20 @@
     <script src="_static/documentation_options.js?v=01f34227"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'installation';</script>
     <link rel="canonical" href="geomfum.github.io/installation.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Usage" href="usage.html" />
-    <link rel="prev" title="GeomFuM Documentation" href="index.html" />
+    <link rel="prev" title="Welcome to GeomFuM" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
   </head>
   
   
@@ -150,15 +155,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="concepts/shape_analysis.html">
+    Shape Analysis
   </a>
 </li>
 
@@ -171,8 +176,29 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="api/index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -198,13 +224,33 @@
         </div>
       
       
-        <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -274,22 +320,43 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="contributing.html">
-    Contributing
+  <a class="nav-link nav-internal" href="concepts/shape_analysis.html">
+    Shape Analysis
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="notebooks/index.html">
+    Notebook Tutorials
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="api/index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contributing.html">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -303,13 +370,33 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -378,16 +465,275 @@
                   
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
-<p>To install GeomFuM, run:</p>
+<p>This page provides detailed installation instructions for GeomFuM.</p>
+<section id="quick-installation">
+<h2>Quick Installation<a class="headerlink" href="#quick-installation" title="Link to this heading">#</a></h2>
+<p>Install GeomFuM directly from GitHub:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum@git+https://github.com/DiG-AIR/geomfum.git@main
 </pre></div>
 </div>
-<p>Or clone the repository and install:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DiG-AIR/geomfum.git
-<span class="nb">cd</span><span class="w"> </span>geomfum
-pip<span class="w"> </span>install<span class="w"> </span>.
+<p>For development installation with all dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>opt<span class="o">]</span>@git+https://github.com/DiG-AIR/geomfum.git@main
 </pre></div>
 </div>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<section id="system-requirements">
+<h3>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Python</strong>: 3.9 or higher</p></li>
+<li><p><strong>Operating System</strong>: Linux, macOS, or Windows</p></li>
+<li><p><strong>Memory</strong>: At least 4GB RAM (8GB+ recommended for large meshes)</p></li>
+<li><p><strong>Storage</strong>: 2GB+ free space</p></li>
+</ul>
+</section>
+<section id="required-dependencies">
+<h3>Required Dependencies<a class="headerlink" href="#required-dependencies" title="Link to this heading">#</a></h3>
+<p>Core dependencies (installed automatically):</p>
+<ul class="simple">
+<li><p><cite>numpy</cite> - Numerical computing</p></li>
+<li><p><cite>scipy</cite> - Scientific computing</p></li>
+<li><p><cite>scikit-learn</cite> - Machine learning utilities</p></li>
+<li><p><cite>meshio</cite> - Mesh I/O</p></li>
+<li><p><cite>pyfmaps</cite> - Functional maps implementation</p></li>
+<li><p><cite>torch</cite> - Deep learning (PyTorch backend)</p></li>
+<li><p><cite>geomstats</cite> - Geometric statistics</p></li>
+</ul>
+</section>
+</section>
+<section id="optional-dependencies">
+<h2>Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="Link to this heading">#</a></h2>
+<p>Install specific optional dependencies based on your needs:</p>
+<section id="laplacian-computation">
+<h3>Laplacian Computation<a class="headerlink" href="#laplacian-computation" title="Link to this heading">#</a></h3>
+<p>For robust Laplacian computation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>lapl<span class="o">]</span>
+</pre></div>
+</div>
+<p>This installs:
+- <cite>robust-laplacian</cite> - Robust Laplacian computation
+- <cite>libigl</cite> - Geometric processing library</p>
+</section>
+<section id="metric-computation">
+<h3>Metric Computation<a class="headerlink" href="#metric-computation" title="Link to this heading">#</a></h3>
+<p>For advanced metric computations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>metric<span class="o">]</span>
+</pre></div>
+</div>
+<p>This installs:
+- <cite>networkx</cite> - Graph algorithms
+- <cite>potpourri3d</cite> - 3D geometry processing</p>
+</section>
+<section id="sampling-tools">
+<h3>Sampling Tools<a class="headerlink" href="#sampling-tools" title="Link to this heading">#</a></h3>
+<p>For mesh sampling utilities:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>sampling<span class="o">]</span>
+</pre></div>
+</div>
+<p>This installs:
+- <cite>pymeshlab</cite> - MeshLab Python bindings</p>
+</section>
+<section id="rematching-algorithm">
+<h3>Rematching Algorithm<a class="headerlink" href="#rematching-algorithm" title="Link to this heading">#</a></h3>
+<p>For the Rematching algorithm:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>rematching<span class="o">]</span>
+</pre></div>
+</div>
+<p>This installs:
+- <cite>Rematching</cite> - Low-resolution shape correspondence</p>
+</section>
+<section id="sinkhorn-filtering">
+<h3>Sinkhorn Filtering<a class="headerlink" href="#sinkhorn-filtering" title="Link to this heading">#</a></h3>
+<p>For optimal transport-based refinement:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>sinkhorn<span class="o">]</span>
+</pre></div>
+</div>
+<p>This installs:
+- <cite>POT</cite> - Python Optimal Transport</p>
+</section>
+<section id="visualization">
+<h3>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h3>
+<p>For visualization capabilities:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotly-based visualization</span>
+pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>plotly<span class="o">]</span>
+
+<span class="c1"># PyVista-based visualization</span>
+pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>pyvista<span class="o">]</span>
+
+<span class="c1"># Polyscope-based visualization</span>
+pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>polyscope<span class="o">]</span>
+
+<span class="c1"># All visualization backends</span>
+pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>plotting-all<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-and-development">
+<h3>Testing and Development<a class="headerlink" href="#testing-and-development" title="Link to this heading">#</a></h3>
+<p>For development and testing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>test<span class="o">]</span>
+</pre></div>
+</div>
+<p>This installs:
+- <cite>pytest</cite> - Testing framework
+- <cite>polpo</cite> - Geometric processing utilities
+- All optional dependencies
+- Testing scripts and notebooks</p>
+</section>
+<section id="complete-installation">
+<h3>Complete Installation<a class="headerlink" href="#complete-installation" title="Link to this heading">#</a></h3>
+<p>Install everything:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>geomfum<span class="o">[</span>opt,test-scripts,plotting-all<span class="o">]</span>@git+https://github.com/DiG-AIR/geomfum.git@main
+</pre></div>
+</div>
+</section>
+</section>
+<section id="backend-configuration">
+<h2>Backend Configuration<a class="headerlink" href="#backend-configuration" title="Link to this heading">#</a></h2>
+<p>GeomFuM supports multiple backends for numerical computations:</p>
+<section id="numpy-backend-default">
+<h3>NumPy Backend (Default)<a class="headerlink" href="#numpy-backend-default" title="Link to this heading">#</a></h3>
+<p>The NumPy backend is used by default and provides good performance for most use cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GEOMSTATS_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;numpy&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
+</pre></div>
+</div>
+</section>
+<section id="pytorch-backend">
+<h3>PyTorch Backend<a class="headerlink" href="#pytorch-backend" title="Link to this heading">#</a></h3>
+<p>Use PyTorch backend for GPU acceleration and deep learning:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GEOMSTATS_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;pytorch&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
+</pre></div>
+</div>
+</section>
+<section id="check-current-backend">
+<h3>Check Current Backend<a class="headerlink" href="#check-current-backend" title="Link to this heading">#</a></h3>
+<p>Verify which backend is currently active:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current backend: </span><span class="si">{</span><span class="n">gs</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<section id="common-installation-issues">
+<h3>Common Installation Issues<a class="headerlink" href="#common-installation-issues" title="Link to this heading">#</a></h3>
+<section id="c-dependencies">
+<h4>C++ Dependencies<a class="headerlink" href="#c-dependencies" title="Link to this heading">#</a></h4>
+<p>Some dependencies require C++ compilation. If you encounter issues:</p>
+<ol class="arabic simple">
+<li><p><strong>Install build tools</strong>:
+- <strong>Linux</strong>: <cite>sudo apt-get install build-essential</cite>
+- <strong>macOS</strong>: Install Xcode Command Line Tools
+- <strong>Windows</strong>: Install Visual Studio Build Tools</p></li>
+<li><p><strong>Install specific C++ libraries</strong>:
+- <strong>Linux</strong>: <cite>sudo apt-get install libeigen3-dev</cite>
+- <strong>macOS</strong>: <cite>brew install eigen</cite></p></li>
+</ol>
+</section>
+<section id="pyrmt-installation">
+<h4>PyRMT Installation<a class="headerlink" href="#pyrmt-installation" title="Link to this heading">#</a></h4>
+<p>For the Rematching algorithm, follow the specific instructions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone and install PyRMT</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/filthynobleman/rematching.git
+<span class="nb">cd</span><span class="w"> </span>rematching
+git<span class="w"> </span>checkout<span class="w"> </span>python-binding
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="memory-issues">
+<h4>Memory Issues<a class="headerlink" href="#memory-issues" title="Link to this heading">#</a></h4>
+<p>For large meshes, you may encounter memory issues:</p>
+<ol class="arabic">
+<li><p><strong>Use sparse matrices</strong>:
+.. code-block:: python</p>
+<blockquote>
+<div><p>L = gfm.laplacian.matrix(mesh, sparse=True)</p>
+</div></blockquote>
+</li>
+<li><p><strong>Reduce eigenfunction count</strong>:
+.. code-block:: python</p>
+<blockquote>
+<div><p>eigenfunctions, eigenvalues = gfm.laplacian.spectrum(mesh, k=20)</p>
+</div></blockquote>
+</li>
+<li><p><strong>Use sampling</strong>:
+.. code-block:: python</p>
+<blockquote>
+<div><p>sampled_mesh = gfm.sample.uniform(mesh, n_points=1000)</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="performance-optimization">
+<h2>Performance Optimization<a class="headerlink" href="#performance-optimization" title="Link to this heading">#</a></h2>
+<section id="gpu-acceleration">
+<h3>GPU Acceleration<a class="headerlink" href="#gpu-acceleration" title="Link to this heading">#</a></h3>
+<p>For GPU acceleration with PyTorch backend:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="c1"># Check GPU availability</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Move data to GPU</span>
+<span class="n">mesh_gpu</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parallel-processing">
+<h3>Parallel Processing<a class="headerlink" href="#parallel-processing" title="Link to this heading">#</a></h3>
+<p>For processing multiple shapes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_shape</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
+    <span class="c1"># Process single shape</span>
+    <span class="k">return</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Parallel processing</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process_shape</span><span class="p">,</span> <span class="n">mesh_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading">#</a></h2>
+<p>Test your installation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Create a simple test mesh</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+
+<span class="c1"># Test basic functionality</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">)</span>
+<span class="n">eigenfunctions</span><span class="p">,</span> <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installation successful!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computed </span><span class="si">{</span><span class="n">eigenfunctions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> eigenfunctions&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<p>After installation, explore:</p>
+<ol class="arabic simple">
+<li><p><span class="xref std std-doc">getting_started</span> - Quick start guide</p></li>
+<li><p><span class="xref std std-doc">functional_maps_basics</span> - Basic functional maps tutorial</p></li>
+<li><p><a class="reference internal" href="api/index.html"><span class="doc">GeomFuM API Reference</span></a> - API reference</p></li>
+</ol>
+<p>For issues and questions, visit our <a class="reference external" href="https://github.com/DiG-AIR/geomfum">GitHub repository</a> or join our <a class="reference external" href="https://discord.gg/6sYmEbUp">Discord server</a>.</p>
+</section>
 </section>
 
 
@@ -406,7 +752,7 @@ pip<span class="w"> </span>install<span class="w"> </span>.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">GeomFuM Documentation</p>
+        <p class="prev-next-title">Welcome to GeomFuM</p>
       </div>
     </a>
     <a class="right-next"
@@ -428,6 +774,72 @@ pip<span class="w"> </span>install<span class="w"> </span>.
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-installation">Quick Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-dependencies">Required Dependencies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-dependencies">Optional Dependencies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian-computation">Laplacian Computation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-computation">Metric Computation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-tools">Sampling Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rematching-algorithm">Rematching Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinkhorn-filtering">Sinkhorn Filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-and-development">Testing and Development</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-installation">Complete Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backend-configuration">Backend Configuration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-backend-default">NumPy Backend (Default)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-backend">PyTorch Backend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-current-backend">Check Current Backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-installation-issues">Common Installation Issues</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-dependencies">C++ Dependencies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyrmt-installation">PyRMT Installation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-issues">Memory Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-optimization">Performance Optimization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-acceleration">GPU Acceleration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">Verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/DiG-AIR/geomfum/edit/main/docs/installation.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

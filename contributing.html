@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing &#8212; GeomFuM 0.1.0 documentation</title>
+    <title>Contributing to GeomFuM &#8212; GeomFuM 0.1.0 documentation</title>
   
   
   
@@ -31,7 +31,9 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,17 +44,19 @@
     <script src="_static/documentation_options.js?v=01f34227"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contributing';</script>
     <link rel="canonical" href="geomfum.github.io/contributing.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api/index.html" />
-    <link rel="prev" title="Concepts" href="concepts/index.html" />
+    <link rel="prev" title="geomfum.wrap package" href="api/geomfum.wrap.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 3:26:35 PM"/>
+    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
   </head>
   
   
@@ -150,15 +154,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Contributing
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts/shape_analysis.html">
+    Shape Analysis
   </a>
 </li>
 
@@ -171,8 +175,29 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="notebooks/index.html">
+    Notebook Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="api/index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -198,13 +223,33 @@
         </div>
       
       
-        <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -274,22 +319,43 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="concepts/index.html">
-    Concepts
+  <a class="nav-link nav-internal" href="concepts/functional_maps.html">
+    Functional Maps
   </a>
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Contributing
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts/shape_analysis.html">
+    Shape Analysis
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts/correspondence.html">
+    Shape Correspondence
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="notebooks/index.html">
+    Notebook Tutorials
   </a>
 </li>
 
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="api/index.html">
-    API Reference
+    GeomFuM API Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Contributing to GeomFuM
   </a>
 </li>
 
@@ -303,13 +369,33 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -359,7 +445,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributing</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributing to GeomFuM</span></li>
   </ul>
 </nav>
 </div>
@@ -376,15 +462,421 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h1>
-<p>We welcome contributions from the community!</p>
+  <section id="contributing-to-geomfum">
+<h1>Contributing to GeomFuM<a class="headerlink" href="#contributing-to-geomfum" title="Link to this heading">#</a></h1>
+<p>We welcome contributions from the community! This guide will help you get started with contributing to GeomFuM.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<section id="development-setup">
+<h3>Development Setup<a class="headerlink" href="#development-setup" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Fork the repository</strong>:
+Visit <cite>https://github.com/DiG-AIR/geomfum</cite> and click “Fork”</p></li>
+<li><p><strong>Clone your fork</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git clone <a class="github reference external" href="https://github.com/YOUR_USERNAME/geomfum.git">YOUR_USERNAME/geomfum.git</a>
+cd geomfum</p>
+</div></blockquote>
+</li>
+<li><p><strong>Install in development mode</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pip install -e “.[test,test-scripts,plotting-all]”</p>
+</div></blockquote>
+</li>
+<li><p><strong>Set up pre-commit hooks</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pip install pre-commit
+pre-commit install</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="development-environment">
+<h3>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
+<p>We recommend using a virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>geomfum_env
+<span class="nb">source</span><span class="w"> </span>geomfum_env/bin/activate<span class="w">  </span><span class="c1"># On Windows: geomfum_env\Scripts\activate</span>
+
+<span class="c1"># Install development dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[test,test-scripts,plotting-all]&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="Link to this heading">#</a></h2>
+<p>We follow PEP 8 and use several tools to maintain code quality:</p>
+<section id="formatting">
+<h3>Formatting<a class="headerlink" href="#formatting" title="Link to this heading">#</a></h3>
+<p>We use <cite>ruff</cite> for code formatting and linting:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format code</span>
+ruff<span class="w"> </span>format<span class="w"> </span>.
+
+<span class="c1"># Check for issues</span>
+ruff<span class="w"> </span>check<span class="w"> </span>.
+
+<span class="c1"># Fix issues automatically</span>
+ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="type-hints">
+<h3>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading">#</a></h3>
+<p>We use type hints throughout the codebase:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_functional_map</span><span class="p">(</span>
+    <span class="n">mesh1</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span>
+    <span class="n">mesh2</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span>
+    <span class="n">descriptors1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">descriptors2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute functional map between two shapes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mesh1: First mesh</span>
+<span class="sd">        mesh2: Second mesh</span>
+<span class="sd">        descriptors1: Descriptors for first mesh</span>
+<span class="sd">        descriptors2: Descriptors for second mesh</span>
+<span class="sd">        k: Number of eigenfunctions to use</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Functional map matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Implementation here</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
+<p>We use NumPy docstring format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">laplacian_spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute Laplace-Beltrami eigenfunctions and eigenvalues.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mesh : Mesh</span>
+<span class="sd">        Input mesh</span>
+<span class="sd">    k : int, optional</span>
+<span class="sd">        Number of eigenfunctions to compute, by default 50</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    eigenfunctions : np.ndarray</span>
+<span class="sd">        Eigenfunctions matrix of shape (n_vertices, k)</span>
+<span class="sd">    eigenvalues : np.ndarray</span>
+<span class="sd">        Eigenvalues array of length k</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The eigenfunctions are computed using the cotangent Laplacian.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
+<section id="running-tests">
+<h3>Running Tests<a class="headerlink" href="#running-tests" title="Link to this heading">#</a></h3>
+<p>Run the test suite:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run all tests</span>
+pytest
+
+<span class="c1"># Run specific test file</span>
+pytest<span class="w"> </span>tests/test_functional_map.py
+
+<span class="c1"># Run with coverage</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>geomfum
+
+<span class="c1"># Run specific test categories</span>
+pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;smoke&quot;</span><span class="w">  </span><span class="c1"># Simple tests</span>
+pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;random&quot;</span><span class="w">  </span><span class="c1"># Randomized tests</span>
+pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;validation&quot;</span><span class="w">  </span><span class="c1"># Validation tests</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-tests">
+<h3>Writing Tests<a class="headerlink" href="#writing-tests" title="Link to this heading">#</a></h3>
+<p>Follow these guidelines for writing tests:</p>
+<ol class="arabic">
+<li><p><strong>Test structure</strong>:
+.. code-block:: python</p>
+<blockquote>
+<div><dl>
+<dt>def test_functional_map_basic():</dt><dd><p>“””Test basic functional map computation.”””
+# Arrange
+mesh1 = create_test_mesh()
+mesh2 = create_test_mesh()
+descriptors1 = np.random.rand(100, 3)
+descriptors2 = np.random.rand(100, 3)</p>
+<p># Act
+result = gfm.functional_map(mesh1, mesh2, descriptors1, descriptors2)</p>
+<p># Assert
+assert result.shape == (50, 50)
+assert np.all(np.isfinite(result))</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p><strong>Test categories</strong>:
+- <cite>&#64;pytest.mark.smoke</cite>: Simple and basic numerical tests
+- <cite>&#64;pytest.mark.random</cite>: Tests that use randomized data
+- <cite>&#64;pytest.mark.validation</cite>: Not smoke, neither random
+- <cite>&#64;pytest.mark.slow</cite>: For slow tests</p></li>
+<li><p><strong>Fixtures</strong>:
+.. code-block:: python</p>
+<blockquote>
+<div><p>&#64;pytest.fixture
+def sample_mesh():</p>
+<blockquote>
+<div><p>“””Create a sample mesh for testing.”””
+vertices = np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0]])
+faces = np.array([[0, 1, 2]])
+return gfm.shape.Mesh(vertices, faces)</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="id1">
+<h2>Documentation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="building-documentation">
+<h3>Building Documentation<a class="headerlink" href="#building-documentation" title="Link to this heading">#</a></h3>
+<p>Build the documentation locally:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install documentation dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docs/requirements.txt
+
+<span class="c1"># Build documentation</span>
+<span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
+
+<span class="c1"># View documentation</span>
+open<span class="w"> </span>_build/html/index.html
+</pre></div>
+</div>
+</section>
+<section id="writing-documentation">
+<h3>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>API Documentation</strong>: Add docstrings to all public functions</p></li>
+<li><p><strong>Tutorials</strong>: Create Jupyter notebooks in <cite>notebooks/</cite></p></li>
+<li><p><strong>Concept Documentation</strong>: Add theoretical explanations in <cite>docs/concepts/</cite></p></li>
+</ol>
+<p>Example docstring:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">zoomout_refinement</span><span class="p">(</span>
+    <span class="n">functional_map</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">mesh1</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span>
+    <span class="n">mesh2</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span>
+    <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply ZoomOut refinement to functional map.</span>
+
+<span class="sd">    ZoomOut is a spectral upsampling technique that improves</span>
+<span class="sd">    correspondence quality by iteratively refining the functional map.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    functional_map : np.ndarray</span>
+<span class="sd">        Input functional map matrix</span>
+<span class="sd">    mesh1 : Mesh</span>
+<span class="sd">        First mesh</span>
+<span class="sd">    mesh2 : Mesh</span>
+<span class="sd">        Second mesh</span>
+<span class="sd">    iterations : int, optional</span>
+<span class="sd">        Number of refinement iterations, by default 5</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Refined functional map</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Melzi, S., et al. &quot;ZoomOut: Spectral Upsampling for Efficient</span>
+<span class="sd">           Shape Correspondence.&quot; ACM TOG 38.6 (2019): 155.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pull-request-process">
+<h2>Pull Request Process<a class="headerlink" href="#pull-request-process" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Create a feature branch</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git checkout -b feature/your-feature-name</p>
+</div></blockquote>
+</li>
+<li><p><strong>Make your changes</strong>:
+- Write code following our style guidelines
+- Add tests for new functionality
+- Update documentation
+- Update CHANGELOG.md if needed</p></li>
+<li><p><strong>Run tests and checks</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p># Run tests
+pytest</p>
+<p># Check code style
+ruff check .</p>
+<p># Build documentation
+cd docs &amp;&amp; make html</p>
+</div></blockquote>
+</li>
+<li><p><strong>Commit your changes</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git add .
+git commit -m “Add feature: brief description”</p>
+<p># Use conventional commit format:
+# feat: add new functional map refinement
+# fix: resolve memory leak in laplacian computation
+# docs: update installation instructions</p>
+</div></blockquote>
+</li>
+<li><p><strong>Push and create PR</strong>:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git push origin feature/your-feature-name</p>
+</div></blockquote>
+</li>
+<li><p><strong>Create Pull Request</strong>:
+- Use the PR template
+- Describe your changes clearly
+- Link related issues
+- Request reviews from maintainers</p></li>
+</ol>
+</section>
+<section id="code-review">
+<h2>Code Review<a class="headerlink" href="#code-review" title="Link to this heading">#</a></h2>
+<section id="review-process">
+<h3>Review Process<a class="headerlink" href="#review-process" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Automated checks</strong> must pass:
+- Tests
+- Code style
+- Documentation build
+- Type checking</p></li>
+<li><p><strong>Manual review</strong> by maintainers:
+- Code quality
+- Algorithm correctness
+- Performance considerations
+- Documentation quality</p></li>
+<li><p><strong>Address feedback</strong>:
+- Respond to review comments
+- Make requested changes
+- Re-request review when ready</p></li>
+</ol>
+</section>
+<section id="review-guidelines">
+<h3>Review Guidelines<a class="headerlink" href="#review-guidelines" title="Link to this heading">#</a></h3>
+<p>When reviewing code:</p>
+<ol class="arabic simple">
+<li><p><strong>Check correctness</strong>: Is the algorithm implemented correctly?</p></li>
+<li><p><strong>Check performance</strong>: Are there performance issues?</p></li>
+<li><p><strong>Check style</strong>: Does the code follow our conventions?</p></li>
+<li><p><strong>Check documentation</strong>: Is the documentation clear and complete?</p></li>
+<li><p><strong>Check tests</strong>: Are there adequate tests?</p></li>
+</ol>
+</section>
+</section>
+<section id="areas-for-contribution">
+<h2>Areas for Contribution<a class="headerlink" href="#areas-for-contribution" title="Link to this heading">#</a></h2>
+<p>We welcome contributions in these areas:</p>
+<section id="algorithms">
+<h3>Algorithms<a class="headerlink" href="#algorithms" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Open an issue</p></li>
-<li><p>Submit a pull request</p></li>
-<li><p>Improve or add new examples/notebooks</p></li>
+<li><p>New functional map algorithms</p></li>
+<li><p>Improved refinement techniques</p></li>
+<li><p>Novel shape descriptors</p></li>
+<li><p>Deep learning approaches</p></li>
 </ul>
-<p>Please follow our contribution guidelines (coming soon).</p>
+</section>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>GPU acceleration</p></li>
+<li><p>Parallel processing</p></li>
+<li><p>Memory optimization</p></li>
+<li><p>Sparse matrix operations</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Documentation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Tutorials and examples</p></li>
+<li><p>API documentation</p></li>
+<li><p>Theoretical explanations</p></li>
+<li><p>Performance benchmarks</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Testing<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Unit tests</p></li>
+<li><p>Integration tests</p></li>
+<li><p>Performance tests</p></li>
+<li><p>Documentation tests</p></li>
+</ul>
+</section>
+<section id="tools-and-utilities">
+<h3>Tools and Utilities<a class="headerlink" href="#tools-and-utilities" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Visualization tools</p></li>
+<li><p>Data processing utilities</p></li>
+<li><p>Evaluation metrics</p></li>
+<li><p>Benchmarking tools</p></li>
+</ul>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>If you need help:</p>
+<ol class="arabic simple">
+<li><p><strong>Check existing issues</strong>: Search for similar problems</p></li>
+<li><p><strong>Join Discord</strong>: <cite>https://discord.gg/6sYmEbUp</cite></p></li>
+<li><p><strong>Create an issue</strong>: For bugs or feature requests</p></li>
+<li><p><strong>Ask questions</strong>: In GitHub Discussions</p></li>
+</ol>
+</section>
+<section id="community-guidelines">
+<h2>Community Guidelines<a class="headerlink" href="#community-guidelines" title="Link to this heading">#</a></h2>
+<p>We are committed to providing a welcoming and inclusive environment:</p>
+<ol class="arabic simple">
+<li><p><strong>Be respectful</strong>: Treat everyone with respect</p></li>
+<li><p><strong>Be helpful</strong>: Help others learn and contribute</p></li>
+<li><p><strong>Be patient</strong>: Everyone learns at their own pace</p></li>
+<li><p><strong>Be constructive</strong>: Provide constructive feedback</p></li>
+</ol>
+<section id="code-of-conduct">
+<h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">#</a></h3>
+<p>We follow the Contributor Covenant Code of Conduct. Please read it at:
+<cite>https://www.contributor-covenant.org/version/2/0/code_of_conduct.html</cite></p>
+</section>
+</section>
+<section id="recognition">
+<h2>Recognition<a class="headerlink" href="#recognition" title="Link to this heading">#</a></h2>
+<p>Contributors are recognized in:</p>
+<ol class="arabic simple">
+<li><p><strong>GitHub contributors list</strong></p></li>
+<li><p><strong>Documentation acknowledgments</strong></p></li>
+<li><p><strong>Release notes</strong></p></li>
+<li><p><strong>Academic citations</strong> (for significant contributions)</p></li>
+</ol>
+<p>Thank you for contributing to GeomFuM! 🎉</p>
+</section>
 </section>
 
 
@@ -398,22 +890,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="concepts/index.html"
+       href="api/geomfum.wrap.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Concepts</p>
+        <p class="prev-next-title">geomfum.wrap package</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="api/index.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Reference</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -425,6 +908,74 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-setup">Development Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environment">Development Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting">Formatting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type Hints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests">Running Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-tests">Writing Tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-documentation">Building Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-documentation">Writing Documentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-process">Pull Request Process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-review">Code Review</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-process">Review Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-guidelines">Review Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areas-for-contribution">Areas for Contribution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-utilities">Tools and Utilities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-guidelines">Community Guidelines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recognition">Recognition</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/DiG-AIR/geomfum/edit/main/docs/contributing.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
