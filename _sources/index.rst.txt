@@ -1,4 +1,4 @@
-.. image:: GeomFuMlogo.png
+.. image:: ../GeomFuMlogo_only.png
    :width: 800
    :alt: GeomFuM logo
 
