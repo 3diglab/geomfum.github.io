@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 8:15:08 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 9:11:00 AM"/>
   </head>
   
   
@@ -155,7 +155,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -169,7 +169,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -299,7 +299,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -313,7 +313,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -457,7 +457,7 @@
 {</p>
 <blockquote>
 <div><p>“cell_type”: “code”,
-“execution_count”: null,
+“execution_count”: 1,
 “metadata”: {},
 “outputs”: [],
 “source”: [</p>
@@ -494,8 +494,8 @@
 “output_type”: “stream”,
 “text”: [</p>
 <blockquote>
-<div><p>“INFO: Data has already been downloaded… using cached file (‘C:\Users\giuli\.geomfum\data\cat-00.off’).n”,
-“INFO: Data has already been downloaded… using cached file (‘C:\Users\giuli\.geomfum\data\lion-00.off’).n”</p>
+<div><p>“INFO: Data has already been downloaded… using cached file (‘/home/ubuntu/.geomfum/data/cat-00.off’).n”,
+“INFO: Data has already been downloaded… using cached file (‘/home/ubuntu/.geomfum/data/lion-00.off’).n”</p>
 </div></blockquote>
 <p>]</p>
 </dd>
@@ -550,20 +550,7 @@
 “outputs”: [</p>
 <blockquote>
 <div><dl>
-<dt>{</dt><dd><p>“name”: “stderr”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\wrap\pyrmt.py:69: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:209.)n”,
-“  return TriangleMesh(gs.asarray(rlow.vertices), gs.asarray(rlow.triangles))n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
+<dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
 <dt>“text/plain”: [</dt><dd><p>“((1004, 2004), (1021, 2038))”</p>
 </dd>
@@ -575,7 +562,8 @@
 “execution_count”: 3,
 “metadata”: {},
 “output_type”: “execute_result”</p>
-</div></blockquote>
+</dd>
+</dl>
 <p>}</p>
 </div></blockquote>
 <p>],
@@ -608,22 +596,7 @@
 <div><p>“cell_type”: “code”,
 “execution_count”: 4,
 “metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stderr”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\_backend\pytorch\sparse.py:22: UserWarning: Sparse CSC tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to <a class="github reference external" href="https://github.com/pytorch/pytorch/issues">pytorch/pytorch#issues</a>. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)n”,
-“  return _torch.sparse_csc_tensor(ccol_indices, row_indices, values, size=array.shape)n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
+“outputs”: [],
 “source”: [</p>
 <blockquote>
 <div><p>“hmesh_a.low.laplacian.find_spectrum(spectrum_size=10, set_as_basis=True)n”,
@@ -656,7 +629,7 @@
 <div><dl>
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(torch.Size([7207, 10]), torch.Size([5000, 10]))”</p>
+<dt>“text/plain”: [</dt><dd><p>“((7207, 10), (5000, 10))”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -705,7 +678,7 @@
 <div><dl>
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“torch.Size([5, 6])”</p>
+<dt>“text/plain”: [</dt><dd><p>“(5, 6)”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -755,7 +728,7 @@
 <div><dl>
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“torch.Size([7, 10])”</p>
+<dt>“text/plain”: [</dt><dd><p>“(7, 10)”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -781,44 +754,6 @@
 “)n”,
 “n”,
 “upsampled_fmap_matrix.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 8,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“tensor([[-1.7216,  1.6309, -1.0569,  …,  2.6765, -1.0474, -0.7150],n”,
-“        [-1.7216,  1.7008, -0.8650,  …,  2.8492, -1.4360, -0.5147],n”,
-“        [-1.7216,  1.6956, -0.8413,  …,  2.8793, -1.4352, -0.8264],n”,
-“        …,n”,
-“        [-1.7216,  5.0574,  6.8286,  …, -3.7746,  6.3645, -0.2106],n”,
-“        [-1.7216,  5.0638,  6.8446,  …, -3.8109,  6.4590, -0.2137],n”,
-“        [-1.7216,  1.6375, -1.0054,  …,  2.7148, -1.1002, -1.0103]])”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 8,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“hmesh_a.high.basis.vecs”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -855,7 +790,7 @@
 “metadata”: {</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “VENV”,
+<dt>“kernelspec”: {</dt><dd><p>“display_name”: “venv”,
 “language”: “python”,
 “name”: “python3”</p>
 </dd>
@@ -874,7 +809,7 @@
 “name”: “python”,
 “nbconvert_exporter”: “python”,
 “pygments_lexer”: “ipython3”,
-“version”: “3.11.8”</p>
+“version”: “3.12.3”</p>
 </div></blockquote>
 <p>},
 “requires”: [</p>

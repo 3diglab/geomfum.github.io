@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing to GeomFuM &#8212; GeomFuM 0.1.0 documentation</title>
+    <title>Contributing &#8212; GeomFuM 0.1.0 documentation</title>
   
   
   
@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 8:15:08 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 9:11:00 AM"/>
   </head>
   
   
@@ -155,7 +155,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -169,7 +169,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -299,7 +299,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -313,7 +313,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -410,7 +410,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributing to GeomFuM</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributing</span></li>
   </ul>
 </nav>
 </div>
@@ -427,8 +427,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="contributing-to-geomfum">
-<h1>Contributing to GeomFuM<a class="headerlink" href="#contributing-to-geomfum" title="Link to this heading">#</a></h1>
+  <section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h1>
 <p>We welcome contributions from the community! This guide will help you get started with contributing to GeomFuM.</p>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
@@ -440,7 +440,7 @@ Visit <cite>https://github.com/DiG-AIR/geomfum</cite> and click “Fork”</p></
 <li><p><strong>Clone your fork</strong>:
 .. code-block:: bash</p>
 <blockquote>
-<div><p>git clone <a class="github reference external" href="https://github.com/YOUR_USERNAME/geomfum.git">YOUR_USERNAME/geomfum.git</a>
+<div><p>git clone <a class="github reference external" href="https://github.com">github</a>/&lt;your-username&gt;/geomfum.git
 cd geomfum</p>
 </div></blockquote>
 </li>
@@ -489,40 +489,10 @@ ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> <
 </pre></div>
 </div>
 </section>
-<section id="type-hints">
-<h3>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading">#</a></h3>
-<p>We use type hints throughout the codebase:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">compute_functional_map</span><span class="p">(</span>
-    <span class="n">mesh1</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span>
-    <span class="n">mesh2</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span>
-    <span class="n">descriptors1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">descriptors2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute functional map between two shapes.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        mesh1: First mesh</span>
-<span class="sd">        mesh2: Second mesh</span>
-<span class="sd">        descriptors1: Descriptors for first mesh</span>
-<span class="sd">        descriptors2: Descriptors for second mesh</span>
-<span class="sd">        k: Number of eigenfunctions to use</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Functional map matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Implementation here</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
-</section>
 <section id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
 <p>We use NumPy docstring format:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">laplacian_spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">laplacian_spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute Laplace-Beltrami eigenfunctions and eigenvalues.</span>
 
 <span class="sd">    Parameters</span>
@@ -550,25 +520,14 @@ ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> <
 </section>
 <section id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
-<section id="running-tests">
-<h3>Running Tests<a class="headerlink" href="#running-tests" title="Link to this heading">#</a></h3>
-<p>Run the test suite:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run all tests</span>
-pytest
-
-<span class="c1"># Run specific test file</span>
-pytest<span class="w"> </span>tests/test_functional_map.py
-
-<span class="c1"># Run with coverage</span>
-pytest<span class="w"> </span>--cov<span class="o">=</span>geomfum
-
-<span class="c1"># Run specific test categories</span>
-pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;smoke&quot;</span><span class="w">  </span><span class="c1"># Simple tests</span>
-pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;random&quot;</span><span class="w">  </span><span class="c1"># Randomized tests</span>
-pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;validation&quot;</span><span class="w">  </span><span class="c1"># Validation tests</span>
-</pre></div>
-</div>
-</section>
+<p>Run the test suite:
+.. code-block:: bash</p>
+<blockquote>
+<div><p># Run all tests
+pytest</p>
+<p># Run specific test file
+pytest tests/test_laplacian.py</p>
+</div></blockquote>
 <section id="writing-tests">
 <h3>Writing Tests<a class="headerlink" href="#writing-tests" title="Link to this heading">#</a></h3>
 <p>Follow these guidelines for writing tests:</p>
@@ -592,11 +551,6 @@ assert np.all(np.isfinite(result))</p>
 </dl>
 </div></blockquote>
 </li>
-<li><p><strong>Test categories</strong>:
-- <cite>&#64;pytest.mark.smoke</cite>: Simple and basic numerical tests
-- <cite>&#64;pytest.mark.random</cite>: Tests that use randomized data
-- <cite>&#64;pytest.mark.validation</cite>: Not smoke, neither random
-- <cite>&#64;pytest.mark.slow</cite>: For slow tests</p></li>
 <li><p><strong>Fixtures</strong>:
 .. code-block:: python</p>
 <blockquote>
@@ -615,21 +569,9 @@ return gfm.shape.Mesh(vertices, faces)</p>
 </section>
 <section id="id1">
 <h2>Documentation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<section id="building-documentation">
-<h3>Building Documentation<a class="headerlink" href="#building-documentation" title="Link to this heading">#</a></h3>
-<p>Build the documentation locally:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install documentation dependencies</span>
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docs/requirements.txt
-
-<span class="c1"># Build documentation</span>
-<span class="nb">cd</span><span class="w"> </span>docs
-make<span class="w"> </span>html
-
-<span class="c1"># View documentation</span>
-open<span class="w"> </span>_build/html/index.html
-</pre></div>
-</div>
-</section>
+<p>The documentation is written in <cite>rst</cite> format and is located in the <cite>docs/</cite> directory.
+The documentation is built using <cite>sphinx</cite> and is located in <cite>https://DiG-AIR.github.io/geomfum.github.io/</cite> directory.
+The documentation is viewable in a web browser.</p>
 <section id="writing-documentation">
 <h3>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
@@ -898,17 +840,14 @@ git commit -m “Add feature: brief description”</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting">Formatting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type Hints</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests">Running Tests</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-tests">Writing Tests</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Documentation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-documentation">Building Documentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-documentation">Writing Documentation</a></li>
 </ul>
 </li>

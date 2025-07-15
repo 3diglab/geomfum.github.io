@@ -52,12 +52,12 @@
     <link rel="canonical" href="geomfum.github.io/usage.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Core Concepts" href="concepts/index.html" />
+    <link rel="next" title="Concepts" href="concepts/index.html" />
     <link rel="prev" title="Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 8:15:08 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 9:11:00 AM"/>
   </head>
   
   
@@ -155,7 +155,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -169,7 +169,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -299,7 +299,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -313,7 +313,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -434,9 +434,9 @@
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
 <p>The best way to learn GeomFuM is through our interactive notebook tutorials. Start with:</p>
 <ul class="simple">
-<li><p><strong>Loading Meshes</strong> - <a class="reference internal" href="notebooks/how_to/00_load_mesh_from_file.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
-<li><p><strong>Laplace-Beltrami Operator</strong> - <a class="reference internal" href="notebooks/how_to/01_mesh_laplacian.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
-<li><p><strong>Functional Maps</strong> - <a class="reference internal" href="notebooks/how_to/07_functional_map.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+<li><p><strong>Loading Meshes</strong> - <span class="xref std std-doc">notebooks/how_to/00_load_mesh_from_file.ipynb</span></p></li>
+<li><p><strong>Laplace-Beltrami Operator</strong> - <span class="xref std std-doc">notebooks/how_to/01_mesh_laplacian.ipynb</span></p></li>
+<li><p><strong>Functional Maps</strong> - <span class="xref std std-doc">notebooks/how_to/07_functional_map.ipynb</span></p></li>
 </ul>
 </section>
 <section id="basic-usage-examples">
@@ -444,9 +444,9 @@
 <p>Here are some key code snippets from our tutorials:</p>
 <section id="loading-and-working-with-meshes">
 <h3>Loading and Working with Meshes<a class="headerlink" href="#loading-and-working-with-meshes" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/00_load_mesh_from_file.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
+<p>From <span class="xref std std-doc">notebooks/how_to/00_load_mesh_from_file.ipynb</span>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span><span class="p">,</span> <span class="n">PointCloud</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
 
 <span class="c1"># Load a mesh</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">NotebooksDataset</span><span class="p">()</span>
@@ -458,13 +458,13 @@
 </section>
 <section id="computing-laplace-beltrami-spectrum">
 <h3>Computing Laplace-Beltrami Spectrum<a class="headerlink" href="#computing-laplace-beltrami-spectrum" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/02_mesh_laplacian_spectrum.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
+<p>From <span class="xref std std-doc">notebooks/how_to/02_mesh_laplacian_spectrum.ipynb</span>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute eigenfunctions and eigenvalues</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Access the basis</span>
-<span class="n">eigenfunctions</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">eigenfunctions</span>
-<span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">eigenvalues</span>
+<span class="n">eigenfunctions</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">vecs</span>
+<span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">vals</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span><span class="si">}</span><span class="s2"> eigenfunctions&quot;</span><span class="p">)</span>
 </pre></div>
@@ -472,44 +472,28 @@
 </section>
 <section id="computing-shape-descriptors">
 <h3>Computing Shape Descriptors<a class="headerlink" href="#computing-shape-descriptors" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/03_descriptors.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
+<p>From <span class="xref std std-doc">notebooks/how_to/03_descriptors.ipynb</span>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span><span class="p">,</span> <span class="n">WaveKernelSignature</span>
 
 <span class="c1"># Heat Kernel Signature</span>
-<span class="n">hks</span> <span class="o">=</span> <span class="n">HeatKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">hks_descriptors</span> <span class="o">=</span> <span class="n">hks</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">hks</span> <span class="o">=</span> <span class="n">HeatKernelSignature</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">hks_descriptors</span> <span class="o">=</span> <span class="n">hks</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
 
 <span class="c1"># Wave Kernel Signature</span>
-<span class="n">wks</span> <span class="o">=</span> <span class="n">WaveKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">wks_descriptors</span> <span class="o">=</span> <span class="n">wks</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">wks</span> <span class="o">=</span> <span class="n">WaveKernelSignature</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">wks_descriptors</span> <span class="o">=</span> <span class="n">wks</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="creating-descriptor-pipelines">
 <h3>Creating Descriptor Pipelines<a class="headerlink" href="#creating-descriptor-pipelines" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/04_descriptor_pipeline.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">DescriptorPipeline</span><span class="p">,</span> <span class="n">ArangeSubsampler</span><span class="p">,</span> <span class="n">L2InnerNormalizer</span>
-
-<span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">HeatKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-    <span class="n">ArangeSubsampler</span><span class="p">(</span><span class="n">subsample_step</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">WaveKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
-    <span class="n">L2InnerNormalizer</span><span class="p">(),</span>
-<span class="p">]</span>
-
-<span class="n">pipeline</span> <span class="o">=</span> <span class="n">DescriptorPipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
-<span class="n">descriptors</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>From <span class="xref std std-doc">notebooks/how_to/04_descriptor_pipeline.ipynb</span>:</p>
 </section>
 </section>
 <section id="computing-functional-maps">
 <h2>Computing Functional Maps<a class="headerlink" href="#computing-functional-maps" title="Link to this heading">#</a></h2>
-<p>From <a class="reference internal" href="notebooks/how_to/07_functional_map.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.functional_map</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">FactorSum</span><span class="p">,</span> <span class="n">LBCommutativityEnforcing</span><span class="p">,</span>
-    <span class="n">SpectralDescriptorPreservation</span><span class="p">,</span> <span class="n">OperatorCommutativityEnforcing</span>
-<span class="p">)</span>
+<p>From <span class="xref std std-doc">notebooks/how_to/07_functional_map.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.functional_map</span><span class="w"> </span><span class="kn">import</span> <span class="n">FactorSum</span><span class="p">,</span> <span class="n">LBCommutativityEnforcing</span><span class="p">,</span> <span class="n">SpectralDescriptorPreservation</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.numerics.optimization</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScipyMinimize</span>
 
 <span class="c1"># Set up basis for both meshes</span>
@@ -544,9 +528,11 @@
 </section>
 <section id="converting-to-pointwise-correspondences">
 <h2>Converting to Pointwise Correspondences<a class="headerlink" href="#converting-to-pointwise-correspondences" title="Link to this heading">#</a></h2>
-<p>From <a class="reference internal" href="notebooks/how_to/10_pointwise_from_functional.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert functional map to pointwise correspondences</span>
-<span class="n">correspondences</span> <span class="o">=</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">pointwise_from_functional</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
+<p>From <span class="xref std std-doc">notebooks/how_to/10_pointwise_from_functional.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">P2pFromFmConverter</span>
+
+<span class="n">converter</span> <span class="o">=</span> <span class="n">P2pFromFmConverter</span><span class="p">()</span>
+<span class="n">correspondences</span> <span class="o">=</span> <span class="n">converter</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">correspondences</span><span class="p">)</span><span class="si">}</span><span class="s2"> correspondences&quot;</span><span class="p">)</span>
 </pre></div>
@@ -554,90 +540,57 @@
 </section>
 <section id="refining-functional-maps">
 <h2>Refining Functional Maps<a class="headerlink" href="#refining-functional-maps" title="Link to this heading">#</a></h2>
-<p>From <a class="reference internal" href="notebooks/how_to/15_refine_functional_map.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.refine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoomOut</span>
+<p>From <span class="xref std std-doc">notebooks/how_to/15_refine_functional_map.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.refine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoomOutRefiner</span>
 
 <span class="c1"># Apply ZoomOut refinement</span>
-<span class="n">zoomout</span> <span class="o">=</span> <span class="n">ZoomOut</span><span class="p">()</span>
-<span class="n">refined_fmap</span> <span class="o">=</span> <span class="n">zoomout</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
+<span class="n">zoomout</span> <span class="o">=</span> <span class="n">ZoomOutRefiner</span><span class="p">()</span>
+<span class="n">refined_fmap</span> <span class="o">=</span> <span class="n">zoomout</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
 
 <span class="c1"># Convert refined map to correspondences</span>
-<span class="n">refined_correspondences</span> <span class="o">=</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">pointwise_from_functional</span><span class="p">(</span><span class="n">refined_fmap</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
+<span class="n">refined_correspondences</span> <span class="o">=</span> <span class="n">converter</span><span class="p">(</span><span class="n">refined_fmap</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="advanced-techniques">
 <h2>Advanced Techniques<a class="headerlink" href="#advanced-techniques" title="Link to this heading">#</a></h2>
-<section id="landmark-based-functional-maps">
-<h3>Landmark-Based Functional Maps<a class="headerlink" href="#landmark-based-functional-maps" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/06_landmarks.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define landmark correspondences</span>
-<span class="n">landmarks_a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>  <span class="c1"># Vertex indices on mesh_a</span>
-<span class="n">landmarks_b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>  <span class="c1"># Corresponding vertices on mesh_b</span>
-
-<span class="c1"># Create landmark-based functional map</span>
-<span class="n">landmark_fmap</span> <span class="o">=</span> <span class="n">create_landmark_functional_map</span><span class="p">(</span>
-    <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">,</span> <span class="n">landmarks_a</span><span class="p">,</span> <span class="n">landmarks_b</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="hierarchical-meshes">
-<h3>Hierarchical Meshes<a class="headerlink" href="#hierarchical-meshes" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/11_hierarchical_mesh.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">HierarchicalMesh</span>
-
-<span class="c1"># Create hierarchical mesh</span>
-<span class="n">hierarchical_mesh</span> <span class="o">=</span> <span class="n">HierarchicalMesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Work with different levels</span>
-<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hierarchical_mesh</span><span class="o">.</span><span class="n">num_levels</span><span class="p">):</span>
-    <span class="n">level_mesh</span> <span class="o">=</span> <span class="n">hierarchical_mesh</span><span class="o">.</span><span class="n">get_level</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
-    <span class="c1"># Process each level...</span>
-</pre></div>
-</div>
-</section>
 <section id="rematching-algorithm">
 <h3>Rematching Algorithm<a class="headerlink" href="#rematching-algorithm" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/13_rematching.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.rematching</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rematching</span>
-
+<p>From <span class="xref std std-doc">notebooks/how_to/13_rematching.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape.hierarchical</span><span class="w"> </span><span class="kn">import</span> <span class="n">HierarchicalMesh</span>
 <span class="c1"># Apply Rematching</span>
-<span class="n">rematching</span> <span class="o">=</span> <span class="n">Rematching</span><span class="p">()</span>
-<span class="n">rematched_fmap</span> <span class="o">=</span> <span class="n">rematching</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
+<span class="n">hmesh_a</span> <span class="o">=</span> <span class="n">HierarchicalMesh</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">min_n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">hmesh_a</span><span class="o">.</span><span class="n">low</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="n">hmesh_a</span><span class="o">.</span><span class="n">low</span><span class="o">.</span><span class="n">n_faces</span>
 </pre></div>
 </div>
 </section>
-</section>
-<section id="deep-learning-integration">
-<h2>Deep Learning Integration<a class="headerlink" href="#deep-learning-integration" title="Link to this heading">#</a></h2>
 <section id="deep-functional-maps">
 <h3>Deep Functional Maps<a class="headerlink" href="#deep-functional-maps" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/14_deep_functional_maps_models.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeepFunctionalMaps</span>
+<p>From <span class="xref std std-doc">notebooks/how_to/14_deep_functional_maps_models.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.learned</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureExtractor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.forward_functional_map</span><span class="w"> </span><span class="kn">import</span> <span class="n">ForwardFunctionalMap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.learning.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">FMNet</span>
 
-<span class="c1"># Create deep functional maps model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">DeepFunctionalMaps</span><span class="p">(</span><span class="n">feature_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="n">functional_map_model</span> <span class="o">=</span> <span class="n">FMNet</span><span class="p">(</span>
+<span class="n">feature_extractor</span><span class="o">=</span><span class="n">FeatureExtractor</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;diffusionnet&quot;</span><span class="p">))</span>
 
-<span class="c1"># Extract deep features</span>
-<span class="n">features_a</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">)</span>
-<span class="n">features_b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">mesh_b</span><span class="p">)</span>
-
-<span class="c1"># Compute functional map with deep features</span>
-<span class="n">deep_fmap</span> <span class="o">=</span> <span class="n">compute_functional_map</span><span class="p">(</span><span class="n">features_a</span><span class="p">,</span> <span class="n">features_b</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">functional_map_model</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fmap12</span><span class="p">,</span> <span class="n">fmap21</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;fmap12&quot;</span><span class="p">],</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;fmap21&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="neural-adjoint-maps">
 <h3>Neural Adjoint Maps<a class="headerlink" href="#neural-adjoint-maps" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/18_neural_adjoint_maps.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeuralAdjointMap</span>
+<p>From <span class="xref std std-doc">notebooks/how_to/18_neural_adjoint_maps.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamFromP2pConverter</span>
 
-<span class="c1"># Create neural adjoint map model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">NeuralAdjointMap</span><span class="p">()</span>
+<span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">nam_converter</span> <span class="o">=</span> <span class="n">NamFromP2pConverter</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
 
-<span class="c1"># Compute correspondences</span>
-<span class="n">correspondences</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
+<span class="n">nam</span> <span class="o">=</span> <span class="n">nam_converter</span><span class="p">(</span><span class="n">p2p</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -646,53 +599,15 @@
 <h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h2>
 <section id="basic-visualization">
 <h3>Basic Visualization<a class="headerlink" href="#basic-visualization" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/16_vis_basic.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize meshes and correspondences</span>
-<span class="n">plot_mesh</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mesh A&quot;</span><span class="p">)</span>
-<span class="n">plot_mesh</span><span class="p">(</span><span class="n">mesh_b</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mesh B&quot;</span><span class="p">)</span>
-<span class="n">plot_correspondences</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+<p>From <span class="xref std std-doc">notebooks/how_to/16_vis_basic.ipynb</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">MeshPlotter</span>
+
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">MeshPlotter</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
-<section id="distance-visualization">
-<h3>Distance Visualization<a class="headerlink" href="#distance-visualization" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="notebooks/how_to/17_vis_dist.html"><span class="doc">&lt;no title&gt;</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize geodesic distances and errors</span>
-<span class="n">plot_geodesic_distances</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">distances</span><span class="p">)</span>
-<span class="n">plot_correspondence_errors</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="complete-pipeline-example">
-<h2>Complete Pipeline Example<a class="headerlink" href="#complete-pipeline-example" title="Link to this heading">#</a></h2>
-<p>Here’s a complete example combining multiple techniques:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Load meshes</span>
-<span class="n">mesh_a</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;cat-00&quot;</span><span class="p">))</span>
-<span class="n">mesh_b</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;lion-00&quot;</span><span class="p">))</span>
-
-<span class="c1"># 2. Set up basis</span>
-<span class="n">mesh_a</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">mesh_b</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># 3. Compute descriptors</span>
-<span class="n">pipeline</span> <span class="o">=</span> <span class="n">create_descriptor_pipeline</span><span class="p">()</span>
-<span class="n">descr_a</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">)</span>
-<span class="n">descr_b</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh_b</span><span class="p">)</span>
-
-<span class="c1"># 4. Compute functional map</span>
-<span class="n">fmap</span> <span class="o">=</span> <span class="n">compute_functional_map</span><span class="p">(</span><span class="n">descr_a</span><span class="p">,</span> <span class="n">descr_b</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
-
-<span class="c1"># 5. Refine</span>
-<span class="n">refined_fmap</span> <span class="o">=</span> <span class="n">ZoomOut</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">)</span>
-
-<span class="c1"># 6. Convert to correspondences</span>
-<span class="n">correspondences</span> <span class="o">=</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">pointwise_from_functional</span><span class="p">(</span><span class="n">refined_fmap</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
-
-<span class="c1"># 7. Visualize</span>
-<span class="n">plot_correspondences</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
-</pre></div>
-</div>
 </section>
 <section id="interactive-learning">
 <h2>Interactive Learning<a class="headerlink" href="#interactive-learning" title="Link to this heading">#</a></h2>
@@ -743,7 +658,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Core Concepts</p>
+        <p class="prev-next-title">Concepts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -778,22 +693,15 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-pointwise-correspondences">Converting to Pointwise Correspondences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-functional-maps">Refining Functional Maps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-techniques">Advanced Techniques</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#landmark-based-functional-maps">Landmark-Based Functional Maps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-meshes">Hierarchical Meshes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rematching-algorithm">Rematching Algorithm</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-integration">Deep Learning Integration</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-functional-maps">Deep Functional Maps</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-adjoint-maps">Neural Adjoint Maps</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-visualization">Basic Visualization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-visualization">Distance Visualization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-pipeline-example">Complete Pipeline Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-learning">Interactive Learning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 </ul>
