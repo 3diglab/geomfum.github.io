@@ -21,9 +21,12 @@ Installation
 
     pip install geomfum@git+https://github.com/DiG-AIR/geomfum.git@main
 
+
+Contents
+--------
+
 .. toctree::
    :maxdepth: 1
-   :caption: Contents
 
    installation
    usage
