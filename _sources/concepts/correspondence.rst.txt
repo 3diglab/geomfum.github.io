@@ -3,8 +3,8 @@ Shape Correspondence
 
 Shape correspondence is the problem of finding meaningful point-to-point mappings between geometric shapes. This is a fundamental task in geometry processing, computer graphics, and shape analysis.
 
-Mathematical Background
-----------------------
+Pointwise Correspondences
+-------------------------
 
 Given two shapes :math:`\mathcal{X}_1` and :math:`\mathcal{X}_2`, modeled as compact two-dimensional manifolds embedded in :math:`\mathbb{R}^3`, a pointwise correspondence is a map:
 

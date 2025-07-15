@@ -1,11 +1,8 @@
 Functional Maps
 ===============
 
-.. contents::
-   :local:
-
-Background and Notation
------------------------
+Background
+----------
 
 We model a 3D shape :math:`\mathcal{X}_1` as a compact two-dimensional manifold embedded in :math:`\mathbb{R}^3`. The space of square-integrable real-valued functions on the surface, :math:`\mathcal{L}^2(\mathcal{X}_1)`, is defined as:
 
@@ -27,8 +24,8 @@ In practice, shapes are discretized as point clouds or meshes, with :math:`n_1` 
 
 The Laplace-Beltrami operator :math:`\Delta_1` is discretized as a matrix. Its eigendecomposition yields eigenvalues :math:`\{\lambda_1^i\}` and eigenfunctions :math:`\{\phi_1^i\}` forming an orthonormal basis (LBO basis). For efficiency, we use a truncated basis :math:`\Phi_1^k = [\phi_1^1, \ldots, \phi_1^k] \in \mathbb{R}^{n_1 \times k}`.
 
-Functional Maps and Adjoint Operators
--------------------------------------
+Functional Maps
+---------------
 
 Given two shapes :math:`\mathcal{X}_1` and :math:`\mathcal{X}_2`, a pointwise correspondence :math:`T_{12}` induces a pull-back operator (the functional map):
 

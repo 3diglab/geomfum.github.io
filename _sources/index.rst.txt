@@ -31,11 +31,10 @@ Installation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Core Concepts:
+   :caption: Concepts:
 
-   concepts/functional_maps
-   concepts/shape_analysis
    concepts/correspondence
+   concepts/functional_maps
 
 .. toctree::
    :maxdepth: 2
