@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; GeomFuM 0.1.0 documentation</title>
+    <title>How to compute descriptors from Features extractors? &#8212; GeomFuM 0.1.0 documentation</title>
   
   
   
@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -48,16 +49,18 @@
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/how_to/05_descriptors_with_feat_extractors';</script>
     <link rel="canonical" href="geomfum.github.io/notebooks/how_to/05_descriptors_with_feat_extractors.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="06_landmarks.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="15_refine_functional_map.html" />
+    <link rel="next" title="How to set landmarks?" href="06_landmarks.html" />
+    <link rel="prev" title="How to refine a functional map?" href="15_refine_functional_map.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 8:15:08 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 10:07:00 AM"/>
   </head>
   
   
@@ -155,7 +158,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -169,7 +172,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -299,7 +302,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -313,7 +316,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -374,8 +377,32 @@
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started.html">Getting Started with GeomFuM</a></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_mesh_laplacian_spectrum.html">How to compute the mesh Laplacian spectrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_descriptors.html">How to compute descriptors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_functional_map.html">How to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_functional_map_forward.html">How to efficiently compute a functional map with a forward pass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_functional_from_pointwise.html">How to compute a functional map from a pointwise map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_refine_functional_map.html">How to refine a functional map?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">How to compute descriptors from Features extractors?</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_landmarks.html">How to set landmarks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampler.html">How to sample from a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_vis_basic.html">How to plot a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_vis_dist.html">How to visualize distance to a point in a mesh?</a></li>
 </ul>
 </details></li>
 </ul>
@@ -424,7 +451,7 @@
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Notebook Tutorials</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">&lt;no title&gt;</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to compute descriptors from Features extractors?</span></li>
   </ul>
 </nav>
 </div>
@@ -441,450 +468,229 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# How to compute descriptors from Features extractors?”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 1,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“from geomfum.dataset import NotebooksDatasetn”,
-“from geomfum.descriptor.learned import FeatureExtractor, LearnedDescriptorn”,
-“from geomfum.shape import TriangleMeshn”,
-“import torch”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Load a mesh](00_load_mesh_from_file.ipynb).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 2,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stderr”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“INFO: Data has already been downloaded… using cached file (‘/home/ubuntu/.geomfum/data/cat-00.off’).n”,
-“/home/ubuntu/giulio_vigano/geomfum_proj/venv/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.htmln”,
-“  from .autonotebook import tqdm as notebook_tqdmn”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“dataset = NotebooksDataset()n”,
-“mesh = TriangleMesh.from_file(dataset.get_filename(&quot;cat-00&quot;))”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Set Laplace eigenbasis](./02_mesh_laplacian_spectrum.ipynb).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 3,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“&lt;geomfum.basis.LaplaceEigenBasis at 0x79da45628080&gt;”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 3,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“mesh.laplacian.find_spectrum(spectrum_size=10, set_as_basis=True)n”,
-“n”,
-“mesh.basis”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## DiffusionNet”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 4,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(128, 7207)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 4,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“descr = LearnedDescriptor(n”,
-“    feature_extractor=FeatureExtractor.from_registry(which=&quot;diffusionnet&quot;)n”,
-“)n”,
-“with torch.no_grad():n”,
-“    hsign = descr(mesh)n”,
-“n”,
-“hsign = hsignn”,
-“n”,
-“hsign.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# PointNet”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 5,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(128, 7207)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 5,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“descr = LearnedDescriptor(n”,
-“    feature_extractor=FeatureExtractor.from_registry(which=&quot;pointnet&quot;)n”,
-“)n”,
-“with torch.no_grad():n”,
-“    hsign = descr(mesh)n”,
-“n”,
-“hsign = hsignn”,
-“n”,
-“hsign.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# Descriptors as input”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 6,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(128, 7207)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 6,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“from geomfum.descriptor.spectral import HeatKernelSignaturen”,
-“n”,
-“descr = LearnedDescriptor(n”,
-“    feature_extractor=FeatureExtractor.from_registry(n”,
-“        which=&quot;diffusionnet&quot;,n”,
-“        descriptor=HeatKernelSignature(n_domain=128),n”,
-“        in_channels=128,n”,
-“    )n”,
-“)n”,
-“with torch.no_grad():n”,
-“    hsign = descr(mesh)n”,
-“n”,
-“hsign = hsignn”,
-“n”,
-“hsign.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# Pipeline”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“We can use learned features also concatenated with other descriptors in the pipeline”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 7,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“from geomfum.descriptor.pipeline import (n”,
-“    DescriptorPipeline,n”,
-“)n”,
-“from geomfum.descriptor.spectral import HeatKernelSignaturen”,
-“from geomfum.descriptor.spectral import HeatKernelSignaturen”,
-“from geomfum.shape import TriangleMesh”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 8,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(132, 7207)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 8,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“steps = [n”,
-“    HeatKernelSignature(n_domain=4),n”,
-“    descr,n”,
-“]n”,
-“n”,
-“pipeline = DescriptorPipeline(steps)n”,
-“n”,
-“hsign = pipeline.apply(mesh)n”,
-“hsign.shapen”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# Saving and loadingn”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 9,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“descr = LearnedDescriptor()n”,
-“n”,
-“descr.feature_extractor.save(&quot;./saved_model_test.pth&quot;)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 10,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“descr2 = LearnedDescriptor()n”,
-“descr2.feature_extractor.load_from_path(&quot;./saved_model_test.pth&quot;)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Further readingn”,
-“n”,
-“* [How to compute a functional map?](./07_functional_map.ipynb)n”,
-“n”,
-“* [How to set landmarks?](./06_landmarks.ipynb)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “venv”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.12.3”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 2</p>
-</dd>
-</dl>
-<p>}</p>
+  <div class="admonition note">
+  <p>Notebook source code:
+    <a class="reference external" href="https://github.com/DiG-AIR/geomfum/main/notebooks/how_to/05_descriptors_with_feat_extractors.ipynb">notebooks/how_to/05_descriptors_with_feat_extractors.ipynb</a>
+    <br>Run it yourself on binder
+    <a href="https://mybinder.org/v2/gh/DiG-AIR/geomfum/main?filepath=notebooks/how_to/05_descriptors_with_feat_extractors.ipynb"><img alt="Binder badge"
+    src="https://mybinder.org/badge_logo.svg"
+    style="vertical-align:text-bottom"></a>
+  </p>
+</div><section id="How-to-compute-descriptors-from-Features-extractors?">
+<h1>How to compute descriptors from Features extractors?<a class="headerlink" href="#How-to-compute-descriptors-from-Features-extractors?" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.learned</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureExtractor</span><span class="p">,</span> <span class="n">LearnedDescriptor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference internal" href="00_load_mesh_from_file.html"><span class="doc">Load a mesh</span></a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">NotebooksDataset</span><span class="p">()</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;cat-00&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO: Data has already been downloaded... using cached file (&#39;/home/ubuntu/.geomfum/data/cat-00.off&#39;).
+/home/ubuntu/giulio_vigano/geomfum_proj/venv/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div></div>
+</div>
+<p><a class="reference internal" href="02_mesh_laplacian_spectrum.html"><span class="doc">Set Laplace eigenbasis</span></a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">mesh</span><span class="o">.</span><span class="n">basis</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;geomfum.basis.LaplaceEigenBasis at 0x79da45628080&gt;
+</pre></div></div>
+</div>
+<section id="DiffusionNet">
+<h2>DiffusionNet<a class="headerlink" href="#DiffusionNet" title="Link to this heading">#</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descr</span> <span class="o">=</span> <span class="n">LearnedDescriptor</span><span class="p">(</span>
+    <span class="n">feature_extractor</span><span class="o">=</span><span class="n">FeatureExtractor</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;diffusionnet&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">hsign</span> <span class="o">=</span> <span class="n">descr</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+
+<span class="n">hsign</span> <span class="o">=</span> <span class="n">hsign</span>
+
+<span class="n">hsign</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(128, 7207)
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="PointNet">
+<h1>PointNet<a class="headerlink" href="#PointNet" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descr</span> <span class="o">=</span> <span class="n">LearnedDescriptor</span><span class="p">(</span>
+    <span class="n">feature_extractor</span><span class="o">=</span><span class="n">FeatureExtractor</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;pointnet&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">hsign</span> <span class="o">=</span> <span class="n">descr</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+
+<span class="n">hsign</span> <span class="o">=</span> <span class="n">hsign</span>
+
+<span class="n">hsign</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(128, 7207)
+</pre></div></div>
+</div>
+</section>
+<section id="Descriptors-as-input">
+<h1>Descriptors as input<a class="headerlink" href="#Descriptors-as-input" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span>
+
+<span class="n">descr</span> <span class="o">=</span> <span class="n">LearnedDescriptor</span><span class="p">(</span>
+    <span class="n">feature_extractor</span><span class="o">=</span><span class="n">FeatureExtractor</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span>
+        <span class="n">which</span><span class="o">=</span><span class="s2">&quot;diffusionnet&quot;</span><span class="p">,</span>
+        <span class="n">descriptor</span><span class="o">=</span><span class="n">HeatKernelSignature</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">128</span><span class="p">),</span>
+        <span class="n">in_channels</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">hsign</span> <span class="o">=</span> <span class="n">descr</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+
+<span class="n">hsign</span> <span class="o">=</span> <span class="n">hsign</span>
+
+<span class="n">hsign</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(128, 7207)
+</pre></div></div>
+</div>
+</section>
+<section id="Pipeline">
+<h1>Pipeline<a class="headerlink" href="#Pipeline" title="Link to this heading">#</a></h1>
+<p>We can use learned features also concatenated with other descriptors in the pipeline</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DescriptorPipeline</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">HeatKernelSignature</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+    <span class="n">descr</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">DescriptorPipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+
+<span class="n">hsign</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">hsign</span><span class="o">.</span><span class="n">shape</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(132, 7207)
+</pre></div></div>
+</div>
+</section>
+<section id="Saving-and-loading">
+<h1>Saving and loading<a class="headerlink" href="#Saving-and-loading" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descr</span> <span class="o">=</span> <span class="n">LearnedDescriptor</span><span class="p">()</span>
+
+<span class="n">descr</span><span class="o">.</span><span class="n">feature_extractor</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./saved_model_test.pth&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descr2</span> <span class="o">=</span> <span class="n">LearnedDescriptor</span><span class="p">()</span>
+<span class="n">descr2</span><span class="o">.</span><span class="n">feature_extractor</span><span class="o">.</span><span class="n">load_from_path</span><span class="p">(</span><span class="s2">&quot;./saved_model_test.pth&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Further-reading">
+<h2>Further reading<a class="headerlink" href="#Further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="07_functional_map.html"><span class="doc">How to compute a functional map?</span></a></p></li>
+<li><p><a class="reference internal" href="06_landmarks.html"><span class="doc">How to set landmarks?</span></a></p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -902,7 +708,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to refine a functional map?</p>
       </div>
     </a>
     <a class="right-next"
@@ -910,7 +716,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to set landmarks?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -932,7 +738,18 @@
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to compute descriptors from Features extractors?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#DiffusionNet">DiffusionNet</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#PointNet">PointNet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Descriptors-as-input">Descriptors as input</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Pipeline">Pipeline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Saving-and-loading">Saving and loading</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Further-reading">Further reading</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

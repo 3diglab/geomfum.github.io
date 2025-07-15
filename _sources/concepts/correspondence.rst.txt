@@ -15,7 +15,7 @@ Given two shapes :math:`\mathcal{X}_1` and :math:`\mathcal{X}_2`, modeled as com
 where :math:`y = T_{12}(x)` is the corresponding point of :math:`x` on shape :math:`\mathcal{X}_2`.
 
 Discrete Representation
-----------------------
+-----------------------
 
 In practice, shapes are discretized as point clouds or meshes with :math:`n_1` and :math:`n_2` points, respectively. The correspondence can be represented as a (soft or hard) permutation matrix :math:`\Pi_{12} \in \mathbb{R}^{n_1 \times n_2}` such that:
 
@@ -31,7 +31,7 @@ This allows us to write, for example, the relationship between vertex matrices :
 where :math:`V_1 \in \mathbb{R}^{n_1 \times 3}` and :math:`V_2 \in \mathbb{R}^{n_2 \times 3}` are the matrices of 3D coordinates.
 
 Functional Representation
-------------------------
+-------------------------
 
 A pointwise correspondence induces a linear operator between function spaces (see :doc:`functional_maps`):
 

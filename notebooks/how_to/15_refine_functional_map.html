@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; GeomFuM 0.1.0 documentation</title>
+    <title>How to refine a functional map? &#8212; GeomFuM 0.1.0 documentation</title>
   
   
   
@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -48,16 +49,18 @@
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/how_to/15_refine_functional_map';</script>
     <link rel="canonical" href="geomfum.github.io/notebooks/how_to/15_refine_functional_map.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="05_descriptors_with_feat_extractors.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="10_pointwise_from_functional.html" />
+    <link rel="next" title="How to compute descriptors from Features extractors?" href="05_descriptors_with_feat_extractors.html" />
+    <link rel="prev" title="How to compute a pointwise map from a functional map?" href="10_pointwise_from_functional.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 8:15:08 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 10:07:00 AM"/>
   </head>
   
   
@@ -155,7 +158,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -169,7 +172,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -299,7 +302,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -313,7 +316,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -374,8 +377,32 @@
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started.html">Getting Started with GeomFuM</a></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_mesh_laplacian_spectrum.html">How to compute the mesh Laplacian spectrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_descriptors.html">How to compute descriptors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_functional_map.html">How to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_functional_map_forward.html">How to efficiently compute a functional map with a forward pass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_functional_from_pointwise.html">How to compute a functional map from a pointwise map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">How to refine a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_descriptors_with_feat_extractors.html">How to compute descriptors from Features extractors?</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_landmarks.html">How to set landmarks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampler.html">How to sample from a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_vis_basic.html">How to plot a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_vis_dist.html">How to visualize distance to a point in a mesh?</a></li>
 </ul>
 </details></li>
 </ul>
@@ -424,7 +451,7 @@
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Notebook Tutorials</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">&lt;no title&gt;</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to refine a functional map?</span></li>
   </ul>
 </nav>
 </div>
@@ -441,396 +468,186 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# How to refine a functional map?”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: null,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“import geomstats.backend as gsn”,
-“n”,
-“from geomfum.dataset import NotebooksDatasetn”,
-“from geomfum.refine import (n”,
-“    FastSinkhornFilters,n”,
-“    IcpRefiner,n”,
-“    ZoomOut,n”,
-“)n”,
-“from geomfum.shape import TriangleMesh”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Load meshes](00_load_mesh_from_file.ipynb).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 2,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stderr”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“INFO: Data has already been downloaded… using cached file (‘C:\Users\giuli\.geomfum\data\cat-00.off’).n”,
-“INFO: Data has already been downloaded… using cached file (‘C:\Users\giuli\.geomfum\data\lion-00.off’).n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(7207, 5000)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 2,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“dataset = NotebooksDataset()n”,
-“n”,
-“mesh_a = TriangleMesh.from_file(dataset.get_filename(&quot;cat-00&quot;))n”,
-“mesh_b = TriangleMesh.from_file(dataset.get_filename(&quot;lion-00&quot;))n”,
-“n”,
-“mesh_a.n_vertices, mesh_b.n_vertices”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Set Laplace eigenbasis](./02_mesh_laplacian_spectrum.ipynb) for each mesh.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 3,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stderr”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\_backend\pytorch\sparse.py:22: UserWarning: Sparse CSC tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to <a class="github reference external" href="https://github.com/pytorch/pytorch/issues">pytorch/pytorch#issues</a>. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)n”,
-“  return _torch.sparse_csc_tensor(ccol_indices, row_indices, values, size=array.shape)n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“mesh_a.laplacian.find_spectrum(spectrum_size=10, set_as_basis=True)n”,
-“mesh_b.laplacian.find_spectrum(spectrum_size=10, set_as_basis=True)n”,
-“n”,
-“mesh_a.basis.use_k = 6n”,
-“mesh_b.basis.use_k = 5”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Assume we have a [valid functional map](./07_functional_map.ipynb) $C$ between <cite>mesh_a</cite> and <cite>mesh_b</cite> (which for demonstration purposes, we instantiate randomly).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 4,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“torch.Size([5, 6])”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 4,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“fmap_matrix = gs.random.uniform(n”,
-“    size=(mesh_b.basis.spectrum_size, mesh_a.basis.spectrum_size)n”,
-“)n”,
-“n”,
-“fmap_matrix.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Refine functional map using ICP algorithm (see [OCSBG2012](<a class="reference external" href="https://dl.acm.org/doi/10.1145/2185520.2185526">https://dl.acm.org/doi/10.1145/2185520.2185526</a>)).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 5,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“torch.Size([5, 6])”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 5,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“icp = IcpRefiner(nit=10, atol=1e-4)n”,
-“n”,
-“icp_fmap_matrix = icp(fmap_matrix, mesh_a.basis, mesh_b.basis)n”,
-“n”,
-“icp_fmap_matrix.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Refine functional map using ZoomOut (see [MRRSWO2019](<a class="reference external" href="https://arxiv.org/abs/1904.07865">https://arxiv.org/abs/1904.07865</a>)).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 6,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“torch.Size([7, 10])”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 6,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“zoomout = ZoomOut(nit=2, step=(2, 1))n”,
-“n”,
-“<a href="#id1"><span class="problematic" id="id2">zoomout_fmap_matrix_</span></a> = zoomout(fmap_matrix, mesh_a.basis, mesh_b.basis)n”,
-“n”,
-“<a href="#id3"><span class="problematic" id="id4">zoomout_fmap_matrix_</span></a>.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Refine functional map using fast Sinkhorn filters (see [PRMWO2021](<a class="reference external" href="https://openaccess.thecvf.com/content/CVPR2021/html/Pai_Fast_Sinkhorn_Filters_Using_Matrix_Scaling_for_Non-Rigid_Shape_Correspondence_CVPR_2021_paper.html">https://openaccess.thecvf.com/content/CVPR2021/html/Pai_Fast_Sinkhorn_Filters_Using_Matrix_Scaling_for_Non-Rigid_Shape_Correspondence_CVPR_2021_paper.html</a>)).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 7,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“torch.Size([7, 10])”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 7,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“fast_sinkhorn_filters = FastSinkhornFilters(nit=2, step=(2, 1))n”,
-“n”,
-“<a href="#id5"><span class="problematic" id="id6">fast_sinkhorn_filters_fmap_matrix_</span></a> = fast_sinkhorn_filters(n”,
-“    fmap_matrix, mesh_a.basis, mesh_b.basisn”,
-“)n”,
-“n”,
-“<a href="#id7"><span class="problematic" id="id8">fast_sinkhorn_filters_fmap_matrix_</span></a>.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Pointwise](./10_pointwise_from_functional.ipynb) and [functional](./09_functional_from_pointwise.ipynb) converters can be easily controlled through <cite>p2p_from_fm_converter</cite> and <cite>fm_from_p2p_converter</cite> (sensible defaults are used.)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Further readingn”,
-“n”,
-“* [How to compute a functional map?](./functional_map.ipynb)n”,
-“n”,
-“* [How to compute a pointwise map from a functional map?](./pointwise_from_functional.ipynb)n”,
-“n”,
-“* [How to compute a functional map from a pointwise map?](./functional_from_pointwise.ipynb)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “VENV”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.11.8”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 2</p>
-</dd>
-</dl>
-<p>}</p>
+  <div class="admonition note">
+  <p>Notebook source code:
+    <a class="reference external" href="https://github.com/DiG-AIR/geomfum/main/notebooks/how_to/15_refine_functional_map.ipynb">notebooks/how_to/15_refine_functional_map.ipynb</a>
+    <br>Run it yourself on binder
+    <a href="https://mybinder.org/v2/gh/DiG-AIR/geomfum/main?filepath=notebooks/how_to/15_refine_functional_map.ipynb"><img alt="Binder badge"
+    src="https://mybinder.org/badge_logo.svg"
+    style="vertical-align:text-bottom"></a>
+  </p>
+</div><section id="How-to-refine-a-functional-map?">
+<h1>How to refine a functional map?<a class="headerlink" href="#How-to-refine-a-functional-map?" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.refine</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FastSinkhornFilters</span><span class="p">,</span>
+    <span class="n">IcpRefiner</span><span class="p">,</span>
+    <span class="n">ZoomOut</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference internal" href="00_load_mesh_from_file.html"><span class="doc">Load meshes</span></a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">NotebooksDataset</span><span class="p">()</span>
+
+<span class="n">mesh_a</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;cat-00&quot;</span><span class="p">))</span>
+<span class="n">mesh_b</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;lion-00&quot;</span><span class="p">))</span>
+
+<span class="n">mesh_a</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">n_vertices</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO: Data has already been downloaded... using cached file (&#39;C:\Users\giuli\.geomfum\data\cat-00.off&#39;).
+INFO: Data has already been downloaded... using cached file (&#39;C:\Users\giuli\.geomfum\data\lion-00.off&#39;).
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(7207, 5000)
+</pre></div></div>
+</div>
+<p><a class="reference internal" href="02_mesh_laplacian_spectrum.html"><span class="doc">Set Laplace eigenbasis</span></a> for each mesh.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_a</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mesh_b</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\_backend\pytorch\sparse.py:22: UserWarning: Sparse CSC tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+  return _torch.sparse_csc_tensor(ccol_indices, row_indices, values, size=array.shape)
+</pre></div></div>
+</div>
+<p>Assume we have a <a class="reference internal" href="07_functional_map.html"><span class="doc">valid functional map</span></a> <span class="math notranslate nohighlight">\(C\)</span> between <code class="docutils literal notranslate"><span class="pre">mesh_a</span></code> and <code class="docutils literal notranslate"><span class="pre">mesh_b</span></code> (which for demonstration purposes, we instantiate randomly).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fmap_matrix</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fmap_matrix</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+torch.Size([5, 6])
+</pre></div></div>
+</div>
+<p>Refine functional map using ICP algorithm (see <a class="reference external" href="https://dl.acm.org/doi/10.1145/2185520.2185526">OCSBG2012</a>).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">icp</span> <span class="o">=</span> <span class="n">IcpRefiner</span><span class="p">(</span><span class="n">nit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+
+<span class="n">icp_fmap_matrix</span> <span class="o">=</span> <span class="n">icp</span><span class="p">(</span><span class="n">fmap_matrix</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
+
+<span class="n">icp_fmap_matrix</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+torch.Size([5, 6])
+</pre></div></div>
+</div>
+<p>Refine functional map using ZoomOut (see <a class="reference external" href="https://arxiv.org/abs/1904.07865">MRRSWO2019</a>).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zoomout</span> <span class="o">=</span> <span class="n">ZoomOut</span><span class="p">(</span><span class="n">nit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">zoomout_fmap_matrix_</span> <span class="o">=</span> <span class="n">zoomout</span><span class="p">(</span><span class="n">fmap_matrix</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
+
+<span class="n">zoomout_fmap_matrix_</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+torch.Size([7, 10])
+</pre></div></div>
+</div>
+<p>Refine functional map using fast Sinkhorn filters (see <a class="reference external" href="https://openaccess.thecvf.com/content/CVPR2021/html/Pai_Fast_Sinkhorn_Filters_Using_Matrix_Scaling_for_Non-Rigid_Shape_Correspondence_CVPR_2021_paper.html">PRMWO2021</a>).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fast_sinkhorn_filters</span> <span class="o">=</span> <span class="n">FastSinkhornFilters</span><span class="p">(</span><span class="n">nit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">fast_sinkhorn_filters_fmap_matrix_</span> <span class="o">=</span> <span class="n">fast_sinkhorn_filters</span><span class="p">(</span>
+    <span class="n">fmap_matrix</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span>
+<span class="p">)</span>
+
+<span class="n">fast_sinkhorn_filters_fmap_matrix_</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+torch.Size([7, 10])
+</pre></div></div>
+</div>
+<p><a class="reference internal" href="10_pointwise_from_functional.html"><span class="doc">Pointwise</span></a> and <a class="reference internal" href="09_functional_from_pointwise.html"><span class="doc">functional</span></a> converters can be easily controlled through <code class="docutils literal notranslate"><span class="pre">p2p_from_fm_converter</span></code> and <code class="docutils literal notranslate"><span class="pre">fm_from_p2p_converter</span></code> (sensible defaults are used.)</p>
+<section id="Further-reading">
+<h2>Further reading<a class="headerlink" href="#Further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="./functional_map.ipynb">How to compute a functional map?</a></p></li>
+<li><p><a class="reference external" href="./pointwise_from_functional.ipynb">How to compute a pointwise map from a functional map?</a></p></li>
+<li><p><a class="reference external" href="./functional_from_pointwise.ipynb">How to compute a functional map from a pointwise map?</a></p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -848,7 +665,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to compute a pointwise map from a functional map?</p>
       </div>
     </a>
     <a class="right-next"
@@ -856,7 +673,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to compute descriptors from Features extractors?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -878,9 +695,9 @@
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Further-reading">Further reading</a></li>
 </ul>
-
   </nav></div>
 
   <div class="sidebar-secondary-item">

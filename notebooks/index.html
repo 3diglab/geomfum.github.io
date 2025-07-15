@@ -48,16 +48,18 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/index';</script>
     <link rel="canonical" href="geomfum.github.io/notebooks/index.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="how_to/00_load_mesh_from_file.html" />
+    <link rel="next" title="How to load a mesh from a file?" href="how_to/00_load_mesh_from_file.html" />
     <link rel="prev" title="Getting Started with GeomFuM" href="../tutorials/getting_started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 9:51:47 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 10:07:00 AM"/>
   </head>
   
   
@@ -375,7 +377,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/getting_started.html">Getting Started with GeomFuM</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Notebook Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Notebook Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to/00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/02_mesh_laplacian_spectrum.html">How to compute the mesh Laplacian spectrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/03_descriptors.html">How to compute descriptors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/07_functional_map.html">How to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/08_functional_map_forward.html">How to efficiently compute a functional map with a forward pass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/09_functional_from_pointwise.html">How to compute a functional map from a pointwise map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/15_refine_functional_map.html">How to refine a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/05_descriptors_with_feat_extractors.html">How to compute descriptors from Features extractors?</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="how_to/06_landmarks.html">How to set landmarks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/sampler.html">How to sample from a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/16_vis_basic.html">How to plot a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to/17_vis_dist.html">How to visualize distance to a point in a mesh?</a></li>
 </ul>
 </details></li>
 </ul>
@@ -444,26 +470,65 @@
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to/00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/02_mesh_laplacian_spectrum.html">How to compute the mesh Laplacian spectrum?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/03_descriptors.html">How to compute descriptors?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
+</ul>
 </div>
 </section>
 <section id="functional-maps">
 <h2>Functional Maps<a class="headerlink" href="#functional-maps" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Maps Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to/07_functional_map.html">How to compute a functional map?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/08_functional_map_forward.html">How to efficiently compute a functional map with a forward pass?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/09_functional_from_pointwise.html">How to compute a functional map from a pointwise map?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/15_refine_functional_map.html">How to refine a functional map?</a></li>
+</ul>
 </div>
 </section>
 <section id="advanced-techniques">
 <h2>Advanced Techniques<a class="headerlink" href="#advanced-techniques" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to/05_descriptors_with_feat_extractors.html">How to compute descriptors from Features extractors?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/05_descriptors_with_feat_extractors.html#PointNet">PointNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/05_descriptors_with_feat_extractors.html#Descriptors-as-input">Descriptors as input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/05_descriptors_with_feat_extractors.html#Pipeline">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/05_descriptors_with_feat_extractors.html#Saving-and-loading">Saving and loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/06_landmarks.html">How to set landmarks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/sampler.html">How to sample from a mesh?</a></li>
+</ul>
 </div>
 </section>
 <section id="deep-learning">
 <h2>Deep Learning<a class="headerlink" href="#deep-learning" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to/14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
+</ul>
 </div>
 </section>
 <section id="visualization">
 <h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to/16_vis_basic.html">How to plot a mesh?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/17_vis_dist.html">How to visualize distance to a point in a mesh?</a></li>
+</ul>
 </div>
 </section>
 <section id="demos">
@@ -497,7 +562,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to load a mesh from a file?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; GeomFuM 0.1.0 documentation</title>
+    <title>How to compute a functional map? &#8212; GeomFuM 0.1.0 documentation</title>
   
   
   
@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -48,16 +49,18 @@
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/how_to/07_functional_map';</script>
     <link rel="canonical" href="geomfum.github.io/notebooks/how_to/07_functional_map.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="08_functional_map_forward.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="04_descriptor_pipeline.html" />
+    <link rel="next" title="How to efficiently compute a functional map with a forward pass?" href="08_functional_map_forward.html" />
+    <link rel="prev" title="How to create a descriptor pipeline?" href="04_descriptor_pipeline.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 8:15:08 AM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 10:07:00 AM"/>
   </head>
   
   
@@ -155,7 +158,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -169,7 +172,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -299,7 +302,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../concepts/index.html">
-    Core Concepts
+    Concepts
   </a>
 </li>
 
@@ -313,7 +316,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../contributing.html">
-    Contributing to GeomFuM
+    Contributing
   </a>
 </li>
 
@@ -374,8 +377,32 @@
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started.html">Getting Started with GeomFuM</a></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_mesh_laplacian_spectrum.html">How to compute the mesh Laplacian spectrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_descriptors.html">How to compute descriptors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">How to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_functional_map_forward.html">How to efficiently compute a functional map with a forward pass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_functional_from_pointwise.html">How to compute a functional map from a pointwise map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_refine_functional_map.html">How to refine a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_descriptors_with_feat_extractors.html">How to compute descriptors from Features extractors?</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_landmarks.html">How to set landmarks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampler.html">How to sample from a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_vis_basic.html">How to plot a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_vis_dist.html">How to visualize distance to a point in a mesh?</a></li>
 </ul>
 </details></li>
 </ul>
@@ -424,7 +451,7 @@
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Notebook Tutorials</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">&lt;no title&gt;</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to compute a functional map?</span></li>
   </ul>
 </nav>
 </div>
@@ -441,319 +468,173 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# How to compute a functional map?”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 1,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“import geomstats.backend as gsn”,
-“n”,
-“from geomfum.dataset import NotebooksDatasetn”,
-“from geomfum.descriptor.pipeline import (n”,
-“    ArangeSubsampler,n”,
-“    DescriptorPipeline,n”,
-“    L2InnerNormalizer,n”,
-“)n”,
-“from geomfum.descriptor.spectral import HeatKernelSignature, WaveKernelSignaturen”,
-“from geomfum.functional_map import (n”,
-“    FactorSum,n”,
-“    LBCommutativityEnforcing,n”,
-“    OperatorCommutativityEnforcing,n”,
-“    SpectralDescriptorPreservation,n”,
-“)n”,
-“from geomfum.numerics.optimization import ScipyMinimizen”,
-“from geomfum.shape import TriangleMesh”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Load meshes](00_load_mesh_from_file.ipynb).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 2,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“dataset = NotebooksDataset()n”,
-“n”,
-“mesh_a = TriangleMesh.from_file(dataset.get_filename(&quot;cat-00&quot;))n”,
-“mesh_b = TriangleMesh.from_file(dataset.get_filename(&quot;lion-00&quot;))”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“[Set Laplace eigenbasis](./02_mesh_laplacian_spectrum.ipynb) for each mesh.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 3,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“mesh_a.laplacian.find_spectrum(spectrum_size=10, set_as_basis=True)n”,
-“mesh_b.laplacian.find_spectrum(spectrum_size=10, set_as_basis=True)n”,
-“n”,
-“# I decide to visualize just the first 8 eigenfunctionsn”,
-“n”,
-“mesh_b.basis.use_k = 8”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Set a [descriptor pipeline](./04_descriptor_pipeline.ipynb) and apply it to both shapes.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 4,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“steps = [n”,
-“    HeatKernelSignature.from_registry(n_domain=4),n”,
-“    ArangeSubsampler(subsample_step=2),n”,
-“    WaveKernelSignature.from_registry(n_domain=3),n”,
-“    L2InnerNormalizer(),n”,
-“]n”,
-“n”,
-“pipeline = DescriptorPipeline(steps)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 5,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“descr_a = pipeline.apply(mesh_a)n”,
-“descr_b = pipeline.apply(mesh_b)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Create objective function: n”,
-“n”,
-“The optimization of the functional map can be performed considering different constraints, for example:n”,
-“1) SpectralDescriptorPreservation: the functional map needs to align spectral coefficients of descriptors.n”,
-“2) LBCommutativityEnforcing: the functional map needs to commute with the Laplace Beltrami operator.n”,
-“3) OperatorCommutativityEnforcing: the functional map needs to commute with a chosen operator defined on meshes.n”,
-“n”,
-“Details about these energies can be found in https://dl.acm.org/doi/10.1145/3084873.3084877.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 6,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“factors = [n”,
-“    SpectralDescriptorPreservation(n”,
-“        mesh_a.basis.project(descr_a),n”,
-“        mesh_b.basis.project(descr_b),n”,
-“        weight=1.0,n”,
-“    ),n”,
-“    LBCommutativityEnforcing.from_bases(n”,
-“        mesh_a.basis,n”,
-“        mesh_b.basis,n”,
-“        weight=1e-2,n”,
-“    ),n”,
-“    OperatorCommutativityEnforcing.from_multiplication(n”,
-“        mesh_a.basis, descr_a, mesh_b.basis, descr_b, weight=1e-1n”,
-“    ),n”,
-“    OperatorCommutativityEnforcing.from_orientation(n”,
-“        mesh_a, descr_a, mesh_b, descr_b, weight=1e-1n”,
-“    ),n”,
-“]n”,
-“n”,
-“objective = FactorSum(factors)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Instantiate an <cite>Optimizer</cite> and solve for the functional map matrix.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 7,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“optimizer = ScipyMinimize(n”,
-“    method=&quot;L-BFGS-B&quot;,n”,
-“)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 8,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(8, 10)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 8,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“x0 = gs.zeros((mesh_b.basis.spectrum_size, mesh_a.basis.spectrum_size))n”,
-“n”,
-“res = optimizer.minimize(n”,
-“    objective,n”,
-“    x0,n”,
-“    fun_jac=objective.gradient,n”,
-“)n”,
-“n”,
-“fmap = res.x.reshape(x0.shape)n”,
-“n”,
-“fmap.shape”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Further readingn”,
-“n”,
-“* [How to compute a pointwise map from a functional map?](./10_pointwise_from_functional.ipynb)n”,
-“n”,
-“* [How to refine a functional map?](./15_refine_functional_map.ipynb)n”,
-“n”,
-“* [How to use ReMatching to compute a functional map?](./13_rematching.ipynb)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “py12”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.12.3”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 2</p>
-</dd>
-</dl>
-<p>}</p>
+  <div class="admonition note">
+  <p>Notebook source code:
+    <a class="reference external" href="https://github.com/DiG-AIR/geomfum/main/notebooks/how_to/07_functional_map.ipynb">notebooks/how_to/07_functional_map.ipynb</a>
+    <br>Run it yourself on binder
+    <a href="https://mybinder.org/v2/gh/DiG-AIR/geomfum/main?filepath=notebooks/how_to/07_functional_map.ipynb"><img alt="Binder badge"
+    src="https://mybinder.org/badge_logo.svg"
+    style="vertical-align:text-bottom"></a>
+  </p>
+</div><section id="How-to-compute-a-functional-map?">
+<h1>How to compute a functional map?<a class="headerlink" href="#How-to-compute-a-functional-map?" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ArangeSubsampler</span><span class="p">,</span>
+    <span class="n">DescriptorPipeline</span><span class="p">,</span>
+    <span class="n">L2InnerNormalizer</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span><span class="p">,</span> <span class="n">WaveKernelSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.functional_map</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FactorSum</span><span class="p">,</span>
+    <span class="n">LBCommutativityEnforcing</span><span class="p">,</span>
+    <span class="n">OperatorCommutativityEnforcing</span><span class="p">,</span>
+    <span class="n">SpectralDescriptorPreservation</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.numerics.optimization</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScipyMinimize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference internal" href="00_load_mesh_from_file.html"><span class="doc">Load meshes</span></a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">NotebooksDataset</span><span class="p">()</span>
+
+<span class="n">mesh_a</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;cat-00&quot;</span><span class="p">))</span>
+<span class="n">mesh_b</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;lion-00&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference internal" href="02_mesh_laplacian_spectrum.html"><span class="doc">Set Laplace eigenbasis</span></a> for each mesh.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_a</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mesh_b</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># I decide to visualize just the first 8 eigenfunctions</span>
+
+<span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<p>Set a <a class="reference internal" href="04_descriptor_pipeline.html"><span class="doc">descriptor pipeline</span></a> and apply it to both shapes.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">HeatKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+    <span class="n">ArangeSubsampler</span><span class="p">(</span><span class="n">subsample_step</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">WaveKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">L2InnerNormalizer</span><span class="p">(),</span>
+<span class="p">]</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">DescriptorPipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descr_a</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh_a</span><span class="p">)</span>
+<span class="n">descr_b</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesh_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Create objective function:</p>
+<p>The optimization of the functional map can be performed considering different constraints, for example:</p>
+<ol class="arabic simple">
+<li><p>SpectralDescriptorPreservation: the functional map needs to align spectral coefficients of descriptors.</p></li>
+<li><p>LBCommutativityEnforcing: the functional map needs to commute with the Laplace Beltrami operator.</p></li>
+<li><p>OperatorCommutativityEnforcing: the functional map needs to commute with a chosen operator defined on meshes.</p></li>
+</ol>
+<p>Details about these energies can be found in <a class="reference external" href="https://dl.acm.org/doi/10.1145/3084873.3084877">https://dl.acm.org/doi/10.1145/3084873.3084877</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SpectralDescriptorPreservation</span><span class="p">(</span>
+        <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">descr_a</span><span class="p">),</span>
+        <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">descr_b</span><span class="p">),</span>
+        <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">LBCommutativityEnforcing</span><span class="o">.</span><span class="n">from_bases</span><span class="p">(</span>
+        <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span>
+        <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span>
+        <span class="n">weight</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">OperatorCommutativityEnforcing</span><span class="o">.</span><span class="n">from_multiplication</span><span class="p">(</span>
+        <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">descr_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">descr_b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1e-1</span>
+    <span class="p">),</span>
+    <span class="n">OperatorCommutativityEnforcing</span><span class="o">.</span><span class="n">from_orientation</span><span class="p">(</span>
+        <span class="n">mesh_a</span><span class="p">,</span> <span class="n">descr_a</span><span class="p">,</span> <span class="n">mesh_b</span><span class="p">,</span> <span class="n">descr_b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1e-1</span>
+    <span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">objective</span> <span class="o">=</span> <span class="n">FactorSum</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Instantiate an <code class="docutils literal notranslate"><span class="pre">Optimizer</span></code> and solve for the functional map matrix.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">ScipyMinimize</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">))</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+    <span class="n">objective</span><span class="p">,</span>
+    <span class="n">x0</span><span class="p">,</span>
+    <span class="n">fun_jac</span><span class="o">=</span><span class="n">objective</span><span class="o">.</span><span class="n">gradient</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fmap</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x0</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">fmap</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(8, 10)
+</pre></div></div>
+</div>
+<section id="Further-reading">
+<h2>Further reading<a class="headerlink" href="#Further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="10_pointwise_from_functional.html"><span class="doc">How to compute a pointwise map from a functional map?</span></a></p></li>
+<li><p><a class="reference internal" href="15_refine_functional_map.html"><span class="doc">How to refine a functional map?</span></a></p></li>
+<li><p><a class="reference internal" href="13_rematching.html"><span class="doc">How to use ReMatching to compute a functional map?</span></a></p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -771,7 +652,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to create a descriptor pipeline?</p>
       </div>
     </a>
     <a class="right-next"
@@ -779,7 +660,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">How to efficiently compute a functional map with a forward pass?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -801,9 +682,9 @@
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Further-reading">Further reading</a></li>
 </ul>
-
   </nav></div>
 
   <div class="sidebar-secondary-item">

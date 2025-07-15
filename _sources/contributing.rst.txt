@@ -107,7 +107,7 @@ Run the test suite:
     pytest tests/test_laplacian.py
         
 Writing Tests
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 Follow these guidelines for writing tests:
 
@@ -130,15 +130,6 @@ Follow these guidelines for writing tests:
            assert np.all(np.isfinite(result))
 
 
-2. **Fixtures**:
-   .. code-block:: python
-
-       @pytest.fixture
-       def sample_mesh():
-           """Create a sample mesh for testing."""
-           vertices = np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0]])
-           faces = np.array([[0, 1, 2]])
-           return gfm.shape.Mesh(vertices, faces)
 
 Documentation
 -------------
@@ -148,7 +139,7 @@ The documentation is built using `sphinx` and is located in `https://DiG-AIR.git
 The documentation is viewable in a web browser.
 
 Writing Documentation
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 1. **API Documentation**: Add docstrings to all public functions
 2. **Tutorials**: Create Jupyter notebooks in `notebooks/`
@@ -193,7 +184,7 @@ Example docstring:
         pass
 
 Pull Request Process
--------------------
+--------------------
 
 1. **Create a feature branch**:
    .. code-block:: bash
@@ -244,7 +235,7 @@ Code Review
 -----------
 
 Review Process
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 1. **Automated checks** must pass:
    - Tests
@@ -312,7 +303,7 @@ Testing
 - Documentation tests
 
 Tools and Utilities
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 - Visualization tools
 - Data processing utilities
@@ -320,7 +311,7 @@ Tools and Utilities
 - Benchmarking tools
 
 Getting Help
------------
+------------
 
 If you need help:
 
@@ -330,7 +321,7 @@ If you need help:
 4. **Ask questions**: In GitHub Discussions
 
 Community Guidelines
--------------------
+--------------------
 
 We are committed to providing a welcoming and inclusive environment:
 
