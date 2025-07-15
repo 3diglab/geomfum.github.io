@@ -27,13 +27,6 @@
             "metadata": {},
             "outputs": [
                 {
-                    "name": "stderr",
-                    "output_type": "stream",
-                    "text": [
-                        "INFO: Data has already been downloaded... using cached file ('/home/ubuntu/.geomfum/data/cat-00.off').\n"
-                    ]
-                },
-                {
                     "data": {
                         "text/plain": [
                             "(7207, 14410)"
@@ -108,7 +101,7 @@
     ],
     "metadata": {
         "kernelspec": {
-            "display_name": "venv",
+            "display_name": "VENV",
             "language": "python",
             "name": "python3"
         },
