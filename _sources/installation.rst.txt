@@ -27,7 +27,6 @@ System Requirements
 - **Python**: 3.9 or higher
 - **Operating System**: Linux, macOS, or Windows
 - **Memory**: At least 4GB RAM (8GB+ recommended for large meshes)
-- **Storage**: 2GB+ free space
 
 Required Dependencies
 ~~~~~~~~~~~~~~~~~~~~~
