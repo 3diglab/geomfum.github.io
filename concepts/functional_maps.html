@@ -54,12 +54,12 @@
     <link rel="canonical" href="geomfum.github.io/concepts/functional_maps.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Shape Analysis" href="shape_analysis.html" />
+    <link rel="next" title="Shape Correspondence" href="correspondence.html" />
     <link rel="prev" title="&lt;no title&gt;" href="../notebooks/how_to/17_vis_dist.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 7:54:12 AM"/>
   </head>
   
   
@@ -164,8 +164,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="shape_analysis.html">
-    Shape Analysis
+  <a class="nav-link nav-internal" href="correspondence.html">
+    Shape Correspondence
   </a>
 </li>
 
@@ -177,13 +177,6 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="correspondence.html">
-    Shape Correspondence
-  </a>
-</li>
-
-
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="../notebooks/index.html">
     Notebook Tutorials
@@ -329,13 +322,6 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="shape_analysis.html">
-    Shape Analysis
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="correspondence.html">
     Shape Correspondence
   </a>
@@ -467,109 +453,57 @@
                   
   <section id="functional-maps">
 <h1>Functional Maps<a class="headerlink" href="#functional-maps" title="Link to this heading">#</a></h1>
-<p>Functional Maps provide a powerful framework for representing and computing correspondences between geometric shapes. This section introduces the key concepts and mathematical foundations.</p>
-<section id="mathematical-foundation">
-<h2>Mathematical Foundation<a class="headerlink" href="#mathematical-foundation" title="Link to this heading">#</a></h2>
-<p>Functional maps represent correspondences between shapes as linear operators between function spaces. Given two shapes <span class="math notranslate nohighlight">\(S_1\)</span> and <span class="math notranslate nohighlight">\(S_2\)</span>, a functional map <span class="math notranslate nohighlight">\(T\)</span> maps functions on <span class="math notranslate nohighlight">\(S_1\)</span> to functions on <span class="math notranslate nohighlight">\(S_2\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[T: \mathcal{F}(S_1) \rightarrow \mathcal{F}(S_2)\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathcal{F}(S_i)\)</span> denotes the space of real-valued functions on shape <span class="math notranslate nohighlight">\(S_i\)</span>.</p>
-</section>
-<section id="laplace-beltrami-basis">
-<h2>Laplace-Beltrami Basis<a class="headerlink" href="#laplace-beltrami-basis" title="Link to this heading">#</a></h2>
-<p>The Laplace-Beltrami operator <span class="math notranslate nohighlight">\(\Delta\)</span> is a fundamental tool in shape analysis. Its eigenfunctions <span class="math notranslate nohighlight">\(\phi_i\)</span> form an orthonormal basis for the function space:</p>
-<div class="math notranslate nohighlight">
-\[\Delta \phi_i = \lambda_i \phi_i\]</div>
-<p>where <span class="math notranslate nohighlight">\(\lambda_i\)</span> are the corresponding eigenvalues.</p>
-<p>In GeomFuM, the Laplace-Beltrami eigenfunctions are computed using:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
-
-<span class="c1"># Compute Laplace-Beltrami eigenfunctions</span>
-<span class="n">eigenfunctions</span><span class="p">,</span> <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="functional-map-representation">
-<h2>Functional Map Representation<a class="headerlink" href="#functional-map-representation" title="Link to this heading">#</a></h2>
-<p>A functional map <span class="math notranslate nohighlight">\(T\)</span> can be represented as a matrix <span class="math notranslate nohighlight">\(C\)</span> in the Laplace-Beltrami basis:</p>
-<div class="math notranslate nohighlight">
-\[T(f) = \sum_{i,j} C_{ij} \langle f, \phi_i^{(1)} \rangle \phi_j^{(2)}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\phi_i^{(1)}\)</span> and <span class="math notranslate nohighlight">\(\phi_j^{(2)}\)</span> are the eigenfunctions of shapes <span class="math notranslate nohighlight">\(S_1\)</span> and <span class="math notranslate nohighlight">\(S_2\)</span> respectively.</p>
-</section>
-<section id="computing-functional-maps">
-<h2>Computing Functional Maps<a class="headerlink" href="#computing-functional-maps" title="Link to this heading">#</a></h2>
-<p>Functional maps can be computed from various types of constraints:</p>
-<ol class="arabic simple">
-<li><p><strong>Descriptor Preservation</strong>: Maps that preserve shape descriptors</p></li>
-<li><p><strong>Landmark Constraints</strong>: Maps that align specific points</p></li>
-<li><p><strong>Regularization</strong>: Maps that satisfy additional geometric constraints</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute functional map from descriptors</span>
-<span class="n">fm</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">functional_map</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">descriptors1</span><span class="p">,</span> <span class="n">descriptors2</span><span class="p">)</span>
-
-<span class="c1"># Compute functional map with landmarks</span>
-<span class="n">fm</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">functional_map</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">landmarks1</span><span class="p">,</span> <span class="n">landmarks2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="pointwise-correspondences">
-<h2>Pointwise Correspondences<a class="headerlink" href="#pointwise-correspondences" title="Link to this heading">#</a></h2>
-<p>While functional maps operate on function spaces, we often need pointwise correspondences. These can be extracted using:</p>
-<div class="math notranslate nohighlight">
-\[\pi(x) = \arg\max_{y \in S_2} \sum_i \phi_i^{(2)}(y) (T\phi_i^{(1)})(x)\]</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert functional map to pointwise correspondences</span>
-<span class="n">correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">pointwise_from_functional</span><span class="p">(</span><span class="n">fm</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="refinement-and-optimization">
-<h2>Refinement and Optimization<a class="headerlink" href="#refinement-and-optimization" title="Link to this heading">#</a></h2>
-<p>Functional maps can be refined using various techniques:</p>
+<nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><strong>ZoomOut</strong>: Spectral upsampling for better correspondence quality</p></li>
-<li><p><strong>Sinkhorn Filtering</strong>: Optimal transport-based refinement</p></li>
-<li><p><strong>Structured Regularization</strong>: Geometric constraint enforcement</p></li>
+<li><p><a class="reference internal" href="#background-and-notation" id="id1">Background and Notation</a></p></li>
+<li><p><a class="reference internal" href="#functional-maps-and-adjoint-operators" id="id2">Functional Maps and Adjoint Operators</a></p></li>
+<li><p><a class="reference internal" href="#pointwise-map-recovery" id="id3">Pointwise Map Recovery</a></p></li>
+<li><p><a class="reference internal" href="#truncated-basis-and-approximations" id="id4">Truncated Basis and Approximations</a></p></li>
+<li><p><a class="reference internal" href="#key-papers" id="id5">Key Papers</a></p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply ZoomOut refinement</span>
-<span class="n">refined_fm</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">refine</span><span class="o">.</span><span class="n">zoomout</span><span class="p">(</span><span class="n">fm</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-
-<span class="c1"># Apply Sinkhorn filtering</span>
-<span class="n">filtered_fm</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">refine</span><span class="o">.</span><span class="n">sinkhorn</span><span class="p">(</span><span class="n">fm</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
+</nav>
+<section id="background-and-notation">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Background and Notation</a><a class="headerlink" href="#background-and-notation" title="Link to this heading">#</a></h2>
+<p>We model a 3D shape <span class="math notranslate nohighlight">\(\mathcal{X}_1\)</span> as a compact two-dimensional manifold embedded in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. The space of square-integrable real-valued functions on the surface, <span class="math notranslate nohighlight">\(\mathcal{L}^2(\mathcal{X}_1)\)</span>, is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}^2(\mathcal{X}_1) := \{ f : \mathcal{X}_1 \rightarrow \mathbb{R} \mid \int_{\mathcal{X}_1} |f(x)|^2 dx &lt; \infty \}\]</div>
+<p>This is a Hilbert space with inner product:</p>
+<div class="math notranslate nohighlight">
+\[\langle f, g \rangle_{\mathcal{L}^2(\mathcal{X}_1)} = \int_{\mathcal{X}_1} f(x) g(x) dx\]</div>
+<p>In practice, shapes are discretized as point clouds or meshes, with <span class="math notranslate nohighlight">\(n_1\)</span> points <span class="math notranslate nohighlight">\(\{x_i\}_{i=1}^{n_1}\)</span>. Functions are represented as vectors <span class="math notranslate nohighlight">\(f \in \mathbb{R}^{n_1}\)</span> with entries <span class="math notranslate nohighlight">\(f_i = f(x_i)\)</span>. The mass matrix <span class="math notranslate nohighlight">\(M_1 \in \mathbb{R}^{n_1 \times n_1}\)</span> (diagonal, with entries <span class="math notranslate nohighlight">\(m_i\)</span>) allows discretization of the inner product:</p>
+<div class="math notranslate nohighlight">
+\[\langle f, g \rangle_{\mathcal{L}^2(\mathcal{X}_1)} \approx f^\top M_1 g\]</div>
+<p>The Laplace-Beltrami operator <span class="math notranslate nohighlight">\(\Delta_1\)</span> is discretized as a matrix. Its eigendecomposition yields eigenvalues <span class="math notranslate nohighlight">\(\{\lambda_1^i\}\)</span> and eigenfunctions <span class="math notranslate nohighlight">\(\{\phi_1^i\}\)</span> forming an orthonormal basis (LBO basis). For efficiency, we use a truncated basis <span class="math notranslate nohighlight">\(\Phi_1^k = [\phi_1^1, \ldots, \phi_1^k] \in \mathbb{R}^{n_1 \times k}\)</span>.</p>
 </section>
-<section id="deep-learning-integration">
-<h2>Deep Learning Integration<a class="headerlink" href="#deep-learning-integration" title="Link to this heading">#</a></h2>
-<p>GeomFuM supports deep learning approaches for functional map computation:</p>
-<ul class="simple">
-<li><p><strong>Deep Functional Maps</strong>: Learning-based descriptor extraction</p></li>
-<li><p><strong>Neural Adjoint Maps</strong>: End-to-end correspondence learning</p></li>
-<li><p><strong>Feature Learning</strong>: Optimizing shape representations</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Deep functional maps model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">learning</span><span class="o">.</span><span class="n">DeepFunctionalMaps</span><span class="p">()</span>
-<span class="n">fm</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
+<section id="functional-maps-and-adjoint-operators">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Functional Maps and Adjoint Operators</a><a class="headerlink" href="#functional-maps-and-adjoint-operators" title="Link to this heading">#</a></h2>
+<p>Given two shapes <span class="math notranslate nohighlight">\(\mathcal{X}_1\)</span> and <span class="math notranslate nohighlight">\(\mathcal{X}_2\)</span>, a pointwise correspondence <span class="math notranslate nohighlight">\(T_{12}\)</span> induces a pull-back operator (the functional map):</p>
+<div class="math notranslate nohighlight">
+\[T^F_{21} : \mathcal{L}^2(\mathcal{X}_2) \rightarrow \mathcal{L}^2(\mathcal{X}_1), \quad T^F_{21}(g) = g \circ T_{12}\]</div>
+<p>In a chosen basis, this operator is represented as a matrix <span class="math notranslate nohighlight">\(C_{21}\)</span> mapping coefficients. If <span class="math notranslate nohighlight">\(\Pi_{12}\)</span> is the pointwise correspondence matrix, then:</p>
+<div class="math notranslate nohighlight">
+\[C_{21} = \Phi_1^\dagger \Pi_{12} \Phi_2\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dagger\)</span> denotes the Moore–Penrose pseudoinverse.</p>
 </section>
-<section id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
-<p>Functional maps find applications in:</p>
-<ul class="simple">
-<li><p><strong>Shape Matching</strong>: Finding correspondences between similar shapes</p></li>
-<li><p><strong>Shape Retrieval</strong>: Comparing shapes in large databases</p></li>
-<li><p><strong>Shape Deformation</strong>: Transferring deformations between shapes</p></li>
-<li><p><strong>Shape Analysis</strong>: Understanding shape structure and properties</p></li>
-</ul>
+<section id="pointwise-map-recovery">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Pointwise Map Recovery</a><a class="headerlink" href="#pointwise-map-recovery" title="Link to this heading">#</a></h2>
+<p>To recover pointwise correspondences from functional maps, we use the nearest search in the embedding space.</p>
+<div class="math notranslate nohighlight">
+\[T_{12} = \mathrm{NS}(\Phi_1, \Phi_2 C_{21}^\top)\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\mathrm{NS}\)</span> denotes nearest search in the embedding space.</p>
 </section>
-<section id="key-papers-implemented">
-<h2>Key Papers Implemented<a class="headerlink" href="#key-papers-implemented" title="Link to this heading">#</a></h2>
-<p>GeomFuM implements algorithms from several key papers:</p>
+<section id="truncated-basis-and-approximations">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Truncated Basis and Approximations</a><a class="headerlink" href="#truncated-basis-and-approximations" title="Link to this heading">#</a></h2>
+<p>Using a truncated basis (<span class="math notranslate nohighlight">\(k \ll n_1, n_2\)</span>) enables efficient computation but introduces approximations in delta function representation and pointwise recovery. The row <span class="math notranslate nohighlight">\(\Phi_1^k(x)\)</span> is the spectral embedding of <span class="math notranslate nohighlight">\(x\)</span> in dimension <span class="math notranslate nohighlight">\(k\)</span>. Linear operators cannot perfectly align these embeddings without additional priors.</p>
+</section>
+<section id="key-papers">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Key Papers</a><a class="headerlink" href="#key-papers" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="http://www.lix.polytechnique.fr/~maks/papers/obsbg_fmaps.pdf">Functional Maps: A Flexible Representation of Maps Between Shapes</a></p></li>
 <li><p><a class="reference external" href="https://arxiv.org/abs/1904.07865">ZoomOut: Spectral Upsampling for Efficient Shape Correspondence</a></p></li>
 <li><p><a class="reference external" href="https://arxiv.org/abs/2003.14286">Deep Geometric Functional Maps: Robust Feature Learning for Shape Correspondence</a></p></li>
 <li><p><a class="reference external" href="https://openaccess.thecvf.com/content/CVPR2021/html/Pai_Fast_Sinkhorn_Filters_Using_Matrix_Scaling_for_Non-Rigid_Shape_Correspondence_CVPR_2021_paper.html">Fast Sinkhorn Filters: Using Matrix Scaling for Non-Rigid Shape Correspondence</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2307.12913">Elastic Functional Maps</a></p></li>
 </ol>
 <p>For more detailed examples and tutorials, see the <span class="xref std std-doc">../tutorials/functional_maps_basics</span> section.</p>
 </section>
@@ -595,11 +529,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="shape_analysis.html"
+       href="correspondence.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Shape Analysis</p>
+        <p class="prev-next-title">Shape Correspondence</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -622,15 +556,11 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-foundation">Mathematical Foundation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laplace-beltrami-basis">Laplace-Beltrami Basis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-map-representation">Functional Map Representation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-functional-maps">Computing Functional Maps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-correspondences">Pointwise Correspondences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refinement-and-optimization">Refinement and Optimization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-integration">Deep Learning Integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers-implemented">Key Papers Implemented</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-notation">Background and Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-maps-and-adjoint-operators">Functional Maps and Adjoint Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-map-recovery">Pointwise Map Recovery</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truncated-basis-and-approximations">Truncated Basis and Approximations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers">Key Papers</a></li>
 </ul>
   </nav></div>
 

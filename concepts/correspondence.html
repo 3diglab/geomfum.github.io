@@ -55,11 +55,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GeomFuM API Reference" href="../api/index.html" />
-    <link rel="prev" title="Shape Analysis" href="shape_analysis.html" />
+    <link rel="prev" title="Functional Maps" href="functional_maps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 14, 2025, 10:48:24 PM"/>
+    <meta name="docbuild:last-update" content="Jul 15, 2025, 7:54:12 AM"/>
   </head>
   
   
@@ -163,9 +163,9 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="shape_analysis.html">
-    Shape Analysis
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Shape Correspondence
   </a>
 </li>
 
@@ -177,13 +177,6 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Shape Correspondence
-  </a>
-</li>
-
-
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="../notebooks/index.html">
     Notebook Tutorials
@@ -328,13 +321,6 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="shape_analysis.html">
-    Shape Analysis
-  </a>
-</li>
-
-
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
     Shape Correspondence
@@ -467,211 +453,33 @@
                   
   <section id="shape-correspondence">
 <h1>Shape Correspondence<a class="headerlink" href="#shape-correspondence" title="Link to this heading">#</a></h1>
-<p>Shape correspondence is the problem of finding meaningful point-to-point mappings between geometric shapes. This section covers the fundamental concepts and evaluation methods.</p>
-<section id="types-of-correspondences">
-<h2>Types of Correspondences<a class="headerlink" href="#types-of-correspondences" title="Link to this heading">#</a></h2>
-<section id="pointwise-correspondences">
-<h3>Pointwise Correspondences<a class="headerlink" href="#pointwise-correspondences" title="Link to this heading">#</a></h3>
-<p>Pointwise correspondences map each point on one shape to a point on another shape:</p>
+<p>Shape correspondence is the problem of finding meaningful point-to-point mappings between geometric shapes. This is a fundamental task in geometry processing, computer graphics, and shape analysis.</p>
+<section id="mathematical-background">
+<h2>Mathematical Background<a class="headerlink" href="#mathematical-background" title="Link to this heading">#</a></h2>
+<p>Given two shapes <span class="math notranslate nohighlight">\(\mathcal{X}_1\)</span> and <span class="math notranslate nohighlight">\(\mathcal{X}_2\)</span>, modeled as compact two-dimensional manifolds embedded in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, a pointwise correspondence is a map:</p>
 <div class="math notranslate nohighlight">
-\[\pi: S_1 \rightarrow S_2\]</div>
-<p>where <span class="math notranslate nohighlight">\(\pi(x)\)</span> is the corresponding point of <span class="math notranslate nohighlight">\(x\)</span> on shape <span class="math notranslate nohighlight">\(S_2\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
-
-<span class="c1"># Compute pointwise correspondences</span>
-<span class="n">correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">pointwise_from_functional</span><span class="p">(</span><span class="n">functional_map</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
+\[T_{12}: \mathcal{X}_1 \rightarrow \mathcal{X}_2\]</div>
+<p>where <span class="math notranslate nohighlight">\(y = T_{12}(x)\)</span> is the corresponding point of <span class="math notranslate nohighlight">\(x\)</span> on shape <span class="math notranslate nohighlight">\(\mathcal{X}_2\)</span>.</p>
 </section>
-<section id="functional-correspondences">
-<h3>Functional Correspondences<a class="headerlink" href="#functional-correspondences" title="Link to this heading">#</a></h3>
-<p>Functional correspondences map functions between shapes:</p>
-<div class="math notranslate nohighlight">
-\[T: \mathcal{F}(S_1) \rightarrow \mathcal{F}(S_2)\]</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute functional correspondences</span>
-<span class="n">functional_map</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">functional_map</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">descriptors1</span><span class="p">,</span> <span class="n">descriptors2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="dense-correspondences">
-<h3>Dense Correspondences<a class="headerlink" href="#dense-correspondences" title="Link to this heading">#</a></h3>
-<p>Dense correspondences provide mappings for every point on the surface:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute dense correspondences</span>
-<span class="n">dense_correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">dense_correspondence</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="correspondence-quality">
-<h2>Correspondence Quality<a class="headerlink" href="#correspondence-quality" title="Link to this heading">#</a></h2>
-<section id="geometric-distortion">
-<h3>Geometric Distortion<a class="headerlink" href="#geometric-distortion" title="Link to this heading">#</a></h3>
-<p>Geometric distortion measures how well the correspondence preserves geometric properties:</p>
-<div class="math notranslate nohighlight">
-\[\text{Distortion} = \frac{d_{S_1}(x, y)}{d_{S_2}(\pi(x), \pi(y))}\]</div>
-<p>where <span class="math notranslate nohighlight">\(d_{S_i}\)</span> is the geodesic distance on shape <span class="math notranslate nohighlight">\(S_i\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute geometric distortion</span>
-<span class="n">distortion</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">geometric_distortion</span><span class="p">(</span><span class="n">correspondences</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="isometric-error">
-<h3>Isometric Error<a class="headerlink" href="#isometric-error" title="Link to this heading">#</a></h3>
-<p>Isometric error measures deviation from isometry:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute isometric error</span>
-<span class="n">isometric_error</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">isometric_error</span><span class="p">(</span><span class="n">correspondences</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="conformal-error">
-<h3>Conformal Error<a class="headerlink" href="#conformal-error" title="Link to this heading">#</a></h3>
-<p>Conformal error measures angle preservation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute conformal error</span>
-<span class="n">conformal_error</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">conformal_error</span><span class="p">(</span><span class="n">correspondences</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="correspondence-evaluation">
-<h2>Correspondence Evaluation<a class="headerlink" href="#correspondence-evaluation" title="Link to this heading">#</a></h2>
-<section id="ground-truth-comparison">
-<h3>Ground Truth Comparison<a class="headerlink" href="#ground-truth-comparison" title="Link to this heading">#</a></h3>
-<p>When ground truth correspondences are available:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare with ground truth</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">correspondence_accuracy</span><span class="p">(</span><span class="n">predicted</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span>
-<span class="n">geodesic_error</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">geodesic_error</span><span class="p">(</span><span class="n">predicted</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="landmark-evaluation">
-<h3>Landmark Evaluation<a class="headerlink" href="#landmark-evaluation" title="Link to this heading">#</a></h3>
-<p>Using landmark correspondences for evaluation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate using landmarks</span>
-<span class="n">landmark_error</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">landmark_error</span><span class="p">(</span><span class="n">correspondences</span><span class="p">,</span> <span class="n">landmarks1</span><span class="p">,</span> <span class="n">landmarks2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="correspondence-refinement">
-<h2>Correspondence Refinement<a class="headerlink" href="#correspondence-refinement" title="Link to this heading">#</a></h2>
-<section id="zoomout-algorithm">
-<h3>ZoomOut Algorithm<a class="headerlink" href="#zoomout-algorithm" title="Link to this heading">#</a></h3>
-<p>ZoomOut refines correspondences by spectral upsampling:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply ZoomOut refinement</span>
-<span class="n">refined_correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">refine</span><span class="o">.</span><span class="n">zoomout</span><span class="p">(</span><span class="n">correspondences</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="sinkhorn-filtering">
-<h3>Sinkhorn Filtering<a class="headerlink" href="#sinkhorn-filtering" title="Link to this heading">#</a></h3>
-<p>Sinkhorn filtering uses optimal transport for refinement:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply Sinkhorn filtering</span>
-<span class="n">filtered_correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">refine</span><span class="o">.</span><span class="n">sinkhorn</span><span class="p">(</span><span class="n">correspondences</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="iterative-refinement">
-<h3>Iterative Refinement<a class="headerlink" href="#iterative-refinement" title="Link to this heading">#</a></h3>
-<p>Iterative refinement combines multiple techniques:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterative refinement</span>
-<span class="n">refined_correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">refine</span><span class="o">.</span><span class="n">iterative</span><span class="p">(</span>
-    <span class="n">correspondences</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="correspondence-applications">
-<h2>Correspondence Applications<a class="headerlink" href="#correspondence-applications" title="Link to this heading">#</a></h2>
-<section id="shape-transfer">
-<h3>Shape Transfer<a class="headerlink" href="#shape-transfer" title="Link to this heading">#</a></h3>
-<p>Transfer properties between shapes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transfer texture or deformation</span>
-<span class="n">transferred_property</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">transfer</span><span class="o">.</span><span class="n">property</span><span class="p">(</span>
-    <span class="n">source_mesh</span><span class="p">,</span> <span class="n">target_mesh</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">,</span> <span class="n">property_values</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="shape-interpolation">
-<h3>Shape Interpolation<a class="headerlink" href="#shape-interpolation" title="Link to this heading">#</a></h3>
-<p>Interpolate between shapes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape interpolation</span>
-<span class="n">interpolated_mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span>
-    <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.5</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="shape-registration">
-<h3>Shape Registration<a class="headerlink" href="#shape-registration" title="Link to this heading">#</a></h3>
-<p>Register shapes to a common reference:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape registration</span>
-<span class="n">registered_mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">reference_mesh</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="correspondence-visualization">
-<h2>Correspondence Visualization<a class="headerlink" href="#correspondence-visualization" title="Link to this heading">#</a></h2>
-<p>GeomFuM provides various visualization tools:</p>
-<section id="correspondence-lines">
-<h3>Correspondence Lines<a class="headerlink" href="#correspondence-lines" title="Link to this heading">#</a></h3>
-<p>Visualize correspondences as lines between shapes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize correspondences</span>
-<span class="n">gfm</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">correspondences</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="correspondence-heatmaps">
-<h3>Correspondence Heatmaps<a class="headerlink" href="#correspondence-heatmaps" title="Link to this heading">#</a></h3>
-<p>Show correspondence quality as heatmaps:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correspondence heatmap</span>
-<span class="n">gfm</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">correspondence_heatmap</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">correspondence_quality</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="interactive-visualization">
-<h3>Interactive Visualization<a class="headerlink" href="#interactive-visualization" title="Link to this heading">#</a></h3>
-<p>Interactive 3D visualization:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interactive visualization</span>
-<span class="n">gfm</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">interactive_correspondences</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">correspondences</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="performance-considerations">
-<h2>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading">#</a></h2>
-<section id="computational-complexity">
-<h3>Computational Complexity<a class="headerlink" href="#computational-complexity" title="Link to this heading">#</a></h3>
+<section id="discrete-representation">
+<h2>Discrete Representation<a class="headerlink" href="#discrete-representation" title="Link to this heading">#</a></h2>
+<p>In practice, shapes are discretized as point clouds or meshes with <span class="math notranslate nohighlight">\(n_1\)</span> and <span class="math notranslate nohighlight">\(n_2\)</span> points, respectively. The correspondence can be represented as a (soft or hard) permutation matrix <span class="math notranslate nohighlight">\(\Pi_{12} \in \mathbb{R}^{n_1 \times n_2}\)</span> such that:</p>
 <ul class="simple">
-<li><p><strong>Functional Maps</strong>: <span class="math notranslate nohighlight">\(O(k^3)\)</span> where <span class="math notranslate nohighlight">\(k\)</span> is the number of eigenfunctions</p></li>
-<li><p><strong>Pointwise Conversion</strong>: <span class="math notranslate nohighlight">\(O(nk)\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the number of vertices</p></li>
-<li><p><strong>Refinement</strong>: <span class="math notranslate nohighlight">\(O(n^2)\)</span> for dense correspondences</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Pi_{12}(i, j) = 1\)</span> if <span class="math notranslate nohighlight">\(T_{12}(x_i) = y_j\)</span>, and <span class="math notranslate nohighlight">\(0\)</span> otherwise.</p></li>
+<li><p>If the correspondence is bijective, <span class="math notranslate nohighlight">\(\Pi_{12}\)</span> is a permutation matrix.</p></li>
 </ul>
+<p>This allows us to write, for example, the relationship between vertex matrices <span class="math notranslate nohighlight">\(V_1\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[V_1 = \Pi_{12} V_2\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_1 \in \mathbb{R}^{n_1 \times 3}\)</span> and <span class="math notranslate nohighlight">\(V_2 \in \mathbb{R}^{n_2 \times 3}\)</span> are the matrices of 3D coordinates.</p>
 </section>
-<section id="memory-usage">
-<h3>Memory Usage<a class="headerlink" href="#memory-usage" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Eigenfunctions</strong>: <span class="math notranslate nohighlight">\(O(nk)\)</span> storage</p></li>
-<li><p><strong>Functional Maps</strong>: <span class="math notranslate nohighlight">\(O(k^2)\)</span> storage</p></li>
-<li><p><strong>Dense Correspondences</strong>: <span class="math notranslate nohighlight">\(O(n)\)</span> storage</p></li>
-</ul>
-</section>
-<section id="optimization-tips">
-<h3>Optimization Tips<a class="headerlink" href="#optimization-tips" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use fewer eigenfunctions for speed</span>
-<span class="n">eigenfunctions</span><span class="p">,</span> <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="c1"># Use sparse matrices for large meshes</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Parallel processing for multiple shapes</span>
-<span class="n">correspondences</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">correspondences</span><span class="p">(</span><span class="n">mesh_pairs</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>For practical examples and tutorials, see the <span class="xref std std-doc">../tutorials/correspondence</span> section.</p>
-</section>
+<section id="functional-representation">
+<h2>Functional Representation<a class="headerlink" href="#functional-representation" title="Link to this heading">#</a></h2>
+<p>A pointwise correspondence induces a linear operator between function spaces (see <a class="reference internal" href="functional_maps.html"><span class="doc">Functional Maps</span></a>):</p>
+<div class="math notranslate nohighlight">
+\[T^F_{21}: \mathcal{L}^2(\mathcal{X}_2) \rightarrow \mathcal{L}^2(\mathcal{X}_1), \quad T^F_{21}(g) = g \circ T_{12}\]</div>
+<p>This operator, known as the functional map, enables efficient and robust computation of correspondences by working in the space of functions rather than directly with points.</p>
+<p>For more details on functional maps and their properties, see the <a class="reference internal" href="functional_maps.html"><span class="doc">Functional Maps</span></a> section.</p>
 </section>
 </section>
 
@@ -686,12 +494,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="shape_analysis.html"
+       href="functional_maps.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Shape Analysis</p>
+        <p class="prev-next-title">Functional Maps</p>
       </div>
     </a>
     <a class="right-next"
@@ -722,47 +530,9 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-correspondences">Types of Correspondences</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-correspondences">Pointwise Correspondences</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-correspondences">Functional Correspondences</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-correspondences">Dense Correspondences</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-quality">Correspondence Quality</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distortion">Geometric Distortion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isometric-error">Isometric Error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conformal-error">Conformal Error</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-evaluation">Correspondence Evaluation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-truth-comparison">Ground Truth Comparison</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#landmark-evaluation">Landmark Evaluation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-refinement">Correspondence Refinement</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zoomout-algorithm">ZoomOut Algorithm</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinkhorn-filtering">Sinkhorn Filtering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-refinement">Iterative Refinement</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-applications">Correspondence Applications</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-transfer">Shape Transfer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-interpolation">Shape Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-registration">Shape Registration</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-visualization">Correspondence Visualization</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-lines">Correspondence Lines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondence-heatmaps">Correspondence Heatmaps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-visualization">Interactive Visualization</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations">Performance Considerations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-complexity">Computational Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-usage">Memory Usage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-tips">Optimization Tips</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-background">Mathematical Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-representation">Discrete Representation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-representation">Functional Representation</a></li>
 </ul>
   </nav></div>
 
