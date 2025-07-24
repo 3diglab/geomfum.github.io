@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 2:39:14 PM"/>
+    <meta name="docbuild:last-update" content="Jul 24, 2025, 2:50:14 PM"/>
   </head>
   
   
@@ -500,74 +500,10 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 </section>
 <section id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
-<p>We use NumPy docstring format:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">laplacian_spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute Laplace-Beltrami eigenfunctions and eigenvalues.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    mesh : Mesh</span>
-<span class="sd">        Input mesh</span>
-<span class="sd">    k : int, optional</span>
-<span class="sd">        Number of eigenfunctions to compute, by default 50</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    eigenfunctions : np.ndarray</span>
-<span class="sd">        Eigenfunctions matrix of shape (n_vertices, k)</span>
-<span class="sd">    eigenvalues : np.ndarray</span>
-<span class="sd">        Eigenvalues array of length k</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    The eigenfunctions are computed using the cotangent Laplacian.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
-<p>Run the test suite:
-.. code-block:: bash</p>
-<blockquote>
-<div><p># Run all tests
-pytest</p>
-<p># Run specific test file
-pytest tests/test_laplacian.py</p>
-</div></blockquote>
-<section id="writing-tests">
-<h3>Writing Tests<a class="headerlink" href="#writing-tests" title="Link to this heading">#</a></h3>
-<p>Follow these guidelines for writing tests:</p>
-<ol class="arabic">
-<li><p><strong>Test structure</strong>:
-.. code-block:: python</p>
-<blockquote>
-<div><dl>
-<dt>def test_functional_map_basic():</dt><dd><p>“””Test basic functional map computation.”””
-# Arrange
-mesh1 = create_test_mesh()
-mesh2 = create_test_mesh()
-descriptors1 = np.random.rand(100, 3)
-descriptors2 = np.random.rand(100, 3)</p>
-<p># Act
-result = gfm.functional_map(mesh1, mesh2, descriptors1, descriptors2)</p>
-<p># Assert
-assert result.shape == (50, 50)
-assert np.all(np.isfinite(result))</p>
-</dd>
-</dl>
-</div></blockquote>
-</li>
-</ol>
-</section>
-</section>
-<section id="id1">
-<h2>Documentation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>The documentation is written in <cite>rst</cite> format and is located in the <cite>docs/</cite> directory.
 The documentation is built using <cite>sphinx</cite> and is located in <cite>https://DiG-AIR.github.io/geomfum.github.io/</cite> directory.
 The documentation is viewable in a web browser.</p>
+</section>
 <section id="writing-documentation">
 <h3>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
@@ -722,8 +658,8 @@ git commit -m “Add feature: brief description”</p>
 <li><p>Sparse matrix operations</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>Documentation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Documentation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Tutorials and examples</p></li>
 <li><p>API documentation</p></li>
@@ -731,8 +667,8 @@ git commit -m “Add feature: brief description”</p>
 <li><p>Performance benchmarks</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>Testing<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Unit tests</p></li>
 <li><p>Integration tests</p></li>
@@ -843,13 +779,6 @@ git commit -m “Add feature: brief description”</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting">Formatting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-tests">Writing Tests</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Documentation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-documentation">Writing Documentation</a></li>
 </ul>
 </li>
@@ -862,8 +791,8 @@ git commit -m “Add feature: brief description”</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areas-for-contribution">Areas for Contribution</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Documentation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-utilities">Tools and Utilities</a></li>
 </ul>
 </li>

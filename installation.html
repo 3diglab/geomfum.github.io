@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 2:39:14 PM"/>
+    <meta name="docbuild:last-update" content="Jul 24, 2025, 2:50:14 PM"/>
   </head>
   
   
@@ -476,9 +476,9 @@
 <li><p><cite>scipy</cite> - Scientific computing</p></li>
 <li><p><cite>scikit-learn</cite> - Machine learning utilities</p></li>
 <li><p><cite>meshio</cite> - Mesh I/O</p></li>
-<li><p><cite>pyfmaps</cite> - Functional maps implementation</p></li>
+<li><p><cite>pyfmaps</cite> - Functional maps in python</p></li>
 <li><p><cite>torch</cite> - Deep learning (PyTorch backend)</p></li>
-<li><p><cite>geomstats</cite> - Geometric statistics</p></li>
+<li><p><cite>geomstats</cite> - Geometric Riemannian statistics</p></li>
 </ul>
 </section>
 </section>
@@ -628,81 +628,6 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 </div>
 </section>
 </section>
-<section id="memory-issues">
-<h3>Memory Issues<a class="headerlink" href="#memory-issues" title="Link to this heading">#</a></h3>
-<p>For large meshes, you may encounter memory issues:</p>
-<ol class="arabic">
-<li><p><strong>Use sparse matrices</strong>:
-.. code-block:: python</p>
-<blockquote>
-<div><p>L = gfm.laplacian.matrix(mesh, sparse=True)</p>
-</div></blockquote>
-</li>
-<li><p><strong>Reduce eigenfunction count</strong>:
-.. code-block:: python</p>
-<blockquote>
-<div><p>eigenfunctions, eigenvalues = gfm.laplacian.spectrum(mesh, k=20)</p>
-</div></blockquote>
-</li>
-<li><p><strong>Use sampling</strong>:
-.. code-block:: python</p>
-<blockquote>
-<div><p>sampled_mesh = gfm.sample.uniform(mesh, n_points=1000)</p>
-</div></blockquote>
-</li>
-</ol>
-</section>
-</section>
-<section id="performance-optimization">
-<h2>Performance Optimization<a class="headerlink" href="#performance-optimization" title="Link to this heading">#</a></h2>
-<section id="gpu-acceleration">
-<h3>GPU Acceleration<a class="headerlink" href="#gpu-acceleration" title="Link to this heading">#</a></h3>
-<p>For GPU acceleration with PyTorch backend:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-
-<span class="c1"># Check GPU availability</span>
-<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Move data to GPU</span>
-<span class="n">mesh_gpu</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="parallel-processing">
-<h3>Parallel Processing<a class="headerlink" href="#parallel-processing" title="Link to this heading">#</a></h3>
-<p>For processing multiple shapes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">process_shape</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
-    <span class="c1"># Process single shape</span>
-    <span class="k">return</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="c1"># Parallel processing</span>
-<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process_shape</span><span class="p">,</span> <span class="n">mesh_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="verification">
-<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading">#</a></h2>
-<p>Test your installation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gfm</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># Create a simple test mesh</span>
-<span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-
-<span class="c1"># Test basic functionality</span>
-<span class="n">mesh</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">)</span>
-<span class="n">eigenfunctions</span><span class="p">,</span> <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">gfm</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installation successful!&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computed </span><span class="si">{</span><span class="n">eigenfunctions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> eigenfunctions&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
 </section>
 <section id="next-steps">
 <h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
@@ -792,15 +717,8 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyrmt-installation">PyRMT Installation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-issues">Memory Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-optimization">Performance Optimization</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-acceleration">GPU Acceleration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-processing">Parallel Processing</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">Verification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 </ul>
   </nav></div>
