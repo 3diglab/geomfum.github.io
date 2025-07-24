@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 15, 2025, 10:21:37 AM"/>
+    <meta name="docbuild:last-update" content="Jul 24, 2025, 2:39:14 PM"/>
   </head>
   
   
@@ -451,6 +451,15 @@
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
 <section id="development-setup">
 <h3>Development Setup<a class="headerlink" href="#development-setup" title="Link to this heading">#</a></h3>
+<p>The instructions in this section detail the step-by-step
+process on setting up your development environment before
+contribution.</p>
+<p>We recommend using  <cite>Git</cite> for source control to allow collaboration. Typical interaction with the project involves using <cite>git</cite> to pull/push code and
+submitting bugs/feature requests to the <a class="reference external" href="https://github.com/DiG-AIR/geomfum">GeomFuM repository</a>.</p>
+<p>Be sure to follow the Git installation and configuration instructions for your
+respective operating system from the
+<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">official Git documentation</a>,
+before you follow along the next section of this documentation.</p>
 <ol class="arabic">
 <li><p><strong>Fork the repository</strong>:
 Visit <cite>https://github.com/DiG-AIR/geomfum</cite> and click “Fork”</p></li>
@@ -464,27 +473,20 @@ cd geomfum</p>
 <li><p><strong>Install in development mode</strong>:
 .. code-block:: bash</p>
 <blockquote>
-<div><p>pip install -e “.[test,test-scripts,plotting-all]”</p>
-</div></blockquote>
-</li>
-<li><p><strong>Set up pre-commit hooks</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>pip install pre-commit
-pre-commit install</p>
+<div><p>pip install -e .[test,,plotting-all]</p>
 </div></blockquote>
 </li>
 </ol>
 </section>
 <section id="development-environment">
 <h3>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h3>
-<p>We recommend using a virtual environment:</p>
+<p>We recommend using a virtual environment to manage dependencies:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create virtual environment</span>
 python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>geomfum_env
 <span class="nb">source</span><span class="w"> </span>geomfum_env/bin/activate<span class="w">  </span><span class="c1"># On Windows: geomfum_env\Scripts\activate</span>
 
 <span class="c1"># Install development dependencies</span>
-pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[test,test-scripts,plotting-all]&quot;</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>test,test-scripts,plotting-all<span class="o">]</span>
 </pre></div>
 </div>
 </section>
@@ -494,17 +496,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <p>We follow PEP 8 and use several tools to maintain code quality:</p>
 <section id="formatting">
 <h3>Formatting<a class="headerlink" href="#formatting" title="Link to this heading">#</a></h3>
-<p>We use <cite>ruff</cite> for code formatting and linting:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format code</span>
-ruff<span class="w"> </span>format<span class="w"> </span>.
-
-<span class="c1"># Check for issues</span>
-ruff<span class="w"> </span>check<span class="w"> </span>.
-
-<span class="c1"># Fix issues automatically</span>
-ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>.
-</pre></div>
-</div>
+<p>We use <cite>ruff</cite> for code formatting and linting. We recommend downloading the extension for your preferred IDE editor.</p>
 </section>
 <section id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
@@ -633,17 +625,12 @@ The documentation is viewable in a web browser.</p>
 <li><p><strong>Make your changes</strong>:
 - Write code following our style guidelines
 - Add tests for new functionality
-- Update documentation
-- Update CHANGELOG.md if needed</p></li>
+- Update documentation</p></li>
 <li><p><strong>Run tests and checks</strong>:
 .. code-block:: bash</p>
 <blockquote>
 <div><p># Run tests
 pytest</p>
-<p># Check code style
-ruff check .</p>
-<p># Build documentation
-cd docs &amp;&amp; make html</p>
 </div></blockquote>
 </li>
 <li><p><strong>Commit your changes</strong>:
@@ -668,6 +655,17 @@ git commit -m “Add feature: brief description”</p>
 - Describe your changes clearly
 - Link related issues
 - Request reviews from maintainers</p></li>
+<li><p><strong>Wait for review</strong>:
+- Address feedback from maintainers
+- Make changes as requested</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Re-request review when ready</p></li>
+<li><p>Ensure all checks pass before merging</p></li>
+<li><p>Merge when approved</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ol>
 </section>
 <section id="code-review">
