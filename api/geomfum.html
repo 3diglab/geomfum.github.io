@@ -60,7 +60,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 2:39:14 PM"/>
+    <meta name="docbuild:last-update" content="Jul 24, 2025, 3:55:34 PM"/>
   </head>
   
   
@@ -184,7 +184,7 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-<li class=" ">
+<li class=" current active">
   <a class="nav-link dropdown-item nav-internal" href="index.html">
     API Reference
   </a>
@@ -329,7 +329,7 @@
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="index.html">
     API Reference
   </a>
@@ -390,16 +390,19 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="geomfum.dataset.html">geomfum.dataset package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">geomfum package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.dataset.html">geomfum.dataset package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="geomfum.wrap.html">geomfum.wrap package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.wrap.html">geomfum.wrap package</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -1017,11 +1020,10 @@
 <p>Bijective functional map from pointwise map method.</p>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
-<div class="citation" id="vm2023" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>VM2023<span class="fn-bracket">]</span></span>
-<p>Giulio Viganò  Simone Melzi. “Adjoint Bijective ZoomOut:
-Efficient Upsampling for Learned Linearly-Invariant Embedding.”
-The Eurographics Association, 2023. <a class="reference external" href="https://doi.org/10.2312/stag.20231293">https://doi.org/10.2312/stag.20231293</a>.</p>
+<div class="citation" id="vm2024" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>VM2024<span class="fn-bracket">]</span></span>
+<p>Giulio Viganò  Simone Melzi. Bijective upsampling and learned embedding for point clouds correspondences.
+Computers and Graphics, 2024. <a class="reference external" href="https://doi.org/10.1016/j.cag.2024.103985">https://doi.org/10.1016/j.cag.2024.103985</a>.</p>
 </div>
 </div>
 </dd></dl>
@@ -1055,7 +1057,7 @@ The Eurographics Association, 2023. <a class="reference external" href="https://
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>neighbor_finder</strong> (<em>NeighborFinder</em>) – Nearest neighbor finder.</p></li>
 <li><p><strong>adjoint</strong> (<em>bool</em>) – Whether to use adjoint method.</p></li>
-<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="#id5" id="id1"><span>[VM2023]</span></a>.</p></li>
+<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="#vm2023" id="id1"><span>[VM2023]</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1069,8 +1071,9 @@ Adrian Butscher, and Leonidas Guibas.
 Shapes.” ACM Transactions on Graphics 31, no. 4 (2012): 30:1-30:11.
 <a class="reference external" href="https://doi.org/10.1145/2185520.2185526">https://doi.org/10.1145/2185520.2185526</a>.</p>
 </div>
-<div class="citation" id="id2" role="doc-biblioentry">
+<div class="citation" id="vm2023" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>VM2023<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
 <p>Giulio Viganò  Simone Melzi. “Adjoint Bijective ZoomOut:
 Efficient Upsampling for Learned Linearly-Invariant Embedding.”
 The Eurographics Association, 2023. <a class="reference external" href="https://doi.org/10.2312/stag.20231293">https://doi.org/10.2312/stag.20231293</a>.</p>
@@ -1119,7 +1122,7 @@ Advances in Neural Information Processing Systems (NIPS), 2013.
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>neighbor_finder</strong> (<em>SinkhornKNeighborsFinder</em>) – Nearest neighbor finder.</p></li>
 <li><p><strong>adjoint</strong> (<em>bool</em>) – Whether to use adjoint method.</p></li>
-<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="#id5" id="id3"><span>[VM2023]</span></a>.</p></li>
+<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="#vm2023" id="id2"><span>[VM2023]</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1659,7 +1662,7 @@ interpolation between vertices.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.operator.</span></span><span class="sig-name descname"><span class="pre">Laplacian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stiffness_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/operator.html#Laplacian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.operator.Laplacian" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geomfum.operator.FunctionalOperator" title="geomfum.operator.FunctionalOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalOperator</span></code></a></p>
 <p>Laplacian.</p>
-<p>Check <a class="reference internal" href="#p2016" id="id4"><span>[P2016]</span></a> for representation choice.</p>
+<p>Check <a class="reference internal" href="#p2016" id="id3"><span>[P2016]</span></a> for representation choice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1671,7 +1674,7 @@ interpolation between vertices.</p>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
 <div class="citation" id="p2016" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">P2016</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">P2016</a><span class="fn-bracket">]</span></span>
 <p>Giuseppe Patané. “STAR - Laplacian Spectral Kernels and Distances
 for Geometry Processing and Shape Analysis.” Computer Graphics Forum 35,
 no. 2 (2016): 599–624. <a class="reference external" href="https://doi.org/10.1111/cgf.12866">https://doi.org/10.1111/cgf.12866</a>.</p>
@@ -1828,15 +1831,7 @@ we define general functions that works with any library implemented</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="id5" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>VM2023<span class="fn-bracket">]</span></span>
-<p>Giulio Viganò, Simone Melzi.
-Adjoint Bijective ZoomOut: Efficient upsampling for learned linearly-invariant
-embedding. 2023
-<a class="github reference external" href="https://github.com/gviga/AB-ZoomOut">gviga/AB-ZoomOut</a></p>
-</div>
-</div>
+<p><span id="id4">[]</span></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1855,7 +1850,7 @@ embedding. 2023
 </dl>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
-<div class="citation" id="id6" role="doc-biblioentry">
+<div class="citation" id="id5" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>PRMWO2021<span class="fn-bracket">]</span></span>
 <p>Gautam Pai, Jing Ren, Simone Melzi, Peter Wonka, and Maks Ovsjanikov.
 “Fast Sinkhorn Filters: Using Matrix Scaling for Non-Rigid Shape Correspondence
@@ -1883,7 +1878,7 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 </dl>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
-<div class="citation" id="id7" role="doc-biblioentry">
+<div class="citation" id="id6" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>OCSBG2012<span class="fn-bracket">]</span></span>
 <p>Maks Ovsjanikov, Mirela Ben-Chen, Justin Solomon,
 Adrian Butscher, and Leonidas Guibas.
@@ -1988,7 +1983,7 @@ Ignored if step different than 1.</p></li>
 </dl>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
-<div class="citation" id="id8" role="doc-biblioentry">
+<div class="citation" id="id7" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>OCSBG2012<span class="fn-bracket">]</span></span>
 <p>Maks Ovsjanikov, Mirela Ben-Chen, Justin Solomon,
 Adrian Butscher, and Leonidas Guibas.
