@@ -1,0 +1,122 @@
+geomfum package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   geomfum.dataset
+   geomfum.descriptor
+   geomfum.metric
+   geomfum.numerics
+   geomfum.shape
+   geomfum.wrap
+
+Submodules
+----------
+
+geomfum.basis module
+--------------------
+
+.. automodule:: geomfum.basis
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.convert module
+----------------------
+
+.. automodule:: geomfum.convert
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.forward\_functional\_map module
+---------------------------------------
+
+.. automodule:: geomfum.forward_functional_map
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.functional\_map module
+------------------------------
+
+.. automodule:: geomfum.functional_map
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.io module
+-----------------
+
+.. automodule:: geomfum.io
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.laplacian module
+------------------------
+
+.. automodule:: geomfum.laplacian
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.linalg module
+---------------------
+
+.. automodule:: geomfum.linalg
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.neural\_adjoint\_map module
+-----------------------------------
+
+.. automodule:: geomfum.neural_adjoint_map
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.operator module
+-----------------------
+
+.. automodule:: geomfum.operator
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.plot module
+-------------------
+
+.. automodule:: geomfum.plot
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.refine module
+---------------------
+
+.. automodule:: geomfum.refine
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.sample module
+---------------------
+
+.. automodule:: geomfum.sample
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,53 @@
+geomfum.shape package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   geomfum.shape.convert
+
+Submodules
+----------
+
+geomfum.shape.hierarchical module
+---------------------------------
+
+.. automodule:: geomfum.shape.hierarchical
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.shape.mesh module
+-------------------------
+
+.. automodule:: geomfum.shape.mesh
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.shape.point\_cloud module
+---------------------------------
+
+.. automodule:: geomfum.shape.point_cloud
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.shape.shape\_utils module
+---------------------------------
+
+.. automodule:: geomfum.shape.shape_utils
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum.shape
+   :members:
+   :show-inheritance:
+   :undoc-members:

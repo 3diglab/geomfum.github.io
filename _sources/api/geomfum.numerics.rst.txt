@@ -1,0 +1,37 @@
+geomfum.numerics package
+========================
+
+Submodules
+----------
+
+geomfum.numerics.eig module
+---------------------------
+
+.. automodule:: geomfum.numerics.eig
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.numerics.graph module
+-----------------------------
+
+.. automodule:: geomfum.numerics.graph
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.numerics.optimization module
+------------------------------------
+
+.. automodule:: geomfum.numerics.optimization
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum.numerics
+   :members:
+   :show-inheritance:
+   :undoc-members:

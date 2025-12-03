@@ -1,0 +1,117 @@
+geomfum.wrap package
+====================
+
+Submodules
+----------
+
+geomfum.wrap.diffusionnet module
+--------------------------------
+
+.. automodule:: geomfum.wrap.diffusionnet
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.igl module
+-----------------------
+
+.. automodule:: geomfum.wrap.igl
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.plotly module
+--------------------------
+
+.. automodule:: geomfum.wrap.plotly
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pointnet module
+----------------------------
+
+.. automodule:: geomfum.wrap.pointnet
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.polyscope module
+-----------------------------
+
+.. automodule:: geomfum.wrap.polyscope
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pot module
+-----------------------
+
+.. automodule:: geomfum.wrap.pot
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pp3d module
+------------------------
+
+.. automodule:: geomfum.wrap.pp3d
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pyfm module
+------------------------
+
+.. automodule:: geomfum.wrap.pyfm
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pymeshlab module
+-----------------------------
+
+.. automodule:: geomfum.wrap.pymeshlab
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pyrmt module
+-------------------------
+
+.. automodule:: geomfum.wrap.pyrmt
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.pyvista module
+---------------------------
+
+.. automodule:: geomfum.wrap.pyvista
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.robust module
+--------------------------
+
+.. automodule:: geomfum.wrap.robust
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.wrap.transformer module
+-------------------------------
+
+.. automodule:: geomfum.wrap.transformer
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum.wrap
+   :members:
+   :show-inheritance:
+   :undoc-members:

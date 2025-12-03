@@ -1,0 +1,7 @@
+geomfum
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   geomfum

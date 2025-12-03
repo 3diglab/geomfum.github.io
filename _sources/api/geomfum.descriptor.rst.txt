@@ -1,0 +1,37 @@
+geomfum.descriptor package
+==========================
+
+Submodules
+----------
+
+geomfum.descriptor.learned module
+---------------------------------
+
+.. automodule:: geomfum.descriptor.learned
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.descriptor.pipeline module
+----------------------------------
+
+.. automodule:: geomfum.descriptor.pipeline
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.descriptor.spectral module
+----------------------------------
+
+.. automodule:: geomfum.descriptor.spectral
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum.descriptor
+   :members:
+   :show-inheritance:
+   :undoc-members:

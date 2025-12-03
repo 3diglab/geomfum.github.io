@@ -1,0 +1,29 @@
+geomfum.metric package
+======================
+
+Submodules
+----------
+
+geomfum.metric.mesh module
+--------------------------
+
+.. automodule:: geomfum.metric.mesh
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.metric.point\_cloud module
+----------------------------------
+
+.. automodule:: geomfum.metric.point_cloud
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum.metric
+   :members:
+   :show-inheritance:
+   :undoc-members:

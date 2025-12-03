@@ -1,0 +1,1229 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>geomfum.dataset package &#8212; GeomFuM latest documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c6e86fd7"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/geomfum.dataset';</script>
+    <link rel="canonical" href="geomfum.github.io/api/geomfum.dataset.html" />
+    <link rel="icon" href="../_static/GeomFuMlogo_only.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="geomfum.descriptor package" href="geomfum.descriptor.html" />
+    <link rel="prev" title="geomfum package" href="geomfum.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="latest" />
+    <meta name="docbuild:last-update" content="Dec 3, 2025, 5:05:53 PM"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/GeomFuMlogo.png" class="logo__image only-light" alt="GeomFuM latest documentation - Home"/>
+    <img src="../_static/GeomFuMlogo.png" class="logo__image only-dark pst-js-only" alt="GeomFuM latest documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">geomfum.dataset package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.wrap.html">geomfum.wrap package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="geomfum.html" class="nav-link">geomfum package</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.dataset package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="geomfum-dataset-package">
+<h1>geomfum.dataset package<a class="headerlink" href="#geomfum-dataset-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-geomfum.dataset.notebook">
+<span id="geomfum-dataset-notebook-module"></span><h2>geomfum.dataset.notebook module<a class="headerlink" href="#module-geomfum.dataset.notebook" title="Link to this heading">#</a></h2>
+<p>Datasets for notebooks/docs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.notebook.DownloadableFile">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.notebook.</span></span><span class="sig-name descname"><span class="pre">DownloadableFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/_utils.html#DownloadableFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.notebook.DownloadableFile" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>(Down)loadable file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – File name (without directory).</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – Url for file download.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.notebook.DownloadableFile.get_filename">
+<span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/_utils.html#DownloadableFile.get_filename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.notebook.DownloadableFile.get_filename" title="Link to this definition">#</a></dt>
+<dd><p>Get filename after (down)loading.</p>
+<p>Uses cached file if already in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_dir</strong> (<em>str</em>) – Directory where to store/access data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>file_path</strong> (<em>str</em>) – File name including directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.notebook.NotebooksDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.notebook.</span></span><span class="sig-name descname"><span class="pre">NotebooksDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_at_startup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.notebook.NotebooksDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Dataset to use within notebooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_dir</strong> (<em>str</em>) – Directory where to store/access data.</p></li>
+<li><p><strong>load_at_startup</strong> (<em>bool</em>) – Whether to (down)load files at startup.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.notebook.NotebooksDataset.get_filename">
+<span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset.get_filename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.notebook.NotebooksDataset.get_filename" title="Link to this definition">#</a></dt>
+<dd><p>Get filename after (down)loading.</p>
+<p>Uses cached file if already in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>str</em>) – File index in the dataset.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>file_path</strong> (<em>str</em>) – File name including directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.notebook.NotebooksDataset.get_filenames">
+<span class="sig-name descname"><span class="pre">get_filenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset.get_filenames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.notebook.NotebooksDataset.get_filenames" title="Link to this definition">#</a></dt>
+<dd><p>Get filenames after (down)loading.</p>
+<p>Uses cached files if already in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_paths</strong> (<em>list[str]</em>) – File names including directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.dataset.torch">
+<span id="geomfum-dataset-torch-module"></span><h2>geomfum.dataset.torch module<a class="headerlink" href="#module-geomfum.dataset.torch" title="Link to this heading">#</a></h2>
+<p>Datasets for Loading Meshes and Point Clouds using PyTorch.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.Dataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><a class="reference internal" href="../_modules/torch/utils/data/dataset.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.Dataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Generic" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">_T_co</span></code>]</p>
+<p>An abstract class representing a <a class="reference internal" href="#geomfum.dataset.torch.Dataset" title="geomfum.dataset.torch.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a>.</p>
+<p>All datasets that represent a map from keys to data samples should subclass
+it. All subclasses should overwrite <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code>, supporting fetching a
+data sample for a given key. Subclasses could also optionally overwrite
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code>, which is expected to return the size of the dataset by many
+<a class="reference external" href="https://docs.pytorch.org/docs/stable/data.html#torch.utils.data.Sampler" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sampler</span></code></a> implementations and the default options
+of <a class="reference external" href="https://docs.pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code></a>. Subclasses could also
+optionally implement <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitems__()</span></code>, for speedup batched samples
+loading. This method accepts list of indices of samples of batch and returns
+list of samples.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://docs.pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code></a> by default constructs an index
+sampler that yields integral indices.  To make it work with a map-style
+dataset with non-integral indices/keys, a custom sampler must be provided.</p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.MeshDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">MeshDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correspondences</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/torch.html#MeshDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.MeshDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.dataset.torch.ShapeDataset" title="geomfum.dataset.torch.ShapeDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeDataset</span></code></a></p>
+<p>ShapeDataset for loading and preprocessing mesh data.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PairsDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">PairsDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairs_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/torch.html#PairsDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PairsDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.dataset.torch.Dataset" title="torch.utils.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
+<p>Dataset of pairs of shapes. Each item is a pair (source, target) of shapes from the provided dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>torch.utils.data.Dataset or list</em>) – Preloaded dataset or list of shape data objects.</p></li>
+<li><p><strong>pair_mode</strong> (<em>str, optional</em>) – Strategy to generate pairs. Options: ‘all’, ‘random’. Default is ‘all’.</p></li>
+<li><p><strong>n_pairs</strong> (<em>int, optional</em>) – Number of random pairs to generate if pair_mode is ‘random’. Default is 100.</p></li>
+<li><p><strong>device</strong> (<em>torch.device, optional</em>) – Device to move the data to. If None, uses CUDA if available, else CPU.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PairsDataset.generate_all_pairs">
+<span class="sig-name descname"><span class="pre">generate_all_pairs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/torch.html#PairsDataset.generate_all_pairs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PairsDataset.generate_all_pairs" title="Link to this definition">#</a></dt>
+<dd><p>Generate all possible pairs of shapes from the dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PairsDataset.generate_random_pairs">
+<span class="sig-name descname"><span class="pre">generate_random_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pairs_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/torch.html#PairsDataset.generate_random_pairs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PairsDataset.generate_random_pairs" title="Link to this definition">#</a></dt>
+<dd><p>Generate pairs of shapes considering random sampling from the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pairs_ratio</strong> (<em>float</em>) – Ratio of pairs to generate compared to the total number of possible pairs.
+Default is 0.5, meaning half of the possible pairs will be generated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">PointCloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/point_cloud.html#PointCloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PointCloud" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.Shape" title="geomfum.shape._base.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></a></p>
+<p>Unstructured point cloud with k-NN connectivity and differential operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertices</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Vertices of the point cloud.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.dist_matrix">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Pairwise distances between all points using the equipped metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Metric distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.edge_tangent_vectors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edge_tangent_vectors</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.edge_tangent_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Edge vectors projected onto local tangent planes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edge_tangent_vectors</strong> (<em>array-like, shape=[n_edges, 2]</em>) – Tangent vectors of the edges, projected onto the local tangent plane.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.edges">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.edges" title="Link to this definition">#</a></dt>
+<dd><p>Edge connectivity from k-NN graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.equip_with_metric">
+<span class="sig-name descname"><span class="pre">equip_with_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/point_cloud.html#PointCloud.equip_with_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.equip_with_metric" title="Link to this definition">#</a></dt>
+<dd><p>Equip point cloud with a distance metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metric</strong> (<em>class</em>) – A metric class to use for the point cloud.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.from_file">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/point_cloud.html#PointCloud.from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.from_file" title="Link to this definition">#</a></dt>
+<dd><p>Load point cloud from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>PointCloud</em>) – A point cloud.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.knn_graph">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">knn_graph</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.knn_graph" title="Link to this definition">#</a></dt>
+<dd><p>K-nearest neighbors connectivity graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>knn_info</strong> (<em>dict</em>) – Dictionary containing:
+- ‘indices’: array-like, shape=[n_vertices, k] - neighbor indices for each vertex
+- ‘distances’: array-like, shape=[n_vertices, k] - distances to neighbors
+- ‘k’: int - number of neighbors
+- ‘nbrs_model’: sklearn.neighbors.NearestNeighbors - fitted model for reuse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.n_vertices">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vertices</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.n_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Number of points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_vertices</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.vertex_normals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_normals</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.vertex_normals" title="Link to this definition">#</a></dt>
+<dd><p>Normal vectors estimated from local neighborhoods using PCA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Normalized per-vertex normals estimated from local neighborhoods using PCA.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloud.vertex_tangent_frames">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_tangent_frames</span></span><a class="headerlink" href="#geomfum.dataset.torch.PointCloud.vertex_tangent_frames" title="Link to this definition">#</a></dt>
+<dd><p>Local orthonormal coordinate frames at each point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tangent_frame</strong> (<em>array-like, shape=[n_vertices, 3, 3]</em>) – Tangent frame of the mesh, where:
+- [n_vertices, 0, :] are the X basis vectors
+- [n_vertices, 1, :] are the Y basis vectors
+- [n_vertices, 2, :] are the vertex normals</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.PointCloudDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">PointCloudDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correspondences</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/torch.html#PointCloudDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.PointCloudDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.dataset.torch.ShapeDataset" title="geomfum.dataset.torch.ShapeDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeDataset</span></code></a></p>
+<p>ShapeDataset for loading and preprocessing point cloud data.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.ScipyGraphShortestPathMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">ScipyGraphShortestPathMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#ScipyGraphShortestPathMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.ScipyGraphShortestPathMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ScipyShortestPathMixins</span></code>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Geodesic distance approximation using SciPy’s shortest path algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Shape</em>) – Shape.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – Length (sum of edge weights) at which the search is stopped.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.ShapeDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">ShapeDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mesh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correspondences</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/torch.html#ShapeDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.ShapeDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.dataset.torch.Dataset" title="torch.utils.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
+<p>General dataset for loading and preprocessing meshes or point clouds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_dir</strong> (<em>str</em>) – Path to the directory containing the dataset. We assume the dataset directory to have a subfolder shapes, for shapes, corr, for correspondences and dist, for cached distance matrices.</p></li>
+<li><p><strong>shape_type</strong> (<em>str</em>) – Type of shape to load. Either ‘mesh’ or ‘pointcloud’.</p></li>
+<li><p><strong>spectral</strong> (<em>bool</em>) – Whether to compute the spectral features.</p></li>
+<li><p><strong>distances</strong> (<em>bool</em>) – Whether to compute geodesic distance matrices. For computational reasons, these are not computed on the fly, but rather loaded from a precomputed .mat file.</p></li>
+<li><p><strong>correspondences</strong> (<em>bool</em>) – Whether to load correspondences.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – Number of eigenvectors to use for the spectral features.</p></li>
+<li><p><strong>device</strong> (<em>torch.device, optional</em>) – Device to move the data to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">TriangleMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.Shape" title="geomfum.shape._base.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></a></p>
+<p>Triangulated surface mesh with vertices, faces, and differential operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertices</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Vertices of the mesh.</p></li>
+<li><p><strong>faces</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Faces of the mesh.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.dist_matrix">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Pairwise distances between all vertices using the equipped metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Metric distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.edge_tangent_vectors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edge_tangent_vectors</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.edge_tangent_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Edge vectors projected onto local tangent planes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edge_tangent_vectors</strong> (<em>array-like, shape=[n_edges, 2]</em>) – Tangent vectors of the edges, projected onto the local tangent plane.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.edges">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.edges" title="Link to this definition">#</a></dt>
+<dd><p>Edges of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edges</strong> (<em>array-like, shape=[n_edges, 2]</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.equip_with_metric">
+<span class="sig-name descname"><span class="pre">equip_with_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh.equip_with_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.equip_with_metric" title="Link to this definition">#</a></dt>
+<dd><p>Equip mesh with a distance metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metric</strong> (<em>class</em>) – A metric class to use for the mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.face_area_vectors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_area_vectors</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.face_area_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Face area vectors (unnormalized normals with magnitude equal to face area).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>area_vectors</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Per-face area vectors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.face_areas">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_areas</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.face_areas" title="Link to this definition">#</a></dt>
+<dd><p>Area of each triangular face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>face_areas</strong> (<em>array-like, shape=[n_faces]</em>) – Per-face areas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.face_normals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_normals</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.face_normals" title="Link to this definition">#</a></dt>
+<dd><p>Unit normal vectors for each face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Per-face normals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.face_vertex_coords">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_vertex_coords</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.face_vertex_coords" title="Link to this definition">#</a></dt>
+<dd><p>Extract vertex coordinates corresponding to each face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertices</strong> (<em>array-like, shape=[{n_faces}, n_per_face_vertex, 3]</em>) – Coordinates of the ith vertex of that face.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.from_file">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh.from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.from_file" title="Link to this definition">#</a></dt>
+<dd><p>Load mesh from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Path to the mesh file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – A triangle mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.n_faces">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_faces</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.n_faces" title="Link to this definition">#</a></dt>
+<dd><p>Number of faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_faces</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.n_vertices">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vertices</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.n_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Number of vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_vertices</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.vertex_areas">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_areas</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.vertex_areas" title="Link to this definition">#</a></dt>
+<dd><p>Area associated with each vertex (one-third of adjacent triangle areas).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertex_areas</strong> (<em>array-like, shape=[n_vertices]</em>) – Per-vertex areas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.vertex_normals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_normals</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.vertex_normals" title="Link to this definition">#</a></dt>
+<dd><p>Unit normal vectors at vertices (area-weighted average of adjacent face normals).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Normalized per-vertex normals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.TriangleMesh.vertex_tangent_frames">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_tangent_frames</span></span><a class="headerlink" href="#geomfum.dataset.torch.TriangleMesh.vertex_tangent_frames" title="Link to this definition">#</a></dt>
+<dd><p>Local orthonormal coordinate frames at each vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tangent_frame</strong> (<em>array-like, shape=[n_vertices, 3, 3]</em>) – Tangent frame of the mesh, where:
+- [n_vertices, 0, :] are the X basis vectors
+- [n_vertices, 1, :] are the Y basis vectors
+- [n_vertices, 2, :] are the vertex normals</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.VertexEuclideanMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.torch.</span></span><span class="sig-name descname"><span class="pre">VertexEuclideanMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.VertexEuclideanMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Euclidean distance metric in ambient embedding space.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.VertexEuclideanMetric.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.VertexEuclideanMetric.dist" title="Link to this definition">#</a></dt>
+<dd><p>Distances between shape vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p></li>
+<li><p><strong>point_b</strong> (<em>array-like, shape=[…]</em>) – Index of target point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dist</strong> (<em>array-like, shape=[…]</em>) – Distance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.VertexEuclideanMetric.dist_from_source">
+<span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.VertexEuclideanMetric.dist_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Distances from source point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source_point</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dist</strong> (<em>array-like, shape=[…] or array-like[array-like]</em>) – Distance.</p></li>
+<li><p><strong>target_point</strong> (<em>array-like, shape=[n_targets] or array-like[array-like]</em>) – Target index.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.torch.VertexEuclideanMetric.dist_matrix">
+<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.torch.VertexEuclideanMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distances between all shape vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.dataset">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.dataset" title="Link to this heading">#</a></h2>
+<p>Datasets Module. This module contains dataset classes to use in Geomfum. Including utils for dataset management, downloading, and processing.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.NotebooksDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.</span></span><span class="sig-name descname"><span class="pre">NotebooksDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_at_startup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.NotebooksDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Dataset to use within notebooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_dir</strong> (<em>str</em>) – Directory where to store/access data.</p></li>
+<li><p><strong>load_at_startup</strong> (<em>bool</em>) – Whether to (down)load files at startup.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.NotebooksDataset.get_filename">
+<span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset.get_filename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.NotebooksDataset.get_filename" title="Link to this definition">#</a></dt>
+<dd><p>Get filename after (down)loading.</p>
+<p>Uses cached file if already in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>str</em>) – File index in the dataset.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>file_path</strong> (<em>str</em>) – File name including directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.NotebooksDataset.get_filenames">
+<span class="sig-name descname"><span class="pre">get_filenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset.get_filenames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.NotebooksDataset.get_filenames" title="Link to this definition">#</a></dt>
+<dd><p>Get filenames after (down)loading.</p>
+<p>Uses cached files if already in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_paths</strong> (<em>list[str]</em>) – File names including directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="geomfum.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">geomfum package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="geomfum.descriptor.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">geomfum.descriptor package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.dataset.notebook">geomfum.dataset.notebook module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.DownloadableFile"><code class="docutils literal notranslate"><span class="pre">DownloadableFile</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.DownloadableFile.get_filename"><code class="docutils literal notranslate"><span class="pre">DownloadableFile.get_filename()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.NotebooksDataset"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.NotebooksDataset.get_filename"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset.get_filename()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.NotebooksDataset.get_filenames"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset.get_filenames()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.dataset.torch">geomfum.dataset.torch module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.MeshDataset"><code class="docutils literal notranslate"><span class="pre">MeshDataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PairsDataset"><code class="docutils literal notranslate"><span class="pre">PairsDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PairsDataset.generate_all_pairs"><code class="docutils literal notranslate"><span class="pre">PairsDataset.generate_all_pairs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PairsDataset.generate_random_pairs"><code class="docutils literal notranslate"><span class="pre">PairsDataset.generate_random_pairs()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud"><code class="docutils literal notranslate"><span class="pre">PointCloud</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.dist_matrix"><code class="docutils literal notranslate"><span class="pre">PointCloud.dist_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.edge_tangent_vectors"><code class="docutils literal notranslate"><span class="pre">PointCloud.edge_tangent_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.edges"><code class="docutils literal notranslate"><span class="pre">PointCloud.edges</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.equip_with_metric"><code class="docutils literal notranslate"><span class="pre">PointCloud.equip_with_metric()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.from_file"><code class="docutils literal notranslate"><span class="pre">PointCloud.from_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.knn_graph"><code class="docutils literal notranslate"><span class="pre">PointCloud.knn_graph</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.n_vertices"><code class="docutils literal notranslate"><span class="pre">PointCloud.n_vertices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.vertex_normals"><code class="docutils literal notranslate"><span class="pre">PointCloud.vertex_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloud.vertex_tangent_frames"><code class="docutils literal notranslate"><span class="pre">PointCloud.vertex_tangent_frames</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.PointCloudDataset"><code class="docutils literal notranslate"><span class="pre">PointCloudDataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.ScipyGraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">ScipyGraphShortestPathMetric</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.ShapeDataset"><code class="docutils literal notranslate"><span class="pre">ShapeDataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh"><code class="docutils literal notranslate"><span class="pre">TriangleMesh</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.dist_matrix"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.dist_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.edge_tangent_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edge_tangent_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.edges"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edges</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.equip_with_metric"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.equip_with_metric()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.face_area_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_area_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.face_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_areas</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.face_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.face_vertex_coords"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_vertex_coords</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.from_file"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.from_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.n_faces"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_faces</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.n_vertices"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_vertices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.vertex_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_areas</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.vertex_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.TriangleMesh.vertex_tangent_frames"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_tangent_frames</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.VertexEuclideanMetric"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.VertexEuclideanMetric.dist"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.VertexEuclideanMetric.dist_from_source"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_from_source()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.torch.VertexEuclideanMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.dataset">Module contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.NotebooksDataset"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.NotebooksDataset.get_filename"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset.get_filename()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.NotebooksDataset.get_filenames"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset.get_filenames()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/geomfum.dataset.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GeomFuM contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
