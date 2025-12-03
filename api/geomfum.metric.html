@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 3:18:34 PM"/>
+    <meta name="docbuild:last-update" content="Dec 3, 2025, 3:59:07 PM"/>
   </head>
   
   
@@ -229,7 +229,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -241,7 +241,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -362,7 +362,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -374,7 +374,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -471,16 +471,16 @@
 </section>
 <section id="module-geomfum.metric.mesh">
 <span id="geomfum-metric-mesh-module"></span><h2>geomfum.metric.mesh module<a class="headerlink" href="#module-geomfum.metric.mesh" title="Link to this heading">#</a></h2>
-<p>Module containing metrics to calcualte distances on a mesh.</p>
+<p>Module containing metrics to calculate distances on a TriangleMesh.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.FinitePointSetMetric">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">FinitePointSetMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#FinitePointSetMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.FinitePointSetMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.metric.mesh.Metric" title="geomfum.metric.mesh.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Metric on a finite set of indexed points.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">FinitePointSetMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#FinitePointSetMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.FinitePointSetMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.metric.Metric" title="geomfum.metric._base.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Metric supporting distance matrices and source-to-all computations on discrete point sets.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.FinitePointSetMetric.dist_from_source">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#FinitePointSetMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.FinitePointSetMetric.dist_from_source" title="Link to this definition">#</a></dt>
-<dd><p>Distance from source point.</p>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#FinitePointSetMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.FinitePointSetMetric.dist_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Distances from a source point.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>source_point</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p>
@@ -497,8 +497,8 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.FinitePointSetMetric.dist_matrix">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#FinitePointSetMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.FinitePointSetMetric.dist_matrix" title="Link to this definition">#</a></dt>
-<dd><p>Distance between all the points of a shape.</p>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#FinitePointSetMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.FinitePointSetMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distances between all the points of a shape.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
@@ -511,8 +511,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.GraphShortestPathMetric">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">GraphShortestPathMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#GraphShortestPathMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.GraphShortestPathMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_NxDijkstraMixins</span></code>, <a class="reference internal" href="#geomfum.metric.mesh.FinitePointSetMetric" title="geomfum.metric.mesh.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
-<p>Shortest path on edge graph of mesh with single source Dijkstra.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_NxDijkstraMixins</span></code>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Geodesic distance approximation using Dijkstra’s algorithm on mesh edge graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -524,26 +524,10 @@
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="geomfum.metric.mesh.HeatDistanceMetric">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">HeatDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#HeatDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.HeatDistanceMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></p>
-<p>Heat distance metric between vertices of a mesh.</p>
-<p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="cww2013" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>CWW2013<span class="fn-bracket">]</span></span>
-<p>Crane, K., Weischedel, C., Wardetzky, M., 2017.
-The heat method for distance computation. Commun. ACM 60, 90–99.
-<a class="reference external" href="https://doi.org/10.1145/3131280">https://doi.org/10.1145/3131280</a></p>
-</div>
-</div>
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.KClosestGraphShortestPathMetric">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">KClosestGraphShortestPathMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_closest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#KClosestGraphShortestPathMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.KClosestGraphShortestPathMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_NxDijkstraMixins</span></code>, <a class="reference internal" href="#geomfum.metric.mesh.FinitePointSetMetric" title="geomfum.metric.mesh.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
-<p>Shortest path on edge graph of mesh with Dijkstra.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_NxDijkstraMixins</span></code>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>K-nearest neighbors geodesic distance using partial Dijkstra search.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -555,39 +539,10 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="geomfum.metric.mesh.Metric">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#Metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.Metric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Metric.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<em>Shape</em>) – Considered as a manifold.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.metric.mesh.Metric.dist">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#Metric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.Metric.dist" title="Link to this definition">#</a></dt>
-<dd><p>Distance between points.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>point_a</strong> (<em>array-like, shape=[…]</em>) – Index Point.</p></li>
-<li><p><strong>point_b</strong> (<em>array-like, shape=[…]</em>) – Index Point.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>dist</strong> (<em>array-like, shape=[…,]</em>) – Distance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.ScipyGraphShortestPathMetric">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">ScipyGraphShortestPathMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#ScipyGraphShortestPathMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.ScipyGraphShortestPathMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ScipyShortestPathMixins</span></code>, <a class="reference internal" href="#geomfum.metric.mesh.FinitePointSetMetric" title="geomfum.metric.mesh.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
-<p>Shortest path on edge graph of mesh with Scipy shortest path solver.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ScipyShortestPathMixins</span></code>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Geodesic distance approximation using SciPy’s shortest path algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -600,13 +555,13 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.VertexEuclideanMetric">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">VertexEuclideanMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#VertexEuclideanMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.metric.mesh.FinitePointSetMetric" title="geomfum.metric.mesh.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
-<p>Euclidean metric between vertices of a mesh.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">VertexEuclideanMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Euclidean distance metric in ambient embedding space.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.VertexEuclideanMetric.dist">
-<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#VertexEuclideanMetric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist" title="Link to this definition">#</a></dt>
-<dd><p>Distance between mesh vertices.</p>
+<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist" title="Link to this definition">#</a></dt>
+<dd><p>Distances between shape vertices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -622,8 +577,8 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.VertexEuclideanMetric.dist_from_source">
-<span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#VertexEuclideanMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_from_source" title="Link to this definition">#</a></dt>
-<dd><p>Distance from source point.</p>
+<span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Distances from source point.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>source_point</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p>
@@ -640,8 +595,8 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.VertexEuclideanMetric.dist_matrix">
-<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#VertexEuclideanMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_matrix" title="Link to this definition">#</a></dt>
-<dd><p>Distance between mesh vertices.</p>
+<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distances between all shape vertices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
@@ -649,6 +604,143 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.shortest_path">
+<span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">shortest_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csgraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_predecessors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unweighted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geomfum.metric.mesh.shortest_path" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>shortest_path(csgraph, method=’auto’, directed=True, return_predecessors=False,</dt><dd><p>unweighted=False, overwrite=False, indices=None)</p>
+</dd>
+</dl>
+<p>Perform a shortest-path graph search on a positive directed or
+undirected graph.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.11.0.</span></p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>csgraph</strong> (<em>array_like, or sparse array or matrix, 2 dimensions</em>) – The N x N array of distances representing the input graph.</p></li>
+<li><p><strong>method</strong> (<em>string [‘auto’|’FW’|’D’], optional</em>) –</p>
+<p>Algorithm to use for shortest paths.  Options are:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>‘auto’ – (default) select the best among ‘FW’, ‘D’, ‘BF’, or ‘J’</dt><dd><p>based on the input data.</p>
+</dd>
+<dt>‘FW’   – Floyd-Warshall algorithm.</dt><dd><p>Computational cost is approximately <code class="docutils literal notranslate"><span class="pre">O[N^3]</span></code>.
+The input csgraph will be converted to a dense representation.</p>
+</dd>
+<dt>‘D’    – Dijkstra’s algorithm with Fibonacci heaps.</dt><dd><p>Computational cost is approximately <code class="docutils literal notranslate"><span class="pre">O[N(N*k</span> <span class="pre">+</span> <span class="pre">N*log(N))]</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">k</span></code> is the average number of connected edges per node.
+The input csgraph will be converted to a csr representation.</p>
+</dd>
+<dt>‘BF’   – Bellman-Ford algorithm.</dt><dd><p>This algorithm can be used when weights are negative.
+If a negative cycle is encountered, an error will be raised.
+Computational cost is approximately <code class="docutils literal notranslate"><span class="pre">O[N(N^2</span> <span class="pre">k)]</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">k</span></code> is the average number of connected edges per node.
+The input csgraph will be converted to a csr representation.</p>
+</dd>
+<dt>‘J’    – Johnson’s algorithm.</dt><dd><p>Like the Bellman-Ford algorithm, Johnson’s algorithm is
+designed for use when the weights are negative. It combines
+the Bellman-Ford algorithm with Dijkstra’s algorithm for
+faster computation.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p><strong>directed</strong> (<em>bool, optional</em>) – If True (default), then find the shortest path on a directed graph:
+only move from point i to point j along paths csgraph[i, j].
+If False, then find the shortest path on an undirected graph: the
+algorithm can progress from point i to j along csgraph[i, j] or
+csgraph[j, i]</p></li>
+<li><p><strong>return_predecessors</strong> (<em>bool, optional</em>) – If True, return the size (N, N) predecessor matrix.</p></li>
+<li><p><strong>unweighted</strong> (<em>bool, optional</em>) – If True, then find unweighted distances.  That is, rather than finding
+the path between each point such that the sum of weights is minimized,
+find the path such that the number of edges is minimized.</p></li>
+<li><p><strong>overwrite</strong> (<em>bool, optional</em>) – If True, overwrite csgraph with the result.  This applies only if
+method == ‘FW’ and csgraph is a dense, c-ordered array with
+dtype=float64.</p></li>
+<li><p><strong>indices</strong> (<em>array_like or int, optional</em>) – If specified, only compute the paths from the points at the given
+indices. Incompatible with method == ‘FW’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dist_matrix</strong> (<em>ndarray</em>) – The N x N matrix of distances between graph nodes. dist_matrix[i,j]
+gives the shortest distance from point i to point j along the graph.</p></li>
+<li><p><strong>predecessors</strong> (<em>ndarray</em>) – Returned only if return_predecessors == True.
+The N x N matrix of predecessors, which can be used to reconstruct
+the shortest paths.  Row i of the predecessor matrix contains
+information on the shortest paths from point i: each entry
+predecessors[i, j] gives the index of the previous node in the
+path from point i to point j.  If no path exists between point
+i and j, then predecessors[i, j] = -9999</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NegativeCycleError:</strong> – if there are negative cycles in the graph</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>As currently implemented, Dijkstra’s algorithm and Johnson’s algorithm
+do not work for graphs with direction-dependent distances when
+directed == False.  i.e., if csgraph[i,j] and csgraph[j,i] are non-equal
+edges, method=’D’ may yield an incorrect result.</p>
+<p>If multiple valid solutions are possible, output may vary with SciPy and
+Python version.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">csr_array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse.csgraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">shortest_path</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span> <span class="o">=</span> <span class="n">csr_array</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="go">&lt;Compressed Sparse Row sparse array of dtype &#39;int64&#39;</span>
+<span class="go">    with 5 stored elements and shape (4, 4)&gt;</span>
+<span class="go">    Coords  Values</span>
+<span class="go">    (0, 1)  1</span>
+<span class="go">    (0, 2)  2</span>
+<span class="go">    (1, 3)  1</span>
+<span class="go">    (2, 0)  2</span>
+<span class="go">    (2, 3)  3</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist_matrix</span><span class="p">,</span> <span class="n">predecessors</span> <span class="o">=</span> <span class="n">shortest_path</span><span class="p">(</span><span class="n">csgraph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_predecessors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist_matrix</span>
+<span class="go">array([0., 1., 2., 2.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">predecessors</span>
+<span class="go">array([-9999,     0,     0,     1], dtype=int32)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.single_source_partial_dijkstra_path_length">
+<span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">single_source_partial_dijkstra_path_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'weight'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/graph.html#single_source_partial_dijkstra_path_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.single_source_partial_dijkstra_path_length" title="Link to this definition">#</a></dt>
+<dd><p>Compute shortest-path distances from a source node to the k closest nodes.</p>
+<p>Based on cumulative path cost, using an early-stopped Dijkstra’s algorithm.</p>
+<p>The search terminates once k nodes (including the source itself) have been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>networkx.Graph</em>) – The input graph. Can be directed or undirected.
+Edge weights must be non-negative.</p></li>
+<li><p><strong>source</strong> (<em>node</em>) – The starting node for paths.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – Number of nodes to find distances to (including the source itself).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>length</strong> (<em>dict</em>) – Dict keyed by node to shortest path length from source.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -668,6 +760,141 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 </section>
 <section id="module-geomfum.metric">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.metric" title="Link to this heading">#</a></h2>
+<p>Metrics Module. This module contains various metrics for computing distances on shapes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.FinitePointSetMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.</span></span><span class="sig-name descname"><span class="pre">FinitePointSetMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#FinitePointSetMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.FinitePointSetMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.metric.Metric" title="geomfum.metric._base.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Metric supporting distance matrices and source-to-all computations on discrete point sets.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.FinitePointSetMetric.dist_from_source">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#FinitePointSetMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.FinitePointSetMetric.dist_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Distances from a source point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source_point</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dist</strong> (<em>array-like, shape=[…] or list-like[array-like]</em>) – Distance.</p></li>
+<li><p><strong>target_point</strong> (<em>array-like, shape=[n_targets] or list-like[array-like]</em>) – Target index.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.FinitePointSetMetric.dist_matrix">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#FinitePointSetMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.FinitePointSetMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distances between all the points of a shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.HeatDistanceMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.</span></span><span class="sig-name descname"><span class="pre">HeatDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#HeatDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.HeatDistanceMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.MeshWhichRegistryMixins" title="geomfum._registry.MeshWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins</span></code></a></p>
+<p>Geodesic distance approximation using the heat method.</p>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="cww2017" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CWW2017<span class="fn-bracket">]</span></span>
+<p>Crane, K., Weischedel, C., Wardetzky, M., 2017.
+The heat method for distance computation. Commun. ACM 60, 90–99.
+<a class="reference external" href="https://doi.org/10.1145/3131280">https://doi.org/10.1145/3131280</a></p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.Metric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#Metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.Metric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for distance metrics on shapes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape</em>) – Considered as a manifold.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.Metric.dist">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#Metric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.Metric.dist" title="Link to this definition">#</a></dt>
+<dd><p>Distance between points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> (<em>array-like, shape=[…]</em>) – Index Point.</p></li>
+<li><p><strong>point_b</strong> (<em>array-like, shape=[…]</em>) – Index Point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dist</strong> (<em>array-like, shape=[…,]</em>) – Distance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.VertexEuclideanMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.</span></span><span class="sig-name descname"><span class="pre">VertexEuclideanMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.VertexEuclideanMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Euclidean distance metric in ambient embedding space.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.VertexEuclideanMetric.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.VertexEuclideanMetric.dist" title="Link to this definition">#</a></dt>
+<dd><p>Distances between shape vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p></li>
+<li><p><strong>point_b</strong> (<em>array-like, shape=[…]</em>) – Index of target point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dist</strong> (<em>array-like, shape=[…]</em>) – Distance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.VertexEuclideanMetric.dist_from_source">
+<span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.VertexEuclideanMetric.dist_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Distances from source point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source_point</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dist</strong> (<em>array-like, shape=[…] or array-like[array-like]</em>) – Distance.</p></li>
+<li><p><strong>target_point</strong> (<em>array-like, shape=[n_targets] or array-like[array-like]</em>) – Target index.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.VertexEuclideanMetric.dist_matrix">
+<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.VertexEuclideanMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distances between all shape vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -726,12 +953,7 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.GraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">GraphShortestPathMetric</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.HeatDistanceMetric"><code class="docutils literal notranslate"><span class="pre">HeatDistanceMetric</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.KClosestGraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">KClosestGraphShortestPathMetric</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.Metric.dist"><code class="docutils literal notranslate"><span class="pre">Metric.dist()</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.ScipyGraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">ScipyGraphShortestPathMetric</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist()</span></code></a></li>
@@ -739,10 +961,30 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_matrix()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.shortest_path"><code class="docutils literal notranslate"><span class="pre">shortest_path()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.single_source_partial_dijkstra_path_length"><code class="docutils literal notranslate"><span class="pre">single_source_partial_dijkstra_path_length()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.to_nx_edge_graph"><code class="docutils literal notranslate"><span class="pre">to_nx_edge_graph()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.metric">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.metric">Module contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.FinitePointSetMetric"><code class="docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.FinitePointSetMetric.dist_from_source"><code class="docutils literal notranslate"><span class="pre">FinitePointSetMetric.dist_from_source()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.FinitePointSetMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">FinitePointSetMetric.dist_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.HeatDistanceMetric"><code class="docutils literal notranslate"><span class="pre">HeatDistanceMetric</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.Metric.dist"><code class="docutils literal notranslate"><span class="pre">Metric.dist()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.VertexEuclideanMetric"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.VertexEuclideanMetric.dist"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.VertexEuclideanMetric.dist_from_source"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_from_source()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.VertexEuclideanMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

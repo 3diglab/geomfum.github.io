@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 3:18:34 PM"/>
+    <meta name="docbuild:last-update" content="Dec 3, 2025, 3:59:07 PM"/>
   </head>
   
   
@@ -229,7 +229,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -241,7 +241,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -362,7 +362,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -374,7 +374,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -471,6 +471,24 @@
 <h1>geomfum.shape.convert package<a class="headerlink" href="#geomfum-shape-convert-package" title="Link to this heading">#</a></h1>
 <section id="module-geomfum.shape.convert">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.shape.convert" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.shape.convert.to_go_mesh3d">
+<span class="sig-prename descclassname"><span class="pre">geomfum.shape.convert.</span></span><span class="sig-name descname"><span class="pre">to_go_mesh3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/convert/_plotly.html#to_go_mesh3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.convert.to_go_mesh3d" title="Link to this definition">#</a></dt>
+<dd><p>Convert a TriangleMesh object to a plotly Mesh3d object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.shape.convert.to_go_pointcloud">
+<span class="sig-prename descclassname"><span class="pre">geomfum.shape.convert.</span></span><span class="sig-name descname"><span class="pre">to_go_pointcloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/convert/_plotly.html#to_go_pointcloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.convert.to_go_pointcloud" title="Link to this definition">#</a></dt>
+<dd><p>Convert a PointCloud object to a plotly Scatter3d object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.shape.convert.to_pv_polydata">
+<span class="sig-prename descclassname"><span class="pre">geomfum.shape.convert.</span></span><span class="sig-name descname"><span class="pre">to_pv_polydata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/convert/_pyvista.html#to_pv_polydata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.convert.to_pv_polydata" title="Link to this definition">#</a></dt>
+<dd><p>Convert a TriangleMesh object to a PyVista PolyData object.</p>
+</dd></dl>
+
 </section>
 </section>
 
@@ -521,7 +539,12 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.shape.convert">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.shape.convert">Module contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.convert.to_go_mesh3d"><code class="docutils literal notranslate"><span class="pre">to_go_mesh3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.convert.to_go_pointcloud"><code class="docutils literal notranslate"><span class="pre">to_go_pointcloud()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.shape.convert.to_pv_polydata"><code class="docutils literal notranslate"><span class="pre">to_pv_polydata()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

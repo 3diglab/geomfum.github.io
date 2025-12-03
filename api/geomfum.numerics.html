@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 3:18:34 PM"/>
+    <meta name="docbuild:last-update" content="Dec 3, 2025, 3:59:07 PM"/>
   </head>
   
   
@@ -229,7 +229,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -241,7 +241,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -362,7 +362,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -374,7 +374,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -471,10 +471,22 @@
 </section>
 <section id="module-geomfum.numerics.eig">
 <span id="geomfum-numerics-eig-module"></span><h2>geomfum.numerics.eig module<a class="headerlink" href="#module-geomfum.numerics.eig" title="Link to this heading">#</a></h2>
+<p>Module for eigenvalue solver.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.numerics.eig.ScipyEigsh">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.numerics.eig.</span></span><span class="sig-name descname"><span class="pre">ScipyEigsh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectrum_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/eig.html#ScipyEigsh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.numerics.eig.ScipyEigsh" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Sparse eigenvalue solver using SciPy’s ARPACK wrapper.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectrum_size</strong> (<em>int, optional</em>) – Number of eigenvalues and eigenvectors to compute (default: 6).</p></li>
+<li><p><strong>sigma</strong> (<em>float, optional</em>) – Shift for shift-invert mode. If None, standard mode is used.</p></li>
+<li><p><strong>which</strong> (<em>str, optional</em>) – Which eigenvalues to find: ‘LM’ (largest magnitude), ‘SM’ (smallest magnitude),
+‘LA’ (largest algebraic), ‘SA’ (smallest algebraic), etc. (default: ‘LM’).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -509,8 +521,21 @@ Edge weights must be non-negative.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.numerics.optimization.ScipyMinimize">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.numerics.optimization.</span></span><span class="sig-name descname"><span class="pre">ScipyMinimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'L-BFGS-B'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/optimization.html#ScipyMinimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.numerics.optimization.ScipyMinimize" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Wrapper for scipy.optimize.minimize.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Backend-agnostic wrapper for SciPy’s optimization routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str, optional</em>) – Optimization algorithm (default: ‘L-BFGS-B’).</p></li>
+<li><p><strong>bounds</strong> (<em>sequence, optional</em>) – Bounds on variables for constrained methods.</p></li>
+<li><p><strong>constraints</strong> (<em>dict or sequence of dict, optional</em>) – Constraints definition.</p></li>
+<li><p><strong>tol</strong> (<em>float, optional</em>) – Tolerance for termination.</p></li>
+<li><p><strong>callback</strong> (<em>callable, optional</em>) – Function called after each iteration.</p></li>
+<li><p><strong>options</strong> (<em>dict, optional</em>) – Solver-specific options.</p></li>
+<li><p><strong>save_result</strong> (<em>bool, optional</em>) – Whether to save the optimization result (default: False).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.numerics.optimization.ScipyMinimize.minimize">
 <span class="sig-name descname"><span class="pre">minimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun_jac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun_hess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hessp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/optimization.html#ScipyMinimize.minimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.numerics.optimization.ScipyMinimize.minimize" title="Link to this definition">#</a></dt>
@@ -530,9 +555,16 @@ Edge weights must be non-negative.</p></li>
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.numerics.optimization.result_to_backend_type">
+<span class="sig-prename descclassname"><span class="pre">geomfum.numerics.optimization.</span></span><span class="sig-name descname"><span class="pre">result_to_backend_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomstats/numerics/_common.html#result_to_backend_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.numerics.optimization.result_to_backend_type" title="Link to this definition">#</a></dt>
+<dd><p>Convert np.array to gs.array within result object.</p>
+</dd></dl>
+
 </section>
 <section id="module-geomfum.numerics">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.numerics" title="Link to this heading">#</a></h2>
+<p>Numerics Module. This module contains numerical methods and utilities used in Geomfum.</p>
 </section>
 </section>
 
@@ -597,6 +629,7 @@ Edge weights must be non-negative.</p></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.numerics.optimization.ScipyMinimize.minimize"><code class="docutils literal notranslate"><span class="pre">ScipyMinimize.minimize()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.numerics.optimization.result_to_backend_type"><code class="docutils literal notranslate"><span class="pre">result_to_backend_type()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.numerics">Module contents</a></li>

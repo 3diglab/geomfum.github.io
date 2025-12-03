@@ -226,7 +226,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -357,7 +357,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -438,7 +438,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">igl</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xgs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.laplacian</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLaplacianFinder</span>
 
 
@@ -463,8 +463,8 @@
 <span class="sd">            Diagonal lumped mass matrix.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="n">xgs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_scipy_csc</span><span class="p">(</span><span class="o">-</span><span class="n">igl</span><span class="o">.</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">faces</span><span class="p">)),</span>
-            <span class="n">xgs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_scipy_csc</span><span class="p">(</span>
+            <span class="n">gs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_scipy_csc</span><span class="p">(</span><span class="o">-</span><span class="n">igl</span><span class="o">.</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">faces</span><span class="p">)),</span>
+            <span class="n">gs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_scipy_csc</span><span class="p">(</span>
                 <span class="n">igl</span><span class="o">.</span><span class="n">massmatrix</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">igl</span><span class="o">.</span><span class="n">MASSMATRIX_TYPE_VORONOI</span><span class="p">)</span>
             <span class="p">),</span>
         <span class="p">)</span></div>

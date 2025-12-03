@@ -226,7 +226,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -357,7 +357,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -443,7 +443,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">NearestNeighbors</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xgs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.wrap</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_wrap</span>  <span class="c1"># noqa (for register)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum._registry</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">SinkhornNeighborFinderRegistry</span><span class="p">,</span>
@@ -527,9 +527,9 @@
             <span class="n">emb1</span><span class="p">,</span> <span class="n">emb2</span> <span class="o">=</span> <span class="n">emb2</span><span class="p">,</span> <span class="n">emb1</span>
 
         <span class="c1"># TODO: update neighbor finder instead</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">neighbor_finder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">emb1</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neighbor_finder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">emb1</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">))</span>
         <span class="n">p2p_21</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neighbor_finder</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span>
-            <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">emb2</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">),</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span>
+            <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">emb2</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">),</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">p2p_21</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span></div>
@@ -776,8 +776,8 @@
 <span class="sd">        nam: NeuralAdjointMap , shape=[spectrum_size_b, spectrum_size_a]</span>
 <span class="sd">            Neural Adjoint Map model.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">evects2_pb</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_b</span><span class="o">.</span><span class="n">vecs</span><span class="p">[</span><span class="n">p2p</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
-        <span class="n">evects1</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_a</span><span class="o">.</span><span class="n">vecs</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
+        <span class="n">evects2_pb</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_b</span><span class="o">.</span><span class="n">vecs</span><span class="p">[</span><span class="n">p2p</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
+        <span class="n">evects1</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_a</span><span class="o">.</span><span class="n">vecs</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
         <span class="n">nam</span> <span class="o">=</span> <span class="n">NeuralAdjointMap</span><span class="p">(</span>
             <span class="n">input_dim</span><span class="o">=</span><span class="n">basis_a</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">,</span>
             <span class="n">output_dim</span><span class="o">=</span><span class="n">basis_b</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">,</span>
@@ -850,8 +850,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">k2</span><span class="p">,</span> <span class="n">k1</span> <span class="o">=</span> <span class="n">nam</span><span class="o">.</span><span class="n">shape</span>
 
-        <span class="n">emb1</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_a</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">nam</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
-        <span class="n">emb2</span> <span class="o">=</span> <span class="n">nam</span><span class="p">(</span><span class="n">xgs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_b</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k2</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">nam</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">())</span>
+        <span class="n">emb1</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_a</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">nam</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
+        <span class="n">emb2</span> <span class="o">=</span> <span class="n">nam</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">basis_b</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k2</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">nam</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">())</span>
 
         <span class="c1"># TODO: update neighbor finder instead</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">neighbor_finder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">emb2</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>

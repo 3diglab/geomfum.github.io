@@ -58,7 +58,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
-    <meta name="docbuild:last-update" content="Jul 24, 2025, 3:18:34 PM"/>
+    <meta name="docbuild:last-update" content="Dec 3, 2025, 3:59:07 PM"/>
   </head>
   
   
@@ -229,7 +229,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -241,7 +241,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -362,7 +362,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -374,7 +374,7 @@
           
           
           
-          <a href="https://discord.gg/6sYmEbUp" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
+          <a href="https://discord.gg/THHku2ckJs" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discord fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Discord</span></a>
         </li>
 </ul></div>
@@ -476,8 +476,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.learned.BaseFeatureExtractor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.learned.</span></span><span class="sig-name descname"><span class="pre">BaseFeatureExtractor</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/learned.html#BaseFeatureExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.BaseFeatureExtractor" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Base class for feature extractor.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for neural network feature extractors.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.descriptor.learned.BaseFeatureExtractor.load_from_path">
 <span class="sig-name descname"><span class="pre">load_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/learned.html#BaseFeatureExtractor.load_from_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.BaseFeatureExtractor.load_from_path" title="Link to this definition">#</a></dt>
@@ -503,17 +503,40 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.learned.Descriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.learned.</span></span><span class="sig-name descname"><span class="pre">Descriptor</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/_base.html#Descriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.Descriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for shape descriptors.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.learned.FeatureExtractor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.learned.</span></span><span class="sig-name descname"><span class="pre">FeatureExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/learned.html#FeatureExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.FeatureExtractor" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></p>
-<p>Feature extractor.</p>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a></p>
+<p>Factory for creating feature extractors from registry.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.learned.FeatureExtractorRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.learned.</span></span><span class="sig-name descname"><span class="pre">FeatureExtractorRegistry</span></span><a class="reference internal" href="../_modules/geomfum/_registry.html#FeatureExtractorRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.FeatureExtractorRegistry" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Registry</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.learned.FeatureExtractorRegistry.MAP">
+<span class="sig-name descname"><span class="pre">MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'diffusionnet':</span> <span class="pre">('DiffusionnetFeatureExtractor',</span> <span class="pre">None),</span> <span class="pre">'pointnet':</span> <span class="pre">('PointnetFeatureExtractor',</span> <span class="pre">None),</span> <span class="pre">'transformer':</span> <span class="pre">('TransformerFeatureExtractor',</span> <span class="pre">None)}</span></em><a class="headerlink" href="#geomfum.descriptor.learned.FeatureExtractorRegistry.MAP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.learned.FeatureExtractorRegistry.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'diffusionnet'</span></em><a class="headerlink" href="#geomfum.descriptor.learned.FeatureExtractorRegistry.default" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.learned.LearnedDescriptor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.learned.</span></span><span class="sig-name descname"><span class="pre">LearnedDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_extractor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/learned.html#LearnedDescriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.LearnedDescriptor" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
-<p>Learned descriptor.</p>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.Descriptor" title="geomfum.descriptor._base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Descriptor computed using neural network feature extractors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>feature_extractor</strong> (<em>Feature Extractor</em>) – Feature extractor to use.</p>
@@ -535,6 +558,27 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.learned.WhichRegistryMixins">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.learned.</span></span><span class="sig-name descname"><span class="pre">WhichRegistryMixins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#WhichRegistryMixins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.WhichRegistryMixins" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Mixin enabling registry-based instantiation via ‘which’ parameter.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.descriptor.learned.WhichRegistryMixins.from_registry">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#WhichRegistryMixins.from_registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.learned.WhichRegistryMixins.from_registry" title="Link to this definition">#</a></dt>
+<dd><p>Create instance from registered implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>which</strong> (<em>str</em>) – A registered implementation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> (<em>BaseHeatKernelSignature</em>) – Instantiated object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-geomfum.descriptor.pipeline">
 <span id="geomfum-descriptor-pipeline-module"></span><h2>geomfum.descriptor.pipeline module<a class="headerlink" href="#module-geomfum.descriptor.pipeline" title="Link to this heading">#</a></h2>
@@ -543,7 +587,7 @@
 <dt class="sig sig-object py" id="geomfum.descriptor.pipeline.ArangeSubsampler">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">ArangeSubsampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subsample_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/pipeline.html#ArangeSubsampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.ArangeSubsampler" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.pipeline.Subsampler" title="geomfum.descriptor.pipeline.Subsampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subsampler</span></code></a></p>
-<p>Subsampler based on arange method.</p>
+<p>Subsampler using uniform stride-based indexing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -555,10 +599,17 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.pipeline.Descriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">Descriptor</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/_base.html#Descriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.Descriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for shape descriptors.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.pipeline.DescriptorPipeline">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">DescriptorPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/pipeline.html#DescriptorPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.DescriptorPipeline" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Descriptor pipeline.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Sequential pipeline for computing and processing shape descriptors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>steps</strong> (<em>list or tuple</em>) – Steps to apply.
@@ -585,21 +636,47 @@ Include: descriptor, subsampler, normalizer.</p>
 <dt class="sig sig-object py" id="geomfum.descriptor.pipeline.L2InnerNormalizer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">L2InnerNormalizer</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/pipeline.html#L2InnerNormalizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.L2InnerNormalizer" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.pipeline.Normalizer" title="geomfum.descriptor.pipeline.Normalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Normalizer</span></code></a></p>
-<p>L2 inner normalizer.</p>
+<p>Normalizer using L2 inner product with mass matrix.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.pipeline.LearnedDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">LearnedDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_extractor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/learned.html#LearnedDescriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.LearnedDescriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.Descriptor" title="geomfum.descriptor._base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Descriptor computed using neural network feature extractors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>feature_extractor</strong> (<em>Feature Extractor</em>) – Feature extractor to use.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.descriptor.pipeline.LearnedDescriptor.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/learned.html#LearnedDescriptor.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.LearnedDescriptor.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute descriptor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape.</em>) – Shape.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>features</strong> (<em>array-like, shape=[…, n_features, n_vertices]</em>) – Descriptors of the shape, where <cite>n_features</cite> is the number of features extracted by the feature extractor.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.pipeline.Normalizer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">Normalizer</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/pipeline.html#Normalizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.Normalizer" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Normalizer.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for descriptor normalization.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.pipeline.Subsampler">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.pipeline.</span></span><span class="sig-name descname"><span class="pre">Subsampler</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/pipeline.html#Subsampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.pipeline.Subsampler" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Subsampler.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for array subsampling operations.</p>
 </dd></dl>
 
 </section>
@@ -607,34 +684,226 @@ Include: descriptor, subsampler, normalizer.</p>
 <span id="geomfum-descriptor-spectral-module"></span><h2>geomfum.descriptor.spectral module<a class="headerlink" href="#module-geomfum.descriptor.spectral" title="Link to this heading">#</a></h2>
 <p>Spectral descriptors.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.HeatKernelFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">HeatKernelFilter</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#HeatKernelFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelFilter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.spectral.SpectralFilter" title="geomfum.descriptor.spectral.SpectralFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralFilter</span></code></a></p>
+<p>Heat kernel filter computing exp(-t * λ) coefficients for HKS.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.spectral.HeatKernelSignature">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">HeatKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#HeatKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelSignature" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></p>
-<p>Heat kernel signature.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">HeatKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#HeatKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyfm.SpectralDescriptor" title="geomfum.descriptor._base.SpectralDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></p>
+<p>Heat Kernel Signature descriptor using heat diffusion over time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
 <li><p><strong>n_domain</strong> (<em>int</em>) – Number of domain points. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not None.</p></li>
-<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain]</em>) – Method to compute domain points (<code class="docutils literal notranslate"><span class="pre">f(shape)</span></code>) or
-domain points.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain], optional</em>) – Method to compute time domain points (<code class="docutils literal notranslate"><span class="pre">f(shape)</span></code>) or time domain points.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenfunctions to use. If None, all eigenfunctions are used.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.HeatKernelSignatureRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">HeatKernelSignatureRegistry</span></span><a class="reference internal" href="../_modules/geomfum/_registry.html#HeatKernelSignatureRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Registry</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.HeatKernelSignatureRegistry.MAP">
+<span class="sig-name descname"><span class="pre">MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pyfm':</span> <span class="pre">('PyfmHeatKernelSignature',</span> <span class="pre">None)}</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry.MAP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.HeatKernelSignatureRegistry.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pyfm'</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry.default" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.HeatKernelSignatureRegistry.has_internal">
+<span class="sig-name descname"><span class="pre">has_internal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry.has_internal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkHeatKernelSignature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">LandmarkHeatKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#LandmarkHeatKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyfm.SpectralDescriptor" title="geomfum.descriptor._base.SpectralDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></p>
+<p>Heat Kernel Signature computed from landmark points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>n_domain</strong> (<em>int</em>) – Number of domain points. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not None.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain], optional</em>) – Method to compute time domain points (<code class="docutils literal notranslate"><span class="pre">f(shape)</span></code>) or time domain points.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenfunctions to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">LandmarkHeatKernelSignatureRegistry</span></span><a class="reference internal" href="../_modules/geomfum/_registry.html#LandmarkHeatKernelSignatureRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Registry</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.MAP">
+<span class="sig-name descname"><span class="pre">MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pyfm':</span> <span class="pre">('PyfmLandmarkHeatKernelSignature',</span> <span class="pre">None)}</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.MAP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pyfm'</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.default" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.has_internal">
+<span class="sig-name descname"><span class="pre">has_internal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.has_internal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkWaveKernelSignature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">LandmarkWaveKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#LandmarkWaveKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyfm.SpectralDescriptor" title="geomfum.descriptor._base.SpectralDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></p>
+<p>Wave Kernel Signature computed from landmark points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Standard deviation for the Gaussian.</p></li>
+<li><p><strong>n_domain</strong> (<em>int</em>) – Number of domain points. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not None.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain], optional</em>) – Method to compute energy domain points (<code class="docutils literal notranslate"><span class="pre">f(shape)</span></code>) or energy domain points.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenfunctions to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">LandmarkWaveKernelSignatureRegistry</span></span><a class="reference internal" href="../_modules/geomfum/_registry.html#LandmarkWaveKernelSignatureRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Registry</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.MAP">
+<span class="sig-name descname"><span class="pre">MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pyfm':</span> <span class="pre">('PyfmLandmarkWaveKernelSignature',</span> <span class="pre">None)}</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.MAP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pyfm'</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.default" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.has_internal">
+<span class="sig-name descname"><span class="pre">has_internal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.has_internal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.SpectralDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">SpectralDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">landmarks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/_base.html#SpectralDescriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.SpectralDescriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.Descriptor" title="geomfum.descriptor._base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Spectral descriptor computed from Laplacian eigenfunctions with spectral filters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectral_filter</strong> (<em>SpectralFilter</em>) – Spectral filter.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain]</em>) – Method to compute domain points (<code class="docutils literal notranslate"><span class="pre">f(basis,</span> <span class="pre">n_domain)</span></code>) or
+domain points.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Standard deviation for the Gaussian.</p></li>
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>landmarks</strong> (<em>bool</em>) – Whether to compute landmarks based descriptors.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenvalues and eigenvectors to use. If None, basis.use_k is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.SpectralFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">SpectralFilter</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#SpectralFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.SpectralFilter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for computing spectral filter coefficients from eigenvalues.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WaveKernelFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">WaveKernelFilter</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#WaveKernelFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelFilter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.spectral.SpectralFilter" title="geomfum.descriptor.spectral.SpectralFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralFilter</span></code></a></p>
+<p>Wave kernel filter using Gaussian weighting in log-eigenvalue space for WKS.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.spectral.WaveKernelSignature">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">WaveKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#WaveKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelSignature" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></p>
-<p>Wave kernel signature.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">WaveKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#WaveKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyfm.SpectralDescriptor" title="geomfum.descriptor._base.SpectralDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></p>
+<p>Wave Kernel Signature descriptor using quantum mechanical wave propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Standard deviation for the Gaussian.</p></li>
+<li><p><strong>n_domain</strong> (<em>int</em>) – Number of domain points. Ignored if <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not None.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain], optional</em>) – Method to compute energy domain points (<code class="docutils literal notranslate"><span class="pre">f(shape)</span></code>) or energy domain points.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenfunctions to use. If None, all eigenfunctions are used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WaveKernelSignatureRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">WaveKernelSignatureRegistry</span></span><a class="reference internal" href="../_modules/geomfum/_registry.html#WaveKernelSignatureRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Registry</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WaveKernelSignatureRegistry.MAP">
+<span class="sig-name descname"><span class="pre">MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pyfm':</span> <span class="pre">('PyfmWaveKernelSignature',</span> <span class="pre">None)}</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry.MAP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WaveKernelSignatureRegistry.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pyfm'</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry.default" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WaveKernelSignatureRegistry.has_internal">
+<span class="sig-name descname"><span class="pre">has_internal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry.has_internal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WhichRegistryMixins">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">WhichRegistryMixins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#WhichRegistryMixins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WhichRegistryMixins" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Mixin enabling registry-based instantiation via ‘which’ parameter.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.WhichRegistryMixins.from_registry">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#WhichRegistryMixins.from_registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WhichRegistryMixins.from_registry" title="Link to this definition">#</a></dt>
+<dd><p>Create instance from registered implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>which</strong> (<em>str</em>) – A registered implementation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> (<em>BaseHeatKernelSignature</em>) – Instantiated object.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.spectral.WksDefaultDomain">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">WksDefaultDomain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_trans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#WksDefaultDomain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.WksDefaultDomain" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Compute WKS domain.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Default domain generator for Wave Kernel Signature using logarithmic energy sampling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -650,7 +919,7 @@ domain points.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="geomfum.descriptor.spectral.hks_default_domain">
 <span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">hks_default_domain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#hks_default_domain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.hks_default_domain" title="Link to this definition">#</a></dt>
-<dd><p>Compute HKS default domain.</p>
+<dd><p>Compute HKS default domain. The domain is a set of sampled time points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -667,6 +936,41 @@ domain points.</p></li>
 </section>
 <section id="module-geomfum.descriptor">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.descriptor" title="Link to this heading">#</a></h2>
+<p>Descriptors Module. This module contains various shape descriptors used in Geomfum. Including spectral descriptors, distance from landmarks, and feature extractors.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.Descriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.</span></span><span class="sig-name descname"><span class="pre">Descriptor</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/_base.html#Descriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.Descriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for shape descriptors.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.DistanceFromLandmarksDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.</span></span><span class="sig-name descname"><span class="pre">DistanceFromLandmarksDescriptor</span></span><a class="reference internal" href="../_modules/geomfum/descriptor/_base.html#DistanceFromLandmarksDescriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.DistanceFromLandmarksDescriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.Descriptor" title="geomfum.descriptor._base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a></p>
+<p>Descriptor computing geodesic distances from landmark points.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.SpectralDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.</span></span><span class="sig-name descname"><span class="pre">SpectralDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">landmarks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/_base.html#SpectralDescriptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.SpectralDescriptor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.Descriptor" title="geomfum.descriptor._base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Spectral descriptor computed from Laplacian eigenfunctions with spectral filters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectral_filter</strong> (<em>SpectralFilter</em>) – Spectral filter.</p></li>
+<li><p><strong>domain</strong> (<em>callable or array-like, shape=[n_domain]</em>) – Method to compute domain points (<code class="docutils literal notranslate"><span class="pre">f(basis,</span> <span class="pre">n_domain)</span></code>) or
+domain points.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Standard deviation for the Gaussian.</p></li>
+<li><p><strong>scale</strong> (<em>bool</em>) – Whether to scale weights to sum to one.</p></li>
+<li><p><strong>landmarks</strong> (<em>bool</em>) – Whether to compute landmarks based descriptors.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenvalues and eigenvectors to use. If None, basis.use_k is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
@@ -724,32 +1028,86 @@ domain points.</p></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.BaseFeatureExtractor.save"><code class="docutils literal notranslate"><span class="pre">BaseFeatureExtractor.save()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.Descriptor"><code class="docutils literal notranslate"><span class="pre">Descriptor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.FeatureExtractor"><code class="docutils literal notranslate"><span class="pre">FeatureExtractor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.FeatureExtractorRegistry"><code class="docutils literal notranslate"><span class="pre">FeatureExtractorRegistry</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.FeatureExtractorRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">FeatureExtractorRegistry.MAP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.FeatureExtractorRegistry.default"><code class="docutils literal notranslate"><span class="pre">FeatureExtractorRegistry.default</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.LearnedDescriptor"><code class="docutils literal notranslate"><span class="pre">LearnedDescriptor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.LearnedDescriptor.forward"><code class="docutils literal notranslate"><span class="pre">LearnedDescriptor.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.WhichRegistryMixins"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.learned.WhichRegistryMixins.from_registry"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins.from_registry()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.descriptor.pipeline">geomfum.descriptor.pipeline module</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.ArangeSubsampler"><code class="docutils literal notranslate"><span class="pre">ArangeSubsampler</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.Descriptor"><code class="docutils literal notranslate"><span class="pre">Descriptor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.DescriptorPipeline"><code class="docutils literal notranslate"><span class="pre">DescriptorPipeline</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.DescriptorPipeline.apply"><code class="docutils literal notranslate"><span class="pre">DescriptorPipeline.apply()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.L2InnerNormalizer"><code class="docutils literal notranslate"><span class="pre">L2InnerNormalizer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.LearnedDescriptor"><code class="docutils literal notranslate"><span class="pre">LearnedDescriptor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.LearnedDescriptor.forward"><code class="docutils literal notranslate"><span class="pre">LearnedDescriptor.forward()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.Normalizer"><code class="docutils literal notranslate"><span class="pre">Normalizer</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.pipeline.Subsampler"><code class="docutils literal notranslate"><span class="pre">Subsampler</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.descriptor.spectral">geomfum.descriptor.spectral module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.HeatKernelFilter"><code class="docutils literal notranslate"><span class="pre">HeatKernelFilter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.HeatKernelSignature"><code class="docutils literal notranslate"><span class="pre">HeatKernelSignature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry"><code class="docutils literal notranslate"><span class="pre">HeatKernelSignatureRegistry</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">HeatKernelSignatureRegistry.MAP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry.default"><code class="docutils literal notranslate"><span class="pre">HeatKernelSignatureRegistry.default</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.HeatKernelSignatureRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">HeatKernelSignatureRegistry.has_internal</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignature"><code class="docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry"><code class="docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignatureRegistry</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignatureRegistry.MAP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.default"><code class="docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignatureRegistry.default</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignatureRegistry.has_internal</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignature"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry.MAP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.default"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry.default</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry.has_internal</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.SpectralDescriptor"><code class="docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.SpectralFilter"><code class="docutils literal notranslate"><span class="pre">SpectralFilter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelFilter"><code class="docutils literal notranslate"><span class="pre">WaveKernelFilter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelSignature"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignatureRegistry</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignatureRegistry.MAP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry.default"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignatureRegistry.default</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelSignatureRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignatureRegistry.has_internal</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WhichRegistryMixins"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WhichRegistryMixins.from_registry"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins.from_registry()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WksDefaultDomain"><code class="docutils literal notranslate"><span class="pre">WksDefaultDomain</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.hks_default_domain"><code class="docutils literal notranslate"><span class="pre">hks_default_domain()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.descriptor">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.descriptor">Module contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.Descriptor"><code class="docutils literal notranslate"><span class="pre">Descriptor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.DistanceFromLandmarksDescriptor"><code class="docutils literal notranslate"><span class="pre">DistanceFromLandmarksDescriptor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.SpectralDescriptor"><code class="docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -226,7 +226,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -357,7 +357,7 @@
           
           
           
-          <a href="https://github.com/DiG-AIR/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/3diglab/geomfum" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -448,7 +448,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xgs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.metric.mesh</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScipyGraphShortestPathMetric</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape.mesh</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
 
@@ -579,11 +579,11 @@
 
             <span class="n">shape_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;dist_matrix&quot;</span><span class="p">:</span> <span class="n">gs</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">geod_distance_matrix</span><span class="p">)})</span>
 
-        <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vals</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vecs</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">mesh</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">_mass_matrix</span> <span class="o">=</span> <span class="n">xgs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vals</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vecs</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">_mass_matrix</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
             <span class="n">mesh</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">_mass_matrix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
         <span class="p">)</span>
 
