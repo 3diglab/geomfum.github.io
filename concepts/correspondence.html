@@ -60,7 +60,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Dec 3, 2025, 5:28:00 PM"/>
+    <meta name="docbuild:last-update" content="Dec 9, 2025, 4:04:00 PM"/>
   </head>
   
   
@@ -474,6 +474,13 @@
 <div class="math notranslate nohighlight">
 \[V_1 = \Pi_{12} V_2\]</div>
 <p>where <span class="math notranslate nohighlight">\(V_1 \in \mathbb{R}^{n_1 \times 3}\)</span> and <span class="math notranslate nohighlight">\(V_2 \in \mathbb{R}^{n_2 \times 3}\)</span> are the matrices of 3D coordinates.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/ShapeMatching.png"><img alt="../_images/ShapeMatching.png" src="../_images/ShapeMatching.png" style="width: 110%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure:</strong> Example of pointwise correspondence between two meshes.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="functional-representation">
 <h2>Functional Representation<a class="headerlink" href="#functional-representation" title="Link to this heading">#</a></h2>
@@ -482,6 +489,13 @@
 \[T^F_{21}: \mathcal{L}^2(\mathcal{X}_2) \rightarrow \mathcal{L}^2(\mathcal{X}_1), \quad T^F_{21}(g) = g \circ T_{12}\]</div>
 <p>This operator, known as the functional map, enables efficient and robust computation of correspondences by working in the space of functions rather than directly with points.</p>
 <p>For more details on functional maps and their properties, see the <a class="reference internal" href="functional_maps.html"><span class="doc">Functional Maps</span></a> section.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/ShapeMatchingDense.png"><img alt="../_images/ShapeMatchingDense.png" src="../_images/ShapeMatchingDense.png" style="width: 110%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure:</strong> Example of dense shape correspondence between two meshes. Points with the same color indicate corresponding locations.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

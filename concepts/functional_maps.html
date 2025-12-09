@@ -60,7 +60,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Dec 3, 2025, 5:28:00 PM"/>
+    <meta name="docbuild:last-update" content="Dec 9, 2025, 4:04:00 PM"/>
   </head>
   
   
@@ -467,6 +467,13 @@
 <div class="math notranslate nohighlight">
 \[\langle f, g \rangle_{\mathcal{L}^2(\mathcal{X}_1)} \approx f^\top M_1 g\]</div>
 <p>The Laplace-Beltrami operator <span class="math notranslate nohighlight">\(\Delta_1\)</span> is discretized as a matrix. Its eigendecomposition yields eigenvalues <span class="math notranslate nohighlight">\(\{\lambda_1^i\}\)</span> and eigenfunctions <span class="math notranslate nohighlight">\(\{\phi_1^i\}\)</span> forming an orthonormal basis (LBO basis). For efficiency, we use a truncated basis <span class="math notranslate nohighlight">\(\Phi_1^k = [\phi_1^1, \ldots, \phi_1^k] \in \mathbb{R}^{n_1 \times k}\)</span>.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/LaplacianBase.png"><img alt="../_images/LaplacianBase.png" src="../_images/LaplacianBase.png" style="width: 110%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure:</strong> Illustration of four Laplacian eigenfunctions on a mesh.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="id1">
 <h2>Functional Maps<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
@@ -477,6 +484,13 @@
 <div class="math notranslate nohighlight">
 \[C_{21} = \Phi_1^\dagger \Pi_{12} \Phi_2\]</div>
 <p>where <span class="math notranslate nohighlight">\(\dagger\)</span> denotes the Moore–Penrose pseudoinverse.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/FunctionalMaps.png"><img alt="../_images/FunctionalMaps.png" src="../_images/FunctionalMaps.png" style="width: 110%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure:</strong> Example of a Functional Map calculation, highlighting the correspondences between the Laplacian eigenfunctions..</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="pointwise-map-recovery">
 <h2>Pointwise Map Recovery<a class="headerlink" href="#pointwise-map-recovery" title="Link to this heading">#</a></h2>
