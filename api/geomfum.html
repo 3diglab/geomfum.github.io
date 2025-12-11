@@ -60,7 +60,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Dec 9, 2025, 5:33:10 PM"/>
+    <meta name="docbuild:last-update" content="Dec 11, 2025, 3:43:48 PM"/>
   </head>
   
   
@@ -1402,7 +1402,7 @@ Computers and Graphics, 2024. <a class="reference external" href="https://doi.or
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.convert.</span></span><span class="sig-name descname"><span class="pre">NearestNeighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaf_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minkowski'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sklearn/neighbors/_unsupervised.html#NearestNeighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.convert.NearestNeighbors" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">KNeighborsMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RadiusNeighborsMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NeighborsBase</span></code></p>
 <p>Unsupervised learner for implementing neighbor searches.</p>
-<p>Read more in the <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#unsupervised-neighbors" title="(in scikit-learn v1.7)"><span class="xref std std-ref">User Guide</span></a>.</p>
+<p>Read more in the <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#unsupervised-neighbors" title="(in scikit-learn v1.8)"><span class="xref std std-ref">User Guide</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.9.</span></p>
 </div>
@@ -1434,7 +1434,7 @@ the metrics listed in
 <code class="xref py py-class docutils literal notranslate"><span class="pre">distance_metrics</span></code> for valid metric
 values.</p>
 <p>If metric is “precomputed”, X is assumed to be a distance matrix and
-must be square during fit. X may be a <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-sparse-graph" title="(in scikit-learn v1.7)"><span class="xref std std-term">sparse graph</span></a>, in which
+must be square during fit. X may be a <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-sparse-graph" title="(in scikit-learn v1.8)"><span class="xref std std-term">sparse graph</span></a>, in which
 case only “nonzero” elements may be considered neighbors.</p>
 <p>If metric is a callable function, it takes two arrays representing 1D
 vectors as inputs and must return one value indicating the distance
@@ -1448,7 +1448,7 @@ equivalent to using manhattan_distance (l1), and euclidean_distance
 <li><p><strong>metric_params</strong> (<em>dict, default=None</em>) – Additional keyword arguments for the metric function.</p></li>
 <li><p><strong>n_jobs</strong> (<em>int, default=None</em>) – The number of parallel jobs to run for neighbors search.
 <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless in a <a class="reference external" href="https://joblib.readthedocs.io/en/latest/generated/joblib.parallel_backend.html#joblib.parallel_backend" title="(in joblib v1.6.dev0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code></a> context.
-<code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n_jobs" title="(in scikit-learn v1.7)"><span class="xref std std-term">Glossary</span></a>
+<code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n_jobs" title="(in scikit-learn v1.8)"><span class="xref std std-term">Glossary</span></a>
 for more details.</p></li>
 </ul>
 </dd>
@@ -1478,7 +1478,7 @@ for more details.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="geomfum.convert.NearestNeighbors.n_features_in_">
 <span class="sig-name descname"><span class="pre">n_features_in_</span></span><a class="headerlink" href="#geomfum.convert.NearestNeighbors.n_features_in_" title="Link to this definition">#</a></dt>
-<dd><p>Number of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.7)"><span class="xref std std-term">fit</span></a>.</p>
+<dd><p>Number of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.8)"><span class="xref std std-term">fit</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.24.</span></p>
 </div>
@@ -1492,7 +1492,7 @@ for more details.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="geomfum.convert.NearestNeighbors.feature_names_in_">
 <span class="sig-name descname"><span class="pre">feature_names_in_</span></span><a class="headerlink" href="#geomfum.convert.NearestNeighbors.feature_names_in_" title="Link to this definition">#</a></dt>
-<dd><p>Names of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.7)"><span class="xref std std-term">fit</span></a>. Defined only when <cite>X</cite>
+<dd><p>Names of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.8)"><span class="xref std std-term">fit</span></a>. Defined only when <cite>X</cite>
 has feature names that are all strings.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.0.</span></p>
@@ -1531,7 +1531,7 @@ has feature names that are all strings.</p>
 </dl>
 </div>
 <p class="rubric">Notes</p>
-<p>See <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#neighbors" title="(in scikit-learn v1.7)"><span class="xref std std-ref">Nearest Neighbors</span></a> in the online documentation
+<p>See <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#neighbors" title="(in scikit-learn v1.8)"><span class="xref std std-ref">Nearest Neighbors</span></a> in the online documentation
 for a discussion of the choice of <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> and <code class="docutils literal notranslate"><span class="pre">leaf_size</span></code>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm</a></p>
 <p class="rubric">Examples</p>
@@ -2540,7 +2540,7 @@ no. 2 (2016): 599–624. <a class="reference external" href="https://doi.org/10.
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.operator.Laplacian.find_spectrum">
 <span class="sig-name descname"><span class="pre">find_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectrum_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">laplacian_spectrum_finder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_as_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recompute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/operator.html#Laplacian.find_spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.operator.Laplacian.find_spectrum" title="Link to this definition">#</a></dt>
-<dd><p>Compute the sapactrum of the Laplacian operator.</p>
+<dd><p>Compute the spectrum of the Laplacian operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -3143,7 +3143,7 @@ for Efficient Shape Correspondence.” arXiv, September 12, 2019.
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.sample.</span></span><span class="sig-name descname"><span class="pre">NearestNeighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaf_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minkowski'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sklearn/neighbors/_unsupervised.html#NearestNeighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.sample.NearestNeighbors" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">KNeighborsMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RadiusNeighborsMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NeighborsBase</span></code></p>
 <p>Unsupervised learner for implementing neighbor searches.</p>
-<p>Read more in the <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#unsupervised-neighbors" title="(in scikit-learn v1.7)"><span class="xref std std-ref">User Guide</span></a>.</p>
+<p>Read more in the <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#unsupervised-neighbors" title="(in scikit-learn v1.8)"><span class="xref std std-ref">User Guide</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.9.</span></p>
 </div>
@@ -3175,7 +3175,7 @@ the metrics listed in
 <code class="xref py py-class docutils literal notranslate"><span class="pre">distance_metrics</span></code> for valid metric
 values.</p>
 <p>If metric is “precomputed”, X is assumed to be a distance matrix and
-must be square during fit. X may be a <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-sparse-graph" title="(in scikit-learn v1.7)"><span class="xref std std-term">sparse graph</span></a>, in which
+must be square during fit. X may be a <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-sparse-graph" title="(in scikit-learn v1.8)"><span class="xref std std-term">sparse graph</span></a>, in which
 case only “nonzero” elements may be considered neighbors.</p>
 <p>If metric is a callable function, it takes two arrays representing 1D
 vectors as inputs and must return one value indicating the distance
@@ -3189,7 +3189,7 @@ equivalent to using manhattan_distance (l1), and euclidean_distance
 <li><p><strong>metric_params</strong> (<em>dict, default=None</em>) – Additional keyword arguments for the metric function.</p></li>
 <li><p><strong>n_jobs</strong> (<em>int, default=None</em>) – The number of parallel jobs to run for neighbors search.
 <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless in a <a class="reference external" href="https://joblib.readthedocs.io/en/latest/generated/joblib.parallel_backend.html#joblib.parallel_backend" title="(in joblib v1.6.dev0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code></a> context.
-<code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n_jobs" title="(in scikit-learn v1.7)"><span class="xref std std-term">Glossary</span></a>
+<code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n_jobs" title="(in scikit-learn v1.8)"><span class="xref std std-term">Glossary</span></a>
 for more details.</p></li>
 </ul>
 </dd>
@@ -3219,7 +3219,7 @@ for more details.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="geomfum.sample.NearestNeighbors.n_features_in_">
 <span class="sig-name descname"><span class="pre">n_features_in_</span></span><a class="headerlink" href="#geomfum.sample.NearestNeighbors.n_features_in_" title="Link to this definition">#</a></dt>
-<dd><p>Number of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.7)"><span class="xref std std-term">fit</span></a>.</p>
+<dd><p>Number of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.8)"><span class="xref std std-term">fit</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.24.</span></p>
 </div>
@@ -3233,7 +3233,7 @@ for more details.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="geomfum.sample.NearestNeighbors.feature_names_in_">
 <span class="sig-name descname"><span class="pre">feature_names_in_</span></span><a class="headerlink" href="#geomfum.sample.NearestNeighbors.feature_names_in_" title="Link to this definition">#</a></dt>
-<dd><p>Names of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.7)"><span class="xref std std-term">fit</span></a>. Defined only when <cite>X</cite>
+<dd><p>Names of features seen during <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-fit" title="(in scikit-learn v1.8)"><span class="xref std std-term">fit</span></a>. Defined only when <cite>X</cite>
 has feature names that are all strings.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.0.</span></p>
@@ -3272,7 +3272,7 @@ has feature names that are all strings.</p>
 </dl>
 </div>
 <p class="rubric">Notes</p>
-<p>See <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#neighbors" title="(in scikit-learn v1.7)"><span class="xref std std-ref">Nearest Neighbors</span></a> in the online documentation
+<p>See <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#neighbors" title="(in scikit-learn v1.8)"><span class="xref std std-ref">Nearest Neighbors</span></a> in the online documentation
 for a discussion of the choice of <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> and <code class="docutils literal notranslate"><span class="pre">leaf_size</span></code>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm</a></p>
 <p class="rubric">Examples</p>
