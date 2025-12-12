@@ -55,7 +55,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Dec 11, 2025, 3:49:25 PM"/>
+    <meta name="docbuild:last-update" content="Dec 12, 2025, 3:49:36 PM"/>
   </head>
   
   
@@ -617,7 +617,7 @@
 <span class="sd">        coefs : array-like, shape=[n_domain, n_eigen]</span>
 <span class="sd">            Filter coefficients.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">nonzero_vals</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span> <span class="p">:]</span>
+        <span class="n">nonzero_vals</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">))</span> <span class="p">:]</span>
         <span class="n">zeros</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
             <span class="n">gs</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">domain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">nonzero_vals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
             <span class="n">device</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">nonzero_vals</span><span class="p">,</span> <span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
