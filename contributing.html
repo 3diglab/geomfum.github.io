@@ -53,12 +53,11 @@
     <link rel="icon" href="_static/GeomFuMlogo_only.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api/index.html" />
     <link rel="prev" title="How to visualize distance to a point in a mesh?" href="notebooks/how_to/17_vis_dist.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Dec 12, 2025, 3:49:36 PM"/>
+    <meta name="docbuild:last-update" content="Dec 15, 2025, 10:43:11 AM"/>
   </head>
   
   
@@ -461,20 +460,19 @@ respective operating system from the
 <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">official Git documentation</a>,
 before you follow along the next section of this documentation.</p>
 <ol class="arabic">
-<li><p><strong>Fork the repository</strong>:
-Visit <cite>https://github.com/3diglab/geomfum</cite> and click “Fork”</p></li>
-<li><p><strong>Clone your fork</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git clone <a class="github reference external" href="https://github.com">github</a>/&lt;your-username&gt;/geomfum.git
-cd geomfum</p>
-</div></blockquote>
+<li><p><strong>Fork the repository</strong>:</p>
+<p>Visit <a class="github reference external" href="https://github.com/3diglab/geomfum">3diglab/geomfum</a> and click “Fork”</p>
 </li>
-<li><p><strong>Install in development mode</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>pip install -e .[test,,plotting-all]</p>
-</div></blockquote>
+<li><p><strong>Clone your fork</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/geomfum.git
+<span class="nb">cd</span><span class="w"> </span>geomfum
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install in development mode</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>test,,plotting-all<span class="o">]</span>
+</pre></div>
+</div>
 </li>
 </ol>
 </section>
@@ -501,7 +499,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <section id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
 <p>The documentation is written in <cite>rst</cite> format and is located in the <cite>docs/</cite> directory.
-The documentation is built using <cite>sphinx</cite> and is located in <cite>https://3diglab.github.io/geomfum.github.io/</cite> directory.
+The documentation is built using <cite>sphinx</cite> and is located in <a class="reference external" href="https://3diglab.github.io/geomfum.github.io/">https://3diglab.github.io/geomfum.github.io/</a> directory.
 The documentation is viewable in a web browser.</p>
 </section>
 <section id="writing-documentation">
@@ -552,51 +550,57 @@ The documentation is viewable in a web browser.</p>
 <section id="pull-request-process">
 <h2>Pull Request Process<a class="headerlink" href="#pull-request-process" title="Link to this heading">#</a></h2>
 <ol class="arabic">
-<li><p><strong>Create a feature branch</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git checkout -b feature/your-feature-name</p>
-</div></blockquote>
+<li><p><strong>Create a feature branch</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
+</pre></div>
+</div>
 </li>
-<li><p><strong>Make your changes</strong>:
-- Write code following our style guidelines
-- Add tests for new functionality
-- Update documentation</p></li>
-<li><p><strong>Run tests and checks</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p># Run tests
-pytest</p>
-</div></blockquote>
+<li><p><strong>Make your changes</strong>:</p>
+<ul class="simple">
+<li><p>Write code following our style guidelines</p></li>
+<li><p>Add tests for new functionality</p></li>
+<li><p>Update documentation</p></li>
+</ul>
 </li>
-<li><p><strong>Commit your changes</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git add .
-git commit -m “Add feature: brief description”</p>
-<p># Use conventional commit format:
-# feat: add new functional map refinement
-# fix: resolve memory leak in laplacian computation
-# docs: update installation instructions</p>
-</div></blockquote>
+<li><p><strong>Run tests and checks</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run tests</span>
+pytest
+</pre></div>
+</div>
 </li>
-<li><p><strong>Push and create PR</strong>:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git push origin feature/your-feature-name</p>
-</div></blockquote>
+<li><p><strong>Commit your changes</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add feature: brief description&quot;</span>
+
+<span class="c1"># Use conventional commit format:</span>
+<span class="c1"># feat: add new functional map refinement</span>
+<span class="c1"># fix: resolve memory leak in laplacian computation</span>
+<span class="c1"># docs: update installation instructions</span>
+</pre></div>
+</div>
 </li>
-<li><p><strong>Create Pull Request</strong>:
-- Use the PR template
-- Describe your changes clearly
-- Link related issues
-- Request reviews from maintainers</p></li>
-<li><p><strong>Wait for review</strong>:
-- Address feedback from maintainers
-- Make changes as requested
-- Re-request review when ready
-- Ensure all checks pass before merging
-- Merge when approved</p></li>
+<li><p><strong>Push and create the branch on the remote</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create the Pull Request</strong>:</p>
+<ul class="simple">
+<li><p>Use the PR template</p></li>
+<li><p>Describe your changes clearly</p></li>
+<li><p>Link related issues</p></li>
+<li><p>Request reviews from maintainers</p></li>
+</ul>
+</li>
+<li><p><strong>Wait for review</strong>:</p>
+<ul class="simple">
+<li><p>Address feedback from maintainers</p></li>
+<li><p>Make changes as requested</p></li>
+<li><p>Re-request review when ready</p></li>
+<li><p>Ensure all checks pass before merging</p></li>
+<li><p>Merge when approved</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <section id="code-review">
@@ -604,20 +608,29 @@ git commit -m “Add feature: brief description”</p>
 <section id="review-process">
 <h3>Review Process<a class="headerlink" href="#review-process" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Automated checks</strong> must pass:
-- Tests
-- Code style
-- Documentation build
-- Type checking</p></li>
-<li><p><strong>Manual review</strong> by maintainers:
-- Code quality
-- Algorithm correctness
-- Performance considerations
-- Documentation quality</p></li>
-<li><p><strong>Address feedback</strong>:
-- Respond to review comments
-- Make requested changes
-- Re-request review when ready</p></li>
+<li><p><strong>Automated checks</strong> must pass:</p>
+<ul class="simple">
+<li><p>Tests</p></li>
+<li><p>Code style</p></li>
+<li><p>Documentation build</p></li>
+<li><p>Type checking</p></li>
+</ul>
+</li>
+<li><p><strong>Manual review</strong> by maintainers:</p>
+<ul class="simple">
+<li><p>Code quality</p></li>
+<li><p>Algorithm correctness</p></li>
+<li><p>Performance considerations</p></li>
+<li><p>Documentation quality</p></li>
+</ul>
+</li>
+<li><p><strong>Address feedback</strong>:</p>
+<ul class="simple">
+<li><p>Respond to review comments</p></li>
+<li><p>Make requested changes</p></li>
+<li><p>Re-request review when ready</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <section id="review-guidelines">
@@ -686,7 +699,7 @@ git commit -m “Add feature: brief description”</p>
 <p>If you need help:</p>
 <ol class="arabic simple">
 <li><p><strong>Check existing issues</strong>: Search for similar problems</p></li>
-<li><p><strong>Join Discord</strong>: <cite>https://discord.gg/6sYmEbUp</cite></p></li>
+<li><p><strong>Join Discord</strong>: <a class="reference external" href="https://discord.gg/THHku2ckJs">https://discord.gg/THHku2ckJs</a></p></li>
 <li><p><strong>Create an issue</strong>: For bugs or feature requests</p></li>
 <li><p><strong>Ask questions</strong>: In GitHub Discussions</p></li>
 </ol>
@@ -703,7 +716,7 @@ git commit -m “Add feature: brief description”</p>
 <section id="code-of-conduct">
 <h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">#</a></h3>
 <p>We follow the Contributor Covenant Code of Conduct. Please read it at:
-<cite>https://www.contributor-covenant.org/version/2/0/code_of_conduct.html</cite></p>
+<a class="reference external" href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.">https://www.contributor-covenant.org/version/2/0/code_of_conduct.html</a></p>
 </section>
 </section>
 <section id="recognition">
@@ -737,15 +750,6 @@ git commit -m “Add feature: brief description”</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">How to visualize distance to a point in a mesh?</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="api/index.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Reference</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

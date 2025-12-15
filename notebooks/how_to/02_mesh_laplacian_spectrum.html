@@ -57,11 +57,11 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="How to compute descriptors?" href="03_descriptors.html" />
-    <link rel="prev" title="How to compute the mesh Laplacian?" href="01_mesh_laplacian.html" />
+    <link rel="prev" title="How to compute a functional map?" href="07_functional_map.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Dec 12, 2025, 3:49:36 PM"/>
+    <meta name="docbuild:last-update" content="Dec 15, 2025, 10:43:11 AM"/>
   </head>
   
   
@@ -150,7 +150,7 @@
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../../usage.html">
     Usage
   </a>
@@ -164,7 +164,7 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../tutorials/index.html">
     Tutorials
   </a>
@@ -302,7 +302,7 @@
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../../usage.html">
     Usage
   </a>
@@ -316,7 +316,7 @@
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../tutorials/index.html">
     Tutorials
   </a>
@@ -391,37 +391,44 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started.html">Getting Started with GeomFuM</a></li>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Start with:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_functional_map.html">How to compute a functional map?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Notebook Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="00_load_mesh_from_file.html">How to load a mesh from a file?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_mesh_laplacian.html">How to compute the mesh Laplacian?</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">How to compute the mesh Laplacian spectrum?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_descriptors.html">How to compute descriptors?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07_functional_map.html">How to compute a functional map?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_functional_map_forward.html">How to efficiently compute a functional map with a forward pass?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09_functional_from_pointwise.html">How to compute a functional map from a pointwise map?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="15_refine_functional_map.html">How to refine a functional map?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_descriptors_with_feat_extractors.html">How to compute descriptors from Features extractors?</a></li>
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="06_landmarks.html">How to set landmarks?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sampler.html">How to sample from a mesh?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16_vis_basic.html">How to plot a mesh?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="17_vis_dist.html">How to visualize distance to a point in a mesh?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How to compute the mesh Laplacian spectrum?</a></li>
 </ul>
-</details></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_descriptors.html">How to compute descriptors?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_descriptor_pipeline.html">How to create a descriptor pipeline?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_functional_map.html">How to compute a functional map?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10_pointwise_from_functional.html">How to compute a pointwise map from a functional map?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_refine_functional_map.html">How to refine a functional map?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="13_rematching.html">How to use ReMatching to compute a functional map?</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="14_deep_functional_maps_models.html">How to use a Functional Map Model</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="18_neural_adjoint_maps.html">How to compute a Neural Adjoint Map</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="16_vis_basic.html">How to plot a mesh?</a></li>
 </ul>
 </div>
 </nav></div>
@@ -463,10 +470,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../../tutorials/index.html" class="nav-link">Tutorials</a></li>
-    
-    
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Notebook Tutorials</a></li>
+    <li class="breadcrumb-item"><a href="../../usage.html" class="nav-link">Usage</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to compute the mesh Laplacian spectrum?</span></li>
   </ul>
@@ -582,12 +586,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="01_mesh_laplacian.html"
+       href="07_functional_map.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">How to compute the mesh Laplacian?</p>
+        <p class="prev-next-title">How to compute a functional map?</p>
       </div>
     </a>
     <a class="right-next"
