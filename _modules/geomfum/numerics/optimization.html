@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>geomfum.numerics.eig &#8212; GeomFuM latest documentation</title>
+    <title>geomfum.numerics.optimization &#8212; GeomFuM latest documentation</title>
   
   
   
@@ -47,8 +47,8 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomfum/numerics/eig';</script>
-    <link rel="canonical" href="geomfum.github.io/_modules/geomfum/numerics/eig.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomfum/numerics/optimization';</script>
+    <link rel="canonical" href="geomfum.github.io/_modules/geomfum/numerics/optimization.html" />
     <link rel="icon" href="../../../_static/GeomFuMlogo_only.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -416,7 +416,7 @@
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.numerics.eig</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.numerics.optimization</span></li>
   </ul>
 </nav>
 </div>
@@ -433,64 +433,112 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for geomfum.numerics.eig</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Module for eigenvalue solver.&quot;&quot;&quot;</span>
+  <h1>Source code for geomfum.numerics.optimization</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Optimization routines.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomstats.numerics._common</span><span class="w"> </span><span class="kn">import</span> <span class="n">result_to_backend_type</span>
 
 
-<div class="viewcode-block" id="ScipyEigsh">
-<a class="viewcode-back" href="../../../api/geomfum.numerics.html#geomfum.laplacian.ScipyEigsh">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ScipyEigsh</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sparse eigenvalue solver using SciPy&#39;s ARPACK wrapper.</span>
+<span class="c1"># TODO: homogenize with geomstats</span>
+<div class="viewcode-block" id="ScipyMinimize">
+<a class="viewcode-back" href="../../../api/geomfum.numerics.html#geomfum.numerics.optimization.ScipyMinimize">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ScipyMinimize</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Backend-agnostic wrapper for SciPy&#39;s optimization routines.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    spectrum_size : int, optional</span>
-<span class="sd">        Number of eigenvalues and eigenvectors to compute (default: 6).</span>
-<span class="sd">    sigma : float, optional</span>
-<span class="sd">        Shift for shift-invert mode. If None, standard mode is used.</span>
-<span class="sd">    which : str, optional</span>
-<span class="sd">        Which eigenvalues to find: &#39;LM&#39; (largest magnitude), &#39;SM&#39; (smallest magnitude),</span>
-<span class="sd">        &#39;LA&#39; (largest algebraic), &#39;SA&#39; (smallest algebraic), etc. (default: &#39;LM&#39;).</span>
+<span class="sd">    method : str, optional</span>
+<span class="sd">        Optimization algorithm (default: &#39;L-BFGS-B&#39;).</span>
+<span class="sd">    bounds : sequence, optional</span>
+<span class="sd">        Bounds on variables for constrained methods.</span>
+<span class="sd">    constraints : dict or sequence of dict, optional</span>
+<span class="sd">        Constraints definition.</span>
+<span class="sd">    tol : float, optional</span>
+<span class="sd">        Tolerance for termination.</span>
+<span class="sd">    callback : callable, optional</span>
+<span class="sd">        Function called after each iteration.</span>
+<span class="sd">    options : dict, optional</span>
+<span class="sd">        Solver-specific options.</span>
+<span class="sd">    save_result : bool, optional</span>
+<span class="sd">        Whether to save the optimization result (default: False).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">spectrum_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-        <span class="n">sigma</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">which</span><span class="o">=</span><span class="s2">&quot;LM&quot;</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">,</span>
+        <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">constraints</span><span class="o">=</span><span class="p">(),</span>
+        <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">save_result</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum_size</span> <span class="o">=</span> <span class="n">spectrum_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">which</span> <span class="o">=</span> <span class="n">which</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">bounds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">constraints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute eigenvalues and eigenvectors.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_result</span> <span class="o">=</span> <span class="n">save_result</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="ScipyMinimize.minimize">
+<a class="viewcode-back" href="../../../api/geomfum.numerics.html#geomfum.numerics.optimization.ScipyMinimize.minimize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">minimize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">fun_jac</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fun_hess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hessp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Minimize objective function.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        A : array-like, sparse matrix</span>
-<span class="sd">            The matrix for which to compute eigenvalues/eigenvectors.</span>
-<span class="sd">        M : array-like, sparse matrix, optional</span>
-<span class="sd">            Mass matrix for generalized eigenvalue problem A @ v = lambda * M @ v.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        vals : array-like, shape=[spectrum_size]</span>
-<span class="sd">            Eigenvalues.</span>
-<span class="sd">        vecs : array-like, shape=[n, spectrum_size]</span>
-<span class="sd">            Eigenvectors.</span>
+<span class="sd">        fun : callable</span>
+<span class="sd">            The objective function to be minimized.</span>
+<span class="sd">        x0 : array-like</span>
+<span class="sd">            Initial guess.</span>
+<span class="sd">        fun_jac : callable</span>
+<span class="sd">            Jacobian of fun.</span>
+<span class="sd">        fun_hess : callable</span>
+<span class="sd">            Hessian of fun.</span>
+<span class="sd">        hessp : callable</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigsh</span><span class="p">(</span>
-            <span class="n">gs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">to_scipy_csc</span><span class="p">(</span><span class="n">A</span><span class="p">),</span>
-            <span class="n">k</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spectrum_size</span><span class="p">,</span>
-            <span class="n">M</span><span class="o">=</span><span class="n">gs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">to_scipy_dia</span><span class="p">(</span><span class="n">M</span><span class="p">),</span>
-            <span class="n">sigma</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span>
-            <span class="n">which</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">which</span><span class="p">,</span>
+        <span class="n">fun_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fun</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">fun_jac_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fun_jac</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">x0</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># TODO: consider value_and_jac</span>
+            <span class="c1"># TODO: consider hessian</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="n">x0</span><span class="o">.</span><span class="n">shape</span>
+            <span class="n">fun_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fun</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">shape</span><span class="p">))</span>
+            <span class="n">fun_jac_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fun_jac</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x0</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+            <span class="n">fun_</span><span class="p">,</span>
+            <span class="n">x0</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+            <span class="n">jac</span><span class="o">=</span><span class="n">fun_jac_</span><span class="p">,</span>
+            <span class="n">hess</span><span class="o">=</span><span class="n">fun_hess</span><span class="p">,</span>
+            <span class="n">hessp</span><span class="o">=</span><span class="n">hessp</span><span class="p">,</span>
+            <span class="n">bounds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span>
+            <span class="n">tol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">,</span>
+            <span class="n">constraints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="p">,</span>
+            <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">,</span>
+            <span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">vecs</span><span class="p">)</span></div>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result_to_backend_type</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_result</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result_</span> <span class="o">=</span> <span class="n">result</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+</div>
 
 </pre></div>
 

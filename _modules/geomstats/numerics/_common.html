@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>geomfum.wrap.pp3d &#8212; GeomFuM latest documentation</title>
+    <title>geomstats.numerics._common &#8212; GeomFuM latest documentation</title>
   
   
   
@@ -47,8 +47,8 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomfum/wrap/pp3d';</script>
-    <link rel="canonical" href="geomfum.github.io/_modules/geomfum/wrap/pp3d.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomstats/numerics/_common';</script>
+    <link rel="canonical" href="geomfum.github.io/_modules/geomstats/numerics/_common.html" />
     <link rel="icon" href="../../../_static/GeomFuMlogo_only.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -416,7 +416,7 @@
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.wrap.pp3d</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomstats.numerics._common</span></li>
   </ul>
 </nav>
 </div>
@@ -433,159 +433,125 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for geomfum.wrap.pp3d</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;potpourri3d wrapper.</span>
+  <h1>Source code for geomstats.numerics._common</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">MethodType</span>
 
-<span class="sd">https://github.com/nmwsharp/potpourri3d</span>
-<span class="sd">by Nicholas Sharp.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">PPoly</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">potpourri3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pp3d</span>
-
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.metric</span><span class="w"> </span><span class="kn">import</span> <span class="n">FinitePointSetMetric</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.metric._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">_SingleDispatchMixins</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 
 
-<div class="viewcode-block" id="Pp3dHeatDistanceMetric">
-<a class="viewcode-back" href="../../../api/geomfum.wrap.html#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Pp3dHeatDistanceMetric</span><span class="p">(</span><span class="n">_SingleDispatchMixins</span><span class="p">,</span> <span class="n">FinitePointSetMetric</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Heat distance metric between vertices of a mesh.</span>
+<div class="viewcode-block" id="result_to_backend_type">
+<a class="viewcode-back" href="../../../api/geomfum.numerics.html#geomfum.numerics.optimization.result_to_backend_type">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">result_to_backend_type</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert np.array to gs.array within result object.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">gs</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">gs</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;autograd&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">result</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    shape : TriangleMesh</span>
-<span class="sd">        Mesh.</span>
-<span class="sd">    solver : pp3d.HeatMethodDistanceSolver</span>
-<span class="sd">        Heat method distance solver class. &#39;  &#39;</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-<span class="sd">    References</span>
-<span class="sd">    ----------</span>
-<span class="sd">    .. [CWW2017] Crane, K., Weischedel, C., Wardetzky, M., 2017.</span>
-<span class="sd">        The heat method for distance computation. Commun. ACM 60, 90–99.</span>
-<span class="sd">        https://doi.org/10.1145/3131280</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">PPoly</span><span class="p">):</span>
+            <span class="n">new_ppoly</span> <span class="o">=</span> <span class="n">_InstanceConvertOutputWrapper</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_ppoly</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">solver</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">solver</span> <span class="o">=</span> <span class="n">pp3d</span><span class="o">.</span><span class="n">MeshHeatMethodDistanceSolver</span><span class="p">(</span>
-                <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)),</span>
-                <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)),</span>
-            <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="n">solver</span>
-
-    <span class="c1"># TO DO: Dispatch this</span>
-<div class="viewcode-block" id="Pp3dHeatDistanceMetric.dist_matrix">
-<a class="viewcode-back" href="../../../api/geomfum.wrap.html#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric.dist_matrix">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">dist_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Distance between mesh vertices.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dist_matrix : array-like, shape=[n_vertices, n_vertices]</span>
-<span class="sd">            Distance matrix.</span>
-
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        slow</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">dist_mat</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">):</span>
-            <span class="n">dist_mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">compute_distance</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-
-        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">dist_mat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
-
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_dist_from_source_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_point</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Distance between mesh vertices.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        source_point : array-like, shape=()</span>
-<span class="sd">            Index of source point.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dist : array-like, shape=[n_vertices]</span>
-<span class="sd">            Distance.</span>
-<span class="sd">        target_point : array-like, shape=[n_vertices,]</span>
-<span class="sd">            Target index.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">compute_distance</span><span class="p">(</span><span class="n">source_point</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-
-        <span class="n">target_point</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span> <span class="n">target_point</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_dist_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Distance between mesh vertices.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        point_a : array-like, shape=()</span>
-<span class="sd">            Index of source point.</span>
-<span class="sd">        point_b : array-like, shape=()</span>
-<span class="sd">            Index of target point.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dist : numeric</span>
-<span class="sd">            Distance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">compute_distance</span><span class="p">(</span><span class="n">point_a</span><span class="p">)[</span><span class="n">point_b</span><span class="p">]</span>
-
-        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">result</span></div>
 
 
 
-<div class="viewcode-block" id="Pp3dMeshHeatDistanceMetric">
-<a class="viewcode-back" href="../../../api/geomfum.wrap.html#geomfum.wrap.pp3d.Pp3dMeshHeatDistanceMetric">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Pp3dMeshHeatDistanceMetric</span><span class="p">(</span><span class="n">Pp3dHeatDistanceMetric</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Heat distance metric between vertices of a mesh.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_convert_np_output</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">return</span> <span class="n">_wrapped</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_InstanceConvertOutputWrapper</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dynamic wrapper for an instance to convert method output to gs.array.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="n">instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span>
+
+        <span class="n">attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_instance</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">MethodType</span><span class="p">):</span>
+            <span class="n">attr</span> <span class="o">=</span> <span class="n">_convert_np_output</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr</span>
+
+        <span class="k">return</span> <span class="n">attr</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instance</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_instance</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_instance</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_instance</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">params_to_kwargs</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">(),</span> <span class="n">renamings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore_private</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get dict with selected object attributes.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    shape : TriangleMesh</span>
-<span class="sd">        Mesh.</span>
+<span class="sd">    obj : object</span>
+<span class="sd">        Object with desired attributes.</span>
+<span class="sd">    ignore : tuple[str]</span>
+<span class="sd">        Attributes to ignore.</span>
+<span class="sd">    renamings: dict</span>
+<span class="sd">        Attribute renamings.</span>
+<span class="sd">    ignore_private: bool</span>
+<span class="sd">        Whether to ignore private attributes.</span>
+<span class="sd">    func : callable</span>
+<span class="sd">        Function to get signature from. Attributes</span>
+<span class="sd">        not in the signature are ignored.</span>
 
-<span class="sd">    References</span>
-<span class="sd">    ----------</span>
-<span class="sd">    cite:: CWW2017</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    kwargs : dict</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="n">solver</span> <span class="o">=</span> <span class="n">pp3d</span><span class="o">.</span><span class="n">MeshHeatMethodDistanceSolver</span><span class="p">(</span>
-            <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)),</span>
-            <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)),</span>
-        <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span>
+        <span class="n">ignore</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ignore</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">]</span>
 
+    <span class="k">if</span> <span class="n">ignore</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
+    <span class="k">if</span> <span class="n">renamings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">old_key</span><span class="p">,</span> <span class="n">new_key</span> <span class="ow">in</span> <span class="n">renamings</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">new_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_key</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Pp3dPointSetHeatDistanceMetric">
-<a class="viewcode-back" href="../../../api/geomfum.wrap.html#geomfum.wrap.pp3d.Pp3dPointSetHeatDistanceMetric">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Pp3dPointSetHeatDistanceMetric</span><span class="p">(</span><span class="n">Pp3dHeatDistanceMetric</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Heat distance metric between points of a PointCloud.</span>
+    <span class="k">if</span> <span class="n">ignore_private</span><span class="p">:</span>
+        <span class="n">private_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">),</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">private_keys</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    shape : PointCloud</span>
-<span class="sd">        Point cloud.</span>
-
-<span class="sd">    References</span>
-<span class="sd">    ----------</span>
-<span class="sd">    cite:: CWW2017</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="n">solver</span> <span class="o">=</span> <span class="n">pp3d</span><span class="o">.</span><span class="n">PointCloudHeatSolver</span><span class="p">(</span>
-            <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">))</span>
-        <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">)</span></div>
-
+    <span class="k">return</span> <span class="n">kwargs</span>
 </pre></div>
 
                 </article>
