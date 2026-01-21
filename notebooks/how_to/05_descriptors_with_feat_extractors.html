@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Jan 15, 2026, 7:32:50 AM"/>
+    <meta name="docbuild:last-update" content="Jan 21, 2026, 8:46:32 AM"/>
   </head>
   
   
@@ -499,10 +499,11 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.learned</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureExtractor</span><span class="p">,</span> <span class="n">LearnedDescriptor</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 </pre></div>
 </div>
 </div>
@@ -647,7 +648,6 @@ INFO: Data has already been downloaded... using cached file (&#39;/home/ubuntu/.
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">DescriptorPipeline</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
 </pre></div>

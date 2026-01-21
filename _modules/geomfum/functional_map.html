@@ -55,7 +55,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Jan 15, 2026, 7:32:50 AM"/>
+    <meta name="docbuild:last-update" content="Jan 21, 2026, 8:46:32 AM"/>
   </head>
   
   
@@ -578,6 +578,20 @@
 <a class="viewcode-back" href="../../api/geomfum.html#geomfum.functional_map.LBCommutativityEnforcing.from_bases">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_bases</span><span class="p">(</span><span class="n">basis_a</span><span class="p">,</span> <span class="n">basis_b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the commutativity constrain as a constrai on the spectrum coefficient.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        basis_a: Basis</span>
+<span class="sd">            Basis of source shape</span>
+<span class="sd">        basis_b: Basis</span>
+<span class="sd">            Basis of target shape</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        constraint: LBCommutativityEnforcings</span>
+<span class="sd">            class for the LBCommutativityEnforcings constraint</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">vals_sqdiff</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">basis_a</span><span class="o">.</span><span class="n">vals</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">basis_b</span><span class="o">.</span><span class="n">vals</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span>
         <span class="n">vals_sqdiff</span> <span class="o">/=</span> <span class="n">vals_sqdiff</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">LBCommutativityEnforcing</span><span class="p">(</span><span class="n">vals_sqdiff</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span></div>
@@ -728,11 +742,18 @@
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_multiplication</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">basis_a</span><span class="p">,</span> <span class="n">descr_a</span><span class="p">,</span> <span class="n">basis_b</span><span class="p">,</span> <span class="n">descr_b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the OperatorCommutativityEnforcing constrain from the operator induced by descriptors.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
+<span class="sd">        basis_a : Basis</span>
+<span class="sd">            Basis of the source shape.</span>
 <span class="sd">        descr_a : array-like, shape=[..., n_vertices]</span>
+<span class="sd">            descriptor for the source shape.</span>
+<span class="sd">        basis_b : Basis</span>
+<span class="sd">            Basis of the target shape.</span>
 <span class="sd">        descr_b : array-like, shape=[..., n_vertices]</span>
+<span class="sd">            descriptor for the target shape.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">oper_a</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">compute_multiplication_operator</span><span class="p">(</span><span class="n">basis_a</span><span class="p">,</span> <span class="n">descr_a</span><span class="p">)</span>
         <span class="n">oper_b</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">compute_multiplication_operator</span><span class="p">(</span><span class="n">basis_b</span><span class="p">,</span> <span class="n">descr_b</span><span class="p">)</span>
@@ -754,11 +775,30 @@
         <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the OperatorCommutativityEnforcing constrain from the operator induced by gradient Operators.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
+<span class="sd">        basis_a : Basis</span>
+<span class="sd">            Basis of the source shape.</span>
 <span class="sd">        descr_a : array-like, shape=[..., n_vertices]</span>
+<span class="sd">            descriptor for the source shape.</span>
+<span class="sd">        basis_b : Basis</span>
+<span class="sd">            Basis of the target shape.</span>
 <span class="sd">        descr_b : array-like, shape=[..., n_vertices]</span>
+<span class="sd">            descriptor for the target shape.</span>
+<span class="sd">        reversing_a : bool</span>
+<span class="sd">            whether to return operators associated to orientation inversion instead</span>
+<span class="sd">                of orientation preservation (return the opposite of the second operator) for source shape</span>
+<span class="sd">        reversing_b : bool</span>
+<span class="sd">            whether to return operators associated to orientation inversion instead</span>
+<span class="sd">                of orientation preservation (return the opposite of the second operator) for target shape</span>
+<span class="sd">        normalize : bool</span>
+<span class="sd">            whether to normalize the gradient on each face.</span>
+<span class="sd">        weight : float</span>
+<span class="sd">            Weight of the factor.</span>
+
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">oper_a</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">compute_orientation_operator</span><span class="p">(</span>
             <span class="n">shape_a</span><span class="p">,</span> <span class="n">descr_a</span><span class="p">,</span> <span class="n">reversing</span><span class="o">=</span><span class="n">reversing_a</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="n">normalize</span>

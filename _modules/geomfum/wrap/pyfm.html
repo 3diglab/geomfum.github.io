@@ -55,7 +55,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Jan 15, 2026, 7:32:50 AM"/>
+    <meta name="docbuild:last-update" content="Jan 21, 2026, 8:46:32 AM"/>
   </head>
   
   
@@ -845,8 +845,8 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">rot_field</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">normals</span><span class="p">,</span> <span class="n">grad_field</span><span class="p">)</span>  <span class="c1"># (n_f,3)</span>
 
-    <span class="n">I</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]])</span>
-    <span class="n">J</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]])</span>
+    <span class="n">face_i</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]])</span>
+    <span class="n">face_j</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]])</span>
 
     <span class="c1"># Compute pairwise dot products between the gradient directions</span>
     <span class="c1"># and the gradient field</span>
@@ -876,8 +876,8 @@
         <span class="p">)</span>
     <span class="p">)</span>
 
-    <span class="n">In</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">])</span>
-    <span class="n">Jn</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">J</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">])</span>
+    <span class="n">In</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">face_i</span><span class="p">,</span> <span class="n">face_j</span><span class="p">,</span> <span class="n">face_i</span><span class="p">,</span> <span class="n">face_j</span><span class="p">])</span>
+    <span class="n">Jn</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">face_j</span><span class="p">,</span> <span class="n">face_i</span><span class="p">,</span> <span class="n">face_i</span><span class="p">,</span> <span class="n">face_j</span><span class="p">])</span>
     <span class="n">Sn</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">Sij</span><span class="p">,</span> <span class="n">Sji</span><span class="p">,</span> <span class="o">-</span><span class="n">Sij</span><span class="p">,</span> <span class="o">-</span><span class="n">Sji</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">inv_area</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">dia_matrix</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">per_vert_area</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_vertices</span><span class="p">,</span> <span class="n">n_vertices</span><span class="p">))</span>

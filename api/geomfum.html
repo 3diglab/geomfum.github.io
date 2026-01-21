@@ -60,7 +60,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Jan 15, 2026, 7:32:50 AM"/>
+    <meta name="docbuild:last-update" content="Jan 21, 2026, 8:46:32 AM"/>
   </head>
   
   
@@ -1840,7 +1840,19 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.functional_map.LBCommutativityEnforcing.from_bases">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_bases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#LBCommutativityEnforcing.from_bases"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.LBCommutativityEnforcing.from_bases" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Compute the commutativity constrain as a constrai on the spectrum coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>basis_a</strong> (<em>Basis</em>) – Basis of source shape</p></li>
+<li><p><strong>basis_b</strong> (<em>Basis</em>) – Basis of target shape</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>constraint</strong> (<em>LBCommutativityEnforcings</em>) – class for the LBCommutativityEnforcings constraint</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.functional_map.LBCommutativityEnforcing.gradient">
@@ -1917,11 +1929,14 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.functional_map.OperatorCommutativityEnforcing.from_multiplication">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_multiplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#OperatorCommutativityEnforcing.from_multiplication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.OperatorCommutativityEnforcing.from_multiplication" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Compute the OperatorCommutativityEnforcing constrain from the operator induced by descriptors.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices]</em>)</p></li>
-<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices]</em>)</p></li>
+<li><p><strong>basis_a</strong> (<em>Basis</em>) – Basis of the source shape.</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices]</em>) – descriptor for the source shape.</p></li>
+<li><p><strong>basis_b</strong> (<em>Basis</em>) – Basis of the target shape.</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices]</em>) – descriptor for the target shape.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1930,11 +1945,28 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dl class="py method">
 <dt class="sig sig-object py" id="geomfum.functional_map.OperatorCommutativityEnforcing.from_orientation">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_orientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reversing_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reversing_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#OperatorCommutativityEnforcing.from_orientation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.OperatorCommutativityEnforcing.from_orientation" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Compute the OperatorCommutativityEnforcing constrain from the operator induced by gradient Operators.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices]</em>)</p></li>
-<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices]</em>)</p></li>
+<dd class="field-odd"><ul>
+<li><p><strong>basis_a</strong> (<em>Basis</em>) – Basis of the source shape.</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices]</em>) – descriptor for the source shape.</p></li>
+<li><p><strong>basis_b</strong> (<em>Basis</em>) – Basis of the target shape.</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices]</em>) – descriptor for the target shape.</p></li>
+<li><p><strong>reversing_a</strong> (<em>bool</em>) –</p>
+<dl class="simple">
+<dt>whether to return operators associated to orientation inversion instead</dt><dd><p>of orientation preservation (return the opposite of the second operator) for source shape</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>reversing_b</strong> (<em>bool</em>) –</p>
+<dl class="simple">
+<dt>whether to return operators associated to orientation inversion instead</dt><dd><p>of orientation preservation (return the opposite of the second operator) for target shape</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>normalize</strong> (<em>bool</em>) – whether to normalize the gradient on each face.</p></li>
+<li><p><strong>weight</strong> (<em>float</em>) – Weight of the factor.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2015,6 +2047,7 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 </section>
 <section id="module-geomfum.io">
 <span id="geomfum-io-module"></span><h2>geomfum.io module<a class="headerlink" href="#module-geomfum.io" title="Link to this heading">#</a></h2>
+<p>Utilities for loading geometric data.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="geomfum.io.load_mesh">
 <span class="sig-prename descclassname"><span class="pre">geomfum.io.</span></span><span class="sig-name descname"><span class="pre">load_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/io.html#load_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.io.load_mesh" title="Link to this definition">#</a></dt>
@@ -3395,6 +3428,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </section>
 <section id="module-geomfum">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum" title="Link to this heading">#</a></h2>
+<p>GeomFuM: a Python Package for Machine Learning with Functional Maps.</p>
 </section>
 </section>
 
