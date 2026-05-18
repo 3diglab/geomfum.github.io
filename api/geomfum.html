@@ -27,19 +27,19 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=c6e86fd7"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -51,6 +51,7 @@
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/geomfum';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="canonical" href="geomfum.github.io/api/geomfum.html" />
     <link rel="icon" href="../_static/GeomFuMlogo_only.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -60,21 +61,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="Jan 21, 2026, 8:46:32 AM"/>
+    <meta name="docbuild:last-update" content="May 18, 2026, 7:43:38 PM"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -100,7 +107,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -176,23 +183,13 @@
   </a>
 </li>
 
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="index.html">
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
     API Reference
   </a>
 </li>
 
-                </ul>
-            </li>
-            
   </ul>
 </nav></div>
       
@@ -386,7 +383,14 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
         <div class="sidebar-primary-item">
+
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
@@ -1043,44 +1047,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="geomfum.wrap.html#module-geomfum.wrap.pyrmt">geomfum.wrap.pyrmt module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.HierarchicalShape"><code class="docutils literal notranslate"><span class="pre">HierarchicalShape</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.HierarchicalShape.extend_basis"><code class="docutils literal notranslate"><span class="pre">HierarchicalShape.extend_basis()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.HierarchicalShape.scalar_low_high"><code class="docutils literal notranslate"><span class="pre">HierarchicalShape.scalar_low_high()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh"><code class="docutils literal notranslate"><span class="pre">PyrmtHierarchicalMesh</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.PyrmtHierarchicalMesh.scalar_low_high"><code class="docutils literal notranslate"><span class="pre">PyrmtHierarchicalMesh.scalar_low_high()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh"><code class="docutils literal notranslate"><span class="pre">RMTMesh</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh.baryc_map"><code class="docutils literal notranslate"><span class="pre">RMTMesh.baryc_map()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh.clean_up"><code class="docutils literal notranslate"><span class="pre">RMTMesh.clean_up()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh.make_manifold"><code class="docutils literal notranslate"><span class="pre">RMTMesh.make_manifold()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh.remesh"><code class="docutils literal notranslate"><span class="pre">RMTMesh.remesh()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh.triangles"><code class="docutils literal notranslate"><span class="pre">RMTMesh.triangles</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.RMTMesh.vertices"><code class="docutils literal notranslate"><span class="pre">RMTMesh.vertices</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh"><code class="docutils literal notranslate"><span class="pre">TriangleMesh</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.dist_matrix"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.dist_matrix</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.edge_tangent_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edge_tangent_vectors</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.edges"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edges</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.equip_with_metric"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.equip_with_metric()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.face_area_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_area_vectors</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.face_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_areas</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.face_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_normals</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.face_vertex_coords"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_vertex_coords</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.from_file"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.from_file()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.n_faces"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_faces</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.n_vertices"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_vertices</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.vertex_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_areas</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.vertex_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_normals</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyrmt.TriangleMesh.vertex_tangent_frames"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_tangent_frames</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.wrap.html#geomfum-wrap-pyrmt-module">geomfum.wrap.pyrmt module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geomfum.wrap.html#module-geomfum.wrap.pyvista">geomfum.wrap.pyvista module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyvista.PvMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyvista.PvMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.add_mesh()</span></code></a></li>
@@ -1609,7 +1576,7 @@ for a discussion of the choice of <code class="docutils literal notranslate"><sp
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.convert.NeuralAdjointMap">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.convert.</span></span><span class="sig-name descname"><span class="pre">NeuralAdjointMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_linear_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/neural_adjoint_map.html#NeuralAdjointMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.convert.NeuralAdjointMap" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
 <p>Neural Adjoint Map (NAM) composed by a linear branch and a non-linear MLP branch.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1705,7 +1672,7 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.convert.SoftmaxNeighborFinder">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.convert.</span></span><span class="sig-name descname"><span class="pre">SoftmaxNeighborFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/convert.html#SoftmaxNeighborFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.convert.SoftmaxNeighborFinder" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.convert.BaseNeighborFinder" title="geomfum.convert.BaseNeighborFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNeighborFinder</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.convert.BaseNeighborFinder" title="geomfum.convert.BaseNeighborFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNeighborFinder</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
 <p>Softmax neighbor finder.</p>
 <p>Finds neighbors using softmax regularization.</p>
 <dl class="field-list simple">
@@ -1780,7 +1747,7 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.forward_functional_map.ForwardFunctionalMap">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.forward_functional_map.</span></span><span class="sig-name descname"><span class="pre">ForwardFunctionalMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmbda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolvent_gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bijective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/forward_functional_map.html#ForwardFunctionalMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.forward_functional_map.ForwardFunctionalMap" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>, <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
 <p>Class for the forward pass of the functional map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2360,7 +2327,7 @@ were already computed.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.neural_adjoint_map.MLP">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.neural_adjoint_map.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">LeakyReLU(negative_slope=0.01)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/neural_adjoint_map.html#MLP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.neural_adjoint_map.MLP" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
 <p>A simple MLP (Multi-Layer Perceptron) module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2384,7 +2351,7 @@ were already computed.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.neural_adjoint_map.NeuralAdjointMap">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.neural_adjoint_map.</span></span><span class="sig-name descname"><span class="pre">NeuralAdjointMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_linear_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/neural_adjoint_map.html#NeuralAdjointMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.neural_adjoint_map.NeuralAdjointMap" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
 <p>Neural Adjoint Map (NAM) composed by a linear branch and a non-linear MLP branch.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2810,7 +2777,7 @@ we define general functions that works with any library implemented</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<p><span id="id3">[]</span></p>
+<p><span class="bibtex-citation" id="id3">[]</span></p>
 </dd></dl>
 
 <dl class="py class">
@@ -3477,11 +3444,11 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.basis">geomfum.basis module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.basis">geomfum.basis module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.basis.Basis"><code class="docutils literal notranslate"><span class="pre">Basis</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.basis.EigenBasis"><code class="docutils literal notranslate"><span class="pre">EigenBasis</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.basis.EigenBasis.full_spectrum_size"><code class="docutils literal notranslate"><span class="pre">EigenBasis.full_spectrum_size</span></code></a></li>
@@ -3502,7 +3469,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.convert">geomfum.convert module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.convert">geomfum.convert module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.BaseFmFromP2pConverter"><code class="docutils literal notranslate"><span class="pre">BaseFmFromP2pConverter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.BaseNeighborFinder"><code class="docutils literal notranslate"><span class="pre">BaseNeighborFinder</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.BaseP2pFromFmConverter"><code class="docutils literal notranslate"><span class="pre">BaseP2pFromFmConverter</span></code></a></li>
@@ -3543,11 +3510,11 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.forward_functional_map">geomfum.forward_functional_map module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.forward_functional_map">geomfum.forward_functional_map module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.forward_functional_map.ForwardFunctionalMap"><code class="docutils literal notranslate"><span class="pre">ForwardFunctionalMap</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.functional_map">geomfum.functional_map module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.functional_map">geomfum.functional_map module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorSum"><code class="docutils literal notranslate"><span class="pre">FactorSum</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorSum.gradient"><code class="docutils literal notranslate"><span class="pre">FactorSum.gradient()</span></code></a></li>
 </ul>
@@ -3575,12 +3542,12 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.io">geomfum.io module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.io">geomfum.io module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.io.load_mesh"><code class="docutils literal notranslate"><span class="pre">load_mesh()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.io.load_pointcloud"><code class="docutils literal notranslate"><span class="pre">load_pointcloud()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.laplacian">geomfum.laplacian module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.laplacian">geomfum.laplacian module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.BaseLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.LaplaceEigenBasis"><code class="docutils literal notranslate"><span class="pre">LaplaceEigenBasis</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.LaplaceEigenBasis.pinv"><code class="docutils literal notranslate"><span class="pre">LaplaceEigenBasis.pinv</span></code></a></li>
@@ -3605,7 +3572,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.ScipyEigsh"><code class="docutils literal notranslate"><span class="pre">ScipyEigsh</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.linalg">geomfum.linalg module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.linalg">geomfum.linalg module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.columnwise_scaling"><code class="docutils literal notranslate"><span class="pre">columnwise_scaling()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.matvecmul"><code class="docutils literal notranslate"><span class="pre">matvecmul()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
@@ -3614,7 +3581,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.linalg.scale_to_unit_sum"><code class="docutils literal notranslate"><span class="pre">scale_to_unit_sum()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.neural_adjoint_map">geomfum.neural_adjoint_map module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.neural_adjoint_map">geomfum.neural_adjoint_map module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.neural_adjoint_map.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.neural_adjoint_map.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
 </ul>
@@ -3625,7 +3592,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.operator">geomfum.operator module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.operator">geomfum.operator module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.FaceDivergenceOperator"><code class="docutils literal notranslate"><span class="pre">FaceDivergenceOperator</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.FaceDivergenceOperatorRegistry"><code class="docutils literal notranslate"><span class="pre">FaceDivergenceOperatorRegistry</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.operator.FaceDivergenceOperatorRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">FaceDivergenceOperatorRegistry.MAP</span></code></a></li>
@@ -3669,7 +3636,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.plot">geomfum.plot module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.plot">geomfum.plot module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.plot.MeshPlotter"><code class="docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.plot.MeshPlotterRegistry"><code class="docutils literal notranslate"><span class="pre">MeshPlotterRegistry</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.plot.MeshPlotterRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">MeshPlotterRegistry.MAP</span></code></a></li>
@@ -3695,7 +3662,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.refine">geomfum.refine module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.refine">geomfum.refine module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.AdjointBijectiveZoomOut"><code class="docutils literal notranslate"><span class="pre">AdjointBijectiveZoomOut</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.FastSinkhornFilters"><code class="docutils literal notranslate"><span class="pre">FastSinkhornFilters</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.FmFromP2pBijectiveConverter"><code class="docutils literal notranslate"><span class="pre">FmFromP2pBijectiveConverter</span></code></a></li>
@@ -3718,7 +3685,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.refine.ZoomOut"><code class="docutils literal notranslate"><span class="pre">ZoomOut</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.sample">geomfum.sample module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.sample">geomfum.sample module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.sample.BaseSampler"><code class="docutils literal notranslate"><span class="pre">BaseSampler</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.sample.BaseSampler.sample"><code class="docutils literal notranslate"><span class="pre">BaseSampler.sample()</span></code></a></li>
 </ul>
@@ -3757,13 +3724,13 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/api/geomfum.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/geomfum.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -3778,8 +3745,8 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3813,7 +3780,7 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
 </p></div>
       
     </div>
