@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:51:51 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -882,7 +882,7 @@ interpolation between vertices.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.shape.mesh.HeatDistanceMetric">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.mesh.</span></span><span class="sig-name descname"><span class="pre">HeatDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#HeatDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.mesh.HeatDistanceMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.MeshWhichRegistryMixins" title="geomfum._registry.MeshWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.ShapeWhichRegistryMixins" title="geomfum._registry.ShapeWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeWhichRegistryMixins</span></code></a></p>
 <p>Geodesic distance approximation using the heat method.</p>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
@@ -897,12 +897,12 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.shape.mesh.Shape">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.mesh.</span></span><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/_base.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.mesh.Shape" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.mesh.</span></span><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/_base.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.mesh.Shape" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Abstract base class for geometric shapes with differential operators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>is_mesh</strong> (<em>bool</em>) – Whether the shape is a mesh (True) or point cloud (False).</p>
+<dd class="field-odd"><p><strong>shape_type</strong> (<em>str</em>) – Type of shape (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;mesh&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pointcloud&quot;</span></code>).</p>
 </dd>
 </dl>
 <dl class="py property">
@@ -1197,7 +1197,7 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.shape.point_cloud.HeatDistanceMetric">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.point_cloud.</span></span><span class="sig-name descname"><span class="pre">HeatDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#HeatDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.point_cloud.HeatDistanceMetric" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.MeshWhichRegistryMixins" title="geomfum._registry.MeshWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.laplacian.ShapeWhichRegistryMixins" title="geomfum._registry.ShapeWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeWhichRegistryMixins</span></code></a></p>
 <p>Geodesic distance approximation using the heat method.</p>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
@@ -1325,12 +1325,12 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.shape.point_cloud.Shape">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.point_cloud.</span></span><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/_base.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.point_cloud.Shape" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.point_cloud.</span></span><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/_base.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.point_cloud.Shape" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Abstract base class for geometric shapes with differential operators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>is_mesh</strong> (<em>bool</em>) – Whether the shape is a mesh (True) or point cloud (False).</p>
+<dd class="field-odd"><p><strong>shape_type</strong> (<em>str</em>) – Type of shape (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;mesh&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pointcloud&quot;</span></code>).</p>
 </dd>
 </dl>
 <dl class="py property">
@@ -1615,12 +1615,12 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.shape.Shape">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.</span></span><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/_base.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.Shape" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.shape.</span></span><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/_base.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.shape.Shape" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Abstract base class for geometric shapes with differential operators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>is_mesh</strong> (<em>bool</em>) – Whether the shape is a mesh (True) or point cloud (False).</p>
+<dd class="field-odd"><p><strong>shape_type</strong> (<em>str</em>) – Type of shape (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;mesh&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pointcloud&quot;</span></code>).</p>
 </dd>
 </dl>
 <dl class="py property">

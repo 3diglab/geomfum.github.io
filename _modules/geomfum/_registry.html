@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:51:51 AM"/>
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -688,10 +688,10 @@
 
 
 
-<div class="viewcode-block" id="MeshWhichRegistryMixins">
-<a class="viewcode-back" href="../../api/geomfum.html#geomfum.convert.MeshWhichRegistryMixins">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">MeshWhichRegistryMixins</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mixin for registry-based instantiation with mesh/point cloud distinction.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ShapeWhichRegistryMixins">
+<a class="viewcode-back" href="../../api/geomfum.html#geomfum.convert.ShapeWhichRegistryMixins">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ShapeWhichRegistryMixins</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mixin for registry-based instantiation with shape type distinction.&quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># TODO: has to be improved</span>
@@ -699,16 +699,16 @@
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="MeshWhichRegistryMixins.from_registry">
-<a class="viewcode-back" href="../../api/geomfum.html#geomfum.convert.MeshWhichRegistryMixins.from_registry">[docs]</a>
+<div class="viewcode-block" id="ShapeWhichRegistryMixins.from_registry">
+<a class="viewcode-back" href="../../api/geomfum.html#geomfum.convert.ShapeWhichRegistryMixins.from_registry">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">from_registry</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_registry</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">shape_type</span><span class="o">=</span><span class="s2">&quot;mesh&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create instance from registered implementation based on shape type.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        mesh : bool</span>
-<span class="sd">            Whether a mesh or point cloud.</span>
+<span class="sd">        shape_type : str</span>
+<span class="sd">            Type of shape (e.g. ``&quot;mesh&quot;``, ``&quot;pointcloud&quot;``).</span>
 <span class="sd">        which : str</span>
 <span class="sd">            A registered implementation.</span>
 
@@ -717,7 +717,7 @@
 <span class="sd">        obj : Obj</span>
 <span class="sd">            An instantiated object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">instantiator</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_Registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">which</span><span class="p">)</span>
+        <span class="n">instantiator</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_Registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">shape_type</span><span class="p">,</span> <span class="n">which</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">instantiator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
             <span class="n">obj</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -742,8 +742,8 @@
 <a class="viewcode-back" href="../../api/geomfum.html#geomfum.convert.LaplacianFinderRegistry">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">LaplacianFinderRegistry</span><span class="p">(</span><span class="n">NestedRegistry</span><span class="p">):</span>
     <span class="n">Registries</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="kc">True</span><span class="p">:</span> <span class="n">_MeshLaplacianFinderRegistry</span><span class="p">,</span>
-        <span class="kc">False</span><span class="p">:</span> <span class="n">_PointSetLaplacianFinderRegistry</span><span class="p">,</span>
+        <span class="s2">&quot;mesh&quot;</span><span class="p">:</span> <span class="n">_MeshLaplacianFinderRegistry</span><span class="p">,</span>
+        <span class="s2">&quot;pointcloud&quot;</span><span class="p">:</span> <span class="n">_PointSetLaplacianFinderRegistry</span><span class="p">,</span>
     <span class="p">}</span></div>
 
 
@@ -847,8 +847,8 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">HeatDistanceMetricRegistry</span><span class="p">(</span><span class="n">NestedRegistry</span><span class="p">):</span>
     <span class="n">Registries</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="kc">True</span><span class="p">:</span> <span class="n">_MeshHeatDistanceMetricRegistry</span><span class="p">,</span>
-        <span class="kc">False</span><span class="p">:</span> <span class="n">_PointSetHeatDistanceMetricRegistry</span><span class="p">,</span>
+        <span class="s2">&quot;mesh&quot;</span><span class="p">:</span> <span class="n">_MeshHeatDistanceMetricRegistry</span><span class="p">,</span>
+        <span class="s2">&quot;pointcloud&quot;</span><span class="p">:</span> <span class="n">_PointSetHeatDistanceMetricRegistry</span><span class="p">,</span>
     <span class="p">}</span>
 
 <div class="viewcode-block" id="PreciseGeodesicDistanceMetricRegistry">

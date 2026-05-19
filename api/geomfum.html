@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:51:51 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -2051,7 +2051,7 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.laplacian.LaplacianFinder">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.laplacian.</span></span><span class="sig-name descname"><span class="pre">LaplacianFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/laplacian.html#LaplacianFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.laplacian.LaplacianFinder" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.laplacian.MeshWhichRegistryMixins" title="geomfum._registry.MeshWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins</span></code></a>, <a class="reference internal" href="#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.laplacian.ShapeWhichRegistryMixins" title="geomfum._registry.ShapeWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeWhichRegistryMixins</span></code></a>, <a class="reference internal" href="#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
 <p>Algorithm to find the Laplacian.</p>
 </dd></dl>
 
@@ -2061,7 +2061,7 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NestedRegistry</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="geomfum.laplacian.LaplacianFinderRegistry.Registries">
-<span class="sig-name descname"><span class="pre">Registries</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{False:</span> <span class="pre">&lt;class</span> <span class="pre">'geomfum._registry._PointSetLaplacianFinderRegistry'&gt;,</span> <span class="pre">True:</span> <span class="pre">&lt;class</span> <span class="pre">'geomfum._registry._MeshLaplacianFinderRegistry'&gt;}</span></em><a class="headerlink" href="#geomfum.laplacian.LaplacianFinderRegistry.Registries" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">Registries</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'mesh':</span> <span class="pre">&lt;class</span> <span class="pre">'geomfum._registry._MeshLaplacianFinderRegistry'&gt;,</span> <span class="pre">'pointcloud':</span> <span class="pre">&lt;class</span> <span class="pre">'geomfum._registry._PointSetLaplacianFinderRegistry'&gt;}</span></em><a class="headerlink" href="#geomfum.laplacian.LaplacianFinderRegistry.Registries" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2097,30 +2097,6 @@ were already computed.</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="geomfum.laplacian.MeshWhichRegistryMixins">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.laplacian.</span></span><span class="sig-name descname"><span class="pre">MeshWhichRegistryMixins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#MeshWhichRegistryMixins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.laplacian.MeshWhichRegistryMixins" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Mixin for registry-based instantiation with mesh/point cloud distinction.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.laplacian.MeshWhichRegistryMixins.from_registry">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#MeshWhichRegistryMixins.from_registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.laplacian.MeshWhichRegistryMixins.from_registry" title="Link to this definition">#</a></dt>
-<dd><p>Create instance from registered implementation based on shape type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<em>bool</em>) – Whether a mesh or point cloud.</p></li>
-<li><p><strong>which</strong> (<em>str</em>) – A registered implementation.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>obj</strong> (<em>Obj</em>) – An instantiated object.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.laplacian.ScipyEigsh">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.laplacian.</span></span><span class="sig-name descname"><span class="pre">ScipyEigsh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectrum_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/eig.html#ScipyEigsh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.laplacian.ScipyEigsh" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
@@ -2135,6 +2111,30 @@ were already computed.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.laplacian.ShapeWhichRegistryMixins">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.laplacian.</span></span><span class="sig-name descname"><span class="pre">ShapeWhichRegistryMixins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#ShapeWhichRegistryMixins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.laplacian.ShapeWhichRegistryMixins" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Mixin for registry-based instantiation with shape type distinction.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.laplacian.ShapeWhichRegistryMixins.from_registry">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mesh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#ShapeWhichRegistryMixins.from_registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.laplacian.ShapeWhichRegistryMixins.from_registry" title="Link to this definition">#</a></dt>
+<dd><p>Create instance from registered implementation based on shape type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape_type</strong> (<em>str</em>) – Type of shape (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;mesh&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pointcloud&quot;</span></code>).</p></li>
+<li><p><strong>which</strong> (<em>str</em>) – A registered implementation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> (<em>Obj</em>) – An instantiated object.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -2513,7 +2513,7 @@ no. 2 (2016): 599–624. <a class="reference external" href="https://doi.org/10.
 <dl class="py class">
 <dt class="sig sig-object py" id="geomfum.operator.LaplacianFinder">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.operator.</span></span><span class="sig-name descname"><span class="pre">LaplacianFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/laplacian.html#LaplacianFinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.operator.LaplacianFinder" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.laplacian.MeshWhichRegistryMixins" title="geomfum._registry.MeshWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins</span></code></a>, <a class="reference internal" href="#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.laplacian.ShapeWhichRegistryMixins" title="geomfum._registry.ShapeWhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeWhichRegistryMixins</span></code></a>, <a class="reference internal" href="#geomfum.laplacian.BaseLaplacianFinder" title="geomfum.laplacian.BaseLaplacianFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></p>
 <p>Algorithm to find the Laplacian.</p>
 </dd></dl>
 
@@ -3381,11 +3381,11 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.LaplacianSpectrumFinder.spectrum_size"><code class="docutils literal notranslate"><span class="pre">LaplacianSpectrumFinder.spectrum_size</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.MeshWhichRegistryMixins"><code class="docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.MeshWhichRegistryMixins.from_registry"><code class="docutils literal notranslate"><span class="pre">MeshWhichRegistryMixins.from_registry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.ScipyEigsh"><code class="docutils literal notranslate"><span class="pre">ScipyEigsh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.ShapeWhichRegistryMixins"><code class="docutils literal notranslate"><span class="pre">ShapeWhichRegistryMixins</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.ShapeWhichRegistryMixins.from_registry"><code class="docutils literal notranslate"><span class="pre">ShapeWhichRegistryMixins.from_registry()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.laplacian.ScipyEigsh"><code class="docutils literal notranslate"><span class="pre">ScipyEigsh</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.linalg">geomfum.linalg module</a><ul class="pst-show_toc_level nav section-nav flex-column">

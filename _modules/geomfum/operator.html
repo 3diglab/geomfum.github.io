@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:51:51 AM"/>
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -584,7 +584,7 @@
 
         <span class="k">if</span> <span class="n">laplacian_finder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">laplacian_finder</span> <span class="o">=</span> <span class="n">LaplacianFinder</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span>
-                <span class="n">mesh</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">is_mesh</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;robust&quot;</span>
+                <span class="n">shape_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">shape_type</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;robust&quot;</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_stiffness_matrix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mass_matrix</span> <span class="o">=</span> <span class="n">laplacian_finder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="p">)</span>
