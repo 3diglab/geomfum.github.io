@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:45:41 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -437,6 +437,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse.csgraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">shortest_path</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum._registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">PreciseGeodesicDistanceMetricRegistry</span><span class="p">,</span> <span class="n">WhichRegistryMixins</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.numerics.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">single_source_partial_dijkstra_path_length</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">FinitePointSetMetric</span><span class="p">,</span> <span class="n">VertexEuclideanMetric</span><span class="p">,</span> <span class="n">_SingleDispatchMixins</span>
@@ -692,6 +693,21 @@
             <span class="n">indices</span><span class="o">=</span><span class="n">source_point</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dist</span><span class="p">)),</span> <span class="n">gs</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dist</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="PreciseGeodesicDistanceMetric">
+<a class="viewcode-back" href="../../../api/geomfum.metric.html#geomfum.dataset.torch.PreciseGeodesicDistanceMetric">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PreciseGeodesicDistanceMetric</span><span class="p">(</span><span class="n">WhichRegistryMixins</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Precise geodesic distance metric on mesh.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : Shape</span>
+<span class="sd">        Shape.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_Registry</span> <span class="o">=</span> <span class="n">PreciseGeodesicDistanceMetricRegistry</span></div>
 
 </pre></div>
 

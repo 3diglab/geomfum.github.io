@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:45:41 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -540,6 +540,39 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.PreciseGeodesicDistanceMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">PreciseGeodesicDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#PreciseGeodesicDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a></p>
+<p>Precise geodesic distance metric on mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>Shape</em>) – Shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">PreciseGeodesicDistanceMetricRegistry</span></span><a class="reference internal" href="../_modules/geomfum/_registry.html#PreciseGeodesicDistanceMetricRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Registry</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.MAP">
+<span class="sig-name descname"><span class="pre">MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pp3d':</span> <span class="pre">('Pp3dEdgeFlipGeodesicMetric',</span> <span class="pre">None)}</span></em><a class="headerlink" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.MAP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pp3d'</span></em><a class="headerlink" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.default" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.has_internal">
+<span class="sig-name descname"><span class="pre">has_internal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.has_internal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.metric.mesh.ScipyGraphShortestPathMetric">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">ScipyGraphShortestPathMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/mesh.html#ScipyGraphShortestPathMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.ScipyGraphShortestPathMetric" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ScipyShortestPathMixins</span></code>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
@@ -601,6 +634,27 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.WhichRegistryMixins">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.metric.mesh.</span></span><span class="sig-name descname"><span class="pre">WhichRegistryMixins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#WhichRegistryMixins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.WhichRegistryMixins" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Mixin enabling registry-based instantiation via ‘which’ parameter.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.metric.mesh.WhichRegistryMixins.from_registry">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/_registry.html#WhichRegistryMixins.from_registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.metric.mesh.WhichRegistryMixins.from_registry" title="Link to this definition">#</a></dt>
+<dd><p>Create instance from registered implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>which</strong> (<em>str</em>) – A registered implementation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> (<em>BaseHeatKernelSignature</em>) – Instantiated object.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1013,11 +1067,22 @@ The heat method for distance computation. Commun. ACM 60, 90–99.
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.GraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">GraphShortestPathMetric</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.KClosestGraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">KClosestGraphShortestPathMetric</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetric"><code class="docutils literal notranslate"><span class="pre">PreciseGeodesicDistanceMetric</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry"><code class="docutils literal notranslate"><span class="pre">PreciseGeodesicDistanceMetricRegistry</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">PreciseGeodesicDistanceMetricRegistry.MAP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.default"><code class="docutils literal notranslate"><span class="pre">PreciseGeodesicDistanceMetricRegistry.default</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.PreciseGeodesicDistanceMetricRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">PreciseGeodesicDistanceMetricRegistry.has_internal</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.ScipyGraphShortestPathMetric"><code class="docutils literal notranslate"><span class="pre">ScipyGraphShortestPathMetric</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_from_source"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_from_source()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.VertexEuclideanMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.WhichRegistryMixins"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.WhichRegistryMixins.from_registry"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins.from_registry()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.metric.mesh.shortest_path"><code class="docutils literal notranslate"><span class="pre">shortest_path()</span></code></a></li>

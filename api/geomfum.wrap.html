@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:45:41 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -1138,6 +1138,43 @@ by Nicholas Sharp.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pp3d.</span></span><span class="sig-name descname"><span class="pre">Pp3dEdgeFlipGeodesicMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pp3d.html#Pp3dEdgeFlipGeodesicMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_SingleDispatchMixins</span></code>, <a class="reference internal" href="#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Geodesic distance metric between vertices of a mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>TriangleMesh</em>) – Mesh.</p></li>
+<li><p><strong>solver</strong> (<em>pp3d.EdgeFlipGeodesicSolver</em>) – Edge flip geodesic solver class.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="sc2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SC2020<span class="fn-bracket">]</span></span>
+<p>Sharp, N., Crane, K., 2020.
+You Can Find Geodesic Paths in Triangle Meshes by Just Flipping Edges.
+ACM Trans. Graph.</p>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric.dist_matrix">
+<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pp3d.html#Pp3dEdgeFlipGeodesicMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distance between mesh vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>slow</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.wrap.pp3d.Pp3dHeatDistanceMetric">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pp3d.</span></span><span class="sig-name descname"><span class="pre">Pp3dHeatDistanceMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pp3d.html#Pp3dHeatDistanceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_SingleDispatchMixins</span></code>, <a class="reference internal" href="#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
@@ -1953,6 +1990,22 @@ features from shapes.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="geomfum.wrap.register_precise_geodesic_distance_metric">
+<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.</span></span><span class="sig-name descname"><span class="pre">register_precise_geodesic_distance_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geomfum.wrap.register_precise_geodesic_distance_metric" title="Link to this definition">#</a></dt>
+<dd><p>Register an implementation with optional package dependencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Key.</p></li>
+<li><p><strong>obj_name</strong> (<em>class name</em>) – Name of the object to register.</p></li>
+<li><p><strong>requires</strong> (<em>str or tuple</em>) – Required packages.</p></li>
+<li><p><strong>as_default</strong> (<em>bool</em>) – Whether to set it as default.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="geomfum.wrap.register_wave_kernel_signature">
 <span class="sig-prename descclassname"><span class="pre">geomfum.wrap.</span></span><span class="sig-name descname"><span class="pre">register_wave_kernel_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geomfum.wrap.register_wave_kernel_signature" title="Link to this definition">#</a></dt>
 <dd><p>Register an implementation with optional package dependencies.</p>
@@ -2101,6 +2154,10 @@ features from shapes.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.FinitePointSetMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">FinitePointSetMetric.dist_matrix()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric"><code class="docutils literal notranslate"><span class="pre">Pp3dEdgeFlipGeodesicMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">Pp3dEdgeFlipGeodesicMetric.dist_matrix()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric"><code class="docutils literal notranslate"><span class="pre">Pp3dHeatDistanceMetric</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pp3d.Pp3dHeatDistanceMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">Pp3dHeatDistanceMetric.dist_matrix()</span></code></a></li>
 </ul>
@@ -2191,6 +2248,7 @@ features from shapes.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_laplacian_finder"><code class="docutils literal notranslate"><span class="pre">register_laplacian_finder()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_neighbor_finder"><code class="docutils literal notranslate"><span class="pre">register_neighbor_finder()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_poisson_sampler"><code class="docutils literal notranslate"><span class="pre">register_poisson_sampler()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_precise_geodesic_distance_metric"><code class="docutils literal notranslate"><span class="pre">register_precise_geodesic_distance_metric()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_wave_kernel_signature"><code class="docutils literal notranslate"><span class="pre">register_wave_kernel_signature()</span></code></a></li>
 </ul>
 </li>

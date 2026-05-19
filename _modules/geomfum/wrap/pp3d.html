@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 11:45:41 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 11:49:37 AM"/>
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -581,6 +581,106 @@
             <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">))</span>
         <span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Pp3dEdgeFlipGeodesicMetric">
+<a class="viewcode-back" href="../../../api/geomfum.wrap.html#geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pp3dEdgeFlipGeodesicMetric</span><span class="p">(</span><span class="n">_SingleDispatchMixins</span><span class="p">,</span> <span class="n">FinitePointSetMetric</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Geodesic distance metric between vertices of a mesh.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : TriangleMesh</span>
+<span class="sd">        Mesh.</span>
+<span class="sd">    solver : pp3d.EdgeFlipGeodesicSolver</span>
+<span class="sd">        Edge flip geodesic solver class.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [SC2020] Sharp, N., Crane, K., 2020.</span>
+<span class="sd">        You Can Find Geodesic Paths in Triangle Meshes by Just Flipping Edges.</span>
+<span class="sd">        ACM Trans. Graph.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">solver</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">solver</span> <span class="o">=</span> <span class="n">pp3d</span><span class="o">.</span><span class="n">EdgeFlipGeodesicSolver</span><span class="p">(</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)),</span>
+                <span class="n">gs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)),</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="n">solver</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_dist_from_source_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_point</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Distance between mesh vertices.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        source_point : array-like, shape=()</span>
+<span class="sd">            Index of source point.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dist : array-like, shape=[n_vertices]</span>
+<span class="sd">            Distance.</span>
+<span class="sd">        target_point : array-like, shape=[n_vertices,]</span>
+<span class="sd">            Target index.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">target_points</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">target_point</span> <span class="ow">in</span> <span class="n">target_points</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">source_point</span> <span class="o">==</span> <span class="n">target_point</span><span class="p">:</span>
+                <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dist_single</span><span class="p">(</span><span class="n">source_point</span><span class="p">,</span> <span class="n">target_point</span><span class="p">)</span>
+                <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">distances</span><span class="p">),</span> <span class="n">target_points</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_dist_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Distance between mesh vertices.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        point_a : array-like, shape=()</span>
+<span class="sd">            Index of source point.</span>
+<span class="sd">        point_b : array-like, shape=()</span>
+<span class="sd">            Index of target point.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dist : numeric</span>
+<span class="sd">            Distance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">find_geodesic_path</span><span class="p">(</span><span class="n">v_start</span><span class="o">=</span><span class="n">point_a</span><span class="p">,</span> <span class="n">v_end</span><span class="o">=</span><span class="n">point_b</span><span class="p">)</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">path_points</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">path_points</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Pp3dEdgeFlipGeodesicMetric.dist_matrix">
+<a class="viewcode-back" href="../../../api/geomfum.wrap.html#geomfum.wrap.pp3d.Pp3dEdgeFlipGeodesicMetric.dist_matrix">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dist_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Distance between mesh vertices.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dist_matrix : array-like, shape=[n_vertices, n_vertices]</span>
+<span class="sd">            Distance matrix.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        slow</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dist_mat</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">):</span>
+            <span class="n">dist_mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dist_from_source_single</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+
+        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">dist_mat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 
