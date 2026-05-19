@@ -62,7 +62,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 7:45:07 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -504,10 +504,10 @@
 </div><section id="How-to-use-ReMatching-to-compute-a-functional-map?">
 <h1>How to use <a class="reference external" href="https://arxiv.org/abs/2305.09274%5D">ReMatching</a> to compute a functional map?<a class="headerlink" href="#How-to-use-ReMatching-to-compute-a-functional-map?" title="Link to this heading">#</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.refine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoomOut</span>
@@ -529,15 +529,6 @@
 <span class="p">(</span><span class="n">mesh_a</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">n_faces</span><span class="p">),</span> <span class="p">(</span><span class="n">mesh_b</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">,</span> <span class="n">mesh_b</span><span class="o">.</span><span class="n">n_faces</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-INFO: Data has already been downloaded... using cached file (&#39;C:\Users\giuli\.geomfum\data\cat-00.off&#39;).
-INFO: Data has already been downloaded... using cached file (&#39;C:\Users\giuli\.geomfum\data\lion-00.off&#39;).
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [2]:
@@ -563,15 +554,6 @@ INFO: Data has already been downloaded... using cached file (&#39;C:\Users\giuli
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\wrap\pyrmt.py:69: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:209.)
-  return TriangleMesh(gs.asarray(rlow.vertices), gs.asarray(rlow.triangles))
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [3]:
 </pre></div>
@@ -582,7 +564,7 @@ C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\wrap\pyrmt.py:69: 
 </pre></div></div>
 </div>
 <p><a class="reference internal" href="02_mesh_laplacian_spectrum.html"><span class="doc">Set Laplace eigenbasis</span></a> for each low-resolution mesh.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [4]:
 </pre></div>
 </div>
@@ -593,15 +575,6 @@ C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\wrap\pyrmt.py:69: 
 <span class="n">hmesh_b</span><span class="o">.</span><span class="n">low</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">5</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\_backend\pytorch\sparse.py:22: UserWarning: Sparse CSC tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
-  return _torch.sparse_csc_tensor(ccol_indices, row_indices, values, size=array.shape)
-</pre></div></div>
 </div>
 <p>Extend the basis for the high-resolution meshes.</p>
 <div class="nbinput docutils container">
@@ -624,7 +597,7 @@ C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\_backend\pytorch\s
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(torch.Size([7207, 10]), torch.Size([5000, 10]))
+((7207, 10), (5000, 10))
 </pre></div></div>
 </div>
 <p>Assume we have a <a class="reference internal" href="07_functional_map.html"><span class="doc">valid functional map</span></a> <span class="math notranslate nohighlight">\(C\)</span> between <code class="docutils literal notranslate"><span class="pre">hmesh_a.low</span></code> and <code class="docutils literal notranslate"><span class="pre">hmesh_b.low</span></code> (which for demonstration purposes, we instantiate randomly).</p>
@@ -649,7 +622,7 @@ C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\_backend\pytorch\s
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-torch.Size([5, 6])
+(5, 6)
 </pre></div></div>
 </div>
 <p>Now, this functional map can be seamlessly used with the high-resolution meshes. For example, we can <a class="reference internal" href="15_refine_functional_map.html"><span class="doc">upsample it with ZoomOut</span></a>.</p>
@@ -675,7 +648,7 @@ torch.Size([5, 6])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-torch.Size([7, 10])
+(7, 10)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -692,13 +665,19 @@ torch.Size([7, 10])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-tensor([[-1.7216,  1.6309, -1.0569,  ...,  2.6765, -1.0474, -0.7150],
-        [-1.7216,  1.7008, -0.8650,  ...,  2.8492, -1.4360, -0.5147],
-        [-1.7216,  1.6956, -0.8413,  ...,  2.8793, -1.4352, -0.8264],
-        ...,
-        [-1.7216,  5.0574,  6.8286,  ..., -3.7746,  6.3645, -0.2106],
-        [-1.7216,  5.0638,  6.8446,  ..., -3.8109,  6.4590, -0.2137],
-        [-1.7216,  1.6375, -1.0054,  ...,  2.7148, -1.1002, -1.0103]])
+array([[-1.72157991,  1.63091261, -1.05690336, ...,  2.67648666,
+        -1.04742672, -0.71500848],
+       [-1.72157991,  1.70083536, -0.86500711, ...,  2.84924518,
+        -1.43599688, -0.51465914],
+       [-1.72157991,  1.69559836, -0.84127265, ...,  2.87933207,
+        -1.4351918 , -0.82635609],
+       ...,
+       [-1.72157991,  5.0574198 ,  6.82858863, ..., -3.77463283,
+         6.36453632, -0.21060378],
+       [-1.72157991,  5.06379084,  6.84460851, ..., -3.8108807 ,
+         6.45896302, -0.21374222],
+       [-1.72157991,  1.63753198, -1.00536459, ...,  2.71484979,
+        -1.10020252, -1.01029031]], shape=(7207, 10))
 </pre></div></div>
 </div>
 <p>NB: <code class="docutils literal notranslate"><span class="pre">mesh_a</span></code> and <code class="docutils literal notranslate"><span class="pre">hmesh_a.high</span></code> are the same object, so it is indiferent which one to use.</p>

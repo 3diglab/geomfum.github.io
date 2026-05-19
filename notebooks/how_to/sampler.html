@@ -62,7 +62,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 7:45:07 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -415,6 +415,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="06_landmarks.html">How to set landmarks?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
@@ -500,23 +501,41 @@
 </div><section id="How-to-sample-from-a-mesh?">
 <h1>How to sample from a mesh?<a class="headerlink" href="#How-to-sample-from-a-mesh?" title="Link to this heading">#</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.metric</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatDistanceMetric</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.metric.mesh</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">GraphShortestPathMetric</span><span class="p">,</span>
-    <span class="n">HeatDistanceMetric</span><span class="p">,</span>
     <span class="n">VertexEuclideanMetric</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">MeshPlotter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.sample</span><span class="w"> </span><span class="kn">import</span> <span class="n">FarthestPointSampler</span><span class="p">,</span> <span class="n">PoissonSampler</span><span class="p">,</span> <span class="n">VertexProjectionSampler</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
 <br/></pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">notebooks_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">geomfum</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="s2">&quot;notebooks&quot;</span>
+<span class="n">notebooks_dir_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">notebooks_dir</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">notebooks_dir_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">notebooks_dir_str</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">plot_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_pyvista</span><span class="p">,</span> <span class="n">show_mesh_with_highlights</span>  <span class="c1"># noqa: E402</span>
+
+<span class="n">setup_pyvista</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">NotebooksDataset</span><span class="p">()</span>
@@ -527,8 +546,8 @@
 <section id="%22Coordinate%22-samplers">
 <h2>“Coordinate” samplers<a class="headerlink" href="#%22Coordinate%22-samplers" title="Link to this heading">#</a></h2>
 <p>If we’re interested in sampling coordinates of points on the mesh, we can use <code class="docutils literal notranslate"><span class="pre">PoissonSampler</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poisson_sampler</span> <span class="o">=</span> <span class="n">PoissonSampler</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">min_n_samples</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;pymeshlab&quot;</span><span class="p">)</span>
@@ -537,12 +556,25 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[-0.04288694,  0.37403726,  0.28778169],
+       [ 0.03607215,  0.05786218, -0.10858711],
+       [-0.04039455,  0.00925685,  0.18873429],
+       [ 0.00951004,  0.25221589, -0.43900669],
+       [-0.00933553,  0.33280937, -0.01679519]])
+</pre></div></div>
+</div>
 </section>
 <section id="Vertex-indices-samplers">
 <h2>Vertex indices samplers<a class="headerlink" href="#Vertex-indices-samplers" title="Link to this heading">#</a></h2>
 <p>If we’re interested in sampling vertex indices instead, we can leverage “coordinate” samplers like <code class="docutils literal notranslate"><span class="pre">PoissonSampler</span></code> by projecting the coordinates to the closest vertices.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vertex_sampler</span> <span class="o">=</span> <span class="n">VertexProjectionSampler</span><span class="p">(</span><span class="n">sampler</span><span class="o">=</span><span class="n">poisson_sampler</span><span class="p">)</span>
@@ -551,9 +583,18 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([5618, 2377, 4360, 7137,  105,  588])
+</pre></div></div>
+</div>
 <p>To get vertex coordinates.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_vertices</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">sampled_indices</span><span class="p">]</span>
@@ -561,16 +602,34 @@
 </pre></div>
 </div>
 </div>
-<p>Let’s visualize the sampled points</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> Out [5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">MeshPlotter</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;plotly&quot;</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">highlight_vertices</span><span class="p">(</span><span class="n">sampled_vertices</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 0.052266,  0.01949 , -0.08939 ],
+       [-0.057531,  0.038724,  0.152556],
+       [ 0.007673,  0.273714,  0.332385],
+       [ 0.008992,  0.253917, -0.39041 ],
+       [ 0.053982,  0.263046, -0.139122],
+       [-0.026358,  0.318528,  0.094601]])
+</pre></div></div>
+</div>
+<p>Let’s visualize the sampled points</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [6]:
 </pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_mesh_with_highlights</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">sampled_vertices</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_how_to_sampler_11_0.png" src="../../_images/notebooks_how_to_sampler_11_0.png" />
 </div>
 </div>
 </section>
@@ -579,7 +638,7 @@
 <p>Alternatively, we can sample vertex indices directly with <code class="docutils literal notranslate"><span class="pre">FarthestPointSampler</span></code>.</p>
 <p>Select the metrics.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
@@ -591,91 +650,148 @@
 </div>
 </div>
 <p>The vertex <strong>7181</strong> corresponds to the extreme of the cat’s tail. We start to sample from this point.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fps</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">samp</span> <span class="o">=</span> <span class="n">FarthestPointSampler</span><span class="p">(</span><span class="mi">6</span><span class="p">,)</span>
+<span class="n">samp</span> <span class="o">=</span> <span class="n">FarthestPointSampler</span><span class="p">(</span>
+    <span class="mi">6</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">mesh</span><span class="o">.</span><span class="n">equip_with_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
-    <span class="n">samples</span> <span class="o">=</span> <span class="n">samp</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">first_point</span><span class="o">=</span> <span class="mi">7181</span><span class="p">)</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">samp</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">first_point</span><span class="o">=</span><span class="mi">7181</span><span class="p">)</span>
     <span class="n">fps</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">samples</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FPS </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">samples</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+FPS euclidean: [7181 4260 6811  404 1625 7080]
+FPS heat-distance: [7181 3026 6868 3844 5951 1817]
+FPS graph: [7181 4078 5972 7005 1921  402]
+</pre></div></div>
+</div>
 <p>Let’s visualize the sampled points</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">MeshPlotter</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;plotly&quot;</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">highlight_vertices</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s1">&#39;euclidean&#39;</span><span class="p">]])</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_mesh_with_highlights</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s2">&quot;euclidean&quot;</span><span class="p">]])</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_how_to_sampler_18_0.png" src="../../_images/notebooks_how_to_sampler_18_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [10]:
 </pre></div>
 </div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_mesh_with_highlights</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s2">&quot;heat-distance&quot;</span><span class="p">]]</span>
+<span class="p">)</span>
+<br/></pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_how_to_sampler_19_0.png" src="../../_images/notebooks_how_to_sampler_19_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">MeshPlotter</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;pyvista&quot;</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">highlight_vertices</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s1">&#39;heat-distance&#39;</span><span class="p">]])</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_mesh_with_highlights</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s2">&quot;graph&quot;</span><span class="p">]])</span>
+<br/></pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
-</pre></div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metric</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fps</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plotter</span> <span class="o">=</span> <span class="n">MeshPlotter</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;polyscope&quot;</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">highlight_vertices</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">]],)</span>
-<span class="c1">#plotter.show()</span>
-</pre></div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_how_to_sampler_20_0.png" src="../../_images/notebooks_how_to_sampler_20_0.png" />
 </div>
 </div>
 <section id="Sampling-from-a-subset">
 <h3>Sampling from a subset<a class="headerlink" href="#Sampling-from-a-subset" title="Link to this heading">#</a></h3>
 <p>The vertex <strong>4265</strong> corresponds to the extreme of the cat’s muzzle, i want to select the FPs on the tail.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">points_on_the_tail</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fps</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">NotebooksDataset</span><span class="p">()</span>
-<span class="n">samp</span> <span class="o">=</span> <span class="n">FarthestPointSampler</span><span class="p">(</span><span class="mi">6</span><span class="p">,)</span>
+<span class="n">samp</span> <span class="o">=</span> <span class="n">FarthestPointSampler</span><span class="p">(</span>
+    <span class="mi">6</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">mesh</span><span class="o">.</span><span class="n">equip_with_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
-    <span class="n">samples</span> <span class="o">=</span> <span class="n">samp</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">points_pool</span> <span class="o">=</span> <span class="n">points_on_the_tail</span><span class="p">,</span> <span class="n">first_point</span><span class="o">=</span> <span class="mi">4265</span><span class="p">)</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">samp</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">points_pool</span><span class="o">=</span><span class="n">points_on_the_tail</span><span class="p">,</span> <span class="n">first_point</span><span class="o">=</span><span class="mi">4265</span><span class="p">)</span>
     <span class="n">fps</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">samples</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FPS </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">samples</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\giuli\OneDrive\Research\geomfum_proj\geomfum\geomfum\sample.py:76: UserWarning: First index 4265 is not in the points pool [7107 7108 7109 7110 7111 7112 7113 7114 7115 7116 7117 7118 7119 7120
+ 7121 7122 7123 7124 7125 7126 7127 7128 7129 7130 7131 7132 7133 7134
+ 7135 7136 7137 7138 7139 7140 7141 7142 7143 7144 7145 7146 7147 7148
+ 7149 7150 7151 7152 7153 7154 7155 7156 7157 7158 7159 7160 7161 7162
+ 7163 7164 7165 7166 7167 7168 7169 7170 7171 7172 7173 7174 7175 7176
+ 7177 7178 7179 7180 7181 7182 7183 7184 7185 7186 7187 7188 7189 7190
+ 7191 7192 7193 7194 7195 7196 7197 7198 7199 7200 7201 7202 7203 7204
+ 7205 7206].
+  warnings.warn(
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+FPS euclidean: [4265 7205 7206 7119 7133 7113]
+FPS heat-distance: [4265 7178 7206 7119 7133 7108]
+FPS graph: [4265 7192 7206 7122 7132 7113]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">MeshPlotter</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;plotly&quot;</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">highlight_vertices</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s1">&#39;euclidean&#39;</span><span class="p">]])</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_mesh_with_highlights</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">fps</span><span class="p">[</span><span class="s2">&quot;euclidean&quot;</span><span class="p">]])</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_how_to_sampler_24_0.png" src="../../_images/notebooks_how_to_sampler_24_0.png" />
 </div>
 </div>
 </section>

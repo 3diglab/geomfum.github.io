@@ -57,11 +57,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Usage" href="../usage.html" />
-    <link rel="prev" title="geomfum.shape.convert package" href="geomfum.shape.convert.html" />
+    <link rel="prev" title="geomfum.shape package" href="geomfum.shape.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 7:45:07 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -399,10 +399,7 @@
 <li class="toctree-l1"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="geomfum.shape.convert.html">geomfum.shape.convert package</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">geomfum.wrap package</a></li>
 </ul>
 </div>
@@ -925,185 +922,6 @@ One of [‘spectral’, ‘implicit_dense’]. Default ‘spectral’.</p></li>
 </dd></dl>
 
 </section>
-<section id="module-geomfum.wrap.plotly">
-<span id="geomfum-wrap-plotly-module"></span><h2>geomfum.wrap.plotly module<a class="headerlink" href="#module-geomfum.wrap.plotly" title="Link to this heading">#</a></h2>
-<p>Plotly plotting module.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">PlotlyMeshPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.wrap.plotly.PlotlyShapePlotter" title="geomfum.wrap.plotly.PlotlyShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotlyShapePlotter</span></code></a></p>
-<p>Plotting object to display meshes.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh">
-<span class="sig-name descname"><span class="pre">add_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.add_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh" title="Link to this definition">#</a></dt>
-<dd><p>Add mesh to plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – Mesh to be plotted.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyMeshPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on mesh.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyPointCloudPlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">PlotlyPointCloudPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyPointCloudPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#geomfum.wrap.plotly.PlotlyShapePlotter" title="geomfum.wrap.plotly.PlotlyShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotlyShapePlotter</span></code></a></p>
-<p>Plotting object to display point clouds.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyPointCloudPlotter.add_point_cloud">
-<span class="sig-name descname"><span class="pre">add_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pointcloud</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyPointCloudPlotter.add_point_cloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter.add_point_cloud" title="Link to this definition">#</a></dt>
-<dd><p>Add point cloud to plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pointcloud</strong> (<em>PointCloud</em>) – Point cloud to be plotted.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyPointCloudPlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyPointCloudPlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on point cloud.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyPointCloudPlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyPointCloudPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on point cloud.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyShapePlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">PlotlyShapePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyShapePlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyShapePlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
-<p>Base plotting object for 3D shapes using Plotly.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyShapePlotter.add_vectors">
-<span class="sig-name descname"><span class="pre">add_vectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vectors'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyShapePlotter.add_vectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyShapePlotter.add_vectors" title="Link to this definition">#</a></dt>
-<dd><p>Add vector field visualization.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>origins</strong> (<em>array-like, shape=[n_points, 3]</em>) – Starting points for vectors.</p></li>
-<li><p><strong>vectors</strong> (<em>array-like, shape=[n_points, 3]</em>) – Vector directions and magnitudes.</p></li>
-<li><p><strong>color</strong> (<em>str</em>) – Color of the vectors.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – Scale factor for vector length.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Name for the vector trace.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyShapePlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyShapePlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyShapePlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight vertices on shape.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
-<li><p><strong>color</strong> (<em>str</em>) – Color of the highlighted vertices.</p></li>
-<li><p><strong>size</strong> (<em>int</em>) – Size of the highlighted vertices.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyShapePlotter.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyShapePlotter.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyShapePlotter.save" title="Link to this definition">#</a></dt>
-<dd><p>Save plot to file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – Filename to save to.</p></li>
-<li><p><strong>**kwargs</strong> – Additional arguments passed to plotly’s write_html or write_image.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyShapePlotter.set_colormap">
-<span class="sig-name descname"><span class="pre">set_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyShapePlotter.set_colormap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyShapePlotter.set_colormap" title="Link to this definition">#</a></dt>
-<dd><p>Update the colormap.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>colormap</strong> (<em>str</em>) – Name of the colormap to use.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.PlotlyShapePlotter.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/plotly.html#PlotlyShapePlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.PlotlyShapePlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.ShapePlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">ShapePlotter</span></span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.ShapePlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Plotting object.</p>
-<p>Primitive clas to plot meshes, pointclouds or specific useful informations
-(scalar functions, landmarks, etc..)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.ShapePlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.ShapePlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight vertices on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.ShapePlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.ShapePlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.ShapePlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.ShapePlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.ShapePlotter.show">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.ShapePlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.to_go_mesh3d">
-<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">to_go_mesh3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/convert/_plotly.html#to_go_mesh3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.to_go_mesh3d" title="Link to this definition">#</a></dt>
-<dd><p>Convert a TriangleMesh object to a plotly Mesh3d object.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geomfum.wrap.plotly.to_go_pointcloud">
-<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.plotly.</span></span><span class="sig-name descname"><span class="pre">to_go_pointcloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/convert/_plotly.html#to_go_pointcloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.plotly.to_go_pointcloud" title="Link to this definition">#</a></dt>
-<dd><p>Convert a PointCloud object to a plotly Scatter3d object.</p>
-</dd></dl>
-
-</section>
 <section id="module-geomfum.wrap.pointnet">
 <span id="geomfum-wrap-pointnet-module"></span><h2>geomfum.wrap.pointnet module<a class="headerlink" href="#module-geomfum.wrap.pointnet" title="Link to this heading">#</a></h2>
 <p>Wrap for PointNet feature extractor.</p>
@@ -1231,177 +1049,6 @@ Qi, C. R., Su, H., Yi, L., &amp; Guibas, L. J. (2017). PointNet++: Deep hierarch
 <dd class="field-even"><p><em>torch.Tensor</em> – Feature tensor of shape (1, n_vertices, n_features).</p>
 </dd>
 </dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-geomfum.wrap.polyscope">
-<span id="geomfum-wrap-polyscope-module"></span><h2>geomfum.wrap.polyscope module<a class="headerlink" href="#module-geomfum.wrap.polyscope" title="Link to this heading">#</a></h2>
-<p>Wraps polyscope functions.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.polyscope.</span></span><span class="sig-name descname"><span class="pre">PsMeshPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
-<p>Plotting object to display meshes.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.add_mesh">
-<span class="sig-name descname"><span class="pre">add_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.add_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.add_mesh" title="Link to this definition">#</a></dt>
-<dd><p>Add mesh to plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – Mesh to be plotted.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight vertices on a mesh using Polyscope by adding a point cloud.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>array-like, shape = [n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
-<li><p><strong>color</strong> (<em>tuple</em>) – Color of the highlighted vertices (e.g., (1.0, 0.0, 0.0)).</p></li>
-<li><p><strong>radius</strong> (<em>float</em>) – Radius of the rendered points (visual size).</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'colors'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on mesh.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>array-like, shape=[n_vertices, 3] or [n_vertices, 4]</em>) – RGB or RGBA color values for each vertex (values in range [0, 1]).</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Name for the color quantity.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on mesh.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Scalar field name.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsMeshPlotter.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsMeshPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsMeshPlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsPointCloudPlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.polyscope.</span></span><span class="sig-name descname"><span class="pre">PsPointCloudPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsPointCloudPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsPointCloudPlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
-<p>Plotting object to display point clouds.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsPointCloudPlotter.add_point_cloud">
-<span class="sig-name descname"><span class="pre">add_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pointcloud</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsPointCloudPlotter.add_point_cloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.add_point_cloud" title="Link to this definition">#</a></dt>
-<dd><p>Add point cloud to plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pointcloud</strong> (<em>PointCloud</em>) – Point cloud to be plotted.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsPointCloudPlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsPointCloudPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight specific points in the point cloud.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>array-like, shape = [n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
-<li><p><strong>color</strong> (<em>tuple</em>) – Color of the highlighted vertices (e.g., (1.0, 0.0, 0.0)).</p></li>
-<li><p><strong>size</strong> (<em>float</em>) – Radius of the rendered points (visual size).</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsPointCloudPlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'colors'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsPointCloudPlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on point cloud.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>array-like, shape=[n_vertices, 3] or [n_vertices, 4]</em>) – RGB or RGBA color values for each vertex (values in range [0, 1]).</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Name for the color quantity.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsPointCloudPlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsPointCloudPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on point cloud.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Scalar field name.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.PsPointCloudPlotter.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/polyscope.html#PsPointCloudPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.ShapePlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.polyscope.</span></span><span class="sig-name descname"><span class="pre">ShapePlotter</span></span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.ShapePlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Plotting object.</p>
-<p>Primitive clas to plot meshes, pointclouds or specific useful informations
-(scalar functions, landmarks, etc..)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.ShapePlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.ShapePlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight vertices on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.ShapePlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.ShapePlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.ShapePlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.ShapePlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.polyscope.ShapePlotter.show">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.polyscope.ShapePlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1853,155 +1500,6 @@ In practice, we compute &lt; n x grad(f), grad(g) &gt; for simpler computation.<
 <section id="geomfum-wrap-pyrmt-module">
 <h2>geomfum.wrap.pyrmt module<a class="headerlink" href="#geomfum-wrap-pyrmt-module" title="Link to this heading">#</a></h2>
 </section>
-<section id="module-geomfum.wrap.pyvista">
-<span id="geomfum-wrap-pyvista-module"></span><h2>geomfum.wrap.pyvista module<a class="headerlink" href="#module-geomfum.wrap.pyvista" title="Link to this heading">#</a></h2>
-<p>Wraps pyvista functions.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyvista.</span></span><span class="sig-name descname"><span class="pre">PvMeshPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
-<p>Plotting object to display meshes.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.add_mesh">
-<span class="sig-name descname"><span class="pre">add_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.add_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.add_mesh" title="Link to this definition">#</a></dt>
-<dd><p>Add mesh to plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – Mesh to be plotted.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight vertices on the mesh using PyVista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>array-like, shape = [n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
-<li><p><strong>color</strong> (<em>str or tuple</em>) – Color of the highlighted vertices.</p></li>
-<li><p><strong>size</strong> (<em>float</em>) – Size of the highlighted vertices (radius of spheres).</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on mesh.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Scalar field name.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvMeshPlotter.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvMeshPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvMeshPlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvPointCloudPlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyvista.</span></span><span class="sig-name descname"><span class="pre">PvPointCloudPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvPointCloudPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvPointCloudPlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="geomfum.html#geomfum.plot.ShapePlotter" title="geomfum.plot.ShapePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a></p>
-<p>Plotting object to display point clouds.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvPointCloudPlotter.add_point_cloud">
-<span class="sig-name descname"><span class="pre">add_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pointcloud</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvPointCloudPlotter.add_point_cloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.add_point_cloud" title="Link to this definition">#</a></dt>
-<dd><p>Add point cloud to plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pointcloud</strong> (<em>PointCloud</em>) – Point cloud to be plotted.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvPointCloudPlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvPointCloudPlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight specific points in the point cloud.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>array-like, shape = [n_vertices, 3]</em>) – Coordinates of vertices to highlight.</p></li>
-<li><p><strong>color</strong> (<em>str or tuple</em>) – Color of the highlighted vertices.</p></li>
-<li><p><strong>size</strong> (<em>float</em>) – Size of the highlighted vertices (radius of spheres).</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvPointCloudPlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalars'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvPointCloudPlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on point cloud.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>scalars</strong> (<em>array-like</em>) – Value at each vertex.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Scalar field name.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.PvPointCloudPlotter.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/wrap/pyvista.html#PvPointCloudPlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.ShapePlotter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyvista.</span></span><span class="sig-name descname"><span class="pre">ShapePlotter</span></span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.ShapePlotter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
-<p>Plotting object.</p>
-<p>Primitive clas to plot meshes, pointclouds or specific useful informations
-(scalar functions, landmarks, etc..)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.ShapePlotter.highlight_vertices">
-<span class="sig-name descname"><span class="pre">highlight_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.highlight_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.ShapePlotter.highlight_vertices" title="Link to this definition">#</a></dt>
-<dd><p>Highlight vertices on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.ShapePlotter.set_vertex_colors">
-<span class="sig-name descname"><span class="pre">set_vertex_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.set_vertex_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.ShapePlotter.set_vertex_colors" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex colors on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.ShapePlotter.set_vertex_scalars">
-<span class="sig-name descname"><span class="pre">set_vertex_scalars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.set_vertex_scalars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.ShapePlotter.set_vertex_scalars" title="Link to this definition">#</a></dt>
-<dd><p>Set vertex scalars on mesh.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.ShapePlotter.show">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/plot.html#ShapePlotter.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.ShapePlotter.show" title="Link to this definition">#</a></dt>
-<dd><p>Display plot.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geomfum.wrap.pyvista.to_pv_polydata">
-<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.pyvista.</span></span><span class="sig-name descname"><span class="pre">to_pv_polydata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/convert/_pyvista.html#to_pv_polydata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.wrap.pyvista.to_pv_polydata" title="Link to this definition">#</a></dt>
-<dd><p>Convert a TriangleMesh object to a PyVista PolyData object.</p>
-</dd></dl>
-
-</section>
 <section id="module-geomfum.wrap.robust">
 <span id="geomfum-wrap-robust-module"></span><h2>geomfum.wrap.robust module<a class="headerlink" href="#module-geomfum.wrap.robust" title="Link to this heading">#</a></h2>
 <p>robust_laplacian wrapper.</p>
@@ -2423,40 +1921,8 @@ features from shapes.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="geomfum.wrap.register_mesh_plotter">
-<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.</span></span><span class="sig-name descname"><span class="pre">register_mesh_plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geomfum.wrap.register_mesh_plotter" title="Link to this definition">#</a></dt>
-<dd><p>Register an implementation with optional package dependencies.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – Key.</p></li>
-<li><p><strong>obj_name</strong> (<em>class name</em>) – Name of the object to register.</p></li>
-<li><p><strong>requires</strong> (<em>str or tuple</em>) – Required packages.</p></li>
-<li><p><strong>as_default</strong> (<em>bool</em>) – Whether to set it as default.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="geomfum.wrap.register_neighbor_finder">
 <span class="sig-prename descclassname"><span class="pre">geomfum.wrap.</span></span><span class="sig-name descname"><span class="pre">register_neighbor_finder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geomfum.wrap.register_neighbor_finder" title="Link to this definition">#</a></dt>
-<dd><p>Register an implementation with optional package dependencies.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – Key.</p></li>
-<li><p><strong>obj_name</strong> (<em>class name</em>) – Name of the object to register.</p></li>
-<li><p><strong>requires</strong> (<em>str or tuple</em>) – Required packages.</p></li>
-<li><p><strong>as_default</strong> (<em>bool</em>) – Whether to set it as default.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geomfum.wrap.register_point_cloud_plotter">
-<span class="sig-prename descclassname"><span class="pre">geomfum.wrap.</span></span><span class="sig-name descname"><span class="pre">register_point_cloud_plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geomfum.wrap.register_point_cloud_plotter" title="Link to this definition">#</a></dt>
 <dd><p>Register an implementation with optional package dependencies.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2516,12 +1982,12 @@ features from shapes.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="geomfum.shape.convert.html"
+       href="geomfum.shape.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">geomfum.shape.convert package</p>
+        <p class="prev-next-title">geomfum.shape package</p>
       </div>
     </a>
     <a class="right-next"
@@ -2604,38 +2070,6 @@ features from shapes.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.igl.IglMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">IglMeshLaplacianFinder</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.plotly">geomfum.wrap.plotly module</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.add_mesh()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyMeshPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PlotlyMeshPlotter.set_vertex_scalars()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter"><code class="docutils literal notranslate"><span class="pre">PlotlyPointCloudPlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter.add_point_cloud"><code class="docutils literal notranslate"><span class="pre">PlotlyPointCloudPlotter.add_point_cloud()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">PlotlyPointCloudPlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyPointCloudPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PlotlyPointCloudPlotter.set_vertex_scalars()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyShapePlotter"><code class="docutils literal notranslate"><span class="pre">PlotlyShapePlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyShapePlotter.add_vectors"><code class="docutils literal notranslate"><span class="pre">PlotlyShapePlotter.add_vectors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyShapePlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PlotlyShapePlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyShapePlotter.save"><code class="docutils literal notranslate"><span class="pre">PlotlyShapePlotter.save()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyShapePlotter.set_colormap"><code class="docutils literal notranslate"><span class="pre">PlotlyShapePlotter.set_colormap()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.PlotlyShapePlotter.show"><code class="docutils literal notranslate"><span class="pre">PlotlyShapePlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.ShapePlotter"><code class="docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.ShapePlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.ShapePlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.ShapePlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.ShapePlotter.show"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.to_go_mesh3d"><code class="docutils literal notranslate"><span class="pre">to_go_mesh3d()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.plotly.to_go_pointcloud"><code class="docutils literal notranslate"><span class="pre">to_go_pointcloud()</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pointnet">geomfum.wrap.pointnet module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.BaseFeatureExtractor"><code class="docutils literal notranslate"><span class="pre">BaseFeatureExtractor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.BaseFeatureExtractor.load_from_path"><code class="docutils literal notranslate"><span class="pre">BaseFeatureExtractor.load_from_path()</span></code></a></li>
@@ -2652,32 +2086,6 @@ features from shapes.</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointnetFeatureExtractor"><code class="docutils literal notranslate"><span class="pre">PointnetFeatureExtractor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pointnet.PointnetFeatureExtractor.forward"><code class="docutils literal notranslate"><span class="pre">PointnetFeatureExtractor.forward()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.polyscope">geomfum.wrap.polyscope module</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.add_mesh()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsMeshPlotter.show"><code class="docutils literal notranslate"><span class="pre">PsMeshPlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsPointCloudPlotter"><code class="docutils literal notranslate"><span class="pre">PsPointCloudPlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.add_point_cloud"><code class="docutils literal notranslate"><span class="pre">PsPointCloudPlotter.add_point_cloud()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PsPointCloudPlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">PsPointCloudPlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PsPointCloudPlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.PsPointCloudPlotter.show"><code class="docutils literal notranslate"><span class="pre">PsPointCloudPlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.ShapePlotter"><code class="docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.ShapePlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.ShapePlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.ShapePlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.polyscope.ShapePlotter.show"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.show()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -2739,31 +2147,6 @@ features from shapes.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum-wrap-pyrmt-module">geomfum.wrap.pyrmt module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.pyvista">geomfum.wrap.pyvista module</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.add_mesh"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.add_mesh()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvMeshPlotter.show"><code class="docutils literal notranslate"><span class="pre">PvMeshPlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvPointCloudPlotter"><code class="docutils literal notranslate"><span class="pre">PvPointCloudPlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.add_point_cloud"><code class="docutils literal notranslate"><span class="pre">PvPointCloudPlotter.add_point_cloud()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">PvPointCloudPlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">PvPointCloudPlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.PvPointCloudPlotter.show"><code class="docutils literal notranslate"><span class="pre">PvPointCloudPlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.ShapePlotter"><code class="docutils literal notranslate"><span class="pre">ShapePlotter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.ShapePlotter.highlight_vertices"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.highlight_vertices()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.ShapePlotter.set_vertex_colors"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.set_vertex_colors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.ShapePlotter.set_vertex_scalars"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.set_vertex_scalars()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.ShapePlotter.show"><code class="docutils literal notranslate"><span class="pre">ShapePlotter.show()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.pyvista.to_pv_polydata"><code class="docutils literal notranslate"><span class="pre">to_pv_polydata()</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.wrap.robust">geomfum.wrap.robust module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.robust.BaseLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">BaseLaplacianFinder</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.robust.RobustMeshLaplacianFinder"><code class="docutils literal notranslate"><span class="pre">RobustMeshLaplacianFinder</span></code></a></li>
@@ -2806,9 +2189,7 @@ features from shapes.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_landmark_heat_kernel_signature"><code class="docutils literal notranslate"><span class="pre">register_landmark_heat_kernel_signature()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_landmark_wave_kernel_signature"><code class="docutils literal notranslate"><span class="pre">register_landmark_wave_kernel_signature()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_laplacian_finder"><code class="docutils literal notranslate"><span class="pre">register_laplacian_finder()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_mesh_plotter"><code class="docutils literal notranslate"><span class="pre">register_mesh_plotter()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_neighbor_finder"><code class="docutils literal notranslate"><span class="pre">register_neighbor_finder()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_point_cloud_plotter"><code class="docutils literal notranslate"><span class="pre">register_point_cloud_plotter()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_poisson_sampler"><code class="docutils literal notranslate"><span class="pre">register_poisson_sampler()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.wrap.register_wave_kernel_signature"><code class="docutils literal notranslate"><span class="pre">register_wave_kernel_signature()</span></code></a></li>
 </ul>

@@ -62,7 +62,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 7:45:07 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -515,7 +515,7 @@
 </div>
 </div>
 <p><a class="reference internal" href="00_load_mesh_from_file.html"><span class="doc">Load a mesh</span></a>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [2]:
 </pre></div>
 </div>
@@ -523,6 +523,14 @@
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">TriangleMesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="s2">&quot;cat-00&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO: Data has already been downloaded... using cached file (&#39;C:\Users\giuli\.geomfum\data\cat-00.off&#39;).
+</pre></div></div>
 </div>
 <p>Compute spectrum of <a class="reference internal" href="01_mesh_laplacian.html"><span class="doc">Laplacian</span></a>.</p>
 <div class="nbinput docutils container">
@@ -570,6 +578,20 @@
 <div class="highlight"><pre>
 ((5,), (7207, 5))
 </pre></div></div>
+</div>
+<p>Note: For Pointcloud select a different Laplacian Finder</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum_finder</span> <span class="o">=</span> <span class="n">LaplacianSpectrumFinder</span><span class="p">(</span>
+    <span class="n">nonzero</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fix_sign</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">laplacian_finder</span><span class="o">=</span><span class="n">LaplacianFinder</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;robust&quot;</span><span class="p">),</span>
+    <span class="n">eig_solver</span><span class="o">=</span><span class="n">ScipyEigsh</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=-</span><span class="mf">0.01</span><span class="p">),</span>
+<span class="p">)</span>
+<br/></pre></div>
+</div>
 </div>
 <section id="Further-reading">
 <h2>Further reading<a class="headerlink" href="#Further-reading" title="Link to this heading">#</a></h2>

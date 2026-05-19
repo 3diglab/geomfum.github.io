@@ -62,7 +62,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 7:45:07 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -415,6 +415,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="06_landmarks.html">How to set landmarks?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_hierarchical_mesh.html">How to create a hierarchical mesh and what can be done with it?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12_nested_hierarchical_mesh.html">How to create a nested hierarchical mesh?</a></li>
@@ -500,10 +501,10 @@
 </div><section id="How-to-efficiently-compute-a-functional-map-with-a-forward-pass?">
 <h1>How to efficiently compute a functional map with a forward pass?<a class="headerlink" href="#How-to-efficiently-compute-a-functional-map-with-a-forward-pass?" title="Link to this heading">#</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geomstats.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotebooksDataset</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -511,7 +512,7 @@
     <span class="n">DescriptorPipeline</span><span class="p">,</span>
     <span class="n">L2InnerNormalizer</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.spectral</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatKernelSignature</span><span class="p">,</span> <span class="n">LandmarkHeatKernelSignature</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.forward_functional_map</span><span class="w"> </span><span class="kn">import</span> <span class="n">ForwardFunctionalMap</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.shape</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriangleMesh</span>
 <br/></pre></div>
@@ -531,28 +532,28 @@
 </div>
 <p><a class="reference internal" href="02_mesh_laplacian_spectrum.html"><span class="doc">Set Laplace eigenbasis</span></a> for each mesh.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_a</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">mesh_b</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">set_as_basis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># I decide to visualize just the first 10 eigenfunctions</span>
-
+<span class="c1"># I decide to use just the first 10 eigenfunctions</span>
 <span class="n">mesh_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">mesh_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="mi">8</span>
 <br/></pre></div>
 </div>
 </div>
 <p>Set a <a class="reference internal" href="04_descriptor_pipeline.html"><span class="doc">descriptor pipeline</span></a> and apply it to both shapes.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_a</span><span class="o">.</span><span class="n">landmark_indices</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2840</span><span class="p">,</span> <span class="mi">1594</span><span class="p">,</span> <span class="mi">5596</span><span class="p">,</span> <span class="mi">6809</span><span class="p">,</span> <span class="mi">3924</span><span class="p">,</span> <span class="mi">7169</span><span class="p">])</span>
 <span class="n">mesh_b</span><span class="o">.</span><span class="n">landmark_indices</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1334</span><span class="p">,</span> <span class="mi">834</span><span class="p">,</span> <span class="mi">4136</span><span class="p">,</span> <span class="mi">4582</span><span class="p">,</span> <span class="mi">3666</span><span class="p">,</span> <span class="mi">4955</span><span class="p">])</span>
 <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">HeatKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">use_landmarks</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">HeatKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="n">LandmarkHeatKernelSignature</span><span class="o">.</span><span class="n">from_registry</span><span class="p">(</span><span class="n">n_domain</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
     <span class="n">ArangeSubsampler</span><span class="p">(</span><span class="n">subsample_step</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
     <span class="n">L2InnerNormalizer</span><span class="p">(),</span>
 <span class="p">]</span>
@@ -566,7 +567,7 @@
 </div>
 <p>Solve for the functional map matrix performing the forward pass.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffm</span> <span class="o">=</span> <span class="n">ForwardFunctionalMap</span><span class="p">(</span><span class="n">lmbda</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">resolvent_gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>

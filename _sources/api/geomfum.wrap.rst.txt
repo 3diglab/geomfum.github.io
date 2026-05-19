@@ -20,26 +20,10 @@ geomfum.wrap.igl module
    :show-inheritance:
    :undoc-members:
 
-geomfum.wrap.plotly module
---------------------------
-
-.. automodule:: geomfum.wrap.plotly
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 geomfum.wrap.pointnet module
 ----------------------------
 
 .. automodule:: geomfum.wrap.pointnet
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-geomfum.wrap.polyscope module
------------------------------
-
-.. automodule:: geomfum.wrap.polyscope
    :members:
    :show-inheritance:
    :undoc-members:
@@ -80,14 +64,6 @@ geomfum.wrap.pyrmt module
 -------------------------
 
 .. automodule:: geomfum.wrap.pyrmt
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-geomfum.wrap.pyvista module
----------------------------
-
-.. automodule:: geomfum.wrap.pyvista
    :members:
    :show-inheritance:
    :undoc-members:

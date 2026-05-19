@@ -1,14 +1,6 @@
 geomfum.shape package
 =====================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   geomfum.shape.convert
-
 Submodules
 ----------
 

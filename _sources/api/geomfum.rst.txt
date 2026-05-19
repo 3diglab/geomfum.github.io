@@ -89,14 +89,6 @@ geomfum.operator module
    :show-inheritance:
    :undoc-members:
 
-geomfum.plot module
--------------------
-
-.. automodule:: geomfum.plot
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 geomfum.refine module
 ---------------------
 
