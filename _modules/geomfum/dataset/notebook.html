@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 2:04:22 PM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 3:00:36 PM"/>
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -460,9 +460,26 @@
 
         <span class="n">pyfm_data_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/RobinMagnet/pyFM/refs/heads/master/examples/data/&quot;</span>
 
+        <span class="n">faust_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/JM-data/PyFuncMap/4bde4484c3e93bff925a6a82da29fa79d6862f4b/FAUST_shapes_off/&quot;</span>
+
+        <span class="n">s4a_data_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/gviga/S4A-Scalable-Spectral-Shape-Analysis/refs/heads/main/data/giorgio_/&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;cat-00&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span><span class="s2">&quot;cat-00.off&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pyfm_data_url</span><span class="si">}</span><span class="s2">/cat-00.off&quot;</span><span class="p">),</span>
             <span class="s2">&quot;lion-00&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span><span class="s2">&quot;lion-00.off&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pyfm_data_url</span><span class="si">}</span><span class="s2">/lion-00.off&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;faust-00&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span><span class="s2">&quot;faust-00.off&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">faust_url</span><span class="si">}</span><span class="s2">/tr_reg_000.off&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;faust-04&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span><span class="s2">&quot;faust-04.off&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">faust_url</span><span class="si">}</span><span class="s2">/tr_reg_004.off&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;brain_template&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span>
+                <span class="s2">&quot;brain_template.off&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s4a_data_url</span><span class="si">}</span><span class="s2">/MNI_remesh.off&quot;</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;brain_subject&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span>
+                <span class="s2">&quot;brain_subject.off&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s4a_data_url</span><span class="si">}</span><span class="s2">/remeshed/000000_tumoredbrain.off&quot;</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;template_labels&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span>
+                <span class="s2">&quot;template_labels.txt&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s4a_data_url</span><span class="si">}</span><span class="s2">/remeshed_labels.txt&quot;</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;template_ldmk&quot;</span><span class="p">:</span> <span class="n">DownloadableFile</span><span class="p">(</span>
+                <span class="s2">&quot;template_ldmk.txt&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s4a_data_url</span><span class="si">}</span><span class="s2">/remeshed_landmarks.txt&quot;</span>
+            <span class="p">),</span>
         <span class="p">}</span>
 
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

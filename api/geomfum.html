@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 2:04:22 PM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 3:00:36 PM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -397,6 +397,7 @@
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="geomfum.dataset.html">geomfum.dataset package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geomfum.descriptor.html">geomfum.descriptor package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.matcher.html">geomfum.matcher package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geomfum.metric.html">geomfum.metric package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geomfum.numerics.html">geomfum.numerics package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geomfum.shape.html">geomfum.shape package</a></li>
@@ -669,6 +670,78 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="geomfum.descriptor.html#geomfum.descriptor.SpectralDescriptor"><code class="docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="geomfum.matcher.html">geomfum.matcher package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.matcher.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.matcher.html#module-geomfum.matcher.base">geomfum.matcher.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.BaseMatcher"><code class="docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.BaseNeighborFinder"><code class="docutils literal notranslate"><span class="pre">BaseNeighborFinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.descr_a"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.descr_a</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.descr_b"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.descr_b</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.fmap12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.fmap12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.fmap21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.fmap21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.is_bidirectional"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.is_bidirectional</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.overlap_ab"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.overlap_ab</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.overlap_ba"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.overlap_ba</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.p2p12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.p2p12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.p2p21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.p2p21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.refined_fmap12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.refined_fmap12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.refined_fmap21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.refined_fmap21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.soft_perm_ab"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.soft_perm_ab</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.soft_perm_ba"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.soft_perm_ba</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult.to_dict"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.DescriptorMatcher"><code class="docutils literal notranslate"><span class="pre">DescriptorMatcher</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.DescriptorPipeline"><code class="docutils literal notranslate"><span class="pre">DescriptorPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.DescriptorPipeline.apply"><code class="docutils literal notranslate"><span class="pre">DescriptorPipeline.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.L2InnerNormalizer"><code class="docutils literal notranslate"><span class="pre">L2InnerNormalizer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.NeighborFinder"><code class="docutils literal notranslate"><span class="pre">NeighborFinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.WaveKernelSignature"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignature</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.base.dataclass"><code class="docutils literal notranslate"><span class="pre">dataclass()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.matcher.html#module-geomfum.matcher.fmap">geomfum.matcher.fmap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.ArangeSubsampler"><code class="docutils literal notranslate"><span class="pre">ArangeSubsampler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.BaseMatcher"><code class="docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.descr_a"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.descr_a</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.descr_b"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.descr_b</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.fmap12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.fmap12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.fmap21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.fmap21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.is_bidirectional"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.is_bidirectional</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.overlap_ab"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.overlap_ab</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.overlap_ba"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.overlap_ba</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.p2p12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.p2p12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.p2p21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.p2p21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.refined_fmap12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.refined_fmap12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.refined_fmap21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.refined_fmap21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.soft_perm_ab"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.soft_perm_ab</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.soft_perm_ba"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.soft_perm_ba</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.to_dict"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.DescriptorPipeline"><code class="docutils literal notranslate"><span class="pre">DescriptorPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.DescriptorPipeline.apply"><code class="docutils literal notranslate"><span class="pre">DescriptorPipeline.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.FunctionalMap"><code class="docutils literal notranslate"><span class="pre">FunctionalMap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.FunctionalMapMatcher"><code class="docutils literal notranslate"><span class="pre">FunctionalMapMatcher</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.L2InnerNormalizer"><code class="docutils literal notranslate"><span class="pre">L2InnerNormalizer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.P2pFromFmConverter"><code class="docutils literal notranslate"><span class="pre">P2pFromFmConverter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.fmap.WaveKernelSignature"><code class="docutils literal notranslate"><span class="pre">WaveKernelSignature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geomfum.matcher.html#module-geomfum.matcher">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.BaseMatcher"><code class="docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.DescriptorMatcher"><code class="docutils literal notranslate"><span class="pre">DescriptorMatcher</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomfum.matcher.html#geomfum.matcher.FunctionalMapMatcher"><code class="docutils literal notranslate"><span class="pre">FunctionalMapMatcher</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1614,7 +1687,7 @@ The Eurographics Association, 2023. <a class="reference external" href="https://
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>neighbor_finder</strong> (<em>SinkhornKNeighborsFinder</em>) – Nearest neighbor finder.</p></li>
 <li><p><strong>adjoint</strong> (<em>bool</em>) – Whether to use adjoint method.</p></li>
-<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="#id9" id="id1"><span>[VM2023]</span></a>.</p></li>
+<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="geomfum.matcher.html#vm2023" id="id1"><span>[VM2023]</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -3078,7 +3151,7 @@ The Eurographics Association, 2023. <a class="reference external" href="https://
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>neighbor_finder</strong> (<em>SinkhornKNeighborsFinder</em>) – Nearest neighbor finder.</p></li>
 <li><p><strong>adjoint</strong> (<em>bool</em>) – Whether to use adjoint method.</p></li>
-<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="#id9" id="id10"><span>[VM2023]</span></a>.</p></li>
+<li><p><strong>bijective</strong> (<em>bool</em>) – Whether to use bijective method. Check <a class="reference internal" href="geomfum.matcher.html#vm2023" id="id10"><span>[VM2023]</span></a>.</p></li>
 </ul>
 </dd>
 </dl>

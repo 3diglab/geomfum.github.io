@@ -9,6 +9,7 @@ Subpackages
 
    geomfum.dataset
    geomfum.descriptor
+   geomfum.matcher
    geomfum.metric
    geomfum.numerics
    geomfum.shape

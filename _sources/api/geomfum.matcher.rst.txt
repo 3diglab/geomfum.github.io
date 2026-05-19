@@ -1,0 +1,29 @@
+geomfum.matcher package
+=======================
+
+Submodules
+----------
+
+geomfum.matcher.base module
+---------------------------
+
+.. automodule:: geomfum.matcher.base
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+geomfum.matcher.fmap module
+---------------------------
+
+.. automodule:: geomfum.matcher.fmap
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: geomfum.matcher
+   :members:
+   :show-inheritance:
+   :undoc-members:
