@@ -20,6 +20,14 @@ geomfum.descriptor.pipeline module
    :show-inheritance:
    :undoc-members:
 
+geomfum.descriptor.shot module
+------------------------------
+
+.. automodule:: geomfum.descriptor.shot
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 geomfum.descriptor.spectral module
 ----------------------------------
 
