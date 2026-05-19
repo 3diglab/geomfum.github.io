@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 3:00:36 PM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 3:24:20 PM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -470,6 +470,325 @@
 <h1>geomfum.dataset package<a class="headerlink" href="#geomfum-dataset-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-geomfum.dataset.medical">
+<span id="geomfum-dataset-medical-module"></span><h2>geomfum.dataset.medical module<a class="headerlink" href="#module-geomfum.dataset.medical" title="Link to this heading">#</a></h2>
+<p>Medical imaging dataset classes.</p>
+<p>Requires optional dependencies: nibabel, scikit-image.
+Install with: pip install nibabel scikit-image</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.medical.</span></span><span class="sig-name descname"><span class="pre">AcdcDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.AcdcDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>ACDC Automated Cardiac Diagnosis Challenge dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>str</em>) – Path to the ACDC data directory.  Should contain <code class="docutils literal notranslate"><span class="pre">patient001/</span></code>,
+<code class="docutils literal notranslate"><span class="pre">patient002/</span></code>, … subdirectories (either directly or inside a
+<code class="docutils literal notranslate"><span class="pre">training/</span></code> or <code class="docutils literal notranslate"><span class="pre">testing/</span></code> subfolder — both layouts accepted).</p></li>
+<li><p><strong>structure</strong> (<em>str</em>) – Cardiac structure: <code class="docutils literal notranslate"><span class="pre">'lv'</span></code> (left ventricle, default), <code class="docutils literal notranslate"><span class="pre">'rv'</span></code>
+(right ventricle), <code class="docutils literal notranslate"><span class="pre">'myo'</span></code> (myocardium).</p></li>
+<li><p><strong>groups</strong> (<em>list[str] or None</em>) – Filter by diagnostic group.  ACDC groups: <code class="docutils literal notranslate"><span class="pre">'NOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DCM'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'HCM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MINF'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RVA'</span></code>.  <code class="docutils literal notranslate"><span class="pre">None</span></code> keeps all groups.</p></li>
+<li><p><strong>voxel_spacing</strong> (<em>bool</em>) – Apply voxel spacing so mesh coordinates are in mm.  Default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>smooth_iter</strong> (<em>int</em>) – Laplacian smoothing iterations on raw marching-cubes meshes.
+Default 3.  Set to 0 to skip smoothing.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><strong>Download.</strong> Register and download from
+<a class="reference external" href="https://www.creatis.insa-lyon.fr/Challenge/acdc/">https://www.creatis.insa-lyon.fr/Challenge/acdc/</a></p>
+<p><strong>Expected layout</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root/
+├── patient001/
+│   ├── Info.cfg
+│   ├── patient001_frame01.nii.gz
+│   ├── patient001_frame01_gt.nii.gz   ← ED segmentation
+│   ├── patient001_frame12.nii.gz
+│   └── patient001_frame12_gt.nii.gz   ← ES segmentation
+├── patient002/
+└── ...
+</pre></div>
+</div>
+<p><strong>Segmentation labels:</strong> 0=background, 1=RV, 2=myocardium, 3=LV.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AcdcDataset</span><span class="p">(</span><span class="s2">&quot;/path/to/acdc/training&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="s2">&quot;lv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="go">AcdcDataset(root=..., n_patients=100, groups={&#39;NOR&#39;: 20, ...})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_ed</span><span class="p">,</span> <span class="n">mesh_es</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_ed</span><span class="p">,</span> <span class="n">mesh_es</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">patients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">load_pair</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcDataset.get_patient">
+<span class="sig-name descname"><span class="pre">get_patient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcDataset.get_patient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.AcdcDataset.get_patient" title="Link to this definition">#</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">AcdcPatient</span></code> by ID string (e.g. <code class="docutils literal notranslate"><span class="pre">'patient001'</span></code>).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcDataset.group_counts">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">group_counts</span></span><a class="headerlink" href="#geomfum.dataset.medical.AcdcDataset.group_counts" title="Link to this definition">#</a></dt>
+<dd><p>Dict mapping group name → patient count.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcDataset.metadata_list">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata_list</span></span><a class="headerlink" href="#geomfum.dataset.medical.AcdcDataset.metadata_list" title="Link to this definition">#</a></dt>
+<dd><p>List of metadata dicts for all patients (no mesh loading).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.medical.</span></span><span class="sig-name descname"><span class="pre">AcdcPatient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcPatient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A single ACDC patient with lazy-loaded ED/ES meshes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>patient_dir</strong> (<em>str</em>) – Path to the patient directory (e.g. <code class="docutils literal notranslate"><span class="pre">/data/acdc/training/patient001</span></code>).</p></li>
+<li><p><strong>structure</strong> (<em>str</em>) – Cardiac structure to extract: <code class="docutils literal notranslate"><span class="pre">'lv'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rv'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'myo'</span></code>.</p></li>
+<li><p><strong>voxel_spacing</strong> (<em>bool</em>) – Apply voxel spacing so mesh coordinates are in mm.</p></li>
+<li><p><strong>smooth_iter</strong> (<em>int</em>) – Laplacian smoothing iterations on the raw marching-cubes mesh.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient.ed_seg_path">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ed_seg_path</span></span><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient.ed_seg_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to end-diastole segmentation file.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient.es_seg_path">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">es_seg_path</span></span><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient.es_seg_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to end-systole segmentation file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient.load_ed">
+<span class="sig-name descname"><span class="pre">load_ed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcPatient.load_ed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient.load_ed" title="Link to this definition">#</a></dt>
+<dd><p>Load and return the end-diastole TriangleMesh.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient.load_es">
+<span class="sig-name descname"><span class="pre">load_es</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcPatient.load_es"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient.load_es" title="Link to this definition">#</a></dt>
+<dd><p>Load and return the end-systole TriangleMesh.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient.load_pair">
+<span class="sig-name descname"><span class="pre">load_pair</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcPatient.load_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient.load_pair" title="Link to this definition">#</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">(mesh_ed,</span> <span class="pre">mesh_es)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.AcdcPatient.metadata">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata</span></span><a class="headerlink" href="#geomfum.dataset.medical.AcdcPatient.metadata" title="Link to this definition">#</a></dt>
+<dd><p>Metadata dict (no mesh loading).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.medical.</span></span><span class="sig-name descname"><span class="pre">TriangleMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.Shape" title="geomfum.shape._base.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></a></p>
+<p>Triangulated surface mesh with vertices, faces, and differential operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertices</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Vertices of the mesh.</p></li>
+<li><p><strong>faces</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Faces of the mesh.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.dist_matrix">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dist_matrix</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Pairwise distances between all vertices using the equipped metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Metric distance matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.edge_tangent_vectors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edge_tangent_vectors</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.edge_tangent_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Edge vectors projected onto local tangent planes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edge_tangent_vectors</strong> (<em>array-like, shape=[n_edges, 2]</em>) – Tangent vectors of the edges, projected onto the local tangent plane.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.edges">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.edges" title="Link to this definition">#</a></dt>
+<dd><p>Edges of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edges</strong> (<em>array-like, shape=[n_edges, 2]</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.equip_with_metric">
+<span class="sig-name descname"><span class="pre">equip_with_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh.equip_with_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.equip_with_metric" title="Link to this definition">#</a></dt>
+<dd><p>Equip mesh with a distance metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metric</strong> (<em>class</em>) – A metric class to use for the mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.face_area_vectors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_area_vectors</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.face_area_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Face area vectors (unnormalized normals with magnitude equal to face area).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>area_vectors</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Per-face area vectors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.face_areas">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_areas</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.face_areas" title="Link to this definition">#</a></dt>
+<dd><p>Area of each triangular face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>face_areas</strong> (<em>array-like, shape=[n_faces]</em>) – Per-face areas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.face_normals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_normals</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.face_normals" title="Link to this definition">#</a></dt>
+<dd><p>Unit normal vectors for each face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_faces, 3]</em>) – Per-face normals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.face_vertex_coords">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_vertex_coords</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.face_vertex_coords" title="Link to this definition">#</a></dt>
+<dd><p>Extract vertex coordinates corresponding to each face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertices</strong> (<em>array-like, shape=[{n_faces}, n_per_face_vertex, 3]</em>) – Coordinates of the ith vertex of that face.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.from_file">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/shape/mesh.html#TriangleMesh.from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.from_file" title="Link to this definition">#</a></dt>
+<dd><p>Load mesh from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Path to the mesh file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mesh</strong> (<em>TriangleMesh</em>) – A triangle mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.n_faces">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_faces</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.n_faces" title="Link to this definition">#</a></dt>
+<dd><p>Number of faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_faces</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.n_vertices">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vertices</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.n_vertices" title="Link to this definition">#</a></dt>
+<dd><p>Number of vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_vertices</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.vertex_areas">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_areas</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.vertex_areas" title="Link to this definition">#</a></dt>
+<dd><p>Area associated with each vertex (one-third of adjacent triangle areas).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vertex_areas</strong> (<em>array-like, shape=[n_vertices]</em>) – Per-vertex areas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.vertex_normals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_normals</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.vertex_normals" title="Link to this definition">#</a></dt>
+<dd><p>Unit normal vectors at vertices (area-weighted average of adjacent face normals).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normals</strong> (<em>array-like, shape=[n_vertices, 3]</em>) – Normalized per-vertex normals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.TriangleMesh.vertex_tangent_frames">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertex_tangent_frames</span></span><a class="headerlink" href="#geomfum.dataset.medical.TriangleMesh.vertex_tangent_frames" title="Link to this definition">#</a></dt>
+<dd><p>Local orthonormal coordinate frames at each vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tangent_frame</strong> (<em>array-like, shape=[n_vertices, 3, 3]</em>) – Tangent frame of the mesh, where:
+- [n_vertices, 0, :] are the X basis vectors
+- [n_vertices, 1, :] are the Y basis vectors
+- [n_vertices, 2, :] are the vertex normals</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geomfum.dataset.medical.nifti_seg_to_mesh">
+<span class="sig-prename descclassname"><span class="pre">geomfum.dataset.medical.</span></span><span class="sig-name descname"><span class="pre">nifti_seg_to_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seg_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#nifti_seg_to_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.medical.nifti_seg_to_mesh" title="Link to this definition">#</a></dt>
+<dd><p>Extract a triangle mesh from a NIfTI binary segmentation mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seg_path</strong> (<em>str</em>) – Path to the <code class="docutils literal notranslate"><span class="pre">_gt.nii.gz</span></code> segmentation file.</p></li>
+<li><p><strong>label</strong> (<em>int</em>) – Integer label of the structure to extract.</p></li>
+<li><p><strong>voxel_spacing</strong> (<em>bool</em>) – If True, multiply vertex positions by the NIfTI voxel size so
+coordinates are in mm.</p></li>
+<li><p><strong>smooth_iter</strong> (<em>int</em>) – Number of Laplacian smoothing iterations.  Set to 0 to skip.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mesh</strong> (<em>TriangleMesh</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-geomfum.dataset.notebook">
 <span id="geomfum-dataset-notebook-module"></span><h2>geomfum.dataset.notebook module<a class="headerlink" href="#module-geomfum.dataset.notebook" title="Link to this heading">#</a></h2>
@@ -1002,6 +1321,71 @@ Default is 0.5, meaning half of the possible pairs will be generated.</p>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geomfum.dataset" title="Link to this heading">#</a></h2>
 <p>Datasets Module. This module contains dataset classes to use in Geomfum. Including utils for dataset management, downloading, and processing.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.dataset.AcdcDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.</span></span><span class="sig-name descname"><span class="pre">AcdcDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.AcdcDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>ACDC Automated Cardiac Diagnosis Challenge dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>str</em>) – Path to the ACDC data directory.  Should contain <code class="docutils literal notranslate"><span class="pre">patient001/</span></code>,
+<code class="docutils literal notranslate"><span class="pre">patient002/</span></code>, … subdirectories (either directly or inside a
+<code class="docutils literal notranslate"><span class="pre">training/</span></code> or <code class="docutils literal notranslate"><span class="pre">testing/</span></code> subfolder — both layouts accepted).</p></li>
+<li><p><strong>structure</strong> (<em>str</em>) – Cardiac structure: <code class="docutils literal notranslate"><span class="pre">'lv'</span></code> (left ventricle, default), <code class="docutils literal notranslate"><span class="pre">'rv'</span></code>
+(right ventricle), <code class="docutils literal notranslate"><span class="pre">'myo'</span></code> (myocardium).</p></li>
+<li><p><strong>groups</strong> (<em>list[str] or None</em>) – Filter by diagnostic group.  ACDC groups: <code class="docutils literal notranslate"><span class="pre">'NOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DCM'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'HCM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MINF'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RVA'</span></code>.  <code class="docutils literal notranslate"><span class="pre">None</span></code> keeps all groups.</p></li>
+<li><p><strong>voxel_spacing</strong> (<em>bool</em>) – Apply voxel spacing so mesh coordinates are in mm.  Default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>smooth_iter</strong> (<em>int</em>) – Laplacian smoothing iterations on raw marching-cubes meshes.
+Default 3.  Set to 0 to skip smoothing.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><strong>Download.</strong> Register and download from
+<a class="reference external" href="https://www.creatis.insa-lyon.fr/Challenge/acdc/">https://www.creatis.insa-lyon.fr/Challenge/acdc/</a></p>
+<p><strong>Expected layout</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root/
+├── patient001/
+│   ├── Info.cfg
+│   ├── patient001_frame01.nii.gz
+│   ├── patient001_frame01_gt.nii.gz   ← ED segmentation
+│   ├── patient001_frame12.nii.gz
+│   └── patient001_frame12_gt.nii.gz   ← ES segmentation
+├── patient002/
+└── ...
+</pre></div>
+</div>
+<p><strong>Segmentation labels:</strong> 0=background, 1=RV, 2=myocardium, 3=LV.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AcdcDataset</span><span class="p">(</span><span class="s2">&quot;/path/to/acdc/training&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="s2">&quot;lv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="go">AcdcDataset(root=..., n_patients=100, groups={&#39;NOR&#39;: 20, ...})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_ed</span><span class="p">,</span> <span class="n">mesh_es</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_ed</span><span class="p">,</span> <span class="n">mesh_es</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">patients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">load_pair</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.dataset.AcdcDataset.get_patient">
+<span class="sig-name descname"><span class="pre">get_patient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/medical.html#AcdcDataset.get_patient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.AcdcDataset.get_patient" title="Link to this definition">#</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">AcdcPatient</span></code> by ID string (e.g. <code class="docutils literal notranslate"><span class="pre">'patient001'</span></code>).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.AcdcDataset.group_counts">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">group_counts</span></span><a class="headerlink" href="#geomfum.dataset.AcdcDataset.group_counts" title="Link to this definition">#</a></dt>
+<dd><p>Dict mapping group name → patient count.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.dataset.AcdcDataset.metadata_list">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata_list</span></span><a class="headerlink" href="#geomfum.dataset.AcdcDataset.metadata_list" title="Link to this definition">#</a></dt>
+<dd><p>List of metadata dicts for all patients (no mesh loading).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.dataset.NotebooksDataset">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.dataset.</span></span><span class="sig-name descname"><span class="pre">NotebooksDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_at_startup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/dataset/notebook.html#NotebooksDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.dataset.NotebooksDataset" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
@@ -1094,6 +1478,42 @@ Default is 0.5, meaning half of the possible pairs will be generated.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.dataset.medical">geomfum.dataset.medical module</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcDataset"><code class="docutils literal notranslate"><span class="pre">AcdcDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcDataset.get_patient"><code class="docutils literal notranslate"><span class="pre">AcdcDataset.get_patient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcDataset.group_counts"><code class="docutils literal notranslate"><span class="pre">AcdcDataset.group_counts</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcDataset.metadata_list"><code class="docutils literal notranslate"><span class="pre">AcdcDataset.metadata_list</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient"><code class="docutils literal notranslate"><span class="pre">AcdcPatient</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient.ed_seg_path"><code class="docutils literal notranslate"><span class="pre">AcdcPatient.ed_seg_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient.es_seg_path"><code class="docutils literal notranslate"><span class="pre">AcdcPatient.es_seg_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient.load_ed"><code class="docutils literal notranslate"><span class="pre">AcdcPatient.load_ed()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient.load_es"><code class="docutils literal notranslate"><span class="pre">AcdcPatient.load_es()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient.load_pair"><code class="docutils literal notranslate"><span class="pre">AcdcPatient.load_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.AcdcPatient.metadata"><code class="docutils literal notranslate"><span class="pre">AcdcPatient.metadata</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh"><code class="docutils literal notranslate"><span class="pre">TriangleMesh</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.dist_matrix"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.dist_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.edge_tangent_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edge_tangent_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.edges"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.edges</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.equip_with_metric"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.equip_with_metric()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.face_area_vectors"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_area_vectors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.face_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_areas</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.face_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.face_vertex_coords"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.face_vertex_coords</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.from_file"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.from_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.n_faces"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_faces</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.n_vertices"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.n_vertices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.vertex_areas"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_areas</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.vertex_normals"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_normals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.TriangleMesh.vertex_tangent_frames"><code class="docutils literal notranslate"><span class="pre">TriangleMesh.vertex_tangent_frames</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.medical.nifti_seg_to_mesh"><code class="docutils literal notranslate"><span class="pre">nifti_seg_to_mesh()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.dataset.notebook">geomfum.dataset.notebook module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.DownloadableFile"><code class="docutils literal notranslate"><span class="pre">DownloadableFile</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.notebook.DownloadableFile.get_filename"><code class="docutils literal notranslate"><span class="pre">DownloadableFile.get_filename()</span></code></a></li>
@@ -1155,6 +1575,12 @@ Default is 0.5, meaning half of the possible pairs will be generated.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.dataset">Module contents</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.AcdcDataset"><code class="docutils literal notranslate"><span class="pre">AcdcDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.AcdcDataset.get_patient"><code class="docutils literal notranslate"><span class="pre">AcdcDataset.get_patient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.AcdcDataset.group_counts"><code class="docutils literal notranslate"><span class="pre">AcdcDataset.group_counts</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.AcdcDataset.metadata_list"><code class="docutils literal notranslate"><span class="pre">AcdcDataset.metadata_list</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.NotebooksDataset"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.NotebooksDataset.get_filename"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset.get_filename()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.dataset.NotebooksDataset.get_filenames"><code class="docutils literal notranslate"><span class="pre">NotebooksDataset.get_filenames()</span></code></a></li>

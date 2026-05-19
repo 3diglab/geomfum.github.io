@@ -4,6 +4,14 @@ geomfum.dataset package
 Submodules
 ----------
 
+geomfum.dataset.medical module
+------------------------------
+
+.. automodule:: geomfum.dataset.medical
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 geomfum.dataset.notebook module
 -------------------------------
 
