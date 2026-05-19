@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 10:22:44 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -768,6 +768,23 @@ Include: descriptor, subsampler, normalizer.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkScaleInvariantHeatKernelSignature">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">LandmarkScaleInvariantHeatKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#LandmarkScaleInvariantHeatKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkScaleInvariantHeatKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignature" title="geomfum.descriptor.spectral.LandmarkHeatKernelSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignature</span></code></a></p>
+<p>Scale-Invariant Heat Kernel Signature descriptor on landmarks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool, optional</em>) – Whether to make the descriptor scale-invariant, by default True.</p></li>
+<li><p><strong>n_domain</strong> (<em>int, optional</em>) – Number of frequency domains, by default 3.</p></li>
+<li><p><strong>domain</strong> (<em>list, optional</em>) – List of frequency domain limits, by default None.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenvalues and eigenfunctions to use, by default None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.descriptor.spectral.LandmarkWaveKernelSignature">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">LandmarkWaveKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#LandmarkWaveKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignature" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="geomfum.shape.html#geomfum.shape.hierarchical.WhichRegistryMixins" title="geomfum._registry.WhichRegistryMixins"><code class="xref py py-class docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a>, <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pyfm.SpectralDescriptor" title="geomfum.descriptor._base.SpectralDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></p>
@@ -804,6 +821,34 @@ Include: descriptor, subsampler, normalizer.</p>
 <span class="sig-name descname"><span class="pre">has_internal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.has_internal" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.descriptor.spectral.ScaleInvariantHeatKernelSignature">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.descriptor.spectral.</span></span><span class="sig-name descname"><span class="pre">ScaleInvariantHeatKernelSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/descriptor/spectral.html#ScaleInvariantHeatKernelSignature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.descriptor.spectral.ScaleInvariantHeatKernelSignature" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.descriptor.spectral.HeatKernelSignature" title="geomfum.descriptor.spectral.HeatKernelSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeatKernelSignature</span></code></a></p>
+<p>Scale-Invariant Heat Kernel Signature descriptor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>bool, optional</em>) – Whether to make the descriptor scale-invariant, by default True.</p></li>
+<li><p><strong>n_domain</strong> (<em>int, optional</em>) – Number of frequency domains, by default 3.</p></li>
+<li><p><strong>domain</strong> (<em>list, optional</em>) – List of frequency domain limits, by default None.</p></li>
+<li><p><strong>k</strong> (<em>int, optional</em>) – Number of eigenvalues and eigenfunctions to use, by default None.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="bk2010" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>BK2010<span class="fn-bracket">]</span></span>
+<p>M. M. Bronstein and I. Kokkinos.
+“Scale-invariant heat kernel signatures for non-rigid shape recognition.”
+2010 IEEE Computer Society Conference on Computer Vision and Pattern Recognition,
+San Francisco, CA, USA, 2010, pp. 1704-1711.
+<a class="reference external" href="https://doi.org/10.1109/CVPR.2010.5539838">https://doi.org/10.1109/CVPR.2010.5539838</a>.</p>
+</div>
+</div>
 </dd></dl>
 
 <dl class="py class">
@@ -1078,6 +1123,7 @@ domain points.</p></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkHeatKernelSignatureRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">LandmarkHeatKernelSignatureRegistry.has_internal</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkScaleInvariantHeatKernelSignature"><code class="docutils literal notranslate"><span class="pre">LandmarkScaleInvariantHeatKernelSignature</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignature"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignature</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.MAP"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry.MAP</span></code></a></li>
@@ -1085,6 +1131,7 @@ domain points.</p></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.LandmarkWaveKernelSignatureRegistry.has_internal"><code class="docutils literal notranslate"><span class="pre">LandmarkWaveKernelSignatureRegistry.has_internal</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.ScaleInvariantHeatKernelSignature"><code class="docutils literal notranslate"><span class="pre">ScaleInvariantHeatKernelSignature</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.SpectralDescriptor"><code class="docutils literal notranslate"><span class="pre">SpectralDescriptor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.SpectralFilter"><code class="docutils literal notranslate"><span class="pre">SpectralFilter</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.descriptor.spectral.WaveKernelFilter"><code class="docutils literal notranslate"><span class="pre">WaveKernelFilter</span></code></a></li>

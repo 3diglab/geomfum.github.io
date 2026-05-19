@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 9:02:48 AM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 10:22:44 AM"/>
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -436,6 +436,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fft</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.linalg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">la</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geomfum._registry</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -759,6 +760,86 @@
             <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
             <span class="n">landmarks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ScaleInvariantHeatKernelSignature">
+<a class="viewcode-back" href="../../../api/geomfum.descriptor.html#geomfum.descriptor.spectral.ScaleInvariantHeatKernelSignature">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ScaleInvariantHeatKernelSignature</span><span class="p">(</span><span class="n">HeatKernelSignature</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Scale-Invariant Heat Kernel Signature descriptor.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scale : bool, optional</span>
+<span class="sd">        Whether to make the descriptor scale-invariant, by default True.</span>
+<span class="sd">    n_domain : int, optional</span>
+<span class="sd">        Number of frequency domains, by default 3.</span>
+<span class="sd">    domain : list, optional</span>
+<span class="sd">        List of frequency domain limits, by default None.</span>
+<span class="sd">    k : int, optional</span>
+<span class="sd">        Number of eigenvalues and eigenfunctions to use, by default None.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [BK2010] M. M. Bronstein and I. Kokkinos.</span>
+<span class="sd">        &quot;Scale-invariant heat kernel signatures for non-rigid shape recognition.&quot;</span>
+<span class="sd">        2010 IEEE Computer Society Conference on Computer Vision and Pattern Recognition,</span>
+<span class="sd">        San Francisco, CA, USA, 2010, pp. 1704-1711.</span>
+<span class="sd">        https://doi.org/10.1109/CVPR.2010.5539838.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_domain</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">n_domain</span><span class="o">=</span><span class="n">n_domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute descriptor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        shape : Shape.</span>
+<span class="sd">            Shape.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hks</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="n">hks_diff</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">hks</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mf">1e-2</span><span class="p">)</span> <span class="o">-</span> <span class="n">gs</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">hks</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mf">1e-2</span><span class="p">)</span>
+        <span class="n">hks_diff_spectrum</span> <span class="o">=</span> <span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">hks_diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1">## TODO: substitute with gs</span>
+        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hks_diff_spectrum</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="LandmarkScaleInvariantHeatKernelSignature">
+<a class="viewcode-back" href="../../../api/geomfum.descriptor.html#geomfum.descriptor.spectral.LandmarkScaleInvariantHeatKernelSignature">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LandmarkScaleInvariantHeatKernelSignature</span><span class="p">(</span><span class="n">LandmarkHeatKernelSignature</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Scale-Invariant Heat Kernel Signature descriptor on landmarks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scale : bool, optional</span>
+<span class="sd">        Whether to make the descriptor scale-invariant, by default True.</span>
+<span class="sd">    n_domain : int, optional</span>
+<span class="sd">        Number of frequency domains, by default 3.</span>
+<span class="sd">    domain : list, optional</span>
+<span class="sd">        List of frequency domain limits, by default None.</span>
+<span class="sd">    k : int, optional</span>
+<span class="sd">        Number of eigenvalues and eigenfunctions to use, by default None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_domain</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">n_domain</span><span class="o">=</span><span class="n">n_domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute descriptor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        shape : Shape.</span>
+<span class="sd">            Shape.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hks</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="n">hks_diff</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">hks</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mf">1e-2</span><span class="p">)</span> <span class="o">-</span> <span class="n">gs</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">hks</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mf">1e-2</span><span class="p">)</span>
+        <span class="n">hks_diff_spectrum</span> <span class="o">=</span> <span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">hks_diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1">## TODO: substitute with gs</span>
+        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hks_diff_spectrum</span><span class="p">)</span></div>
 
 </pre></div>
 
