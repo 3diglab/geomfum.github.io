@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 19, 2026, 12:27:20 PM"/>
+    <meta name="docbuild:last-update" content="May 19, 2026, 2:04:22 PM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -1728,6 +1728,32 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 <span id="geomfum-functional-map-module"></span><h2>geomfum.functional_map module<a class="headerlink" href="#module-geomfum.functional_map" title="Link to this heading">#</a></h2>
 <p>Factors to build functional map objective function.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.functional_map.FactorBuilder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">FactorBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#FactorBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.FactorBuilder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for factor builders.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.functional_map.FactorBuilder.build">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#FactorBuilder.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.FactorBuilder.build" title="Link to this definition">#</a></dt>
+<dd><p>Build factor from shape data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>basis_a</strong> (<em>LaplaceEigenBasis</em>) – Basis of source shape.</p></li>
+<li><p><strong>basis_b</strong> (<em>LaplaceEigenBasis</em>) – Basis of target shape.</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices_a]</em>) – Descriptors on source shape.</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices_b]</em>) – Descriptors on target shape.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>factor</strong> (<em>WeightedFactor</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.functional_map.FactorSum">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">FactorSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#FactorSum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.FactorSum" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geomfum.functional_map.WeightedFactor" title="geomfum.functional_map.WeightedFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightedFactor</span></code></a></p>
@@ -1747,6 +1773,54 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>energy_gradient</strong> (<em>array-like, shape=[spectrum_size_b, spectrum_size_a]</em>) – Weighted energy gradient wrt functional map matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.functional_map.FunctionalMap">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">FunctionalMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_builders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#FunctionalMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.FunctionalMap" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Optimizer for functional maps.</p>
+<p>Takes factor_builders as configuration, then optimizes fmap given shapes/descriptors.
+This is an intermediate abstraction between FactorBuilders and the high-level Matcher.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor_builders</strong> (<em>list[FactorBuilder], optional</em>) – List of factor builders. If None, uses default (SDP + LB + Mult).</p></li>
+<li><p><strong>optimizer</strong> (<em>ScipyMinimize, optional</em>) – Optimizer to use. If None, uses L-BFGS-B.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.functional_map.LBCFactorBuilder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">LBCFactorBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#LBCFactorBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.LBCFactorBuilder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.functional_map.FactorBuilder" title="geomfum.functional_map.FactorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">FactorBuilder</span></code></a></p>
+<p>Builder for LBCommutativityEnforcing factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<em>float</em>) – Weight of the factor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.functional_map.LBCFactorBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#LBCFactorBuilder.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.LBCFactorBuilder.build" title="Link to this definition">#</a></dt>
+<dd><p>Build LBCommutativityEnforcing from bases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>basis_a</strong> (<em>LaplaceEigenBasis</em>) – Basis of source shape.</p></li>
+<li><p><strong>basis_b</strong> (<em>LaplaceEigenBasis</em>) – Basis of target shape.</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like</em>) – Descriptors on source shape (ignored, for uniform interface).</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like</em>) – Descriptors on target shape (ignored, for uniform interface).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>factor</strong> (<em>LBCommutativityEnforcing</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1793,6 +1867,37 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>energy_gradient</strong> (<em>array-like, shape=[spectrum_size_b, spectrum_size_a]</em>) – Weighted energy gradient wrt functional map matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.functional_map.MultFactorBuilder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">MultFactorBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#MultFactorBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.MultFactorBuilder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.functional_map.FactorBuilder" title="geomfum.functional_map.FactorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">FactorBuilder</span></code></a></p>
+<p>Builder for multiplication OperatorCommutativityEnforcing factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<em>float</em>) – Weight of the factor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.functional_map.MultFactorBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#MultFactorBuilder.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.MultFactorBuilder.build" title="Link to this definition">#</a></dt>
+<dd><p>Build OperatorCommutativityEnforcing from multiplication operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>basis_a</strong> (<em>LaplaceEigenBasis</em>) – Basis of source shape.</p></li>
+<li><p><strong>basis_b</strong> (<em>LaplaceEigenBasis</em>) – Basis of target shape.</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices_a]</em>) – Descriptors on source shape.</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices_b]</em>) – Descriptors on target shape.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>factor</strong> (<em>OperatorCommutativityEnforcing</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1911,6 +2016,74 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>energy_gradient</strong> (<em>array-like, shape=[spectrum_size_b, spectrum_size_a]</em>) – Weighted energy gradient wrt functional map matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.functional_map.SDPFactorBuilder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">SDPFactorBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#SDPFactorBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.SDPFactorBuilder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.functional_map.FactorBuilder" title="geomfum.functional_map.FactorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">FactorBuilder</span></code></a></p>
+<p>Builder for SpectralDescriptorPreservation factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<em>float</em>) – Weight of the factor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.functional_map.SDPFactorBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/functional_map.html#SDPFactorBuilder.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.SDPFactorBuilder.build" title="Link to this definition">#</a></dt>
+<dd><p>Build SpectralDescriptorPreservation from shape data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>basis_a</strong> (<em>LaplaceEigenBasis</em>) – Basis of source shape.</p></li>
+<li><p><strong>basis_b</strong> (<em>LaplaceEigenBasis</em>) – Basis of target shape.</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like, shape=[…, n_vertices_a]</em>) – Descriptors on source shape.</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like, shape=[…, n_vertices_b]</em>) – Descriptors on target shape.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>factor</strong> (<em>SpectralDescriptorPreservation</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.functional_map.ScipyMinimize">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.functional_map.</span></span><span class="sig-name descname"><span class="pre">ScipyMinimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'L-BFGS-B'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/optimization.html#ScipyMinimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.ScipyMinimize" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Backend-agnostic wrapper for SciPy’s optimization routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str, optional</em>) – Optimization algorithm (default: ‘L-BFGS-B’).</p></li>
+<li><p><strong>bounds</strong> (<em>sequence, optional</em>) – Bounds on variables for constrained methods.</p></li>
+<li><p><strong>constraints</strong> (<em>dict or sequence of dict, optional</em>) – Constraints definition.</p></li>
+<li><p><strong>tol</strong> (<em>float, optional</em>) – Tolerance for termination.</p></li>
+<li><p><strong>callback</strong> (<em>callable, optional</em>) – Function called after each iteration.</p></li>
+<li><p><strong>options</strong> (<em>dict, optional</em>) – Solver-specific options.</p></li>
+<li><p><strong>save_result</strong> (<em>bool, optional</em>) – Whether to save the optimization result (default: False).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.functional_map.ScipyMinimize.minimize">
+<span class="sig-name descname"><span class="pre">minimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun_jac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun_hess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hessp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/numerics/optimization.html#ScipyMinimize.minimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.functional_map.ScipyMinimize.minimize" title="Link to this definition">#</a></dt>
+<dd><p>Minimize objective function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fun</strong> (<em>callable</em>) – The objective function to be minimized.</p></li>
+<li><p><strong>x0</strong> (<em>array-like</em>) – Initial guess.</p></li>
+<li><p><strong>fun_jac</strong> (<em>callable</em>) – Jacobian of fun.</p></li>
+<li><p><strong>fun_hess</strong> (<em>callable</em>) – Hessian of fun.</p></li>
+<li><p><strong>hessp</strong> (<em>callable</em>)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -3370,13 +3543,26 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.functional_map">geomfum.functional_map module</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorBuilder"><code class="docutils literal notranslate"><span class="pre">FactorBuilder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorBuilder.build"><code class="docutils literal notranslate"><span class="pre">FactorBuilder.build()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorSum"><code class="docutils literal notranslate"><span class="pre">FactorSum</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FactorSum.gradient"><code class="docutils literal notranslate"><span class="pre">FactorSum.gradient()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.FunctionalMap"><code class="docutils literal notranslate"><span class="pre">FunctionalMap</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.LBCFactorBuilder"><code class="docutils literal notranslate"><span class="pre">LBCFactorBuilder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.LBCFactorBuilder.build"><code class="docutils literal notranslate"><span class="pre">LBCFactorBuilder.build()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.LBCommutativityEnforcing"><code class="docutils literal notranslate"><span class="pre">LBCommutativityEnforcing</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.LBCommutativityEnforcing.from_bases"><code class="docutils literal notranslate"><span class="pre">LBCommutativityEnforcing.from_bases()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.LBCommutativityEnforcing.gradient"><code class="docutils literal notranslate"><span class="pre">LBCommutativityEnforcing.gradient()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.MultFactorBuilder"><code class="docutils literal notranslate"><span class="pre">MultFactorBuilder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.MultFactorBuilder.build"><code class="docutils literal notranslate"><span class="pre">MultFactorBuilder.build()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.OperatorCommutativityEnforcing"><code class="docutils literal notranslate"><span class="pre">OperatorCommutativityEnforcing</span></code></a><ul class="nav section-nav flex-column">
@@ -3385,6 +3571,14 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.OperatorCommutativityEnforcing.from_multiplication"><code class="docutils literal notranslate"><span class="pre">OperatorCommutativityEnforcing.from_multiplication()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.OperatorCommutativityEnforcing.from_orientation"><code class="docutils literal notranslate"><span class="pre">OperatorCommutativityEnforcing.from_orientation()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.OperatorCommutativityEnforcing.gradient"><code class="docutils literal notranslate"><span class="pre">OperatorCommutativityEnforcing.gradient()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.SDPFactorBuilder"><code class="docutils literal notranslate"><span class="pre">SDPFactorBuilder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.SDPFactorBuilder.build"><code class="docutils literal notranslate"><span class="pre">SDPFactorBuilder.build()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.ScipyMinimize"><code class="docutils literal notranslate"><span class="pre">ScipyMinimize</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.ScipyMinimize.minimize"><code class="docutils literal notranslate"><span class="pre">ScipyMinimize.minimize()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.functional_map.SpectralDescriptorPreservation"><code class="docutils literal notranslate"><span class="pre">SpectralDescriptorPreservation</span></code></a><ul class="nav section-nav flex-column">
