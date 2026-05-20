@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 20, 2026, 9:11:48 AM"/>
+    <meta name="docbuild:last-update" content="May 20, 2026, 9:16:58 AM"/>
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -669,13 +669,13 @@
 <span class="sd">    ----------</span>
 <span class="sd">    neighbor_finder : BaseNeighborFinder, optional</span>
 <span class="sd">        Nearest neighbor finder. If None, uses default.</span>
-<span class="sd">    &quot;&quot;&quot;</span> 
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">neighbor_finder</span><span class="p">:</span> <span class="n">BaseNeighborFinder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">neighbor_finder</span> <span class="o">=</span> <span class="n">neighbor_finder</span> <span class="ow">or</span> <span class="n">NeighborFinder</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape_a</span><span class="p">,</span> <span class="n">shape_b</span><span class="p">,</span> <span class="n">bidirectional</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute correspondence between two shapes.</span>
