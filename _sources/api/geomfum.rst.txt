@@ -34,6 +34,14 @@ geomfum.convert module
    :show-inheritance:
    :undoc-members:
 
+geomfum.evaluation module
+-------------------------
+
+.. automodule:: geomfum.evaluation
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 geomfum.forward\_functional\_map module
 ---------------------------------------
 

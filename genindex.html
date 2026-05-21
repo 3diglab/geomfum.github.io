@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 21, 2026, 8:26:54 AM"/>
+    <meta name="docbuild:last-update" content="May 21, 2026, 8:27:05 AM"/>
   
     
     <script src="_static/searchtools.js"></script>
@@ -567,6 +567,8 @@
 </li>
       <li><a href="api/geomfum.html#geomfum.linalg.columnwise_scaling">columnwise_scaling() (in module geomfum.linalg)</a>
 </li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.EvaluationManager.compute">compute() (geomfum.evaluation.EvaluationManager method)</a>
+</li>
       <li><a href="api/geomfum.shape.html#geomfum.shape.mesh.compute_edge_tangent_vectors">compute_edge_tangent_vectors() (in module geomfum.shape.mesh)</a>
 
       <ul>
@@ -581,10 +583,10 @@
 </li>
       <li><a href="api/geomfum.html#geomfum.functional_map.OperatorCommutativityEnforcing.compute_multiplication_operator">compute_multiplication_operator() (geomfum.functional_map.OperatorCommutativityEnforcing static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.html#geomfum.functional_map.OperatorCommutativityEnforcing.compute_orientation_operator">compute_orientation_operator() (geomfum.functional_map.OperatorCommutativityEnforcing static method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.shape.html#geomfum.shape.mesh.compute_tangent_frames">compute_tangent_frames() (in module geomfum.shape.mesh)</a>
 
       <ul>
@@ -593,6 +595,8 @@
         <li><a href="api/geomfum.shape.html#geomfum.shape.shape_utils.compute_tangent_frames">(in module geomfum.shape.shape_utils)</a>
 </li>
       </ul></li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.CorrespondenceMetric">CorrespondenceMetric (class in geomfum.evaluation)</a>
+</li>
       <li><a href="api/geomfum.matcher.html#geomfum.matcher.base.CorrespondenceResult">CorrespondenceResult (class in geomfum.matcher.base)</a>
 
       <ul>
@@ -602,6 +606,10 @@
 </li>
       </ul></li>
       <li><a href="api/geomfum.descriptor.html#geomfum.descriptor.shot.cKDTree.count_neighbors">count_neighbors() (geomfum.descriptor.shot.cKDTree method)</a>
+</li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.CoverageCountMetric">CoverageCountMetric (class in geomfum.evaluation)</a>
+</li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.CoverageMetric">CoverageMetric (class in geomfum.evaluation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -693,19 +701,23 @@
         <li><a href="api/geomfum.matcher.html#geomfum.matcher.fmap.DescriptorPipeline">(class in geomfum.matcher.fmap)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor.device">device (geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor property)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.diffusionnet.DiffusionNet">DiffusionNet (class in geomfum.wrap.diffusionnet)</a>
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.diffusionnet.DiffusionNetBlock">DiffusionNetBlock (class in geomfum.wrap.diffusionnet)</a>
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.diffusionnet.DiffusionnetFeatureExtractor">DiffusionnetFeatureExtractor (class in geomfum.wrap.diffusionnet)</a>
 </li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.DirichletEnergyMetric">DirichletEnergyMetric (class in geomfum.evaluation)</a>
+</li>
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.VertexEuclideanMetric.dist">dist() (geomfum.dataset.torch.VertexEuclideanMetric method)</a>
 
       <ul>
+        <li><a href="api/geomfum.html#geomfum.evaluation.VertexEuclideanMetric.dist">(geomfum.evaluation.VertexEuclideanMetric method)</a>
+</li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.mesh.VertexEuclideanMetric.dist">(geomfum.metric.mesh.VertexEuclideanMetric method)</a>
 </li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.Metric.dist">(geomfum.metric.Metric method)</a>
@@ -716,6 +728,8 @@
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.VertexEuclideanMetric.dist_from_source">dist_from_source() (geomfum.dataset.torch.VertexEuclideanMetric method)</a>
 
       <ul>
+        <li><a href="api/geomfum.html#geomfum.evaluation.VertexEuclideanMetric.dist_from_source">(geomfum.evaluation.VertexEuclideanMetric method)</a>
+</li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.FinitePointSetMetric.dist_from_source">(geomfum.metric.FinitePointSetMetric method)</a>
 </li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.mesh.FinitePointSetMetric.dist_from_source">(geomfum.metric.mesh.FinitePointSetMetric method)</a>
@@ -748,6 +762,8 @@
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.VertexEuclideanMetric.dist_matrix">dist_matrix() (geomfum.dataset.torch.VertexEuclideanMetric method)</a>
 
       <ul>
+        <li><a href="api/geomfum.html#geomfum.evaluation.VertexEuclideanMetric.dist_matrix">(geomfum.evaluation.VertexEuclideanMetric method)</a>
+</li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.FinitePointSetMetric.dist_matrix">(geomfum.metric.FinitePointSetMetric method)</a>
 </li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.mesh.FinitePointSetMetric.dist_matrix">(geomfum.metric.mesh.FinitePointSetMetric method)</a>
@@ -858,6 +874,10 @@
 </li>
       </ul></li>
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.medical.AcdcPatient.es_seg_path">es_seg_path (geomfum.dataset.medical.AcdcPatient property)</a>
+</li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.EuclideanErrorMetric">EuclideanErrorMetric (class in geomfum.evaluation)</a>
+</li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.EvaluationManager">EvaluationManager (class in geomfum.evaluation)</a>
 </li>
       <li><a href="api/geomfum.shape.html#geomfum.shape.hierarchical.HierarchicalShape.extend_basis">extend_basis() (geomfum.shape.hierarchical.HierarchicalShape method)</a>
 
@@ -1135,6 +1155,8 @@
 </li>
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.PairsDataset.generate_random_pairs">generate_random_pairs() (geomfum.dataset.torch.PairsDataset method)</a>
 </li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.GeodesicErrorMetric">GeodesicErrorMetric (class in geomfum.evaluation)</a>
+</li>
       <li>
     geomfum
 
@@ -1217,6 +1239,13 @@
 
       <ul>
         <li><a href="api/geomfum.descriptor.html#module-geomfum.descriptor.spectral">module</a>
+</li>
+      </ul></li>
+      <li>
+    geomfum.evaluation
+
+      <ul>
+        <li><a href="api/geomfum.html#module-geomfum.evaluation">module</a>
 </li>
       </ul></li>
       <li>
@@ -1324,6 +1353,8 @@
         <li><a href="api/geomfum.numerics.html#module-geomfum.numerics.eig">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     geomfum.numerics.graph
 
@@ -1331,8 +1362,6 @@
         <li><a href="api/geomfum.numerics.html#module-geomfum.numerics.graph">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     geomfum.numerics.optimization
 
@@ -1798,6 +1827,8 @@
 </li>
         <li><a href="api/geomfum.descriptor.html#module-geomfum.descriptor.spectral">geomfum.descriptor.spectral</a>
 </li>
+        <li><a href="api/geomfum.html#module-geomfum.evaluation">geomfum.evaluation</a>
+</li>
         <li><a href="api/geomfum.html#module-geomfum.forward_functional_map">geomfum.forward_functional_map</a>
 </li>
         <li><a href="api/geomfum.html#module-geomfum.functional_map">geomfum.functional_map</a>
@@ -2017,6 +2048,8 @@
         <li><a href="api/geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.overlap_ba">(geomfum.matcher.fmap.CorrespondenceResult attribute)</a>
 </li>
       </ul></li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.OverlapIoUMetric">OverlapIoUMetric (class in geomfum.evaluation)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2055,6 +2088,10 @@
       </ul></li>
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.PairsDataset">PairsDataset (class in geomfum.dataset.torch)</a>
 </li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.PartialGeodesicErrorMetric">PartialGeodesicErrorMetric (class in geomfum.evaluation)</a>
+</li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.PCKAucMetric">PCKAucMetric (class in geomfum.evaluation)</a>
+</li>
       <li><a href="api/geomfum.html#geomfum.basis.LaplaceEigenBasis.pinv">pinv (geomfum.basis.LaplaceEigenBasis property)</a>
 
       <ul>
@@ -2075,10 +2112,10 @@
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.pointnet.PointNetfeat">PointNetfeat (class in geomfum.wrap.pointnet)</a>
 </li>
-      <li><a href="api/geomfum.wrap.html#geomfum.wrap.pointnet.PointnetFeatureExtractor">PointnetFeatureExtractor (class in geomfum.wrap.pointnet)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/geomfum.wrap.html#geomfum.wrap.pointnet.PointnetFeatureExtractor">PointnetFeatureExtractor (class in geomfum.wrap.pointnet)</a>
+</li>
       <li><a href="api/geomfum.html#geomfum.sample.PoissonSampler">PoissonSampler (class in geomfum.sample)</a>
 </li>
       <li><a href="api/geomfum.html#geomfum.sample.PoissonSamplerRegistry">PoissonSamplerRegistry (class in geomfum.sample)</a>
@@ -2181,8 +2218,6 @@
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.register_heat_kernel_signature">register_heat_kernel_signature() (in module geomfum.wrap)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.register_hierarchical_mesh">register_hierarchical_mesh() (in module geomfum.wrap)</a>
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.register_landmark_heat_kernel_signature">register_landmark_heat_kernel_signature() (in module geomfum.wrap)</a>
@@ -2193,6 +2228,8 @@
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.register_neighbor_finder">register_neighbor_finder() (in module geomfum.wrap)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.register_poisson_sampler">register_poisson_sampler() (in module geomfum.wrap)</a>
 </li>
       <li><a href="api/geomfum.wrap.html#geomfum.wrap.register_precise_geodesic_distance_metric">register_precise_geodesic_distance_metric() (in module geomfum.wrap)</a>
@@ -2201,9 +2238,29 @@
 </li>
       <li><a href="api/geomfum.html#geomfum.laplacian.LaplacianFinderRegistry.Registries">Registries (geomfum.laplacian.LaplacianFinderRegistry attribute)</a>
 </li>
-      <li><a href="api/geomfum.matcher.html#geomfum.matcher.deep_fmap.BijectivityLoss.required_inputs">required_inputs (geomfum.matcher.deep_fmap.BijectivityLoss attribute)</a>
+      <li><a href="api/geomfum.html#geomfum.evaluation.CorrespondenceMetric.required_inputs">required_inputs (geomfum.evaluation.CorrespondenceMetric attribute)</a>
 
       <ul>
+        <li><a href="api/geomfum.html#geomfum.evaluation.CoverageCountMetric.required_inputs">(geomfum.evaluation.CoverageCountMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.CoverageMetric.required_inputs">(geomfum.evaluation.CoverageMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.DirichletEnergyMetric.required_inputs">(geomfum.evaluation.DirichletEnergyMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.EuclideanErrorMetric.required_inputs">(geomfum.evaluation.EuclideanErrorMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.GeodesicErrorMetric.required_inputs">(geomfum.evaluation.GeodesicErrorMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.OverlapIoUMetric.required_inputs">(geomfum.evaluation.OverlapIoUMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.PartialGeodesicErrorMetric.required_inputs">(geomfum.evaluation.PartialGeodesicErrorMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.PCKAucMetric.required_inputs">(geomfum.evaluation.PCKAucMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.html#geomfum.evaluation.SoftGeodesicErrorMetric.required_inputs">(geomfum.evaluation.SoftGeodesicErrorMetric attribute)</a>
+</li>
+        <li><a href="api/geomfum.matcher.html#geomfum.matcher.deep_fmap.BijectivityLoss.required_inputs">(geomfum.matcher.deep_fmap.BijectivityLoss attribute)</a>
+</li>
         <li><a href="api/geomfum.matcher.html#geomfum.matcher.deep_fmap.OrthonormalityLoss.required_inputs">(geomfum.matcher.deep_fmap.OrthonormalityLoss attribute)</a>
 </li>
       </ul></li>
@@ -2305,10 +2362,10 @@
       </ul></li>
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.ShapeDataset">ShapeDataset (class in geomfum.dataset.torch)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.shape.html#geomfum.shape.hierarchical.NestedHierarchicalShape.shapes">shapes (geomfum.shape.hierarchical.NestedHierarchicalShape property)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/geomfum.html#geomfum.laplacian.ShapeWhichRegistryMixins">ShapeWhichRegistryMixins (class in geomfum.laplacian)</a>
 </li>
       <li><a href="api/geomfum.metric.html#geomfum.metric.mesh.shortest_path">shortest_path() (in module geomfum.metric.mesh)</a>
@@ -2349,6 +2406,8 @@
         <li><a href="api/geomfum.matcher.html#geomfum.matcher.fmap.CorrespondenceResult.soft_perm_ba">(geomfum.matcher.fmap.CorrespondenceResult attribute)</a>
 </li>
       </ul></li>
+      <li><a href="api/geomfum.html#geomfum.evaluation.SoftGeodesicErrorMetric">SoftGeodesicErrorMetric (class in geomfum.evaluation)</a>
+</li>
       <li><a href="api/geomfum.html#geomfum.convert.SoftmaxNeighborFinder.softmax_matrix">softmax_matrix() (geomfum.convert.SoftmaxNeighborFinder method)</a>
 </li>
       <li><a href="api/geomfum.html#geomfum.convert.SoftmaxNeighborFinder">SoftmaxNeighborFinder (class in geomfum.convert)</a>
@@ -2526,6 +2585,8 @@
       <li><a href="api/geomfum.dataset.html#geomfum.dataset.torch.VertexEuclideanMetric">VertexEuclideanMetric (class in geomfum.dataset.torch)</a>
 
       <ul>
+        <li><a href="api/geomfum.html#geomfum.evaluation.VertexEuclideanMetric">(class in geomfum.evaluation)</a>
+</li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.VertexEuclideanMetric">(class in geomfum.metric)</a>
 </li>
         <li><a href="api/geomfum.metric.html#geomfum.metric.mesh.VertexEuclideanMetric">(class in geomfum.metric.mesh)</a>

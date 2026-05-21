@@ -61,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 21, 2026, 8:26:54 AM"/>
+    <meta name="docbuild:last-update" content="May 21, 2026, 8:27:05 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -1869,6 +1869,294 @@ and Pattern Recognition (CVPR), 2021, pp. 11956-11965.
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>obj</strong> (<em>BaseHeatKernelSignature</em>) – Instantiated object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geomfum.evaluation">
+<span id="geomfum-evaluation-module"></span><h2>geomfum.evaluation module<a class="headerlink" href="#module-geomfum.evaluation" title="Link to this heading">#</a></h2>
+<p>Correspondence evaluation metrics and manager.</p>
+<section id="notation">
+<h3>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p2p21</span></code>: point-to-point map from shape_b to shape_a.
+<code class="docutils literal notranslate"><span class="pre">p2p21[i]</span></code> = vertex in A that vertex i in B maps to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_a</span></code>: geodesic distance matrix on shape A.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>: ground-truth correspondence indices into A and B.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mask_a</span></code>: binary overlap mask on A (1 = in overlap region).</p></li>
+</ul>
+</section>
+<section id="inputs-dict">
+<h3>Inputs dict<a class="headerlink" href="#inputs-dict" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">EvaluationManager.compute</span></code> assembles a flat dict from:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.to_dict()</span></code> (or any plain dict) —
+keys: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">fmap12</span></code>, <code class="docutils literal notranslate"><span class="pre">soft_perm_ba</span></code>, <code class="docutils literal notranslate"><span class="pre">overlap_ab</span></code>, …</p></li>
+<li><p>Explicit context kwargs:
+<code class="docutils literal notranslate"><span class="pre">shape_a</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_b</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_a</span></code>, <code class="docutils literal notranslate"><span class="pre">mask_a</span></code>.</p></li>
+</ol>
+<p>Each metric declares <code class="docutils literal notranslate"><span class="pre">required_inputs</span></code> listing the keys it needs.
+Metrics whose required inputs are absent are silently skipped.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.CorrespondenceMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">CorrespondenceMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#CorrespondenceMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.CorrespondenceMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Base class for correspondence evaluation metrics.</p>
+<p>Follows the same <code class="docutils literal notranslate"><span class="pre">required_inputs</span></code> pattern as
+<code class="docutils literal notranslate"><span class="pre">geomfum.learning.losses</span></code> loss classes, but operates on numpy arrays
+(no gradients) and receives inputs as a single flat dict.</p>
+<p>Subclasses must declare <code class="docutils literal notranslate"><span class="pre">required_inputs</span></code> and implement <code class="docutils literal notranslate"><span class="pre">__call__</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.CorrespondenceMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#geomfum.evaluation.CorrespondenceMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.CoverageCountMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">CoverageCountMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#CoverageCountMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.CoverageCountMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Count-based fraction of shape A vertices reached by <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_a</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.CoverageCountMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'shape_a']</span></em><a class="headerlink" href="#geomfum.evaluation.CoverageCountMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.CoverageMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">CoverageMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#CoverageMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.CoverageMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Area-weighted fraction of shape A covered by <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_a</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.CoverageMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'shape_a']</span></em><a class="headerlink" href="#geomfum.evaluation.CoverageMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.DirichletEnergyMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">DirichletEnergyMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#DirichletEnergyMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.DirichletEnergyMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Dirichlet energy of <code class="docutils literal notranslate"><span class="pre">p2p21</span></code> (smoothness proxy).</p>
+<p>E = sum_i v_a[p2p21]^T L_b v_a[p2p21] / n_b.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_a</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_b</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.DirichletEnergyMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'shape_a',</span> <span class="pre">'shape_b']</span></em><a class="headerlink" href="#geomfum.evaluation.DirichletEnergyMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.EuclideanErrorMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">EuclideanErrorMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#EuclideanErrorMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.EuclideanErrorMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Normalised mean Euclidean error of <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>.</p>
+<p>Error = mean(||v_a[p2p21[corr_b]] - v_a[corr_a]||) / eucl_diam_a.
+Falls back to identity when <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>/<code class="docutils literal notranslate"><span class="pre">corr_b</span></code> absent.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_a</span></code>.
+Optional inputs: <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.EuclideanErrorMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'shape_a']</span></em><a class="headerlink" href="#geomfum.evaluation.EuclideanErrorMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.EvaluationManager">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">EvaluationManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/evaluation.html#EvaluationManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.EvaluationManager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Manages a set of correspondence evaluation metrics.</p>
+<p>Analogous to <code class="docutils literal notranslate"><span class="pre">geomfum.learning.losses.LossManager</span></code> but for
+post-hoc evaluation: no gradients, no weighting, graceful skipping.</p>
+<p>Assembles a flat inputs dict from a <code class="docutils literal notranslate"><span class="pre">CorrespondenceResult</span></code> (or plain
+dict) plus explicit context kwargs, then runs every metric whose
+<code class="docutils literal notranslate"><span class="pre">required_inputs</span></code> are satisfied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metrics</strong> (<em>list of CorrespondenceMetric, or dict of str → CorrespondenceMetric</em>) – If a list, metric names are taken from the class name.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">EvaluationManager</span><span class="p">([</span>
+<span class="gp">... </span>    <span class="n">GeodesicErrorMetric</span><span class="p">(),</span>
+<span class="gp">... </span>    <span class="n">CoverageMetric</span><span class="p">(),</span>
+<span class="gp">... </span>    <span class="n">SoftGeodesicErrorMetric</span><span class="p">(),</span>
+<span class="gp">... </span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">shape_a</span><span class="p">,</span> <span class="n">shape_b</span><span class="p">)</span>          <span class="c1"># CorrespondenceResult</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">result</span><span class="p">,</span> <span class="n">shape_a</span><span class="o">=</span><span class="n">shape_a</span><span class="p">,</span> <span class="n">shape_b</span><span class="o">=</span><span class="n">shape_b</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">corr_a</span><span class="o">=</span><span class="n">corr_a</span><span class="p">,</span> <span class="n">corr_b</span><span class="o">=</span><span class="n">corr_b</span><span class="p">,</span> <span class="n">dist_a</span><span class="o">=</span><span class="n">dist_a</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># {&quot;GeodesicErrorMetric&quot;: 0.043, &quot;CoverageMetric&quot;: 0.97}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.evaluation.EvaluationManager.compute">
+<span class="sig-name descname"><span class="pre">compute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corr_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corr_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#EvaluationManager.compute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.EvaluationManager.compute" title="Link to this definition">#</a></dt>
+<dd><p>Compute all applicable metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong> (<em>CorrespondenceResult or dict</em>) – Matcher output.  <code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.to_dict()</span></code> is called
+automatically; non-None fields are added to the inputs dict.</p></li>
+<li><p><strong>shape_a, shape_b</strong> (<em>Shape, optional</em>)</p></li>
+<li><p><strong>corr_a, corr_b</strong> (<em>array-like, optional</em>) – Ground-truth correspondence indices.</p></li>
+<li><p><strong>dist_a</strong> (<em>array-like, optional</em>) – Geodesic distance matrix on shape A.</p></li>
+<li><p><strong>mask_a</strong> (<em>array-like, optional</em>) – Binary overlap mask on shape A.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>dict of str → float</em> – Only metrics whose required inputs were present are included.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.GeodesicErrorMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">GeodesicErrorMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#GeodesicErrorMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.GeodesicErrorMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Normalised mean geodesic error of <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>.</p>
+<p>Error = mean(dist_a[p2p21[corr_b], corr_a]) / diam_a.
+Falls back to identity correspondence when <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>/<code class="docutils literal notranslate"><span class="pre">corr_b</span></code> absent.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_a</span></code>.
+Optional inputs: <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.GeodesicErrorMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'dist_a']</span></em><a class="headerlink" href="#geomfum.evaluation.GeodesicErrorMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.OverlapIoUMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">OverlapIoUMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/evaluation.html#OverlapIoUMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.OverlapIoUMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>IoU between predicted overlap scores and GT overlap mask on A.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>threshold</strong> (<em>float</em>) – Binarisation threshold for <code class="docutils literal notranslate"><span class="pre">overlap_ab</span></code>.  Default 0.5.</p></li>
+<li><p><strong>Required inputs</strong> (<code class="docutils literal notranslate"><span class="pre">overlap_ab</span></code>, <code class="docutils literal notranslate"><span class="pre">mask_a</span></code>.)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.OverlapIoUMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['overlap_ab',</span> <span class="pre">'mask_a']</span></em><a class="headerlink" href="#geomfum.evaluation.OverlapIoUMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.PCKAucMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">PCKAucMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/evaluation.html#PCKAucMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.PCKAucMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>AUC of the PCK curve, evaluated over the GT overlap region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t_max</strong> (<em>float</em>) – Maximum normalised geodesic threshold.  Default 0.20.</p></li>
+<li><p><strong>n_steps</strong> (<em>int</em>) – Number of threshold steps.  Default 100.</p></li>
+<li><p><strong>Required inputs</strong> (<code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>, <code class="docutils literal notranslate"><span class="pre">mask_a</span></code>.)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.PCKAucMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'dist_a',</span> <span class="pre">'corr_a',</span> <span class="pre">'corr_b',</span> <span class="pre">'mask_a']</span></em><a class="headerlink" href="#geomfum.evaluation.PCKAucMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.PartialGeodesicErrorMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">PartialGeodesicErrorMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#PartialGeodesicErrorMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.PartialGeodesicErrorMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Geodesic error restricted to the GT overlap region (mask_a).</p>
+<p>Follows the filtered protocol from EchoMatch / SHREC16.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">p2p21</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>, <code class="docutils literal notranslate"><span class="pre">mask_a</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.PartialGeodesicErrorMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['p2p21',</span> <span class="pre">'dist_a',</span> <span class="pre">'corr_a',</span> <span class="pre">'corr_b',</span> <span class="pre">'mask_a']</span></em><a class="headerlink" href="#geomfum.evaluation.PartialGeodesicErrorMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.SoftGeodesicErrorMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">SoftGeodesicErrorMetric</span></span><a class="reference internal" href="../_modules/geomfum/evaluation.html#SoftGeodesicErrorMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.SoftGeodesicErrorMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.evaluation.CorrespondenceMetric" title="geomfum.evaluation.CorrespondenceMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a></p>
+<p>Expected geodesic error under a soft permutation <code class="docutils literal notranslate"><span class="pre">soft_perm_ba</span></code>.</p>
+<p>Required inputs: <code class="docutils literal notranslate"><span class="pre">soft_perm_ba</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_a</span></code>.
+Optional inputs: <code class="docutils literal notranslate"><span class="pre">corr_a</span></code>, <code class="docutils literal notranslate"><span class="pre">corr_b</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.evaluation.SoftGeodesicErrorMetric.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['soft_perm_ba',</span> <span class="pre">'dist_a']</span></em><a class="headerlink" href="#geomfum.evaluation.SoftGeodesicErrorMetric.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.evaluation.VertexEuclideanMetric">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.evaluation.</span></span><span class="sig-name descname"><span class="pre">VertexEuclideanMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.VertexEuclideanMetric" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geomfum.wrap.html#geomfum.wrap.pp3d.FinitePointSetMetric" title="geomfum.metric._base.FinitePointSetMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinitePointSetMetric</span></code></a></p>
+<p>Euclidean distance metric in ambient embedding space.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.evaluation.VertexEuclideanMetric.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.VertexEuclideanMetric.dist" title="Link to this definition">#</a></dt>
+<dd><p>Distances between shape vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point_a</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p></li>
+<li><p><strong>point_b</strong> (<em>array-like, shape=[…]</em>) – Index of target point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dist</strong> (<em>array-like, shape=[…]</em>) – Distance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.evaluation.VertexEuclideanMetric.dist_from_source">
+<span class="sig-name descname"><span class="pre">dist_from_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_from_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.VertexEuclideanMetric.dist_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Distances from source point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source_point</strong> (<em>array-like, shape=[…]</em>) – Index of source point.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dist</strong> (<em>array-like, shape=[…] or array-like[array-like]</em>) – Distance.</p></li>
+<li><p><strong>target_point</strong> (<em>array-like, shape=[n_targets] or array-like[array-like]</em>) – Target index.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.evaluation.VertexEuclideanMetric.dist_matrix">
+<span class="sig-name descname"><span class="pre">dist_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/metric/_base.html#VertexEuclideanMetric.dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.evaluation.VertexEuclideanMetric.dist_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Distances between all shape vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_matrix</strong> (<em>array-like, shape=[n_vertices, n_vertices]</em>) – Distance matrix.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3707,6 +3995,61 @@ Not guaranteed if <code class="docutils literal notranslate"><span class="pre">u
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.WhichRegistryMixins"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.convert.WhichRegistryMixins.from_registry"><code class="docutils literal notranslate"><span class="pre">WhichRegistryMixins.from_registry()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.evaluation">geomfum.evaluation module</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs-dict">Inputs dict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.CorrespondenceMetric"><code class="docutils literal notranslate"><span class="pre">CorrespondenceMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.CorrespondenceMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">CorrespondenceMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.CoverageCountMetric"><code class="docutils literal notranslate"><span class="pre">CoverageCountMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.CoverageCountMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">CoverageCountMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.CoverageMetric"><code class="docutils literal notranslate"><span class="pre">CoverageMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.CoverageMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">CoverageMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.DirichletEnergyMetric"><code class="docutils literal notranslate"><span class="pre">DirichletEnergyMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.DirichletEnergyMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">DirichletEnergyMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.EuclideanErrorMetric"><code class="docutils literal notranslate"><span class="pre">EuclideanErrorMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.EuclideanErrorMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">EuclideanErrorMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.EvaluationManager"><code class="docutils literal notranslate"><span class="pre">EvaluationManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.EvaluationManager.compute"><code class="docutils literal notranslate"><span class="pre">EvaluationManager.compute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.GeodesicErrorMetric"><code class="docutils literal notranslate"><span class="pre">GeodesicErrorMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.GeodesicErrorMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">GeodesicErrorMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.OverlapIoUMetric"><code class="docutils literal notranslate"><span class="pre">OverlapIoUMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.OverlapIoUMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">OverlapIoUMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.PCKAucMetric"><code class="docutils literal notranslate"><span class="pre">PCKAucMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.PCKAucMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">PCKAucMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.PartialGeodesicErrorMetric"><code class="docutils literal notranslate"><span class="pre">PartialGeodesicErrorMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.PartialGeodesicErrorMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">PartialGeodesicErrorMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.SoftGeodesicErrorMetric"><code class="docutils literal notranslate"><span class="pre">SoftGeodesicErrorMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.SoftGeodesicErrorMetric.required_inputs"><code class="docutils literal notranslate"><span class="pre">SoftGeodesicErrorMetric.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.VertexEuclideanMetric"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.VertexEuclideanMetric.dist"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.VertexEuclideanMetric.dist_from_source"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_from_source()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.evaluation.VertexEuclideanMetric.dist_matrix"><code class="docutils literal notranslate"><span class="pre">VertexEuclideanMetric.dist_matrix()</span></code></a></li>
 </ul>
 </li>
 </ul>
