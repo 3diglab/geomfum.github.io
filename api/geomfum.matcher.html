@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 20, 2026, 9:16:58 AM"/>
+    <meta name="docbuild:last-update" content="May 21, 2026, 8:26:54 AM"/>
   
     
     <script src="../_static/searchtools.js"></script>
@@ -738,6 +738,308 @@ __slots__ attribute is returned.</p>
 </dd></dl>
 
 </section>
+<section id="module-geomfum.matcher.deep_fmap">
+<span id="geomfum-matcher-deep-fmap-module"></span><h2>geomfum.matcher.deep_fmap module<a class="headerlink" href="#module-geomfum.matcher.deep_fmap" title="Link to this heading">#</a></h2>
+<p>Deep functional map matcher via per-pair gradient descent.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.BaseMatcher">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">BaseMatcher</span></span><a class="reference internal" href="../_modules/geomfum/matcher/base.html#BaseMatcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.BaseMatcher" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for shape matchers.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.BijectivityLoss">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">BijectivityLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/losses.html#BijectivityLoss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.BijectivityLoss" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Computes the bijectivity error of two functional maps by measuring the mean squared Frobenius norm between fmap12 fmap21 and the identity matrix, and between fmap21 fmap12 and the identity matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<em>float, optional</em>) – Weight for the loss term (default: 1).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.BijectivityLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmap12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap21</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/losses.html#BijectivityLoss.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.BijectivityLoss.forward" title="Link to this definition">#</a></dt>
+<dd><p>Forward pass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fmap12</strong> (<em>torch.Tensor</em>) – Functional map tensor from shape 1 to shape 2 of shape (spectrum_size_b, spectrum_size_a).</p></li>
+<li><p><strong>fmap21</strong> (<em>torch.Tensor</em>) – Functional map tensor from shape 2 to shape 1 of shape (spectrum_size_a, spectrum_size_b).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Scalar tensor representing the weighted mean squared Frobenius norm between fmap12 fmap21 and the identity matrix, and between fmap21 fmap12 and the identity matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.BijectivityLoss.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['fmap12',</span> <span class="pre">'fmap21']</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.BijectivityLoss.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">CorrespondenceResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmap12</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2p21</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap21</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2p12</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descr_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refined_fmap12</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refined_fmap21</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_perm_ab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_perm_ba</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap_ab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap_ba</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gs.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/matcher/base.html#CorrespondenceResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Result of a matching operation (for both Matcher and Model).</p>
+<p>This is the unified output format for all correspondence methods,
+including classical functional map matchers and learning-based models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fmap12</strong> (<em>array-like, shape=[spectrum_size_b, spectrum_size_a]</em>) – Functional map matrix from shape_a to shape_b.</p></li>
+<li><p><strong>p2p21</strong> (<em>array-like, shape=[n_vertices_b]</em>) – Point-to-point correspondence from shape_b to shape_a.
+For each vertex i in shape_b, p2p21[i] gives the corresponding
+vertex index in shape_a.</p></li>
+<li><p><strong>fmap21</strong> (<em>array-like, shape=[spectrum_size_a, spectrum_size_b], optional</em>) – Functional map matrix from shape_b to shape_a (for bidirectional).</p></li>
+<li><p><strong>p2p12</strong> (<em>array-like, shape=[n_vertices_a], optional</em>) – Point-to-point correspondence from shape_a to shape_b (for bidirectional).</p></li>
+<li><p><strong>descr_a</strong> (<em>array-like, shape=[n_descr, n_vertices_a], optional</em>) – Descriptors on shape_a.</p></li>
+<li><p><strong>descr_b</strong> (<em>array-like, shape=[n_descr, n_vertices_b], optional</em>) – Descriptors on shape_b.</p></li>
+<li><p><strong>refined_fmap12</strong> (<em>array-like, shape=[spectrum_size_b, spectrum_size_a], optional</em>) – Refined functional map matrix (if refinement was applied).</p></li>
+<li><p><strong>refined_fmap21</strong> (<em>array-like, shape=[spectrum_size_a, spectrum_size_b], optional</em>) – Refined functional map matrix from B to A (if bidirectional refinement).</p></li>
+<li><p><strong>soft_perm_ab</strong> (<em>array-like, shape=[n_vertices_a, n_vertices_b], optional</em>) – Soft permutation matrix mapping b vertices to a domain (P12 in RobustFMNet).
+soft_perm_ab[i, j] = probability that vertex i in a corresponds to vertex j in b.</p></li>
+<li><p><strong>soft_perm_ba</strong> (<em>array-like, shape=[n_vertices_b, n_vertices_a], optional</em>) – Soft permutation matrix mapping a vertices to b domain (P21 in RobustFMNet).
+soft_perm_ba[i, j] = probability that vertex i in b corresponds to vertex j in a.</p></li>
+<li><p><strong>overlap_ab</strong> (<em>array-like, shape=[n_vertices_a], optional</em>) – Predicted overlap scores (0–1) for shape A. overlap_ab[i] = probability
+that vertex i in A is in the overlap region with shape B.</p></li>
+<li><p><strong>overlap_ba</strong> (<em>array-like, shape=[n_vertices_b], optional</em>) – Predicted overlap scores (0–1) for shape B. overlap_ba[j] = probability
+that vertex j in B is in the overlap region with shape A.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.descr_a">
+<span class="sig-name descname"><span class="pre">descr_a</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.descr_a" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.descr_b">
+<span class="sig-name descname"><span class="pre">descr_b</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.descr_b" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.fmap12">
+<span class="sig-name descname"><span class="pre">fmap12</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.fmap12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.fmap21">
+<span class="sig-name descname"><span class="pre">fmap21</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.fmap21" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.is_bidirectional">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_bidirectional</span></span><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.is_bidirectional" title="Link to this definition">#</a></dt>
+<dd><p>Check if result contains bidirectional correspondences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>bool</em> – True if fmap21 and p2p12 are available.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.overlap_ab">
+<span class="sig-name descname"><span class="pre">overlap_ab</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.overlap_ab" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.overlap_ba">
+<span class="sig-name descname"><span class="pre">overlap_ba</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.overlap_ba" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.p2p12">
+<span class="sig-name descname"><span class="pre">p2p12</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.p2p12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.p2p21">
+<span class="sig-name descname"><span class="pre">p2p21</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.p2p21" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.refined_fmap12">
+<span class="sig-name descname"><span class="pre">refined_fmap12</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.refined_fmap12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.refined_fmap21">
+<span class="sig-name descname"><span class="pre">refined_fmap21</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.refined_fmap21" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.soft_perm_ab">
+<span class="sig-name descname"><span class="pre">soft_perm_ab</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.soft_perm_ab" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.soft_perm_ba">
+<span class="sig-name descname"><span class="pre">soft_perm_ba</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gs.ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.soft_perm_ba" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.CorrespondenceResult.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/matcher/base.html#CorrespondenceResult.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.to_dict" title="Link to this definition">#</a></dt>
+<dd><p>Convert to dictionary (for backward compatibility).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>dict</em> – Dictionary with all non-None fields.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method avoids using <cite>asdict()</cite> from dataclasses because it
+performs deep copying, which fails for PyTorch tensors that are
+part of the computation graph (non-leaf tensors) during training.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.DeepFMMatcher">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">DeepFMMatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/matcher/deep_fmap.html#DeepFMMatcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.DeepFMMatcher" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.matcher.base.BaseMatcher" title="geomfum.matcher.base.BaseMatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></p>
+<p>Deep functional map matcher optimized per shape pair.</p>
+<p>Jointly optimizes a deep FM model (feature extractor + functional map solver)
+for a single shape pair using gradient descent, with no dataset-level training.
+The model is deep-copied at the start of each call, so every pair is solved
+independently.  Passing a pretrained model turns this into a per-pair
+fine-tuning step.</p>
+<p>The optimization loop is identical to the learning stage:</p>
+<blockquote>
+<div><p>model.forward() → LossManager.compute_loss() → loss.backward()</p>
+</div></blockquote>
+<p>This means any <code class="docutils literal notranslate"><span class="pre">BaseModel</span></code> (<code class="docutils literal notranslate"><span class="pre">FMNet</span></code>, <code class="docutils literal notranslate"><span class="pre">RobustFMNet</span></code>, …) and any
+combination of losses from <code class="docutils literal notranslate"><span class="pre">geomfum.learning.losses</span></code> can be plugged in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>BaseModel, optional</em>) – Deep FM model to optimize. Defaults to <code class="docutils literal notranslate"><span class="pre">FMNet()</span></code> (random DiffusionNet
+weights). Pass a pretrained model instance for warm-start fine-tuning.</p></li>
+<li><p><strong>loss_manager</strong> (<em>LossManager, optional</em>) – Weighted combination of losses. Defaults to orthonormality + bijectivity
++ spectral descriptor preservation (all weight 1).</p></li>
+<li><p><strong>fmap_size</strong> (<em>int or tuple of int</em>) – Number of LBO eigenfunctions for the functional map.
+A tuple <code class="docutils literal notranslate"><span class="pre">(k_b,</span> <span class="pre">k_a)</span></code> allows different sizes per shape.</p></li>
+<li><p><strong>n_iters</strong> (<em>int</em>) – Gradient descent iterations per pair.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – Adam learning rate.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True, print each loss component every 100 iterations.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.FMNet">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">FMNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_extractor=DiffusionnetFeatureExtractor(</span>&#160;&#160; <span class="pre">(model):</span> <span class="pre">DiffusionNet(</span>&#160;&#160;&#160;&#160; <span class="pre">(first_linear):</span> <span class="pre">Linear(in_features=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=True)</span>&#160;&#160;&#160;&#160; <span class="pre">(last_linear):</span> <span class="pre">Linear(in_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=True)</span>&#160;&#160;&#160;&#160; <span class="pre">(blocks):</span> <span class="pre">ModuleList(</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(0-3):</span> <span class="pre">4</span> <span class="pre">x</span> <span class="pre">DiffusionNetBlock(</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(diffusion):</span> <span class="pre">LearnedTimeDiffusion()</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(gradient_features):</span> <span class="pre">SpatialGradientFeatures(</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(A_re):</span> <span class="pre">Linear(in_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=False)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(A_im):</span> <span class="pre">Linear(in_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=False)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(mlp):</span> <span class="pre">MiniMLP(</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_linear_000):</span> <span class="pre">Linear(in_features=384</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=True)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_activation_000):</span> <span class="pre">ReLU()</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_dropout_001):</span> <span class="pre">Dropout(p=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace=False)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_linear_001):</span> <span class="pre">Linear(in_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=True)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_activation_001):</span> <span class="pre">ReLU()</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_dropout_002):</span> <span class="pre">Dropout(p=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace=False)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">(miniMLP_linear_002):</span> <span class="pre">Linear(in_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features=128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=True)</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">)</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">)</span>&#160;&#160;&#160;&#160; <span class="pre">)</span>&#160;&#160; <span class="pre">)</span> <span class="pre">)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap_module=ForwardFunctionalMap()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">converter=&lt;geomfum.convert.P2pFromFmConverter</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/models.html#FMNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.FMNet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Functional Map Network Model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature_extractor</strong> (<em>FeatureExtractor</em>) – Feature extractor to use for the descriptors.</p></li>
+<li><p><strong>fmap_module</strong> (<em>ForwardFunctionalMap</em>) – Functional map module to use for the forward pass.</p></li>
+<li><p><strong>converter</strong> (<em>P2pFromFmConverter</em>) – Converter to convert functional maps to point-to-point correspondences.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.FMNet.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/models.html#FMNet.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.FMNet.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute the functional map between two shapes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh_a</strong> (<em>TriangleMesh or dict</em>) – The first shape, either as a TriangleMesh object or a dictionary containing ‘basis’, ‘evals’, and ‘pinv’.</p></li>
+<li><p><strong>mesh_b</strong> (<em>TriangleMesh or dict</em>) – The second shape, either as a TriangleMesh object or a dictionary containing ‘basis’, ‘evals’, and ‘pinv’.</p></li>
+<li><p><strong>as_dict</strong> (<em>bool, optional</em>) – If True, returns a dictionary with functional maps and, optionally, point-to-point correspondences.
+If False, returns the functional maps and, optionally, point-to-point correspondences as separate tensors.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fmap12</strong> (<em>array-like, shape=[…, spectrum_size_b, spectrum_size_a]</em>) – Functional map from shape a to shape b.</p></li>
+<li><p><strong>fmap21</strong> (<em>array-like, shape=[…, spectrum_size_a, spectrum_size_b]</em>) – Functional map from shape b to shape a.</p></li>
+<li><p><strong>p2p21</strong> (<em>array-like, shape=[…, num_points_b]</em>) – Point-to-point correspondence from shape a to shape b.</p></li>
+<li><p><strong>p2p12</strong> (<em>array-like, shape=[…, num_points_a]</em>) – Point-to-point correspondence from shape b to shape a.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.LossManager">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">LossManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">losses</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/losses.html#LossManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.LossManager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Manages a list of loss functions and their weights for model training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>losses</strong> (<em>list of (nn.Module, float) or list of nn.Module</em>) – List of (loss_module, weight) tuples, or just loss modules (weight=1.0).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.LossManager.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/losses.html#LossManager.compute_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.LossManager.compute_loss" title="Link to this definition">#</a></dt>
+<dd><p>Compute the total loss and a dictionary of individual losses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>outputs</strong> (<em>dict</em>) – Dictionary containing the outputs of the model, which should include all required inputs for the loss functions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>total_loss</strong> (<em>torch.Tensor</em>) – Scalar tensor representing the total loss computed from all loss functions.</p></li>
+<li><p><strong>loss_dict</strong> (<em>dict</em>) – Dictionary mapping loss function names to their computed values.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.OrthonormalityLoss">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.deep_fmap.</span></span><span class="sig-name descname"><span class="pre">OrthonormalityLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/losses.html#OrthonormalityLoss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.OrthonormalityLoss" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Computes the orthonormality error of a functional map by measuring the mean squared Frobenius norm between C^T C and the identity matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<em>float, optional</em>) – Weight for the loss term (default: 1).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.OrthonormalityLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmap12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap21</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/learning/losses.html#OrthonormalityLoss.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.deep_fmap.OrthonormalityLoss.forward" title="Link to this definition">#</a></dt>
+<dd><p>Forward pass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fmap12</strong> (<em>torch.Tensor</em>) – Functional map tensor of shape ( spectrum_size_b, spectrum_size_a).</p></li>
+<li><p><strong>fmap21</strong> (<em>torch.Tensor</em>) – Functional map tensor of shape ( spectrum_size_a, spectrum_size_b).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>torch.Tensor</em> – Scalar tensor representing the weighted mean squared Frobenius norm between C^T C and the identity matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geomfum.matcher.deep_fmap.OrthonormalityLoss.required_inputs">
+<span class="sig-name descname"><span class="pre">required_inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['fmap12',</span> <span class="pre">'fmap21']</span></em><a class="headerlink" href="#geomfum.matcher.deep_fmap.OrthonormalityLoss.required_inputs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-geomfum.matcher.fmap">
 <span id="geomfum-matcher-fmap-module"></span><h2>geomfum.matcher.fmap module<a class="headerlink" href="#module-geomfum.matcher.fmap" title="Link to this heading">#</a></h2>
 <p>Functional map based matchers.</p>
@@ -1060,6 +1362,39 @@ It inherits from FunctionalMapMatcher and overrides the optimizer with a ZoomOut
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="geomfum.matcher.DeepFMMatcher">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.</span></span><span class="sig-name descname"><span class="pre">DeepFMMatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/matcher/deep_fmap.html#DeepFMMatcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.DeepFMMatcher" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geomfum.matcher.base.BaseMatcher" title="geomfum.matcher.base.BaseMatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></p>
+<p>Deep functional map matcher optimized per shape pair.</p>
+<p>Jointly optimizes a deep FM model (feature extractor + functional map solver)
+for a single shape pair using gradient descent, with no dataset-level training.
+The model is deep-copied at the start of each call, so every pair is solved
+independently.  Passing a pretrained model turns this into a per-pair
+fine-tuning step.</p>
+<p>The optimization loop is identical to the learning stage:</p>
+<blockquote>
+<div><p>model.forward() → LossManager.compute_loss() → loss.backward()</p>
+</div></blockquote>
+<p>This means any <code class="docutils literal notranslate"><span class="pre">BaseModel</span></code> (<code class="docutils literal notranslate"><span class="pre">FMNet</span></code>, <code class="docutils literal notranslate"><span class="pre">RobustFMNet</span></code>, …) and any
+combination of losses from <code class="docutils literal notranslate"><span class="pre">geomfum.learning.losses</span></code> can be plugged in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>BaseModel, optional</em>) – Deep FM model to optimize. Defaults to <code class="docutils literal notranslate"><span class="pre">FMNet()</span></code> (random DiffusionNet
+weights). Pass a pretrained model instance for warm-start fine-tuning.</p></li>
+<li><p><strong>loss_manager</strong> (<em>LossManager, optional</em>) – Weighted combination of losses. Defaults to orthonormality + bijectivity
++ spectral descriptor preservation (all weight 1).</p></li>
+<li><p><strong>fmap_size</strong> (<em>int or tuple of int</em>) – Number of LBO eigenfunctions for the functional map.
+A tuple <code class="docutils literal notranslate"><span class="pre">(k_b,</span> <span class="pre">k_a)</span></code> allows different sizes per shape.</p></li>
+<li><p><strong>n_iters</strong> (<em>int</em>) – Gradient descent iterations per pair.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – Adam learning rate.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True, print each loss component every 100 iterations.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="geomfum.matcher.DescriptorMatcher">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geomfum.matcher.</span></span><span class="sig-name descname"><span class="pre">DescriptorMatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">descriptor_pipeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="geomfum.descriptor.html#geomfum.descriptor.pipeline.DescriptorPipeline" title="geomfum.descriptor.pipeline.DescriptorPipeline"><span class="pre">DescriptorPipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbor_finder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="geomfum.html#geomfum.convert.BaseNeighborFinder" title="geomfum.convert.BaseNeighborFinder"><span class="pre">BaseNeighborFinder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geomfum/matcher/base.html#DescriptorMatcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geomfum.matcher.DescriptorMatcher" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geomfum.matcher.base.BaseMatcher" title="geomfum.matcher.base.BaseMatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></p>
@@ -1208,6 +1543,46 @@ It inherits from FunctionalMapMatcher and overrides the optimizer with a ZoomOut
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.base.dataclass"><code class="docutils literal notranslate"><span class="pre">dataclass()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.matcher.deep_fmap">geomfum.matcher.deep_fmap module</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.BaseMatcher"><code class="docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.BijectivityLoss"><code class="docutils literal notranslate"><span class="pre">BijectivityLoss</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.BijectivityLoss.forward"><code class="docutils literal notranslate"><span class="pre">BijectivityLoss.forward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.BijectivityLoss.required_inputs"><code class="docutils literal notranslate"><span class="pre">BijectivityLoss.required_inputs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.descr_a"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.descr_a</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.descr_b"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.descr_b</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.fmap12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.fmap12</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.fmap21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.fmap21</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.is_bidirectional"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.is_bidirectional</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.overlap_ab"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.overlap_ab</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.overlap_ba"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.overlap_ba</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.p2p12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.p2p12</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.p2p21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.p2p21</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.refined_fmap12"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.refined_fmap12</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.refined_fmap21"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.refined_fmap21</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.soft_perm_ab"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.soft_perm_ab</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.soft_perm_ba"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.soft_perm_ba</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.CorrespondenceResult.to_dict"><code class="docutils literal notranslate"><span class="pre">CorrespondenceResult.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.DeepFMMatcher"><code class="docutils literal notranslate"><span class="pre">DeepFMMatcher</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.FMNet"><code class="docutils literal notranslate"><span class="pre">FMNet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.FMNet.forward"><code class="docutils literal notranslate"><span class="pre">FMNet.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.LossManager"><code class="docutils literal notranslate"><span class="pre">LossManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.LossManager.compute_loss"><code class="docutils literal notranslate"><span class="pre">LossManager.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.OrthonormalityLoss"><code class="docutils literal notranslate"><span class="pre">OrthonormalityLoss</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.OrthonormalityLoss.forward"><code class="docutils literal notranslate"><span class="pre">OrthonormalityLoss.forward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.deep_fmap.OrthonormalityLoss.required_inputs"><code class="docutils literal notranslate"><span class="pre">OrthonormalityLoss.required_inputs</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.matcher.fmap">geomfum.matcher.fmap module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.fmap.ArangeSubsampler"><code class="docutils literal notranslate"><span class="pre">ArangeSubsampler</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.fmap.BaseMatcher"><code class="docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></li>
@@ -1244,6 +1619,7 @@ It inherits from FunctionalMapMatcher and overrides the optimizer with a ZoomOut
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-geomfum.matcher">Module contents</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.BaseMatcher"><code class="docutils literal notranslate"><span class="pre">BaseMatcher</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.DeepFMMatcher"><code class="docutils literal notranslate"><span class="pre">DeepFMMatcher</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.DescriptorMatcher"><code class="docutils literal notranslate"><span class="pre">DescriptorMatcher</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.FunctionalMapMatcher"><code class="docutils literal notranslate"><span class="pre">FunctionalMapMatcher</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geomfum.matcher.SpatialNearestNeighborMatcher"><code class="docutils literal notranslate"><span class="pre">SpatialNearestNeighborMatcher</span></code></a></li>

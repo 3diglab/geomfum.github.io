@@ -56,7 +56,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="latest" />
-    <meta name="docbuild:last-update" content="May 20, 2026, 9:16:58 AM"/>
+    <meta name="docbuild:last-update" content="May 21, 2026, 8:26:54 AM"/>
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -505,11 +505,18 @@
 <span class="sd">            Shape.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_spectrum_size</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_spectrum_size</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">:</span>
+                <span class="n">device</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">vals</span><span class="p">,</span> <span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
                 <span class="n">shape</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">find_spectrum</span><span class="p">(</span><span class="n">spectrum_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">recompute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="ne">UserWarning</span><span class="p">(</span>
+                <span class="nb">print</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;Requested k=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="si">}</span><span class="s2"> is larger than the number of eigenvalues currently in use (spectrum_size=</span><span class="si">{</span><span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">spectrum_size</span><span class="si">}</span><span class="s2">). Recomputing basis with k=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="si">}</span><span class="s2">.&quot;</span>
                 <span class="p">)</span>
+                <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vals</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vals</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+                <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vecs</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">full_vecs</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+                <span class="n">shape</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">_mass_matrix</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span>
+                    <span class="n">shape</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">_mass_matrix</span><span class="p">,</span> <span class="n">device</span>
+                <span class="p">)</span>
+
             <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span>
         <span class="n">vals</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">vals</span>
         <span class="n">vecs</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">vecs</span>

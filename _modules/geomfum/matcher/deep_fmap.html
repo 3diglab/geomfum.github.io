@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>geomfum.descriptor.pipeline &#8212; GeomFuM latest documentation</title>
+    <title>geomfum.matcher.deep_fmap &#8212; GeomFuM latest documentation</title>
   
   
   
@@ -47,9 +47,9 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomfum/descriptor/pipeline';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/geomfum/matcher/deep_fmap';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <link rel="canonical" href="geomfum.github.io/_modules/geomfum/descriptor/pipeline.html" />
+    <link rel="canonical" href="geomfum.github.io/_modules/geomfum/matcher/deep_fmap.html" />
     <link rel="icon" href="../../../_static/GeomFuMlogo_only.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -423,7 +423,7 @@
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.descriptor.pipeline</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">geomfum.matcher.deep_fmap</span></li>
   </ul>
 </nav>
 </div>
@@ -440,190 +440,143 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for geomfum.descriptor.pipeline</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Descriptor pipeline.&quot;&quot;&quot;</span>
+  <h1>Source code for geomfum.matcher.deep_fmap</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Deep functional map matcher via per-pair gradient descent.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">gsops.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gs</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">geomfum.linalg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">la</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.descriptor.learned</span><span class="w"> </span><span class="kn">import</span> <span class="n">LearnedDescriptor</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Descriptor</span>
-
-
-<div class="viewcode-block" id="Subsampler">
-<a class="viewcode-back" href="../../../api/geomfum.descriptor.html#geomfum.descriptor.pipeline.Subsampler">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Subsampler</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract base class for array subsampling operations.&quot;&quot;&quot;</span>
-
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Subsample array.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        array : array-like</span>
-<span class="sd">            Array to subsample.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        array : array-like</span>
-<span class="sd">            Subsampled array.</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.learning.losses</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BijectivityLoss</span><span class="p">,</span>
+    <span class="n">LossManager</span><span class="p">,</span>
+    <span class="n">OrthonormalityLoss</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.learning.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">FMNet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geomfum.matcher.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMatcher</span><span class="p">,</span> <span class="n">CorrespondenceResult</span>
 
 
+<div class="viewcode-block" id="DeepFMMatcher">
+<a class="viewcode-back" href="../../../api/geomfum.matcher.html#geomfum.matcher.deep_fmap.DeepFMMatcher">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DeepFMMatcher</span><span class="p">(</span><span class="n">BaseMatcher</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deep functional map matcher optimized per shape pair.</span>
 
-<div class="viewcode-block" id="ArangeSubsampler">
-<a class="viewcode-back" href="../../../api/geomfum.matcher.html#geomfum.descriptor.pipeline.ArangeSubsampler">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ArangeSubsampler</span><span class="p">(</span><span class="n">Subsampler</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subsampler using uniform stride-based indexing.</span>
+<span class="sd">    Jointly optimizes a deep FM model (feature extractor + functional map solver)</span>
+<span class="sd">    for a single shape pair using gradient descent, with no dataset-level training.</span>
+<span class="sd">    The model is deep-copied at the start of each call, so every pair is solved</span>
+<span class="sd">    independently.  Passing a pretrained model turns this into a per-pair</span>
+<span class="sd">    fine-tuning step.</span>
+
+<span class="sd">    The optimization loop is identical to the learning stage:</span>
+
+<span class="sd">        model.forward() → LossManager.compute_loss() → loss.backward()</span>
+
+<span class="sd">    This means any ``BaseModel`` (``FMNet``, ``RobustFMNet``, …) and any</span>
+<span class="sd">    combination of losses from ``geomfum.learning.losses`` can be plugged in.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    subsample_step : int</span>
-<span class="sd">        Arange step.</span>
-<span class="sd">    axis : int</span>
-<span class="sd">        Axis from which to subsample.</span>
+<span class="sd">    model : BaseModel, optional</span>
+<span class="sd">        Deep FM model to optimize. Defaults to ``FMNet()`` (random DiffusionNet</span>
+<span class="sd">        weights). Pass a pretrained model instance for warm-start fine-tuning.</span>
+<span class="sd">    loss_manager : LossManager, optional</span>
+<span class="sd">        Weighted combination of losses. Defaults to orthonormality + bijectivity</span>
+<span class="sd">        + spectral descriptor preservation (all weight 1).</span>
+<span class="sd">    fmap_size : int or tuple of int</span>
+<span class="sd">        Number of LBO eigenfunctions for the functional map.</span>
+<span class="sd">        A tuple ``(k_b, k_a)`` allows different sizes per shape.</span>
+<span class="sd">    n_iters : int</span>
+<span class="sd">        Gradient descent iterations per pair.</span>
+<span class="sd">    lr : float</span>
+<span class="sd">        Adam learning rate.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        If True, print each loss component every 100 iterations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subsample_step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">subsample_step</span> <span class="o">=</span> <span class="n">subsample_step</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Subsample array based on arange method.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        array : array-like, shape=[..., n, ...]</span>
-<span class="sd">            Array to subsample.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        array : array-like, shape=[..., d, ...]</span>
-<span class="sd">            Subsampled array.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">indices</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">subsample_step</span><span class="p">)</span>
-        <span class="n">slc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span>
-        <span class="n">slc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">indices</span>
-
-        <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slc</span><span class="p">)]</span></div>
-
-
-
-<div class="viewcode-block" id="Normalizer">
-<a class="viewcode-back" href="../../../api/geomfum.descriptor.html#geomfum.descriptor.pipeline.Normalizer">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Normalizer</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract base class for descriptor normalization.&quot;&quot;&quot;</span>
-
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Normalize array.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        shape : Shape</span>
-<span class="sd">            Shape.</span>
-<span class="sd">        array : array-like</span>
-<span class="sd">            Array to normalize.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        array : array-like</span>
-<span class="sd">            Normalized array.</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
-
-
-
-<div class="viewcode-block" id="L2InnerNormalizer">
-<a class="viewcode-back" href="../../../api/geomfum.matcher.html#geomfum.descriptor.pipeline.L2InnerNormalizer">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">L2InnerNormalizer</span><span class="p">(</span><span class="n">Normalizer</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normalizer using L2 inner product with mass matrix.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Normalize array with respect to L2 inner product.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        shape : Shape</span>
-<span class="sd">            Shape.</span>
-<span class="sd">        array : array-like, shape=[..., n]</span>
-<span class="sd">            Array to normalize.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        array : array-like, shape=[..., n]</span>
-<span class="sd">            Normalized array.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">coeff</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
-            <span class="n">gs</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span>
-                <span class="s2">&quot;...n,...n-&gt;...&quot;</span><span class="p">,</span>
-                <span class="n">array</span><span class="p">,</span>
-                <span class="n">la</span><span class="o">.</span><span class="n">matvecmul</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">laplacian</span><span class="o">.</span><span class="n">mass_matrix</span><span class="p">,</span> <span class="n">array</span><span class="p">),</span>
-            <span class="p">),</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">loss_manager</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">fmap_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+        <span class="n">n_iters</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span> <span class="ow">or</span> <span class="n">FMNet</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_manager</span> <span class="o">=</span> <span class="n">loss_manager</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_loss_manager</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmap_size</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">fmap_size</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fmap_size</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">fmap_size</span><span class="p">,</span> <span class="n">fmap_size</span><span class="p">)</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="n">la</span><span class="o">.</span><span class="n">scalarvecmul</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">coeff</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span> <span class="o">=</span> <span class="n">n_iters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">lr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_loss_manager</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">LossManager</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">OrthonormalityLoss</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+                <span class="n">BijectivityLoss</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape_a</span><span class="p">,</span> <span class="n">shape_b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Optimize per-pair and return correspondences.</span>
 
-<div class="viewcode-block" id="DescriptorPipeline">
-<a class="viewcode-back" href="../../../api/geomfum.matcher.html#geomfum.descriptor.pipeline.DescriptorPipeline">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">DescriptorPipeline</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sequential pipeline for computing and processing shape descriptors.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    steps : list or tuple</span>
-<span class="sd">        Steps to apply.</span>
-<span class="sd">        Include: descriptor, subsampler, normalizer.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">=</span> <span class="n">steps</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_update_descr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">current</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">new</span>
-        <span class="k">return</span> <span class="n">gs</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">current</span><span class="p">,</span> <span class="n">new</span><span class="p">])</span>
-
-<div class="viewcode-block" id="DescriptorPipeline.apply">
-<a class="viewcode-back" href="../../../api/geomfum.matcher.html#geomfum.descriptor.pipeline.DescriptorPipeline.apply">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply descriptor pipeline.</span>
+<span class="sd">        Both shapes must have a precomputed spectral basis (``shape.basis``).</span>
+<span class="sd">        The basis eigenvectors and mass matrix should already be torch tensors</span>
+<span class="sd">        (same requirement as for FMNet inference).</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        shape : Shape</span>
-<span class="sd">            Shape to apply pipeline to.</span>
+<span class="sd">        shape_a : Shape</span>
+<span class="sd">            First shape (target for p2p21).</span>
+<span class="sd">        shape_b : Shape</span>
+<span class="sd">            Second shape (source for p2p21).</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        descr : array-like, shape=[..., n]</span>
-<span class="sd">            Descriptor.</span>
+<span class="sd">        result : CorrespondenceResult</span>
+<span class="sd">            Contains ``fmap12``, ``fmap21``, ``p2p21``, ``p2p12``,</span>
+<span class="sd">            ``descr_a``, ``descr_b``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">descr</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">Descriptor</span><span class="p">):</span>
-                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">LearnedDescriptor</span><span class="p">):</span>
-                    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-                        <span class="n">new</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-                    <span class="n">descr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_descr</span><span class="p">(</span><span class="n">descr</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">descr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_descr</span><span class="p">(</span><span class="n">descr</span><span class="p">,</span> <span class="n">step</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span>
-            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">Subsampler</span><span class="p">):</span>
-                <span class="n">descr</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span>
+        <span class="n">k_b</span><span class="p">,</span> <span class="n">k_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmap_size</span>
+        <span class="n">shape_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="n">k_a</span>
+        <span class="n">shape_b</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">use_k</span> <span class="o">=</span> <span class="n">k_b</span>
 
-            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">Normalizer</span><span class="p">):</span>
-                <span class="n">descr</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">descr</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">shape_a</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">vals</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown step type.&quot;</span><span class="p">)</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lr</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">descr</span></div>
-</div>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">):</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">shape_a</span><span class="p">,</span> <span class="n">shape_b</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;shape_a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shape_a</span>
+            <span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;shape_b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shape_b</span>
+
+            <span class="n">total_loss</span><span class="p">,</span> <span class="n">loss_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_manager</span><span class="o">.</span><span class="n">compute_loss</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+            <span class="n">total_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">parts</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">loss_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  iter </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">parts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">shape_a</span><span class="p">,</span> <span class="n">shape_b</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">CorrespondenceResult</span><span class="p">(</span>
+            <span class="n">fmap12</span><span class="o">=</span><span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;fmap12&quot;</span><span class="p">],</span>
+            <span class="n">fmap21</span><span class="o">=</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fmap21&quot;</span><span class="p">),</span>
+            <span class="n">p2p21</span><span class="o">=</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;p2p21&quot;</span><span class="p">),</span>
+            <span class="n">p2p12</span><span class="o">=</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;p2p12&quot;</span><span class="p">),</span>
+            <span class="n">descr_a</span><span class="o">=</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;desc_a&quot;</span><span class="p">),</span>
+            <span class="n">descr_b</span><span class="o">=</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;desc_b&quot;</span><span class="p">),</span>
+        <span class="p">)</span></div>
 
 </pre></div>
 

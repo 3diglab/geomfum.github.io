@@ -12,6 +12,14 @@ geomfum.matcher.base module
    :show-inheritance:
    :undoc-members:
 
+geomfum.matcher.deep\_fmap module
+---------------------------------
+
+.. automodule:: geomfum.matcher.deep_fmap
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 geomfum.matcher.fmap module
 ---------------------------
 
